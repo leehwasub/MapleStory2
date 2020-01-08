@@ -25,15 +25,15 @@ public class Resistance implements Serializable {
 		ArrayList<String> ret = new ArrayList<String>();
 		if (this.fire != 0) {
 			ret.add("불 저항 +" + this.fire);
-		} else if (this.ice != 0) {
+		} if (this.ice != 0) {
 			ret.add("암흑 저항 +" + this.ice);
-		} else if (this.posion != 0) {
+		} if (this.posion != 0) {
 			ret.add("독 저항 +" + this.posion);
-		} else if (this.thunder != 0) {
+		} if (this.thunder != 0) {
 			ret.add("번개 저항 +" + this.thunder);
-		} else if (this.dark != 0) {
+		} if (this.dark != 0) {
 			ret.add("암흑 저항 +" + this.dark);
-		} else if (this.holy != 0) {
+		} if (this.holy != 0) {
 			ret.add("성 저항 +" + this.holy);
 		}
 		return ret;

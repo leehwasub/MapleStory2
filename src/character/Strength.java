@@ -36,20 +36,22 @@ public class Strength implements Serializable {
 		ArrayList<String> ret = this.resistance.getResistenceItemInfor();
 		if (this.maxHp != 0) {
 			ret.add("최대 HP +" + this.maxHp);
-		} else if (this.maxMp != 0) {
+		}if (this.maxMp != 0) {
 			ret.add("최대 MP +" + this.maxMp);
-		} else if (this.physicalDamage != 0) {
+		} if (this.physicalDamage != 0) {
 			ret.add("물리 공격력 +" + this.physicalDamage);
-		} else if (this.magicDamage != 0) {
+		} if (this.magicDamage != 0) {
 			ret.add("마법 공격력 +" + this.magicDamage);
-		} else if (this.physicalDefense != 0) {
+		} if (this.physicalDefense != 0) {
 			ret.add("물리 방어력 +" + this.physicalDefense);
-		} else if (this.magicDefense != 0) {
+		} if (this.magicDefense != 0) {
 			ret.add("마법 방어력 +" + this.magicDefense);
-		} else if (this.accuracyRate != 0) {
+		} if (this.accuracyRate != 0) {
 			ret.add("적중률 +" + this.accuracyRate);
-		} else if (this.evasionRate != 0) {
+		} if (this.evasionRate != 0) {
 			ret.add("회피율 +" + this.evasionRate);
+		} if(this.criticalRate != 0) {
+			ret.add("크리티컬 확률 +" + this.evasionRate+"%");
 		}
 		return ret;
 	}
