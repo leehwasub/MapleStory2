@@ -38,10 +38,8 @@ public abstract class Skill {
 		
 	}
 
-	public abstract Attack skillUse(StateBox attacker, StateBox opponent);
-	public abstract int getNeedMp(int point);
 	public abstract int getEffect(int point);
-	public abstract int getLast(int point);
+	public abstract int getNeedMp(int point);
 
 	public String getName() {
 		return this.name;
