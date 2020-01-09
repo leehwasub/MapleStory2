@@ -1,0 +1,4 @@
+2 2 빅토리아아일랜드 에레고스왕좌 sharenianCastle sharenianBoss 2
+0 1 1
+1 0 1
+1 1 1

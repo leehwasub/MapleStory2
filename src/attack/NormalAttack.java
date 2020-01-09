@@ -32,6 +32,7 @@ public class NormalAttack extends Attack {
 		return this.attacker.getCharacterName() + "는 " + this.attackName + "를 사용. " + opponent.getCharacterName() + "에게 " + this.damage + "의 피해를 주었다.";
 	}
 
-	public void calNeedMp() {
+	public int calNeedMp() {
+		return 0;
 	}
 }

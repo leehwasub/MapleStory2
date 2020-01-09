@@ -113,5 +113,5 @@ public abstract class Attack extends Thread {
 
 	public abstract String attackInfor();
 
-	public abstract void calNeedMp();
+	public abstract int calNeedMp();
 }

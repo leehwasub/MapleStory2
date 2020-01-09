@@ -23,7 +23,7 @@ public abstract class Npc implements Serializable {
 	private String imageUrl;
 	private String name;
 	private int process;
-	private ArrayList<Talk> talkList = new ArrayList();
+	private ArrayList<Talk> talkList = new ArrayList<Talk>();
 	private PointMapName pointMapName;
 	protected int questNum;
 	protected int clearNum;

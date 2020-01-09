@@ -96,7 +96,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	private Player player;
 	private InventoryMainPanel inventoryMainPanel;
 	private MessageList messageList = new MessageList();
-	private ArrayList<DamageText> damageTextList = new ArrayList();
+	private ArrayList<DamageText> damageTextList = new ArrayList<DamageText>();
 	private String messageString;
 	private Hunt hunt;
 	private StoreInventoryPanel storeInventory;

@@ -20,6 +20,7 @@ import map.MapleMap;
 import map.MapleMapList;
 import map.Point;
 import map.PointMapName;
+import map.UpdatedMapInfor;
 import npc.Npc;
 import npc.NpcList;
 import quest.Quest;
@@ -41,6 +42,7 @@ public class Player implements Serializable {
 	private boolean isCanSave;
 	private ArrayList<String> visitList = new ArrayList<String>();
 	private HashMap<String, Integer> killList = new HashMap<String, Integer>();
+	private ArrayList<UpdatedMapInfor> updatedMapList = new ArrayList<UpdatedMapInfor>();
 	private NpcList npcList = new NpcList();
 	private Npc curNpc;
 	private Quest quest;
@@ -591,4 +593,17 @@ public class Player implements Serializable {
 	public void setCanSave(boolean isCanSave) {
 		this.isCanSave = isCanSave;
 	}
+
+	public ArrayList<UpdatedMapInfor> getUpdatedMapList() {
+		return updatedMapList;
+	}
+	
+	public void addUpdatedMap(UpdatedMapInfor infor) {
+		updatedMapList.add(infor);
+	}
+
+	public void setUpdatedMapList(ArrayList<UpdatedMapInfor> updatedMapList) {
+		this.updatedMapList = updatedMapList;
+	}
+	
 }

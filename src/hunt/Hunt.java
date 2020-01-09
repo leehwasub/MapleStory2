@@ -204,7 +204,7 @@ public class Hunt extends Thread {
 		}
 		this.attackButton.setVisible(false);
 		this.runButton.setVisible(false);
-		this.playerAttack = AttackFactory.makeAttack(this, this.nowStateBox, this.monsterState, skillName, 0);
+		this.playerAttack = AttackFactory.makeAdventurerAttack(this, this.nowStateBox, this.monsterState, skillName, 0);
 		if(playerAttack.getAttackType() == AttackType.MYSELF) {
 			playerAttack.setOpponent(nowStateBox);
 		}

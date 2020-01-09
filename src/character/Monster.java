@@ -3,15 +3,20 @@ package character;
 import java.util.ArrayList;
 
 import attack.Attack;
+import attack.AttackFactory;
 import component.StateBox;
 import hunt.Hunt;
 import maplestory.Player;
 import monster.DropItemFactory;
 
 public abstract class Monster extends Character {
-	int exp;
-	int money;
-	boolean isBoss;
+	
+	private static final long serialVersionUID = 1L;
+	
+	protected ArrayList<MonsterSkillInfor> skillList = new ArrayList<MonsterSkillInfor>();
+	protected int exp;
+	protected int money;
+	protected boolean isBoss;
 
 	public Monster(String name, String imageUrl, Strength strength, int minPhysicalDamage, int maxPhysicalDamage,
 			int minMagicDamage, int maxMagicDamage, int exp, int money, boolean isBoss) {
@@ -24,8 +29,22 @@ public abstract class Monster extends Character {
 		this.money = money;
 		this.isBoss = isBoss;
 	}
+	
+	public abstract void initSkillList();
 
-	public abstract Attack attack(Hunt paramHunt, StateBox paramStateBox, StateBox paramArrayList);
+	public final Attack attack(Hunt hunt, StateBox attacker, StateBox opponent) {
+		int percent = (int)(Math.random() * 1001);
+		for(int i = 0; i < skillList.size(); i++) {
+			MonsterSkillInfor infor = skillList.get(i);
+			if(infor.getPercentSt() <= percent && percent <= infor.getPercentEd() && curHp <= infor.getUnderHpCondition()) {
+				Attack attack = AttackFactory.makeMonsterAttack(hunt, attacker, opponent, infor.getSkillName(), 0);
+				if(attack.calNeedMp() <= curMp) {
+					return attack;
+				}
+			}
+		}
+		return null;
+	}
 
 	public String dropItem(Player player) {
 		return DropItemFactory.dropItemWithLevel(this, player);

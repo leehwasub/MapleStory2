@@ -2,7 +2,9 @@ package npc;
 
 import java.io.Serializable;
 
+import map.MapleMap;
 import map.PointMapName;
+import map.UpdatedMapInfor;
 import maplestory.Player;
 import quest.Quest;
 import quest.QuestProceed;
@@ -51,7 +53,8 @@ public class Mai extends Npc implements Serializable {
 
 	public void clearEvent(Player player) {
 		if (this.clearNum == 0) {
-			System.out.println("뭐지??");
+			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(3, 8, "초보자의숲2"), MapleMap.MAP_EMPTY_STATE));
+			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(6, 7, "달팽이의숲"), MapleMap.MAP_NPC_STATE));
 			player.getNpcList().getNpcWithName("마이").setPointMapName(new PointMapName(6, 7, "달팽이의숲"));
 		}
 	}

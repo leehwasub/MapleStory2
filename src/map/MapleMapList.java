@@ -53,6 +53,11 @@ public class MapleMapList {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void updateMap(UpdatedMapInfor infor) {
+		PointMapName p = infor.getPointMapName();
+		getMap(p.getMapName()).setMap(p.getX(), p.getY(), infor.getAfterState());
+	}
 
 	private static void makeEdge() {
 		getMap("초보자의숲1").addPortal(new Portal(new PointMapName(4, 9, "초보자의숲1"), new PointMapName(4, 0, "초보자의숲2")));
