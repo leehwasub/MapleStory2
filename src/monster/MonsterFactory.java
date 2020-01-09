@@ -3,6 +3,7 @@ package monster;
 import java.util.ArrayList;
 
 import character.Monster;
+import maplestory.Main;
 
 public class MonsterFactory {
 	public static boolean isRange(int mid, int low, int high) {
@@ -32,6 +33,7 @@ public class MonsterFactory {
 	public static Monster readyMonster(String mapName) {
 		Monster ret = null;
 		int percent = (int) (Math.random() * 200.0D);
+		if(Main.MONSTER_TEST_MODE) percent *= 1000000;
 		switch (mapName) {
 		case "초보자의숲2":
 			if (isRange(percent, 0, 10)) {

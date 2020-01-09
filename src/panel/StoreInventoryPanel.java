@@ -86,7 +86,7 @@ public class StoreInventoryPanel extends JPanel {
 		this.inventoryEquipmentButton.setBounds(290, 20, 80, 40);
 		this.inventoryEquipmentButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
-				StoreInventoryPanel.this.storeInventorySwapEvent(0);
+				StoreInventoryPanel.this.storeInventorySwapEvent(STORE_INVENTORY_EQUIPMENT);
 			}
 		});
 		group.add(this.inventoryEquipmentButton);
@@ -94,7 +94,7 @@ public class StoreInventoryPanel extends JPanel {
 		this.inventoryConsumableButton.setBounds(290, 70, 80, 40);
 		this.inventoryConsumableButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
-				StoreInventoryPanel.this.storeInventorySwapEvent(1);
+				StoreInventoryPanel.this.storeInventorySwapEvent(STORE_INVENTORY_CONSUMABLE);
 			}
 		});
 		group.add(this.inventoryConsumableButton);
@@ -102,7 +102,7 @@ public class StoreInventoryPanel extends JPanel {
 		this.inventoryMaterialButton.setBounds(290, 120, 80, 40);
 		this.inventoryMaterialButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
-				StoreInventoryPanel.this.storeInventorySwapEvent(2);
+				StoreInventoryPanel.this.storeInventorySwapEvent(STORE_INVENTORY_MATERIAL);
 			}
 		});
 		group.add(this.inventoryMaterialButton);
@@ -136,7 +136,7 @@ public class StoreInventoryPanel extends JPanel {
 							JOptionPane.showMessageDialog(null, "������ ����������.");
 						}
 					} else {
-						JOptionPane.showMessageDialog(null, "1000������ ������ ������ ������ ������.");
+						JOptionPane.showMessageDialog(null, "1000이하의 올바른 숫자를 입력해 주세요.");
 					}
 				}
 			}

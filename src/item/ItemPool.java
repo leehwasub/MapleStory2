@@ -13,6 +13,9 @@ public class ItemPool {
 	//상의, 하의, 무기, 방패, 핼멧, 신발, 장갑
 	
 	static {
+		for(int i = 0; i < 7; i++) {
+			calCostItem(i);
+		}
 		initWeaponItem();
 		initClothsItem();
 		initPantsItem();
@@ -22,9 +25,6 @@ public class ItemPool {
 		initGloveItem();
 		initTitleItem();
 		initMaterialItem();
-		for(int i = 0; i < 7; i++) {
-			calCostItem(i);
-		}
 	}
 	
 	public static int getPrice(int type, int level) {
@@ -59,8 +59,36 @@ public class ItemPool {
 	}
 
 	private static void initWeaponItem() {
-		items.put("검", new WeaponItem("검", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 1), "sword", 1, new Strength(new Resistance(0, 0, 0, 0, 0, 0), 1, 0, 0, 17, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
-		items.put("도루커대거", new WeaponItem("도루커대거", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 5), "dorkerDagger", 1, new Strength(new Resistance(0, 0, 0, 0, 0, 0), 5, 0, 0, 22, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
+		items.put("검", new WeaponItem("검", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 1), "sword", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 1, 0, 0, 17, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
+		items.put("도루커대거", new WeaponItem("도루커대거", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 5), "dorkerDagger", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 5, 0, 0, 22, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
+		
+		
+		items.put("카알대검", new WeaponItem("카알대검", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 10), "carlGreatsword", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 10, 0, 0, 27, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
+		items.put("샤브르", new WeaponItem("샤브르", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 15), "saber", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 15, 0, 0, 32, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
+		items.put("바이킹소드", new WeaponItem("바이킹소드", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 20), "vikingSword", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 20, 0, 0, 37, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
+		items.put("일룬", new WeaponItem("일룬", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 25), "lllun", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 25, 0, 0, 42, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
+		items.put("글라디우스", new WeaponItem("글라디우스", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 30), "gradius", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 30, 0, 0, 47, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
+		items.put("커틀러스", new WeaponItem("커틀러스", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 35), "cutlass", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 35, 0, 0, 52, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
+		items.put("트라우스", new WeaponItem("트라우스", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 40), "trous", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 40, 0, 0, 57, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
+		items.put("네오코라", new WeaponItem("네오코라", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 45), "neokora", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 45, 0, 0, 62, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
+		items.put("쥬얼쿠아다라", new WeaponItem("쥬얼쿠아다라", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 50), "jeweledQuadra", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 50, 0, 0, 67, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
+		items.put("스파타", new WeaponItem("스파타", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 55), "spata", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 55, 0, 0, 75, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
+		items.put("레드카타나", new WeaponItem("레드카타나", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 60), "redKatana", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 60, 0, 0, 83, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
+		items.put("프라우테", new WeaponItem("프라우테", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 70), "praote", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 70, 0, 0, 98, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
 	}
 
 	private static void initClothsItem() {
@@ -105,10 +133,42 @@ public class ItemPool {
 	}
 
 	private static void initPantsItem() {
-		items.put("파란청반바지(남)", new EquipmentItem("파란청반바지(남)", 110, "blueShortsMan", 1,
-				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 1, 0, 0, 0, 0, 2, 0, 0, 0, 0), 1, SexType.MAN, false));
-		items.put("빨간미니스커트(여)", new EquipmentItem("빨간미니스커트(여)", 110, "redMiniSkirtWoman", 1,
-				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 1, 0, 0, 0, 0, 2, 0, 0, 0, 0), 1, SexType.WOMAN, false));
+		items.put("파란청반바지(남)", new EquipmentItem("파란청반바지(남)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 1), "blueShortsMan", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 1, 0, 0, 0, 0, 2, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.MAN, false));
+		items.put("빨간미니스커트(여)", new EquipmentItem("빨간미니스커트(여)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 1), "redMiniSkirtWoman", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 1, 0, 0, 0, 0, 2, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.WOMAN, false));
+		items.put("로리카바지(남)", new EquipmentItem("로리카바지(남)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 10), "loricaPantsMan", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 10, 0, 0, 0, 0, 12, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.MAN, false));
+		items.put("소피아바지(여)", new EquipmentItem("소피아바지(여)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 10), "sophiaPantsWoman", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 10, 0, 0, 0, 0, 12, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.WOMAN, false));
+		items.put("코퍼럴바지", new EquipmentItem("코퍼럴바지", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 15), "corporalPants", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 15, 0, 0, 0, 0, 16, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.ALL, false));
+		items.put("서전트치마(남)", new EquipmentItem("서전트치마(남)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 20), "sergeantSkirtMan", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 20, 0, 0, 0, 0, 20, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.MAN, false));
+		items.put("라멜치마(여)", new EquipmentItem("라멜치마(여)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 20), "ramelSkirtWoman", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 20, 0, 0, 0, 0, 20, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.WOMAN, false));
+		items.put("마스터서전트치마(남)", new EquipmentItem("마스터서전트치마(남)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 25), "masterSergeantSkirtMan", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 25, 0, 0, 0, 0, 24, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.MAN, false));
+		items.put("샤크치마(여)", new EquipmentItem("샤크치마(여)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 25), "sharkSkirtWoman", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 25, 0, 0, 0, 0, 24, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.WOMAN, false));
+		items.put("홍무바지", new EquipmentItem("홍무바지", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 30), "corporalPants", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 30, 0, 0, 0, 0, 28, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.ALL, false));
+		items.put("백진일갑주바지(남)", new EquipmentItem("백진일갑주바지(남)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 40), "baeJinilArmorMan", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 40, 0, 0, 0, 0, 36, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.MAN, false));
+		items.put("황진월갑주바지(여)", new EquipmentItem("황진월갑주바지(여)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 40), "hwangJinwolArmorWoman", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 40, 0, 0, 0, 0, 36, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.WOMAN, false));
+		items.put("숄더메일바지(남)", new EquipmentItem("숄더메일바지(남)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 50), "shoulderMailPantsMan", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 50, 0, 0, 0, 0, 45, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.MAN, false));
+		items.put("숄더메일바지(여)", new EquipmentItem("숄더메일바지(여)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 50), "shoulderMailPantsWoman", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 50, 0, 0, 0, 0, 45, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.WOMAN, false));
+		items.put("오리엔타이칸바지(남)", new EquipmentItem("오리엔타이칸바지(남)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 60), "orientTaikanPantsMan", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 60, 0, 0, 0, 0, 52, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.MAN, false));
+		items.put("트란도트치마(여)", new EquipmentItem("트란도트치마(여)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 60), "TrandotSkirtWoman", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 60, 0, 0, 0, 0, 52, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.WOMAN, false));
+		items.put("플라티나바지(남)", new EquipmentItem("플라티나바지(남)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 70), "platinPantsMan", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 70, 0, 0, 0, 0, 60, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.MAN, false));
+		items.put("플라티나바지(여)", new EquipmentItem("플라티나바지(여)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 70), "PlatinumPantsWoman", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 70, 0, 0, 0, 0, 60, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.WOMAN, false));
 	}
 
 	private static void initComsumableItem() {
@@ -123,15 +183,52 @@ public class ItemPool {
 	}
 
 	private static void initGloveItem() {
-		
+		items.put("미셀", new EquipmentItem("미셀", getPrice(EquipmentItem.EQUIPMENT_TYPE_GLOVE, 30), "micelle", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 30, 0, 0, 0, 0, 13, 0, 1, 0, 0), EquipmentItem.EQUIPMENT_TYPE_GLOVE, SexType.ALL, false));
+		items.put("브리건", new EquipmentItem("브리건", getPrice(EquipmentItem.EQUIPMENT_TYPE_GLOVE, 35), "briggan", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 35, 0, 0, 0, 0, 15, 0, 2, 0, 0), EquipmentItem.EQUIPMENT_TYPE_GLOVE, SexType.ALL, false));
+		items.put("너클", new EquipmentItem("너클", getPrice(EquipmentItem.EQUIPMENT_TYPE_GLOVE, 35), "knuckle", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 40, 0, 0, 0, 0, 16, 0, 3, 0, 0), EquipmentItem.EQUIPMENT_TYPE_GLOVE, SexType.ALL, false));
+		items.put("브리스트", new EquipmentItem("브리스트", getPrice(EquipmentItem.EQUIPMENT_TYPE_GLOVE, 50), "birst", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 50, 0, 0, 0, 0, 21, 0, 4, 0, 1), EquipmentItem.EQUIPMENT_TYPE_GLOVE, SexType.ALL, false));
+		items.put("클랜치", new EquipmentItem("클랜치", getPrice(EquipmentItem.EQUIPMENT_TYPE_GLOVE, 60), "clanchi", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 60, 0, 0, 0, 0, 24, 0, 5, 0, 2), EquipmentItem.EQUIPMENT_TYPE_GLOVE, SexType.ALL, false));
+		items.put("허스크", new EquipmentItem("허스크", getPrice(EquipmentItem.EQUIPMENT_TYPE_GLOVE, 70), "husk", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 70, 0, 0, 0, 0, 29, 0, 6, 0, 3), EquipmentItem.EQUIPMENT_TYPE_GLOVE, SexType.ALL, false));
 	}
 
 	private static void initHelmetItem() {
-		
+		items.put("풀헬름", new EquipmentItem("풀헬름", getPrice(EquipmentItem.EQUIPMENT_TYPE_HELMET, 15), "fullHelm", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 15, 0, 0, 0, 0, 15, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_HELMET, SexType.ALL, false));
+		items.put("디펜더헬멧", new EquipmentItem("디펜더헬멧", getPrice(EquipmentItem.EQUIPMENT_TYPE_HELMET, 20), "defenderHelmet", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 20, 0, 0, 0, 0, 25, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_HELMET, SexType.ALL, false));
+		items.put("버거넷헬름", new EquipmentItem("버거넷헬름", getPrice(EquipmentItem.EQUIPMENT_TYPE_HELMET, 25), "ironBurgerNet", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 25, 0, 0, 0, 0, 30, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_HELMET, SexType.ALL, false));
+		items.put("주스창", new EquipmentItem("주스창", getPrice(EquipmentItem.EQUIPMENT_TYPE_HELMET, 30), "juSting", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 30, 0, 0, 0, 0, 35, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_HELMET, SexType.ALL, false));
+		items.put("노르만헬름", new EquipmentItem("노르만헬름", getPrice(EquipmentItem.EQUIPMENT_TYPE_HELMET, 40), "normanHelm", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 40, 0, 0, 0, 0, 45, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_HELMET, SexType.ALL, false));
+		items.put("돔", new EquipmentItem("돔", getPrice(EquipmentItem.EQUIPMENT_TYPE_HELMET, 50), "dom", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 50, 0, 0, 0, 0, 60, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_HELMET, SexType.ALL, false));
+		items.put("오리엔트헬멧", new EquipmentItem("오리엔트헬멧", getPrice(EquipmentItem.EQUIPMENT_TYPE_HELMET, 60), "orientHelmet", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 60, 0, 0, 0, 0, 75, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_HELMET, SexType.ALL, false));
 	}
 
 	private static void initShoesItem() {
-		
+		items.put("고무장화", new EquipmentItem("고무장화", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHOES, 1), "rubberBoots", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 1, 0, 0, 0, 0, 2, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_SHOES, SexType.ALL, false));
+		items.put("스틸그리브", new EquipmentItem("스틸그리브", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHOES, 15), "steelGrease", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 15, 0, 0, 0, 0, 9, 0, 0, 1, 0), EquipmentItem.EQUIPMENT_TYPE_SHOES, SexType.ALL, false));
+		items.put("워부츠", new EquipmentItem("워부츠", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHOES, 25), "warBoots", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 25, 0, 0, 0, 0, 15, 0, 0, 2, 0), EquipmentItem.EQUIPMENT_TYPE_SHOES, SexType.ALL, false));
+		items.put("배틀그리브", new EquipmentItem("배틀그리브", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHOES, 35), "battleGrease", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 35, 0, 0, 0, 0, 21, 0, 0, 3, 0), EquipmentItem.EQUIPMENT_TYPE_SHOES, SexType.ALL, false));
+		items.put("힐던부츠", new EquipmentItem("힐던부츠", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHOES, 45), "hildanBoots", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 45, 0, 0, 0, 0, 30, 0, 0, 4, 0), EquipmentItem.EQUIPMENT_TYPE_SHOES, SexType.ALL, false));
+		items.put("카젠부츠", new EquipmentItem("카젠부츠", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHOES, 55), "hildanBoots", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 55, 0, 0, 0, 0, 42, 0, 0, 5, 0), EquipmentItem.EQUIPMENT_TYPE_SHOES, SexType.ALL, false));
+		items.put("리버스부츠", new EquipmentItem("리버스부츠", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHOES, 65), "reverseBoots", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 65, 0, 0, 0, 0, 48, 0, 0, 6, 0), EquipmentItem.EQUIPMENT_TYPE_SHOES, SexType.ALL, false));
 	}
 
 	private static void initMaterialItem() {

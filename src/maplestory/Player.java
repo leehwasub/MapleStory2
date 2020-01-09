@@ -278,16 +278,16 @@ public class Player implements Serializable {
 					if (state != 1) {
 						this._curX = xx;
 						this._curY = yy;
-						if ((xx >= basePoint.getX() + 6) && (basePoint.getX() + 10 < maxX)) {
+						if (xx >= basePoint.getX() + Math.min(maxX, MapleMap.MAX_MAP_VIEW_X) - 2 && (basePoint.getX() + Math.min(maxX, MapleMap.MAX_MAP_VIEW_X) < maxX)) {
 							basePoint.setX(basePoint.getX() + 1);
 						}
-						if ((xx <= basePoint.getX() + 3) && (basePoint.getX() > 0)) {
+						if ((xx <= basePoint.getX() + 2) && (basePoint.getX() > 0)) {
 							basePoint.setX(basePoint.getX() - 1);
 						}
-						if ((yy <= basePoint.getY() + 3) && (basePoint.getY() > 0)) {
+						if ((yy <= basePoint.getY() + 2) && (basePoint.getY() > 0)) {
 							basePoint.setY(basePoint.getY() - 1);
 						}
-						if ((yy >= basePoint.getY() + 6) && (basePoint.getY() + 10 < maxY)) {
+						if ((yy >= basePoint.getY() + Math.min(maxY, MapleMap.MAX_MAP_VIEW_Y) - 2) && (basePoint.getY() + Math.min(maxY, MapleMap.MAX_MAP_VIEW_Y) < maxY)) {
 							basePoint.setY(basePoint.getY() + 1);
 						}
 						System.out.println(basePoint.toString());

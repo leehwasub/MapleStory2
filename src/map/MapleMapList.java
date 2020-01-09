@@ -62,8 +62,8 @@ public class MapleMapList {
 		getMap("암허스트").addPortal(new Portal(new PointMapName(7, 16, "암허스트"), new PointMapName(7, 0, "달팽이의숲")));
 		getMap("달팽이의숲").addPortal(new Portal(new PointMapName(7, 0, "달팽이의숲"), new PointMapName(7, 16, "암허스트")));
 		getMap("달팽이의숲").addPortal(new Portal(new PointMapName(14, 6, "달팽이의숲"), new PointMapName(0, 0, "위험한숲")));
-		getMap("달팽이의숲").addPortal(new Portal(new PointMapName(5, 14, "달팽이의숲"), new PointMapName(5, 0, "사우스페리")));
-		getMap("사우스페리").addPortal(new Portal(new PointMapName(5, 0, "사우스페리"), new PointMapName(5, 14, "달팽이의숲")));
+		getMap("달팽이의숲").addPortal(new Portal(new PointMapName(5, 14, "달팽이의숲"), new PointMapName(2, 0, "사우스페리")));
+		getMap("사우스페리").addPortal(new Portal(new PointMapName(2, 0, "사우스페리"), new PointMapName(5, 14, "달팽이의숲")));
 	}
 
 	public static MapleMap getMap(String mapName) {

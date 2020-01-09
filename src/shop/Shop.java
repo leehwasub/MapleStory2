@@ -9,12 +9,9 @@ import map.PointMapName;
 public class Shop {
 	protected Image npcImage;
 	protected PointMapName pointMapName;
-	protected ArrayList<Item> shareItemList = new ArrayList<Item>();
+	protected ArrayList<Item> weaponItemList = new ArrayList<Item>();
+	protected ArrayList<Item> equipmentItemList = new ArrayList<Item>();
 	protected ArrayList<Item> consumableItemList = new ArrayList<Item>();
-	protected ArrayList<Item> warriorItemList = new ArrayList<Item>();
-	protected ArrayList<Item> magicianItemList = new ArrayList<Item>();
-	protected ArrayList<Item> thiefItemList = new ArrayList<Item>();
-	protected ArrayList<Item> archerItemList = new ArrayList<Item>();
 
 	public Image getNpcImage() {
 		return this.npcImage;
@@ -24,27 +21,28 @@ public class Shop {
 		return this.pointMapName;
 	}
 
-	public ArrayList<Item> getShareItemList() {
-		return this.shareItemList;
+	public ArrayList<Item> getWeaponItemList() {
+		return weaponItemList;
+	}
+
+	public ArrayList<Item> getEquipmentItemList() {
+		return equipmentItemList;
 	}
 
 	public ArrayList<Item> getConsumableItemList() {
-		return this.consumableItemList;
+		return consumableItemList;
 	}
 
-	public ArrayList<Item> getWarriorItemList() {
-		return this.warriorItemList;
+	public void setWeaponItemList(ArrayList<Item> weaponItemList) {
+		this.weaponItemList = weaponItemList;
 	}
 
-	public ArrayList<Item> getMagicianItemList() {
-		return this.magicianItemList;
+	public void setEquipmentItemList(ArrayList<Item> equipmentItemList) {
+		this.equipmentItemList = equipmentItemList;
 	}
 
-	public ArrayList<Item> getThiefItemList() {
-		return this.thiefItemList;
+	public void setConsumableItemList(ArrayList<Item> consumableItemList) {
+		this.consumableItemList = consumableItemList;
 	}
-
-	public ArrayList<Item> getArcherItemList() {
-		return this.archerItemList;
-	}
+	
 }

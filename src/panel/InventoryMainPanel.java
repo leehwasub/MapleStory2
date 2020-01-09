@@ -6,11 +6,13 @@ import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import component.MapleButton;
+import component.MapleButtonGroup;
 import maplestory.Player;
 import utils.ResourceLoader;
 
@@ -76,11 +78,16 @@ public class InventoryMainPanel extends JPanel {
 	private InventorySkillPanel inventorySkillPanel;
 	private InventorySystemPanel inventorySystemPanel;
 	private int inventoryState;
+	
+	private MapleButtonGroup mapleButtonGroup;
 
 	public InventoryMainPanel(Player player) {
 		setLayout(null);
 		setVisible(false);
 		this.player = player;
+		
+
+		
 		this.inventoryStatePanel = new InventoryStatePanel(player);
 		this.inventoryStatePanel.setBounds(50, 98, 1120, 440);
 		add(this.inventoryStatePanel);
@@ -108,6 +115,8 @@ public class InventoryMainPanel extends JPanel {
 		this.inventorySystemPanel = new InventorySystemPanel(player);
 		this.inventorySystemPanel.setBounds(50, 98, 1120, 440);
 		add(this.inventorySystemPanel);
+		
+		ArrayList<MapleButton> group = new ArrayList<MapleButton>();
 
 		this.inventoryStateButton.setBounds(80, 40, 80, 40);
 		this.inventoryStateButton.addMouseListener(new MouseAdapter() {
@@ -116,6 +125,7 @@ public class InventoryMainPanel extends JPanel {
 			}
 		});
 		add(this.inventoryStateButton);
+		group.add(inventoryStateButton);
 		this.inventoryEquipmentButton.setBounds(170, 40, 80, 40);
 		this.inventoryEquipmentButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
@@ -123,6 +133,7 @@ public class InventoryMainPanel extends JPanel {
 			}
 		});
 		add(this.inventoryEquipmentButton);
+		group.add(inventoryEquipmentButton);
 		this.inventoryConsumableButton.setBounds(260, 40, 80, 40);
 		this.inventoryConsumableButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
@@ -130,6 +141,7 @@ public class InventoryMainPanel extends JPanel {
 			}
 		});
 		add(this.inventoryConsumableButton);
+		group.add(inventoryConsumableButton);
 		this.inventoryMaterialButton.setBounds(350, 40, 80, 40);
 		this.inventoryMaterialButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
@@ -137,6 +149,7 @@ public class InventoryMainPanel extends JPanel {
 			}
 		});
 		add(this.inventoryMaterialButton);
+		group.add(inventoryMaterialButton);
 		this.inventoryQuestButton.setBounds(440, 40, 80, 40);
 		this.inventoryQuestButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
@@ -144,6 +157,7 @@ public class InventoryMainPanel extends JPanel {
 			}
 		});
 		add(this.inventoryQuestButton);
+		group.add(inventoryQuestButton);
 		this.inventorySkillButton.setBounds(530, 40, 80, 40);
 		this.inventorySkillButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
@@ -151,6 +165,7 @@ public class InventoryMainPanel extends JPanel {
 			}
 		});
 		add(this.inventorySkillButton);
+		group.add(inventorySkillButton);
 		this.inventorySystemButton.setBounds(620, 40, 80, 40);
 		this.inventorySystemButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
@@ -158,6 +173,9 @@ public class InventoryMainPanel extends JPanel {
 			}
 		});
 		add(this.inventorySystemButton);
+		group.add(inventorySystemButton);
+		
+		mapleButtonGroup = new MapleButtonGroup(group);
 	}
 
 	private void setVisibleFalsePanels() {

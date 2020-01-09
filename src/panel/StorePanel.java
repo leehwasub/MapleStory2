@@ -36,51 +36,30 @@ public class StorePanel extends JPanel {
 	public static final int STORE_INVENTORY_WIDTH = 510;
 	public static final int STORE_INVENTORY_HEIGHT = 430;
 	public static final int BORDER_WIDTH = 4;
-	private static final int STORE_SHARE = 0;
-	private static final int STORE_CONSUMABLE = 1;
-	private static final int STORE_WARRIOR = 2;
-	private static final int STORE_MAGICIAN = 3;
-	private static final int STORE_THIEF = 4;
-	private static final int STORE_ARCHER = 5;
-	private ImageIcon storeShareButtonBasicImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "storeShareButtonBasic.png"));
-	private ImageIcon storeShareButtonEnteredImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "storeShareButtonEntered.png"));
+	private static final int STORE_WEAPON = 0;
+	private static final int STORE_EQUIPMENT = 1;
+	private static final int STORE_CONSUMABLE = 2;
+	private ImageIcon storeWeaponButtonBasicImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "storeWeaponButtonBasic.png"));
+	private ImageIcon storeWeaponButtonEnteredImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "storeWeaponButtonEntered.png"));
+	private ImageIcon storeEquipmentButtonBasicImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "inventoryEquipmentButtonBasic.png"));
+	private ImageIcon storeEquipmentButtonEnteredImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "inventoryEquipmentButtonEntered.png"));
 	private ImageIcon storeConsumableButtonBasicImage = new ImageIcon(
 			ResourceLoader.getImage("componentImage", "inventoryConsumableButtonBasic.png"));
 	private ImageIcon storeConsumableButtonEnteredImage = new ImageIcon(
 			ResourceLoader.getImage("componentImage", "inventoryConsumableButtonEntered.png"));
-	private ImageIcon storeWarriorButtonBasicImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "storeWarriorButtonBasic.png"));
-	private ImageIcon storeWarriorButtonEnteredImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "storeWarriorButtonEntered.png"));
-	private ImageIcon storeMagicianButtonBasicImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "storeMagicianButtonBasic.png"));
-	private ImageIcon storeMagicianButtonEnteredImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "storeMagicianButtonEntered.png"));
-	private ImageIcon storeThiefButtonBasicImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "storeThiefButtonBasic.png"));
-	private ImageIcon storeThiefButtonEnteredImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "storeThiefButtonEntered.png"));
-	private ImageIcon storeArcherButtonBasicImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "storeArcherButtonBasic.png"));
-	private ImageIcon storeArcherButtonEnteredImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "storeArcherButtonEntered.png"));
-	private MapleButton storeShareButton = new MapleButton(this.storeShareButtonBasicImage,
-			this.storeShareButtonEnteredImage);
+	private MapleButton storeWeaponButton = new MapleButton(storeWeaponButtonBasicImage,
+			storeWeaponButtonEnteredImage);
+	private MapleButton storeEquipmentButton = new MapleButton(storeEquipmentButtonBasicImage,
+			storeEquipmentButtonEnteredImage);
 	private MapleButton storeConsumableButton = new MapleButton(this.storeConsumableButtonBasicImage,
-			this.storeConsumableButtonEnteredImage);
-	private MapleButton storeWarriorButton = new MapleButton(this.storeWarriorButtonBasicImage,
-			this.storeWarriorButtonEnteredImage);
-	private MapleButton storeMagicianButton = new MapleButton(this.storeMagicianButtonBasicImage,
-			this.storeMagicianButtonEnteredImage);
-	private MapleButton storeThiefButton = new MapleButton(this.storeThiefButtonBasicImage,
-			this.storeThiefButtonEnteredImage);
-	private MapleButton storeArcherButton = new MapleButton(this.storeArcherButtonBasicImage,
-			this.storeArcherButtonEnteredImage);
+			storeConsumableButtonEnteredImage);
 	private TooltipPanel itemTooltip = new TooltipPanel();
-	DefaultListModel<Item> dm = new DefaultListModel();
-	JList<Item> jList = new JList();
+	DefaultListModel<Item> dm = new DefaultListModel<Item>();
+	JList<Item> jList = new JList<Item>();
 	MapleButtonGroup mapleButtonGroup;
 	private Player player;
 	private Shop shop;
@@ -100,56 +79,35 @@ public class StorePanel extends JPanel {
 
 		ArrayList<MapleButton> group = new ArrayList<MapleButton>();
 
-		this.storeShareButton.setSelectedInGroup(true);
-		this.storeShareButton.setIcon(this.storeShareButtonEnteredImage);
-		this.storeShareButton.setBounds(410, 20, 80, 40);
-		this.storeShareButton.addMouseListener(new MouseAdapter() {
+		this.storeWeaponButton.setSelectedInGroup(true);
+		this.storeWeaponButton.setIcon(this.storeWeaponButtonEnteredImage);
+		this.storeWeaponButton.setBounds(410, 20, 80, 40);
+		this.storeWeaponButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
-				StorePanel.this.storeSwapEvent(0);
+				StorePanel.this.storeSwapEvent(STORE_WEAPON);
 			}
 		});
-		group.add(this.storeShareButton);
-		add(this.storeShareButton);
-		this.storeConsumableButton.setBounds(410, 70, 80, 40);
+		group.add(storeWeaponButton);
+		add(storeWeaponButton);
+		
+		this.storeEquipmentButton.setBounds(410, 70, 80, 40);
+		this.storeEquipmentButton.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				StorePanel.this.storeSwapEvent(STORE_EQUIPMENT);
+			}
+		});
+		group.add(storeEquipmentButton);
+		add(storeEquipmentButton);
+		
+		this.storeConsumableButton.setBounds(410, 120, 80, 40);
 		this.storeConsumableButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
-				StorePanel.this.storeSwapEvent(1);
+				StorePanel.this.storeSwapEvent(STORE_CONSUMABLE);
 			}
 		});
 		group.add(this.storeConsumableButton);
 		add(this.storeConsumableButton);
-		this.storeWarriorButton.setBounds(410, 120, 80, 40);
-		this.storeWarriorButton.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				StorePanel.this.storeSwapEvent(2);
-			}
-		});
-		group.add(this.storeWarriorButton);
-		add(this.storeWarriorButton);
-		this.storeMagicianButton.setBounds(410, 170, 80, 40);
-		this.storeMagicianButton.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				StorePanel.this.storeSwapEvent(3);
-			}
-		});
-		group.add(this.storeMagicianButton);
-		add(this.storeMagicianButton);
-		this.storeThiefButton.setBounds(410, 220, 80, 40);
-		this.storeThiefButton.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				StorePanel.this.storeSwapEvent(4);
-			}
-		});
-		group.add(this.storeThiefButton);
-		add(this.storeThiefButton);
-		this.storeArcherButton.setBounds(410, 270, 80, 40);
-		this.storeArcherButton.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				StorePanel.this.storeSwapEvent(5);
-			}
-		});
-		group.add(this.storeArcherButton);
-		add(this.storeArcherButton);
+
 
 		this.mapleButtonGroup = new MapleButtonGroup(group);
 
@@ -210,19 +168,13 @@ public class StorePanel extends JPanel {
 	public void storeSwapEvent(int type) {
 		this.curType = type;
 		this.dm.clear();
-		ArrayList<Item> itemList = new ArrayList();
-		if (type == 0) {
-			itemList = this.shop.getShareItemList();
-		} else if (type == 1) {
+		ArrayList<Item> itemList = new ArrayList<Item>();
+		if (type == STORE_WEAPON) {
+			itemList = this.shop.getWeaponItemList();
+		} else if (type == STORE_EQUIPMENT) {
+			itemList = this.shop.getEquipmentItemList();
+		} else if (type == STORE_CONSUMABLE) {
 			itemList = this.shop.getConsumableItemList();
-		} else if (type == 2) {
-			itemList = this.shop.getWarriorItemList();
-		} else if (type == 3) {
-			itemList = this.shop.getMagicianItemList();
-		} else if (type == 4) {
-			itemList = this.shop.getThiefItemList();
-		} else if (type == 5) {
-			itemList = this.shop.getArcherItemList();
 		}
 		for (int i = 0; i < itemList.size(); i++) {
 			this.dm.addElement((Item) itemList.get(i));

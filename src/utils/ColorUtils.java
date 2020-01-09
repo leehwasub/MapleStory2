@@ -11,4 +11,8 @@ public class ColorUtils {
 	public static final Color GOLD = new Color(255, 215, 0);
 	public static final Color PANEL_BORDER = new Color(67, 67, 67);
 	public static final Color PANEL_CENTER = new Color(54, 46, 43);
+	public static final Color BLACK_80 = new Color(0, 0, 0, 204);
+	public static final Color WHITE_80 = new Color(255, 255, 255, 204);
+	public static final Color BLACK_60 = new Color(0, 0, 0, 153);
+	public static final Color WHITE_60 = new Color(255, 255, 255, 153);
 }

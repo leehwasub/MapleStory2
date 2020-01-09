@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import maplestory.MainMapleInterface;
 import maplestory.Player;
+import utils.ColorUtils;
 import utils.FontUtils;
 import utils.MusicUtils;
 import utils.ResourceLoader;
@@ -41,6 +42,9 @@ public class MapleMap implements Serializable {
 	private static Image mapPanelImage = ResourceLoader.getImage("componentImage", "mapPanelImage.png");
 	private static Image mapImage = ResourceLoader.getImage("componentImage", "mapImage.png");
 	private static Image mapPositionImage = ResourceLoader.getImage("componentImage", "mapPositionImage.png");
+	
+	public static final int MAX_MAP_VIEW_X = 12;
+	public static final int MAX_MAP_VIEW_Y = 20;
 
 	static {
 		calMapPosition = new Point[101][101];
@@ -65,22 +69,46 @@ public class MapleMap implements Serializable {
 	public void MapleMapBackgroundInit() {
 		this.background = ResourceLoader.getImage("backgroundImage", this.background + "BackgroundImage.png");
 	}
+	
+	public void drawMapImage(Graphics2D g) {
+		int startX = 20;
+		int startY = 40;
+		g.setColor(ColorUtils.WHITE_60);
+		g.fillRect(startX, startY, 32*Math.min(maxY, MAX_MAP_VIEW_Y), 32*Math.min(maxX, MAX_MAP_VIEW_X));
+		g.setColor(Color.YELLOW);
+		for(int i = 1; i < Math.min(maxY, MAX_MAP_VIEW_Y); i++) {
+			g.drawLine(startX + 32*i, startY, startX + 32*i, startY+32*Math.min(maxX, MAX_MAP_VIEW_X));
+		}
+		for(int i = 1; i < Math.min(maxX, MAX_MAP_VIEW_X); i++) {
+			g.drawLine(startX, startY + 32*i, startX + 32*Math.min(maxY, MAX_MAP_VIEW_Y), startY+32*i);
+		}
+	}
+	
+	public void drawMapPanelImage(Graphics2D g) {
+		int startX = 10;
+		int startY = 10;
+		g.setColor(ColorUtils.BLACK_80);
+		g.fillRect(startX, startY, 32*Math.min(maxY, MAX_MAP_VIEW_Y) + 20, 32*Math.min(maxX, MAX_MAP_VIEW_X) + 40);
+	}
 
 	public void drawMap(Graphics2D g, Player player) {
 		if ((player.isConversation()) || (player.isHunt())) {
 			return;
 		}
-		g.drawImage(mapPanelImage, 10, 10, null);
-		g.drawImage(mapImage, 20, 40, null);
+		drawMapPanelImage(g);
+		//g.drawImage(mapImage, 20, 40, null);
 		Point point = calMapPosition[Math.max(player.getCurX() - this.basePoint.getX(), 0)][Math
 				.max(player.getCurY() - this.basePoint.getY(), 0)];
+		drawMapImage(g);
 		g.drawImage(mapPositionImage, point.getY(), point.getX(), null);
-		for (int i = this.basePoint.getX(); i < Math.min(this.basePoint.getX() + 10, this.maxX); i++) {
-			for (int j = this.basePoint.getY(); j < Math.min(this.basePoint.getY() + 10, this.maxY); j++) {
+		
+		
+		for (int i = this.basePoint.getX(); i < Math.min(this.basePoint.getX() + MAX_MAP_VIEW_X, this.maxX); i++) {
+			for (int j = this.basePoint.getY(); j < Math.min(this.basePoint.getY() + MAX_MAP_VIEW_Y, this.maxY); j++) {
 				int mapinfo = this.map[i][j];
 				Point point2 = calMapPosition[(i - this.basePoint.getX())][(j - this.basePoint.getY())];
 				g.setFont(FontUtils.generalFont);
-				int y = point2.getY() + 3;
+				int y = point2.getY() + 4;
 				int x = point2.getX() + 15;
 				if (mapinfo == 2) {
 					g.setColor(Color.RED);
@@ -164,7 +192,7 @@ public class MapleMap implements Serializable {
 					if (i % 2 == 0) {
 						xx += 32;
 					} else {
-						xx += 31;
+						xx += 32;
 					}
 				}
 				if (j - 1 >= 0) {
@@ -172,7 +200,7 @@ public class MapleMap implements Serializable {
 					if (j % 2 == 0) {
 						yy += 32;
 					} else {
-						yy += 31;
+						yy += 32;
 					}
 				}
 				calMapPosition[i][j] = new Point(xx, yy);
@@ -206,10 +234,10 @@ public class MapleMap implements Serializable {
 	}
 
 	public void calLoc(Player player, MapleMap mapleMap) {
-		for (int i = 0; i < mapleMap.getMaxX() - 9; i++) {
-			for (int j = 0; j < mapleMap.getMaxY() - 9; j++) {
-				int midX = (i + 9) / 2;
-				int midY = (j + 9) / 2;
+		for (int i = 0; i < mapleMap.getMaxX() - Math.min(maxX, MAX_MAP_VIEW_X) - 1; i++) {
+			for (int j = 0; j < mapleMap.getMaxY() - Math.min(maxY, MAX_MAP_VIEW_Y) - 1; j++) {
+				int midX = (i + Math.min(maxX, MAX_MAP_VIEW_X) - 1) / 2;
+				int midY = (j + Math.min(maxY, MAX_MAP_VIEW_Y) - 1) / 2;
 				boolean ret = isIncludePlayer(player.getCurX(), player.getCurY(), i, j);
 				if (ret) {
 					if (midX < player.getCurX()) {
@@ -224,7 +252,7 @@ public class MapleMap implements Serializable {
 	}
 
 	public boolean isIncludePlayer(int curX, int curY, int x, int y) {
-		if ((x <= curX) && (curX < x + 10) && (y <= curY) && (curY < y + 10)) {
+		if ((x <= curX) && (curX < x + Math.min(maxX, MAX_MAP_VIEW_X)) && (y <= curY) && (curY < y + Math.min(maxY, MAX_MAP_VIEW_Y))) {
 			return true;
 		}
 		return false;
