@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import attack.Attack;
 import component.StateBox;
+import utils.ResourceLoader;
 
 /**
  * 
@@ -14,11 +15,11 @@ import component.StateBox;
  */
 public abstract class Skill {
 	
-	private Image image;
-	private String name;
-	private int point;
-	private int maxPoint;
-	private String infor;
+	protected Image image;
+	protected String name;
+	protected int point;
+	protected int maxPoint;
+	protected String infor;
 
 	/**
 	 * 
@@ -27,8 +28,8 @@ public abstract class Skill {
 	 * @param maxPoint 최대 포인트
 	 * @param infor 스킬 설명
 	 */
-	public Skill(Image image, String name, int maxPoint, String infor) {
-		this.image = image;
+	public Skill(String imageUrl, String name, int maxPoint, String infor) {
+		this.image = ResourceLoader.getImage("skillImage", imageUrl + "skillImage.png");;
 		this.name = name;
 		this.maxPoint = maxPoint;
 		this.infor = infor;
@@ -39,7 +40,6 @@ public abstract class Skill {
 	}
 
 	public abstract int getEffect(int point);
-	public abstract int getNeedMp(int point);
 
 	public String getName() {
 		return this.name;

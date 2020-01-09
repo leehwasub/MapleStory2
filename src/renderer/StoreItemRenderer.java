@@ -1,4 +1,4 @@
-package item;
+package renderer;
 
 import java.awt.Component;
 import java.awt.Graphics2D;
@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
+import item.Item;
 import utils.FontUtils;
 
 public class StoreItemRenderer extends DefaultListCellRenderer implements ListCellRenderer<Object> {
