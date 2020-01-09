@@ -1,6 +1,7 @@
 package character;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import item.ConsumableItem;
 import item.EquipmentItem;
@@ -14,6 +15,7 @@ public class Adventurer extends Character implements Serializable {
 	private EquipmentItem[] wearEquipment = new EquipmentItem[8];
 	private Skill[] quickSkill = new Skill[4];
 	private ConsumableItem[] quickItem = new ConsumableItem[4];
+	private ArrayList<Skill> skillList = new ArrayList<Skill>();
 	private Status status;
 	private int proficiency;
 	private int skillPoint;
@@ -199,4 +201,17 @@ public class Adventurer extends Character implements Serializable {
 		this.curHp = this.strength.getMaxHp();
 		this.curMp = this.strength.getMaxMp();
 	}
+
+	public ArrayList<Skill> getSkillList() {
+		return skillList;
+	}
+	
+	public void addSkill(Skill skill) {
+		this.skillList.add(skill);
+	}
+
+	public void setSkillList(ArrayList<Skill> skillList) {
+		this.skillList = skillList;
+	}
+	
 }
