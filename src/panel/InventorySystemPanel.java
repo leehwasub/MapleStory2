@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import component.MapleButton;
+import dialog.SaveDialog;
 import maplestory.Player;
 import maplestory.SaveLoad;
 import utils.ResourceLoader;
@@ -33,22 +34,27 @@ public class InventorySystemPanel extends JPanel {
 		setLayout(null);
 		setBackground(new Color(0, 0, 0, 0));
 
-		this.inventorySaveButton.setBounds(60, 30, 120, 40);
-		this.inventorySaveButton.addMouseListener(new MouseAdapter() {
+		inventorySaveButton.setBounds(60, 30, 120, 40);
+		inventorySaveButton.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
+				SaveDialog saveDialog = new SaveDialog(player);
+				saveDialog.setVisible(true);
+				/*
 				if (player.isCanSave()) {
 					SaveLoad.savePlayer(player);
 				}
+				*/
 			}
 		});
 		add(this.inventorySaveButton);
-		this.inventoryMainMenuButton.setBounds(60, 90, 120, 40);
-		this.inventoryMainMenuButton.addMouseListener(new MouseAdapter() {
+		
+		inventoryMainMenuButton.setBounds(60, 90, 120, 40);
+		inventoryMainMenuButton.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
 			}
 		});
-		add(this.inventoryMainMenuButton);
+		add(inventoryMainMenuButton);
 	}
 
 	public void paintComponent(Graphics g) {

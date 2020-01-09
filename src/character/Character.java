@@ -1,6 +1,7 @@
 package character;
 
 import java.awt.Image;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
@@ -8,7 +9,10 @@ import attack.Damage;
 import buff.Buff;
 import utils.ResourceLoader;
 
-public class Character {
+public class Character implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
 	protected String name;
 	protected transient Image image;
 	protected String imageUrl;
@@ -21,7 +25,7 @@ public class Character {
 	protected Strength strength = new Strength();
 	protected ArrayList<Buff> _buff = new ArrayList<Buff>();
 	protected boolean isDead;
-
+	
 	public Character(String name, String imageUrl, Strength strength) {
 		this.name = name;
 		this.imageUrl = imageUrl;

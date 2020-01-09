@@ -18,21 +18,39 @@ import npc.Npc;
 import npc.NpcList;
 
 public class SaveLoad {
-	public static final String filename = Main.findSource(Main.class) + "/mapleData/playerinfo.dat";
+	public static final String filename[];
 	public static final String dirname = Main.findSource(Main.class) + "/mapleData";
+	public static final int DATA_NUM = 5;
+	
+	static {
+		filename = new String[DATA_NUM];
+		for(int i = 0; i < DATA_NUM; i++) {
+			filename[i] = Main.findSource(Main.class) + "/mapleData/playerinfo"+i+".dat";
+		}
+	}
+	
+	
+	private static void makeDir(File dir) {
+		if(!dir.exists()) {
+			try {
+				dir.mkdir();
+			}catch(Exception e) {
+				JOptionPane.showMessageDialog(null, "폴더 생성 오류!!");
+			}
+		}
+	}
 
-	public static void savePlayer(Serializable player) {
+	public static void savePlayer(int index, Serializable player) {
 		FileOutputStream fos = null;
 		File dir = new File(dirname);
-
+		JOptionPane.showMessageDialog(null, dirname);
+		makeDir(dir);
 		File[] dirs = dir.listFiles();
 		for (int i = 0; i < dirs.length; i++) {
 			JOptionPane.showMessageDialog(null, dirs[i].getName());
 		}
-		System.out.println(dirname);
-		dir.mkdirs();
 		try {
-			fos = new FileOutputStream(filename);
+			fos = new FileOutputStream(filename[index]);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(player);
 			oos.flush();
@@ -42,21 +60,22 @@ public class SaveLoad {
 		}
 	}
 
-	public static boolean checkFileExists1() {
-		System.out.println(filename);
-		return new File(filename).isFile();
+	public static boolean checkFileExists1(int index) {
+		return new File(filename[index]).isFile();
 	}
 
-	public static Player loadPlayer() {
+	public static Player loadPlayer(int index) {
 		Player player = null;
-		if (checkFileExists1()) {
+		if (checkFileExists1(index)) {
 			InputStream fis = null;
 			try {
-				fis = new FileInputStream(filename);
+				fis = new FileInputStream(filename[index]);
 				ObjectInputStream ois = new ObjectInputStream(fis);
 				player = (Player) ois.readObject();
 				ois.close();
-				initImage(player);
+				if(player != null) {
+					initImage(player);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

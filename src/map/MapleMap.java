@@ -21,7 +21,7 @@ public class MapleMap implements Serializable {
 	private int maxY;
 	private String music;
 	private transient Image background;
-	private transient String backgroundUrl;
+	private String backgroundUrl;
 	private int[][] map;
 	private int mapType;
 	private ArrayList<Portal> portalList = new ArrayList<Portal>();
@@ -51,9 +51,6 @@ public class MapleMap implements Serializable {
 		calMapPositonXY();
 	}
 
-	public MapleMap() {
-	}
-
 	public MapleMap(String name, String island, int maxX, int maxY, String music, String backgroundUrl, int mapType) {
 		this.name = name;
 		this.island = island;
@@ -66,8 +63,12 @@ public class MapleMap implements Serializable {
 		this.mapType = mapType;
 	}
 
+	public MapleMap() {
+
+	}
+
 	public void MapleMapBackgroundInit() {
-		this.background = ResourceLoader.getImage("backgroundImage", this.background + "BackgroundImage.png");
+		this.background = ResourceLoader.getImage("backgroundImage", this.backgroundUrl + "BackgroundImage.png");
 	}
 	
 	public void drawMapImage(Graphics2D g) {
@@ -307,6 +308,7 @@ public class MapleMap implements Serializable {
 	}
 
 	public void setBackground(String background) {
+		this.backgroundUrl = background;
 		this.background = ResourceLoader.getImage("backgroundImage", background + "BackgroundImage.png");
 	}
 

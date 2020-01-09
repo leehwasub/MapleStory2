@@ -54,7 +54,6 @@ public class ItemPool {
 			for(int j=0; j<r-2; j++) {
 				priceTable[type][i] *= 10;
 			}
-			System.out.println("level : " + i*5 + ", price : " + priceTable[type][i]);
 		}
 	}
 

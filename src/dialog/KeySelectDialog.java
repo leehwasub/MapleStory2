@@ -74,7 +74,7 @@ public class KeySelectDialog extends JDialog {
 	}
 
 	public void end() {
-		setVisible(false);
+		dispose();
 	}
 
 	public int getReturnIndex() {
