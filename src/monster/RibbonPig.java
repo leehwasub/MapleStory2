@@ -9,7 +9,7 @@ import character.Strength;
 import component.StateBox;
 import hunt.Hunt;
 
-public class RibbonPig extends Monster {
+public final class RibbonPig extends Monster {
 
 	private static final long serialVersionUID = 1L;
 

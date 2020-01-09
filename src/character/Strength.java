@@ -2,7 +2,11 @@ package character;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+/**
+ * 
+ * @author Leehwasub
+ *
+ */
 public class Strength implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Resistance resistance;
@@ -17,6 +21,20 @@ public class Strength implements Serializable {
 	private int evasionRate;
 	private int criticalRate;
 
+	/**
+	 * 
+	 * @param resistance 저항력
+	 * @param level 래벨
+	 * @param maxHp 최대체력
+	 * @param maxMp 최대마법력
+	 * @param physicalDamage 물리공격력
+	 * @param magicDamage 마법공격력
+	 * @param physicalDefense 물리방어력
+	 * @param magicDefense 마법방어력
+	 * @param accuracyRate 적중률
+	 * @param evasionRate 회피율
+	 * @param criticalRate 크리티컬확률
+	 */
 	public Strength(Resistance resistance, int level, int maxHp, int maxMp, int physicalDamage, int magicDamage,
 			int physicalDefense, int magicDefense, int accuracyRate, int evasionRate, int criticalRate) {
 		this.resistance = resistance;
@@ -32,6 +50,10 @@ public class Strength implements Serializable {
 		this.criticalRate = criticalRate;
 	}
 
+	/**
+	 * 
+	 * @return 
+	 */
 	public ArrayList<String> getStrengthItemInfor() {
 		ArrayList<String> ret = this.resistance.getResistenceItemInfor();
 		if (this.maxHp != 0) {
@@ -164,6 +186,10 @@ public class Strength implements Serializable {
 
 	public void addEvasionRate(int evasionRate) {
 		this.evasionRate += evasionRate;
+	}
+	
+	public void addCriticalRate(int criticalRate) {
+		this.criticalRate = criticalRate;
 	}
 
 	public void levelUp() {

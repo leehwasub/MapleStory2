@@ -9,7 +9,10 @@ import character.Strength;
 import component.StateBox;
 import hunt.Hunt;
 
-public class RedSnail extends Monster {
+public final class RedSnail extends Monster {
+
+	private static final long serialVersionUID = 1L;
+
 	public RedSnail() {
 		super("빨간달팽이", "redSnail", new Strength(new Resistance(100, 100, 100, 100, 100, 100), 3, 30, 10, 0, 0, 1, 0, 0, 0, 0), 10, 13, 0, 0,
 				6, 15, false);

@@ -9,7 +9,7 @@ import character.Strength;
 import component.StateBox;
 import hunt.Hunt;
 
-public class GreenMushroom extends Monster {
+public final class GreenMushroom extends Monster {
 
 	private static final long serialVersionUID = 1L;
 

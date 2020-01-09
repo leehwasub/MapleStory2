@@ -11,7 +11,25 @@ public class Resistance implements Serializable {
 	int thunder;
 	int dark;
 	int holy;
+	
+	public Resistance() {
+		this.fire = 0;
+		this.ice = 0;
+		this.posion = 0;
+		this.thunder = 0;
+		this.dark = 0;
+		this.holy = 0;
+	}
 
+	/**
+	 * 
+	 * @param fire 불 저항
+	 * @param ice 얼음 저항
+	 * @param posion 독 저항
+	 * @param thunder 번개 저항
+	 * @param dark 어둠 저항
+	 * @param holy 성 저항
+	 */
 	public Resistance(int fire, int ice, int posion, int thunder, int dark, int holy) {
 		this.fire = fire;
 		this.ice = ice;
