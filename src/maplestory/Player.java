@@ -43,7 +43,7 @@ public class Player implements Serializable {
 	private ArrayList<String> visitList = new ArrayList<String>();
 	private HashMap<String, Integer> killList = new HashMap<String, Integer>();
 	private ArrayList<UpdatedMapInfor> updatedMapList = new ArrayList<UpdatedMapInfor>();
-	private NpcList npcList = new NpcList();
+	private ArrayList<Npc> npcList = new ArrayList<Npc>();
 	private Npc curNpc;
 	private Quest quest;
 	private QuestProceed questProceed;
@@ -55,7 +55,7 @@ public class Player implements Serializable {
 	public static final int MOVE_DOWN = 3;
 
 	public Player(String name, String type) {
-		this._curMap = MapleMapList.getMap("초보자의숲1");
+		this._curMap = MapleMapList.getInstance().getMap("초보자의숲1");
 		this.mainAdventurer = AdventurerFactory.makeAdventurer(name, type);
 		this.inventory = new Inventory(this.mainAdventurer);
 	}
@@ -169,16 +169,20 @@ public class Player implements Serializable {
 		this.isConversation = isConversation;
 	}
 
-	public NpcList getNpcList() {
+	public ArrayList<Npc> getNpcList() {
 		return this.npcList;
 	}
 
-	public void setNpcList(NpcList npcList) {
+	public void setNpcList(ArrayList<Npc> npcList) {
 		this.npcList = npcList;
+	}
+	
+	public void addNpcList(Npc npc) {
+		this.npcList.add(npc);
 	}
 
 	public void initCurNpc(PointMapName pointMapName) {
-		this.curNpc = this.npcList.getNpc(pointMapName);
+		this.curNpc = NpcList.getInstance().getNpc(pointMapName);
 	}
 
 	public Npc getCurNpc() {

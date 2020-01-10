@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import item.ConsumableItem;
 import item.EquipmentItem;
 import item.MaterialItem;
+import map.MapleMapList;
 import npc.Npc;
 import npc.NpcList;
 
@@ -74,7 +75,7 @@ public class SaveLoad {
 				player = (Player) ois.readObject();
 				ois.close();
 				if(player != null) {
-					initImage(player);
+					initImageForLoad(player);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -83,11 +84,11 @@ public class SaveLoad {
 		return player;
 	}
 
-	private static void initImage(Player player) {
+	private static void initImageForLoad(Player player) {
 		Inventory inven = player.getInventory();
 		ArrayList<EquipmentItem> eqipmentInven = inven.getEquipmentInventory();
 		for (int i = 0; i < eqipmentInven.size(); i++) {
-			((EquipmentItem) eqipmentInven.get(i)).setImageWithInstanceForInit();
+			((EquipmentItem) eqipmentInven.get(i)).setImageWithTypeForInit();
 		}
 		ArrayList<ConsumableItem> consumableInven = inven.getConsumableInventory();
 		for (int i = 0; i < consumableInven.size(); i++) {
@@ -97,10 +98,11 @@ public class SaveLoad {
 		for (int i = 0; i < materialInven.size(); i++) {
 			((MaterialItem) materialInven.get(i)).setImageWithInstanceForInit();
 		}
-		NpcList npcList = player.getNpcList();
-		ArrayList<Npc> npcs = npcList.getNpcListArray();
-		for (int i = 0; i < npcs.size(); i++) {
-			((Npc) npcs.get(i)).setImageForInit();
+		EquipmentItem[] wearEqipmentArray = player.getMainAdventurer().getWearEquipment();
+		for(int i = 0; i < wearEqipmentArray.length; i++) {
+			if(wearEqipmentArray[i] != null) {
+				((EquipmentItem) wearEqipmentArray[i]).setImageWithTypeForInit();
+			}
 		}
 		player.getMainAdventurer().setImageWithInstanceForInit();
 		player.get_curMap().MapleMapBackgroundInit();

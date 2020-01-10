@@ -5,17 +5,32 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import maplestory.Player;
 import utils.FileLoader;
 
 public class MapleMapList {
-	private static ArrayList<MapleMap> maps = new ArrayList<MapleMap>();
+	private ArrayList<MapleMap> maps = new ArrayList<MapleMap>();
+	
+	private static MapleMapList instance;
+	
 
-	static {
+	private MapleMapList() {
 		initMap();
-		makeEdge();
+	}
+	
+	public static MapleMapList getInstance() {
+		if(instance == null) {
+			instance = new MapleMapList();
+		}
+		return instance;
+	}
+	
+	public void reload() {
+		initMap();
 	}
 
-	private static void initMap() {
+	private void initMap() {
+		maps.clear();
 		ArrayList<String> mapNameList = null;
 		try {
 			mapNameList = FileLoader.getFileList("mapText");
@@ -52,14 +67,22 @@ public class MapleMapList {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		makeEdge();
 	}
 	
-	public static void updateMap(UpdatedMapInfor infor) {
+	private void updateMap(UpdatedMapInfor infor) {
 		PointMapName p = infor.getPointMapName();
 		getMap(p.getMapName()).setMap(p.getX(), p.getY(), infor.getAfterState());
 	}
+	
+	public void loadMap(Player player) {
+		ArrayList<UpdatedMapInfor> updatedMapInforList = player.getUpdatedMapList();
+		for(int i = 0; i < updatedMapInforList.size(); i++) {
+			updateMap(updatedMapInforList.get(i));
+		}
+	}
 
-	private static void makeEdge() {
+	private void makeEdge() {
 		getMap("초보자의숲1").addPortal(new Portal(new PointMapName(4, 9, "초보자의숲1"), new PointMapName(4, 0, "초보자의숲2")));
 		getMap("초보자의숲2").addPortal(new Portal(new PointMapName(4, 0, "초보자의숲2"), new PointMapName(4, 9, "초보자의숲1")));
 		getMap("초보자의숲2").addPortal(new Portal(new PointMapName(6, 14, "초보자의숲2"), new PointMapName(4, 0, "암허스트")));
@@ -71,7 +94,7 @@ public class MapleMapList {
 		getMap("사우스페리").addPortal(new Portal(new PointMapName(2, 0, "사우스페리"), new PointMapName(5, 14, "달팽이의숲")));
 	}
 
-	public static MapleMap getMap(String mapName) {
+	public MapleMap getMap(String mapName) {
 		for (int i = 0; i < maps.size(); i++) {
 			if (((MapleMap) maps.get(i)).getName().equals(mapName)) {
 				return (MapleMap) maps.get(i);
@@ -79,4 +102,6 @@ public class MapleMapList {
 		}
 		return null;
 	}
+	
+	
 }

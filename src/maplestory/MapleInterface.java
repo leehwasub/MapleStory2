@@ -2,5 +2,8 @@ package maplestory;
 
 public interface MapleInterface {
 	public void startEnd();
-	public void newStart(Player paramPlayer);
+	public void newStart(Player player);
+	public void toLoadPage();
+	public void fromLoadPageToStartPage();
+	public void dataLoad(Player player);
 }

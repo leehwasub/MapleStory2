@@ -58,7 +58,7 @@ public class StartPanel extends JPanel {
 		this.loadButton.setBounds(490, 390, 300, 75);
 		this.loadButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
-				System.out.println("����!!");
+				mapleInterface.toLoadPage();
 			}
 		});
 		add(this.loadButton);
@@ -66,7 +66,12 @@ public class StartPanel extends JPanel {
 		this.exitButton.setBounds(490, 480, 300, 75);
 		this.exitButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
-				System.out.println("����!!");
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
+				System.exit(0);
 			}
 		});
 		add(this.exitButton);

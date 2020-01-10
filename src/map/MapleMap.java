@@ -216,15 +216,15 @@ public class MapleMap implements Serializable {
 			PointMapName nextMapInfor = portal.getNextMapInfor();
 			PointMapName playerMapInfor = player.getPlayerPointMapName();
 			if (currentMapInfor.equals(playerMapInfor)) {
-				MapleMap curMap = MapleMapList.getMap(currentMapInfor.getMapName());
-				MapleMap nextMap = MapleMapList.getMap(nextMapInfor.getMapName());
+				MapleMap curMap = MapleMapList.getInstance().getMap(currentMapInfor.getMapName());
+				MapleMap nextMap = MapleMapList.getInstance().getMap(nextMapInfor.getMapName());
 				if (!curMap.getMusic().equals(nextMap.getMusic())) {
 					MusicUtils.changeMusic(nextMap.getMusic());
 				}
 				if (!curMap.getBackground().equals(nextMap.getBackground())) {
 					mainMapleInterface.changeBackground(nextMap.getBackground());
 				}
-				player.set_curMap(MapleMapList.getMap(nextMapInfor.getMapName()));
+				player.set_curMap(MapleMapList.getInstance().getMap(nextMapInfor.getMapName()));
 				player.setCurX(nextMapInfor.getX());
 				player.setCurY(nextMapInfor.getY());
 				calLoc(player, nextMap);

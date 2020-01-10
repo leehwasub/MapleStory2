@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import item.Item;
 import maplestory.Player;
+import npc.NpcList;
 
 public class QuestReward implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -22,7 +23,7 @@ public class QuestReward implements Serializable {
 		}
 		for (int i = 0; i < this.questNpcProceedList.size(); i++) {
 			QuestNpcProceed q = (QuestNpcProceed) this.questNpcProceedList.get(i);
-			player.getNpcList().getNpcWithName(q.getNpcName()).setProcess(q.getNpcProceed());
+			NpcList.getInstance().getNpcWithName(q.getNpcName()).setProcess(q.getNpcProceed());
 		}
 	}
 

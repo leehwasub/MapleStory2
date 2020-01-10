@@ -163,4 +163,21 @@ public abstract class Npc implements Serializable {
 	public void setTalkList(ArrayList<Talk> talkList) {
 		this.talkList = talkList;
 	}
+
+	public int getQuestNum() {
+		return questNum;
+	}
+
+	public int getClearNum() {
+		return clearNum;
+	}
+
+	public void setQuestNum(int questNum) {
+		this.questNum = questNum;
+	}
+
+	public void setClearNum(int clearNum) {
+		this.clearNum = clearNum;
+	}
+	
 }
