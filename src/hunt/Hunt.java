@@ -20,7 +20,6 @@ import attackImage.SkillImage;
 import character.Adventurer;
 import character.Character;
 import character.Monster;
-import component.HuntQuickButtons;
 import component.MapleButton;
 import component.StateBox;
 import maplestory.MainMapleInterface;
@@ -51,7 +50,6 @@ public class Hunt extends Thread {
 	private Attack monsterAttack;
 	private Attack playerAttack;
 	private MouseListener m;
-	private HuntQuickButtons quickButtons;
 	private ArrayList<SkillImage> skillImageList = new ArrayList<SkillImage>();
 
 	public Hunt(Player player, JPanel panel, MainMapleInterface mainMapleInterface, Adventurer adventurer, Monster monster) {
@@ -59,7 +57,6 @@ public class Hunt extends Thread {
 		this.panel = panel;
 		this.mInterface = mainMapleInterface;
 		this.player = player;
-		this.quickButtons = HuntQuickButtons.getInstance(panel);
 		
 		StateBox stateBoxAdventurer = new StateBox(40, StateBox.STATE_BOX_Y[1], adventurer, 0, panel);
 		this.adventurerState = stateBoxAdventurer;
@@ -70,7 +67,7 @@ public class Hunt extends Thread {
 		this.monsterState = stateBoxMonster;
 		this.turnQueue.add(stateBoxMonster);
 
-		this.quickButtons.loadAdventurers(this.adventurerState);
+		mainMapleInterface.loadStateBoxOnQuickButton(stateBoxAdventurer);
 		setVisibleTrueComponent();
 
 		this.attackButton.setBounds(20, 20, 120, 40);
@@ -93,9 +90,11 @@ public class Hunt extends Thread {
 		if (!this.isEnd) {
 			adventurerState.draw(g, panel);
 			monsterState.draw(g, panel);
+			/*
 			if (this.quickButtons.isVisible()) {
 				this.quickButtons.draw(g);
 			}
+			*/
 			if (this.skillImageList != null) {
 				for (int i = this.skillImageList.size() - 1; i >= 0; i--) {
 					System.out.println(((SkillImage) this.skillImageList.get(i)).isAlive());
@@ -159,15 +158,13 @@ public class Hunt extends Thread {
 				this.mInterface.pushMessage(new Message(this.monsterAttack.attackInfor(), Color.CYAN, true));
 			} else if ((character instanceof Adventurer)) {
 
-				this.quickButtons.setCanUsePortion(true);
+				player.setCanUsePortion(true);
 				((Adventurer) this.nowStateBox.getCharacter()).calState();
 
 				this.attackButton.setVisible(true);
 				this.runButton.setVisible(true);
 
 				waitForAttack();
-
-				this.quickButtons.setVisibleFalseComponent();
 
 				this.playerAttack.start();
 
@@ -176,7 +173,6 @@ public class Hunt extends Thread {
 			}
 		}
 		
-		this.quickButtons.setCanUsePortion(false);
 		this.isEnd = true;
 		String getItemInfor = null;
 		if (this.winFlag) {

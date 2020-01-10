@@ -4,7 +4,6 @@ import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
@@ -15,9 +14,9 @@ import component.MapleButton;
 import utils.FontUtils;
 import utils.ResourceLoader;
 
-public class KeySelectDialog extends JDialog {
+public class ItemKeySelectDialog extends JDialog {
 	private static final long serialVersionUID = 1L;
-	private static final int DIALOG_WIDTH = 350;
+	private static final int DIALOG_WIDTH = 420;
 	private static final int DIALOG_HEIGHT = 200;
 	private ImageIcon quickQButtonBasicImage = new ImageIcon(
 			ResourceLoader.getImage("componentImage", "quickQButtonBasic.png"));
@@ -35,19 +34,21 @@ public class KeySelectDialog extends JDialog {
 			ResourceLoader.getImage("componentImage", "quickRButtonBasic.png"));
 	private ImageIcon quickRButtonEnteredImage = new ImageIcon(
 			ResourceLoader.getImage("componentImage", "quickRButtonEntered.png"));
-	private int calWidth;
+	private ImageIcon quickTButtonBasicImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickTButtonBasic.png"));
+	private ImageIcon quickTButtonEnteredImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickTButtonEntered.png"));
 	private FontMetrics fm;
-	private ArrayList<Adventurer> adventurers = new ArrayList<>();
-	private MapleButton[] button = new MapleButton[4];
-	private ImageIcon[] basicIcon = { this.quickQButtonBasicImage, this.quickWButtonBasicImage,
-			this.quickEButtonBasicImage, this.quickRButtonBasicImage };
-	private ImageIcon[] enteredIcon = { this.quickQButtonEnteredImage, this.quickWButtonEnteredImage,
-			this.quickEButtonEnteredImage, this.quickRButtonEnteredImage };
+	private MapleButton[] button = new MapleButton[Adventurer.QUICK_ITEM_ARRAY_SIZE];
+	private ImageIcon[] basicIcon = { quickQButtonBasicImage, quickWButtonBasicImage,
+			quickEButtonBasicImage, quickRButtonBasicImage,  quickTButtonBasicImage};
+	private ImageIcon[] enteredIcon = { quickQButtonEnteredImage, quickWButtonEnteredImage,
+			quickEButtonEnteredImage, quickRButtonEnteredImage,  quickTButtonEnteredImage};
 	private int returnIndex = -1;
 
-	public KeySelectDialog() {
+	public ItemKeySelectDialog() {
 		setTitle("key select");
-		setSize(350, 200);
+		setSize(DIALOG_WIDTH, DIALOG_HEIGHT);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setModal(true);
@@ -57,16 +58,16 @@ public class KeySelectDialog extends JDialog {
 		int height = this.fm.getHeight();
 		JLabel label = new JLabel("키를 선택해주세요.");
 		label.setFont(FontUtils.generalFont);
-		label.setBounds((350 - width) / 2, 10, width, height);
+		label.setBounds((420 - width) / 2, 10, width, height);
 		getContentPane().add(label);
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < Adventurer.QUICK_ITEM_ARRAY_SIZE; i++) {
 			final int index = i;
 			this.button[i] = new MapleButton(this.basicIcon[i], this.enteredIcon[i]);
 			this.button[i].setBounds(40 + 70 * i, 60, 50, 50);
 			this.button[i].addMouseListener(new MouseAdapter() {
 				public void mousePressed(MouseEvent e) {
-					KeySelectDialog.this.returnIndex = index;
-					KeySelectDialog.this.end();
+					returnIndex = index;
+					end();
 				}
 			});
 			getContentPane().add(this.button[i]);

@@ -1,34 +1,24 @@
 package dialog;
 
-import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
-import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
-import javax.swing.ListModel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
-import character.Adventurer;
 import component.MapleButton;
-import item.Item;
-import item.ItemPool;
 import maplestory.Player;
 import maplestory.SaveLoad;
 import npc.NpcList;
-import panel.StorePanel;
 import renderer.PlayerRenderer;
 import utils.FontUtils;
-import utils.InputValidUtils;
 import utils.ResourceLoader;
 
 public class SaveDialog extends JDialog {
@@ -80,17 +70,6 @@ public class SaveDialog extends JDialog {
 
 			public void mouseExited(MouseEvent e) {
 				
-			}
-		});
-		this.jList.addMouseMotionListener(new MouseMotionAdapter() {
-			public void mouseMoved(MouseEvent e) {
-				JList<Item> l = (JList) e.getSource();
-				ListModel<Item> m = l.getModel();
-				if (m.getSize() == 0) {
-					return;
-				}
-				int index = l.locationToIndex(e.getPoint());
-				JScrollBar b = scrollPane.getVerticalScrollBar();
 			}
 		});
 		this.jList.setBounds(20, 20, 460, 530);

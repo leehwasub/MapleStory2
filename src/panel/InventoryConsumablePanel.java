@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import component.HuntQuickButtons;
-import dialog.KeySelectDialog;
+import dialog.ItemKeySelectDialog;
 import item.ConsumableItem;
 import item.Item;
 import item.ItemButton;
+import maplestory.MainMapleInterface;
 import maplestory.Player;
 import utils.FontUtils;
 import utils.ResourceLoader;
@@ -26,8 +26,11 @@ public class InventoryConsumablePanel extends JPanel {
 	private Player player;
 	private ImageIcon inventoryItemSpaceButtonImage = new ImageIcon(
 			ResourceLoader.getImage("componentImage", "inventoryItemSpaceButton.png"));
+	
+	private MainMapleInterface mainMapleInterface;
 
-	public InventoryConsumablePanel(Player player) {
+	public InventoryConsumablePanel(Player player, MainMapleInterface mainMapleInterface) {
+		this.mainMapleInterface = mainMapleInterface;
 		this.player = player;
 		setLayout(null);
 		setBackground(new Color(0, 0, 0, 0));
@@ -77,56 +80,18 @@ public class InventoryConsumablePanel extends JPanel {
 		}
 		this.player.registQuickItem(index, keyIndex);
 		setConsumableItemImage();
-		if (HuntQuickButtons.getInstance() != null) {
-			HuntQuickButtons.getInstance().setQuickItemImage();
-		}
+		mainMapleInterface.setQuickItemImage();
 		for (int i = 0; i < 50; i++) {
 			this.inventoryItemSpace[i].setVisible(true);
 		}
 	}
 
 	public int getKeySelectWithDialog() {
-		KeySelectDialog dialog = new KeySelectDialog();
+		ItemKeySelectDialog dialog = new ItemKeySelectDialog();
 		dialog.setVisible(true);
 		int getIndex = dialog.getReturnIndex();
 		dialog.dispose();
 		return getIndex;
-	}
-
-	private void setNearInventoryItemVisibleTrue(int a) {
-
-		for (int i = 0; i < 4; i++) {
-			int b = a + i * 10;
-			if (b < 50) {
-				this.inventoryItemSpace[b].setVisible(true);
-			}
-		}
-		if (a % 10 != 9) {
-			for (int i = 0; i < 4; i++) {
-				int b = a + i * 10 + 1;
-				if (b < 50) {
-					this.inventoryItemSpace[b].setVisible(true);
-				}
-			}
-		}
-	}
-
-	private void setNearInventoryItemVisibleFalse(int a) {
-
-		for (int i = 0; i < 4; i++) {
-			int b = a + i * 10;
-			if (b < 50) {
-				this.inventoryItemSpace[b].setVisible(false);
-			}
-		}
-		if (a % 10 != 9) {
-			for (int i = 0; i < 4; i++) {
-				int b = a + i * 10 + 1;
-				if (b < 50) {
-					this.inventoryItemSpace[b].setVisible(false);
-				}
-			}
-		}
 	}
 
 	protected void paintComponent(Graphics g) {
@@ -143,11 +108,7 @@ public class InventoryConsumablePanel extends JPanel {
 			int x = this.inventoryItemSpace[i].getLocation().x + 5;
 			int y = this.inventoryItemSpace[i].getLocation().y - 5;
 			g.drawString("X" + ((ConsumableItem) consumableInventory.get(i)).getNum(), x, y);
-			if (this.inventoryItemSpace[i].drawInfor(g)) {
-				setNearInventoryItemVisibleFalse(i);
-				break;
-			}
-			setNearInventoryItemVisibleTrue(i);
+			this.inventoryItemSpace[i].drawInfor(g);
 		}
 	}
 

@@ -13,9 +13,11 @@ import utils.NewbieStateUtils;
 
 public class Adventurer extends Character implements Serializable {
 	private static final long serialVersionUID = 1L;
+	public static final int QUICK_ITEM_ARRAY_SIZE = 5;
+	public static final int QUICK_SKILL_ARRAY_SIZE = 5;
 	private EquipmentItem[] wearEquipment = new EquipmentItem[8];
-	private Skill[] quickSkill = new Skill[4];
-	private ConsumableItem[] quickItem = new ConsumableItem[4];
+	private Skill[] quickSkill = new Skill[QUICK_SKILL_ARRAY_SIZE];
+	private ConsumableItem[] quickItem = new ConsumableItem[QUICK_ITEM_ARRAY_SIZE];
 	private ArrayList<Skill> oneLevelSkillList = new ArrayList<Skill>();
 	private ArrayList<Skill> twoLevelSkillList = new ArrayList<Skill>();
 	private ArrayList<Skill> threeLevelSkillList = new ArrayList<Skill>();
@@ -101,6 +103,15 @@ public class Adventurer extends Character implements Serializable {
 			return false;
 		}
 		setQuickItemByIndex(keyIndex, null);
+		calState();
+		return true;
+	}
+	
+	public boolean removeQuickSkill(int keyIndex) {
+		if (getQuickSkillByIndex(keyIndex) == null) {
+			return false;
+		}
+		setQuickSkillByIndex(keyIndex, null);
 		calState();
 		return true;
 	}

@@ -3,6 +3,7 @@ package maplestory;
 import java.awt.Image;
 
 import attack.DamageText;
+import component.StateBox;
 
 public interface MainMapleInterface {
 	public void myRepaint();
@@ -12,4 +13,6 @@ public interface MainMapleInterface {
 	public void endHunt();
 	public void updateMainStateBar();
 	public void toMainMenu();
+	public void loadStateBoxOnQuickButton(StateBox statebox);
+	public void setQuickItemImage();
 }

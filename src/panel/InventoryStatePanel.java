@@ -37,8 +37,8 @@ public class InventoryStatePanel extends JPanel {
 			ResourceLoader.getImage("componentImage", "stateUpButtonEntered.png"));
 	private MapleButton[] stateUpButton = new MapleButton[4];
 	private ItemButton[] inventoryMyInfoButton = new ItemButton[8];
-	private QuickItemButton[] quickItemButton = new QuickItemButton[4];
-	private MapleButton[] quickCancelButton = new MapleButton[4];
+	private QuickItemButton[] quickItemButton = new QuickItemButton[Adventurer.QUICK_ITEM_ARRAY_SIZE];
+	private MapleButton[] quickCancelButton = new MapleButton[Adventurer.QUICK_ITEM_ARRAY_SIZE];
 	private Player player;
 
 	public InventoryStatePanel(Player player) {
@@ -178,7 +178,7 @@ public class InventoryStatePanel extends JPanel {
 			for (int i = 0; i < quickItemArray.length; i++) {
 				int x = this.quickItemButton[i].getLocation().x + 5;
 				int y = this.quickItemButton[i].getLocation().y - 5;
-				if (quickItemArray[i] != null) {
+				if (quickItemArray[i] != null && quickItemArray[i].getNum() != 0) {
 					g.drawString("X" + quickItemArray[i].getNum(), x, y);
 				}
 			}
@@ -215,7 +215,7 @@ public class InventoryStatePanel extends JPanel {
 	}
 
 	private void makeQuickItemSpace() {
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < Adventurer.QUICK_ITEM_ARRAY_SIZE; i++) {
 			final int index = i;
 			this.quickItemButton[i] = new QuickItemButton(this.quickItemButtonImage);
 			this.quickItemButton[i].setBounds(235 + i * 60, 330, 50, 50);
@@ -238,7 +238,7 @@ public class InventoryStatePanel extends JPanel {
 	}
 
 	private void makeQuickCancelSpace() {
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < Adventurer.QUICK_ITEM_ARRAY_SIZE; i++) {
 			final int keyIndex = i;
 			this.quickCancelButton[i] = new MapleButton(this.quickCancelBasicImage, this.quickCancelEnteredImage);
 			this.quickCancelButton[i].setBounds(240 + i * 60, 385, 40, 20);
@@ -263,8 +263,9 @@ public class InventoryStatePanel extends JPanel {
 	}
 
 	public void setQuickItemImage() {
-		for (int i = 0; i < 4; i++) {
-			if (this.player.getPlayerQuickItemByIndex(i) != null) {
+		for (int i = 0; i < Adventurer.QUICK_ITEM_ARRAY_SIZE; i++) {
+			ConsumableItem item = this.player.getPlayerQuickItemByIndex(i);
+			if (item != null && item.getNum() != 0) {
 				this.quickItemButton[i].setItem(this.player.getPlayerQuickItemByIndex(i));
 			} else {
 				this.quickItemButton[i].setItem(null);

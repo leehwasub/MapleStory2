@@ -21,6 +21,7 @@ import component.MapleExpBar;
 import component.MapleHpBar;
 import component.MapleIsland;
 import component.MapleMpBar;
+import component.StateBox;
 import hunt.Hunt;
 import map.MapleMap;
 import map.PointMapName;
@@ -102,6 +103,8 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	private Hunt hunt;
 	private StoreInventoryPanel storeInventory;
 	private StorePanel store;
+	
+	private QuickButtonPanel quickButtonPanel;
 
 	public MainPanel(MapleInterface mapleInterface, final Player player) {
 		setLayout(null);
@@ -277,7 +280,13 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		this.store = new StorePanel(new MapleIslandShop(), player);
 		this.store.setBounds(170, 100, 860, 630);
 		this.store.setVisible(false);
-		add(this.store);
+		add(store);
+		
+		quickButtonPanel = new QuickButtonPanel(player, this, this);
+		quickButtonPanel.setBounds(0, 450, 1280, 120);
+		add(quickButtonPanel);
+		
+		player.setCanUsePortion(true);
 	}
 
 	public void moveEvent() {
@@ -536,6 +545,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		player.setHunt(false);
 		messageList.clearMessage();
 		player.allSetAlive();
+		player.setCanUsePortion(true);
 	}
 
 	public void pushMessage(Message message) {
@@ -551,5 +561,15 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	@Override
 	public void toMainMenu() {
 		mapleInterface.toMainMenu();
+	}
+
+	@Override
+	public void loadStateBoxOnQuickButton(StateBox stateBox) {
+		quickButtonPanel.loadStateBox(stateBox);
+	}
+
+	@Override
+	public void setQuickItemImage() {
+		quickButtonPanel.setQuickItemImage();
 	}
 }

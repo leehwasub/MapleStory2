@@ -40,6 +40,7 @@ public class Player implements Serializable {
 	private boolean isConversation;
 	private boolean isCanEndConversation;
 	private boolean isCanSave;
+	private boolean isCanUsePortion;
 	private ArrayList<String> visitList = new ArrayList<String>();
 	private HashMap<String, Integer> killList = new HashMap<String, Integer>();
 	private ArrayList<UpdatedMapInfor> updatedMapList = new ArrayList<UpdatedMapInfor>();
@@ -608,6 +609,14 @@ public class Player implements Serializable {
 
 	public void setUpdatedMapList(ArrayList<UpdatedMapInfor> updatedMapList) {
 		this.updatedMapList = updatedMapList;
+	}
+
+	public boolean isCanUsePortion() {
+		return isCanUsePortion;
+	}
+
+	public void setCanUsePortion(boolean isCanUsePortion) {
+		this.isCanUsePortion = isCanUsePortion;
 	}
 	
 }

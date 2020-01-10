@@ -98,7 +98,7 @@ public class InventoryMainPanel extends JPanel {
 		this.inventoryEquipmentPanel.setBounds(50, 98, 1120, 440);
 		add(this.inventoryEquipmentPanel);
 
-		this.inventoryConsumablePanel = new InventoryConsumablePanel(player);
+		this.inventoryConsumablePanel = new InventoryConsumablePanel(player, mainMapleInterface);
 		this.inventoryConsumablePanel.setBounds(50, 98, 1120, 440);
 		add(this.inventoryConsumablePanel);
 
