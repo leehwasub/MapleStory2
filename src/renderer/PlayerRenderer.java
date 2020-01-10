@@ -27,7 +27,8 @@ public class PlayerRenderer extends DefaultListCellRenderer implements ListCellR
 			if(q != null) {
 				st = (q.getChapter() == 0 ? "Tutorial" : q.getChapter()) + " - " + q.getQuestId() + " : " + q.getTitle();
 			}
-			setText("<html><font color=#0080FF>" + player.getMainAdventurer().getName() + "<font><br>"
+			setText("<html><font color=#0080FF>Lv."+player.getMainAdventurer().getStrength().getLevel()
+					+"&nbsp;&nbsp;</font><font color=black>" + player.getMainAdventurer().getName() + "<font><br>"
 					+ "<font color=orange>" + player.getMainAdventurer().getCareer() + "</font><br>"
 					+ "<font color=gray>" + player.get_curMap().getIsland() +"-" + player.get_curMap().getName() +"</font><br>"
 					+ "<font color=navy>" + st +"</font></html>");

@@ -14,7 +14,7 @@ public final class BlueSnail extends Monster {
 	private static final long serialVersionUID = 1L;
 
 	public BlueSnail() {
-		super("빨간달팽이", "blueSnail",
+		super("파란달팽이", "blueSnail",
 				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 1, 15, 2, 8, 0, 0, 0, 0, 0, 0), 7, 10, 0, 0, 3,
 				10, false);
 		initSkillList();

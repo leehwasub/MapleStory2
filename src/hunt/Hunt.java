@@ -22,6 +22,7 @@ import character.Character;
 import character.Monster;
 import component.MapleButton;
 import component.StateBox;
+import map.WarpMapBossRoom;
 import maplestory.MainMapleInterface;
 import maplestory.Message;
 import maplestory.Player;
@@ -256,6 +257,12 @@ public class Hunt extends Thread {
 		if (!this.winFlag) {
 			adventurerState.getCharacter().setCurHp(1);
 			adventurerState.getCharacter().setCurMp(1);
+		}
+		if(monster.isBoss()) {
+			this.player.get_curMap().warp(player, WarpMapBossRoom.warpMapBossRoom(monster.getName()), mInterface);
+			if(winFlag) {
+				WarpMapBossRoom.closeMapAfterClear(player, monster.getName());
+			}
 		}
 		adventurerState.barSetVisibleFalse();
 		adventurerState.removeFromPanel(this.panel);

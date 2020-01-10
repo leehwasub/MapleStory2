@@ -30,4 +30,9 @@ public class UpdatedMapInfor implements Serializable{
 		this.afterState = afterState;
 	}
 
+	@Override
+	public String toString() {
+		return "UpdatedMapInfor [pointMapName=" + pointMapName + ", afterState=" + afterState + "]";
+	}
+
 }

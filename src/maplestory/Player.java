@@ -133,12 +133,12 @@ public class Player implements Serializable {
 		this.visitList.add(visit);
 	}
 
-	private void addKillList(String monsterName) {
+	public void addKillList(String monsterName) {
 		if (this.killList.containsKey(monsterName)) {
-			int num = ((Integer) this.killList.get(monsterName)).intValue();
-			this.killList.put(monsterName, Integer.valueOf(num + 1));
+			int num = this.killList.get(monsterName);
+			this.killList.put(monsterName, num + 1);
 		} else {
-			this.killList.put(monsterName, Integer.valueOf(1));
+			this.killList.put(monsterName, 1);
 		}
 	}
 
@@ -146,7 +146,7 @@ public class Player implements Serializable {
 		if (this.killList.get(monsterName) == null) {
 			return 0;
 		}
-		int getNum = ((Integer) this.killList.get(monsterName)).intValue();
+		int getNum = this.killList.get(monsterName);
 		return getNum;
 	}
 
@@ -154,7 +154,7 @@ public class Player implements Serializable {
 		if (this.killList.get(monsterName) == null) {
 			return false;
 		}
-		int getNum = ((Integer) this.killList.get(monsterName)).intValue();
+		int getNum = this.killList.get(monsterName);
 		return getNum >= num;
 	}
 
@@ -277,15 +277,16 @@ public class Player implements Serializable {
 		if (!this.isCanMove) {
 			return;
 		}
-		int maxX = get_curMap().getMaxX();
-		int maxY = get_curMap().getMaxY();
+		MapleMap curMap = MapleMapList.getInstance().getMap(get_curMap().getName());
+		int maxX = curMap.getMaxX();
+		int maxY = curMap.getMaxY();
 		for (int i = 0; i < 4; i++) {
 			if (dir == i) {
 				int xx = dx[i] + this._curX;
 				int yy = dy[i] + this._curY;
 				if ((xx >= 0) && (yy >= 0) && (xx < maxX) && (yy < maxY)) {
-					int state = get_curMap().getMap(xx, yy);
-					Point basePoint = get_curMap().getBasePoint();
+					int state = curMap.getMap(xx, yy);
+					Point basePoint = curMap.getBasePoint();
 					if (state != 1) {
 						this._curX = xx;
 						this._curY = yy;
@@ -615,6 +616,7 @@ public class Player implements Serializable {
 
 	public void addUpdatedMap(UpdatedMapInfor infor) {
 		PointMapName p = infor.getPointMapName();
+		System.out.println(infor);
 		MapleMapList.getInstance().getMap(p.getMapName()).setMap(p.getX(), p.getY(), infor.getAfterState());
 		updatedMapList.add(infor);
 	}

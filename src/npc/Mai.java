@@ -46,6 +46,7 @@ public class Mai extends Npc implements Serializable {
 							.addQuestKill("마노", 1).setRewardExp(100)
 							.setRewardMoney(300).addRewardItem(itemName, 1)
 							.setPlayerQuestProceed(QuestProceed.MAI_QUEST_4);
+			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(14, 6, "달팽이의숲"), MapleMap.MAP_PORTAL_STATE));
 		}
 		player.setQuest(quest);
 	}

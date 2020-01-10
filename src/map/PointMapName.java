@@ -65,4 +65,10 @@ public class PointMapName implements Serializable {
 		}
 		return false;
 	}
+
+	@Override
+	public String toString() {
+		return "PointMapName [x=" + x + ", y=" + y + ", mapName=" + mapName + "]";
+	}
+	
 }

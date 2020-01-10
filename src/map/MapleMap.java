@@ -208,6 +208,22 @@ public class MapleMap implements Serializable {
 			}
 		}
 	}
+	
+	public void warp(Player player, PointMapName nextP, MainMapleInterface mainMapleInterface) {
+		MapleMap curMap = MapleMapList.getInstance().getMap(player.get_curMap().getName());
+		MapleMap nextMap = MapleMapList.getInstance().getMap(nextP.getMapName());
+		if (!curMap.getMusic().equals(nextMap.getMusic())) {
+			MusicUtils.changeMusic(nextMap.getMusic());
+		}
+		if (!curMap.getBackground().equals(nextMap.getBackground())) {
+			mainMapleInterface.changeBackground(nextMap.getBackground());
+		}
+		player.set_curMap(nextMap);
+		player.setCurX(nextP.getX());
+		player.setCurY(nextP.getY());
+		calLoc(player, nextMap);
+		mainMapleInterface.myRepaint();
+	}
 
 	public void moveOtherMap(Player player, MainMapleInterface mainMapleInterface) {
 		for (int i = 0; i < this.portalList.size(); i++) {
@@ -364,8 +380,15 @@ public class MapleMap implements Serializable {
 		this.basePoint.setY(y);
 	}
 
+
+	public void setBasePointXY(int x, int y) {
+		this.basePoint.setX(x);
+		this.basePoint.setY(y);
+	}
+	
 	public String toString() {
 		return "MapleMap [name=" + this.name + ", _island=" + this.island + ", maxX=" + this.maxX + ", maxY="
 				+ this.maxY + ", music=" + this.music + ", background=" + this.background + "]";
 	}
+	
 }

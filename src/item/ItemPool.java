@@ -8,7 +8,7 @@ import character.Strength;
 
 public class ItemPool {
 	private static HashMap<String, Item> items = new HashMap<String, Item>();
-	private static int[] startPrice = {250, 250, 350, 200, 200, 150, 150};
+	private static int[] startPrice = {140, 140, 170, 130, 130, 110, 110};
 	private static int[][] priceTable = new int[7][20];
 	//상의, 하의, 무기, 방패, 핼멧, 신발, 장갑
 	

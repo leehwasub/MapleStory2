@@ -22,6 +22,7 @@ import javax.swing.border.EmptyBorder;
 import component.MapleButton;
 import dialog.SaveDialog;
 import item.Item;
+import map.MapleMap;
 import map.MapleMapList;
 import maplestory.MapleInterface;
 import maplestory.Player;
@@ -68,6 +69,9 @@ public class LoadPanel extends JPanel {
 						MapleMapList.getInstance().loadMap(player);
 						NpcList.getInstance().loadNpcData(player);
 						mapleInterface.dataLoad(player);
+						MapleMap mapleMap = MapleMapList.getInstance().getMap(player.get_curMap().getName());
+						mapleMap.setBasePoint(player.get_curMap().getBasePoint());
+						player.set_curMap(mapleMap);
 					}
 				} 
 			}

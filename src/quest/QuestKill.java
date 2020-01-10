@@ -33,7 +33,6 @@ public class QuestKill extends QuestCondition implements Serializable {
 	}
 
 	public boolean checkClear(Player player) {
-		System.out.println(player.isKilledEnough(this.monsterName, this.num));
 		return player.isKilledEnough(this.monsterName, this.num);
 	}
 
