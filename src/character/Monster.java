@@ -30,6 +30,11 @@ public abstract class Monster extends Character {
 		this.isBoss = isBoss;
 	}
 	
+	@Override
+	public void calState() {
+		
+	}
+	
 	public abstract void initSkillList();
 
 	public final Attack attack(Hunt hunt, StateBox attacker, StateBox opponent) {
@@ -37,7 +42,7 @@ public abstract class Monster extends Character {
 		for(int i = 0; i < skillList.size(); i++) {
 			MonsterSkillInfor infor = skillList.get(i);
 			if(infor.getPercentSt() <= percent && percent <= infor.getPercentEd() && curHp <= infor.getUnderHpCondition()) {
-				Attack attack = AttackFactory.makeMonsterAttack(hunt, attacker, opponent, infor.getSkillName(), 0);
+				Attack attack = AttackFactory.makeMonsterAttack(hunt, attacker, opponent, infor.getSkillName(), infor.getSkillPoint());
 				if(attack.calNeedMp() <= curMp) {
 					return attack;
 				}

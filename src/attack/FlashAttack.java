@@ -8,9 +8,9 @@ import component.StateBox;
 import hunt.Hunt;
 import utils.MusicUtils;
 
-public class TackleAttack extends Attack {
-	public TackleAttack(Hunt hunt, StateBox attacker, StateBox opponent, int skillPoint) {
-		super(hunt, attacker, opponent, "몸통박치기",Property.PROPERTY_NOTHING, 0, AttackType.OPPONENT);
+public class FlashAttack extends Attack {
+	public FlashAttack(Hunt hunt, StateBox attacker, StateBox opponent, int skillPoint) {
+		super(hunt, attacker, opponent, "플래시", Property.PROPERTY_NOTHING, 0, AttackType.OPPONENT);
 	}
 
 	public void readyForAttack() {
@@ -20,10 +20,16 @@ public class TackleAttack extends Attack {
 	public void run() {
 		this.attacker.attackForwardMotion();
 		Character opponentCh = this.opponent.getCharacter();
+		double percent = 0.9f + (double)skillPoint * 0.1f;
 		int damage = opponentCh.hit(new Damage(this.attacker.getCharacter(), Property.PROPERTY_NOTHING,
-				this.attacker.getCharacter().calNormalDamge(1.0D), 0));
-		MusicUtils.startEffectSound("monsterAttack1");
+				0, this.attacker.getCharacter().calNormalDamge(percent)));
 		this.damage = damage;
+		Thread thread = new Thread(()->{
+			FlashAttackImage image = new FlashAttackImage(hunt, attacker, opponent);
+			addSkillImage(image);
+			image.start();
+		});
+		thread.start();
 		this.hunt.addDamageText(damage, opponent, 0);
 		this.opponent.updateStateBox(); 
 		attackMoveDelay();
@@ -38,6 +44,6 @@ public class TackleAttack extends Attack {
 	}
 
 	public int calNeedMp() {
-		return 0;
+		return skillPoint*10;
 	}
 }

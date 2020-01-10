@@ -22,6 +22,6 @@ public final class RedSnail extends Monster {
 
 	@Override
 	public void initSkillList() {
-		skillList.add(new MonsterSkillInfor(0, 1000, "몸통박치기", strength.getMaxHp()));
+		skillList.add(new MonsterSkillInfor(0, 1000, "몸통박치기", strength.getMaxHp(), 0));
 	}
 }

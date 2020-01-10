@@ -143,7 +143,7 @@ public class MapleMap implements Serializable {
 		if ((player.isConversation()) || (player.isHunt())) {
 			return;
 		}
-		int startY = 370;
+		int startY = 40 + 32*Math.min(maxY, MAX_MAP_VIEW_Y);
 		int startX = 20;
 		int getMaxX = this.maxX;
 		int getMaxY = this.maxY;

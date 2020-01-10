@@ -1,12 +1,14 @@
 package skill;
 
 import attack.Attack;
+import attack.AttackType;
+import attack.Property;
 import component.StateBox;
 
 public class PowerStrikeSkill extends ActiveSkill{
 
-	public PowerStrikeSkill(String imageUrl, String name, int maxPoint, String infor) {
-		super(imageUrl, name, maxPoint, infor);
+	public PowerStrikeSkill(String imageUrl, String name, int maxPoint, String infor, AttackType attackType, Property property) {
+		super(imageUrl, name, maxPoint, infor, attackType, property);
 	}
 
 	@Override

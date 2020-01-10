@@ -9,7 +9,7 @@ import attack.Damage;
 import buff.Buff;
 import utils.ResourceLoader;
 
-public class Character implements Serializable{
+public abstract class Character implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -34,6 +34,8 @@ public class Character implements Serializable{
 		this.curHp = strength.getMaxHp();
 		this.curMp = strength.getMaxMp();
 	}
+	
+	public abstract void calState();
 
 	public void setImageWithInstanceForInit() {
 		if ((this instanceof Adventurer)) {

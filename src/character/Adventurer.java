@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import item.ConsumableItem;
 import item.EquipmentItem;
+import maplestory.Main;
 import skill.Skill;
 import utils.ExpUtils;
 import utils.MusicUtils;
@@ -15,13 +16,16 @@ public class Adventurer extends Character implements Serializable {
 	private EquipmentItem[] wearEquipment = new EquipmentItem[8];
 	private Skill[] quickSkill = new Skill[4];
 	private ConsumableItem[] quickItem = new ConsumableItem[4];
-	private ArrayList<Skill> skillList = new ArrayList<Skill>();
+	private ArrayList<Skill> oneLevelSkillList = new ArrayList<Skill>();
+	private ArrayList<Skill> twoLevelSkillList = new ArrayList<Skill>();
+	private ArrayList<Skill> threeLevelSkillList = new ArrayList<Skill>();
 	private Status status;
 	private int proficiency;
 	private int skillPoint;
 	private int statePoint;
 	private String sex;
 	private String career;
+	private int careerLevel;
 	private int exp;
 	private int[] Exp = ExpUtils.getNeedExp();
 
@@ -53,8 +57,15 @@ public class Adventurer extends Character implements Serializable {
 				this.strength.addEvasionRate(this.wearEquipment[i].getStrength().getEvasionRate());
 			}
 		}
+		
+		
+		
+		
+		
 		this.maxPhysicalDamage = (this.strength.getPhysicalDamage() * this.status.str / 10);
-		this.maxPhysicalDamage *= 1;
+		if(Main.DAMAGE_TEST_MODE) {
+			this.maxPhysicalDamage *= 10;
+		}
 		this.minPhysicalDamage = (this.maxPhysicalDamage * this.proficiency / 10 / 10);
 
 		this.minPhysicalDamage = Math.min(this.minPhysicalDamage, this.maxPhysicalDamage);
@@ -197,21 +208,54 @@ public class Adventurer extends Character implements Serializable {
 		return this.quickItem[i];
 	}
 
+	public int getCareerLevel() {
+		return careerLevel;
+	}
+
+	public void setCareerLevel(int careerLevel) {
+		this.careerLevel = careerLevel;
+	}
+
 	public void fullHeal() {
 		this.curHp = this.strength.getMaxHp();
 		this.curMp = this.strength.getMaxMp();
 	}
 
-	public ArrayList<Skill> getSkillList() {
-		return skillList;
+	/**
+	 * 
+	 * @param level 몇차전칙 스킬 목록을 리턴할 것인지
+	 * @return 스킬 목록
+	 */
+	public ArrayList<Skill> getSkillList(int level) {
+		ArrayList<Skill> ret = null;
+		switch(level) {
+		case 1:
+			ret = oneLevelSkillList;
+			break;
+		case 2:
+			ret = twoLevelSkillList;
+			break;
+		case 3:
+			ret = threeLevelSkillList;
+			break;
+		}
+		return ret;
 	}
 	
-	public void addSkill(Skill skill) {
-		this.skillList.add(skill);
+	
+	public void addSkill(int level, Skill skill) {
+		switch(level) {
+		case 1:
+			oneLevelSkillList.add(skill);
+			break;
+		case 2:
+			twoLevelSkillList.add(skill);
+			break;
+		case 3:
+			threeLevelSkillList.add(skill);
+			break;
+		}
 	}
 
-	public void setSkillList(ArrayList<Skill> skillList) {
-		this.skillList = skillList;
-	}
 	
 }

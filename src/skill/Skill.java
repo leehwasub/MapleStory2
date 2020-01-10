@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import attack.Attack;
 import component.StateBox;
+import map.Point;
 import utils.ResourceLoader;
 
 /**
@@ -29,13 +30,13 @@ public abstract class Skill {
 	 * @param infor 스킬 설명
 	 */
 	public Skill(String imageUrl, String name, int maxPoint, String infor) {
-		this.image = ResourceLoader.getImage("skillImage", imageUrl + "skillImage.png");;
+		this.image = ResourceLoader.getImage("skillImage", imageUrl + "skillImage.png");
 		this.name = name;
 		this.maxPoint = maxPoint;
 		this.infor = infor;
 	}
 
-	public void drawInfor(Graphics2D g) {
+	public void drawInfor(Graphics2D g, Point point) {
 		
 	}
 
