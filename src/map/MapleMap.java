@@ -37,6 +37,7 @@ public class MapleMap implements Serializable {
 	public static final int MAP_VILLAGE_TYPE = 0;
 	public static final int MAP_HUNTING_TYPE = 1;
 	public static final int MAP_BOSS_TYPE = 2;
+	public static final int MAP_SAILING_TYPE = 3;
 	private static final Point[][] calMapPosition;
 	private static final int MINI_POINT = 5;
 	private static Image mapPanelImage = ResourceLoader.getImage("componentImage", "mapPanelImage.png");
@@ -223,6 +224,20 @@ public class MapleMap implements Serializable {
 		player.setCurY(nextP.getY());
 		calLoc(player, nextMap);
 		mainMapleInterface.myRepaint();
+	}
+	
+	public int getNextMapType(Player player) {
+		for (int i = 0; i < this.portalList.size(); i++) {
+			Portal portal = (Portal) this.portalList.get(i);
+			PointMapName currentMapInfor = portal.getNowMapInfor();
+			PointMapName nextMapInfor = portal.getNextMapInfor();
+			PointMapName playerMapInfor = player.getPlayerPointMapName();
+			if (currentMapInfor.equals(playerMapInfor)) {
+				MapleMap nextMap = MapleMapList.getInstance().getMap(nextMapInfor.getMapName());
+				return nextMap.getMapType();
+			}
+		}
+		return -1;
 	}
 
 	public void moveOtherMap(Player player, MainMapleInterface mainMapleInterface) {

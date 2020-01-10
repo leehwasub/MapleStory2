@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
@@ -31,6 +32,8 @@ import maplestory.Message;
 import maplestory.MessageList;
 import maplestory.Player;
 import monster.MonsterFactory;
+import sailing.Sailing;
+import sailing.SailingFactory;
 import shop.MapleIslandShop;
 import shop.Shop;
 import shop.ShopList;
@@ -441,6 +444,16 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	}
 
 	private void moveOtherMapEvent() {
+		int type = this.player.get_curMap().getNextMapType(player);
+		if(type == MapleMap.MAP_SAILING_TYPE) {
+			int ans = JOptionPane.showConfirmDialog(null, "배에 탑승하면 도중에 내릴 수 없습니다. 탑승하시겠습니까?", "확인", JOptionPane.YES_NO_OPTION);
+			if(ans == JOptionPane.YES_OPTION) {
+				Sailing sailing = SailingFactory.makeSailing(player, this, player.get_curMap().getName());
+				sailing.start();
+			}else {
+				return;
+			}
+		}
 		this.player.get_curMap().moveOtherMap(this.player, this);
 		if (this.player.get_curMap().getMapType() == 2) {
 			meetMonsterEvent();

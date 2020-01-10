@@ -92,6 +92,7 @@ public class MapleMapList {
 		getMap("달팽이의숲").addPortal(new Portal(new PointMapName(14, 6, "달팽이의숲"), new PointMapName(0, 0, "위험한숲")));
 		getMap("달팽이의숲").addPortal(new Portal(new PointMapName(5, 14, "달팽이의숲"), new PointMapName(2, 0, "사우스페리")));
 		getMap("사우스페리").addPortal(new Portal(new PointMapName(2, 0, "사우스페리"), new PointMapName(5, 14, "달팽이의숲")));
+		getMap("사우스페리").addPortal(new Portal(new PointMapName(2, 15, "사우스페리"), new PointMapName(2, 1, "메이플->빅토리아")));
 	}
 
 	public MapleMap getMap(String mapName) {
