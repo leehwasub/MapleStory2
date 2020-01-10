@@ -73,7 +73,9 @@ public class Hunt extends Thread {
 		this.attackButton.setBounds(20, 20, 120, 40);
 		this.attackButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
-				playerSetAttack("일반공격");
+				if(attackButton.isVisible()) {
+					playerSetAttack("일반공격");
+				}
 			}
 		});
 		panel.add(this.attackButton);
@@ -81,6 +83,9 @@ public class Hunt extends Thread {
 		this.runButton.setBounds(150, 20, 120, 40);
 		this.runButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
+				if(runButton.isVisible()) {
+					
+				}
 			}
 		});
 		panel.add(this.runButton);
@@ -159,17 +164,27 @@ public class Hunt extends Thread {
 			} else if ((character instanceof Adventurer)) {
 
 				player.setCanUsePortion(true);
+				player.setCanUseSkill(true);
 				((Adventurer) this.nowStateBox.getCharacter()).calState();
 
 				this.attackButton.setVisible(true);
 				this.runButton.setVisible(true);
 
 				waitForAttack();
-
-				this.playerAttack.start();
-
-				waitForAttack();
-				this.mInterface.pushMessage(new Message(this.playerAttack.attackInfor(), Color.CYAN, true));
+				if(playerAttack != null) {
+					this.playerAttack.start();
+					waitForAttack();
+					this.mInterface.pushMessage(new Message(this.playerAttack.attackInfor(), Color.CYAN, true));
+				} else {
+					attackButton.setVisible(false);
+					runButton.setVisible(false);
+					//this.mInterface.pushMessage(new Message(this.playerAttack.attackInfor(), Color.CYAN, true));
+					try {
+						sleep(1000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
 			}
 		}
 		
@@ -198,9 +213,11 @@ public class Hunt extends Thread {
 		if (!this.attackButton.isVisible()) {
 			return;
 		}
-		this.attackButton.setVisible(false);
-		this.runButton.setVisible(false);
-		this.playerAttack = AttackFactory.makeAdventurerAttack(this, this.nowStateBox, this.monsterState, skillName, 0);
+		player.setCanUseSkill(false);
+		player.setCanUsePortion(false);
+		attackButton.setVisible(false);
+		runButton.setVisible(false);
+		playerAttack = AttackFactory.makeAdventurerAttack(this, this.nowStateBox, this.monsterState, skillName, 0);
 		if(playerAttack.getAttackType() == AttackType.MYSELF) {
 			playerAttack.setOpponent(nowStateBox);
 		}

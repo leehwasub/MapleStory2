@@ -287,6 +287,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		add(quickButtonPanel);
 		
 		player.setCanUsePortion(true);
+		player.setCanUseSkill(false);
 	}
 
 	public void moveEvent() {
@@ -546,6 +547,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		messageList.clearMessage();
 		player.allSetAlive();
 		player.setCanUsePortion(true);
+		player.setCanUseSkill(false);
 	}
 
 	public void pushMessage(Message message) {
@@ -571,5 +573,17 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	@Override
 	public void setQuickItemImage() {
 		quickButtonPanel.setQuickItemImage();
+	}
+
+	@Override
+	public void nextTurn() {
+		if(hunt != null) {
+			hunt.wakeUp();
+		}
+	}
+
+	@Override
+	public void playerUseSkill(String skillName) {
+		hunt.playerSetAttack(skillName);
 	}
 }

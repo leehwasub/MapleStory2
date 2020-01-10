@@ -15,4 +15,6 @@ public interface MainMapleInterface {
 	public void toMainMenu();
 	public void loadStateBoxOnQuickButton(StateBox statebox);
 	public void setQuickItemImage();
+	public void nextTurn();
+	public void playerUseSkill(String skillName);
 }

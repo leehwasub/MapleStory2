@@ -79,7 +79,7 @@ public class QuickSkillButton extends JButton {
 		return false;
 	}
 
-	public Skill getItem() {
+	public Skill getSkill() {
 		return this.skill;
 	}
 

@@ -38,6 +38,7 @@ public class Player implements Serializable {
 	private int _curY;
 	private boolean isCanMove;
 	private boolean isHunt;
+	private boolean isCanUseSkill;
 	private boolean isConversation;
 	private boolean isCanEndConversation;
 	private boolean isCanSave;
@@ -624,6 +625,14 @@ public class Player implements Serializable {
 
 	public void setCanUsePortion(boolean isCanUsePortion) {
 		this.isCanUsePortion = isCanUsePortion;
+	}
+
+	public boolean isCanUseSkill() {
+		return isCanUseSkill;
+	}
+
+	public void setCanUseSkill(boolean isCanUseSkill) {
+		this.isCanUseSkill = isCanUseSkill;
 	}
 
 }

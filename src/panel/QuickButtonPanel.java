@@ -48,6 +48,7 @@ public class QuickButtonPanel extends JPanel{
 
 	public QuickButtonPanel(Player player, MainMapleInterface mainMapleInterface, JPanel panel) {
 		this.player = player;
+		this.mainMapleInterface = mainMapleInterface;
 		setLayout(null);
 		setBackground(new Color(0, 0, 0, 0));
 		makeQuickItemSpace();
@@ -55,13 +56,43 @@ public class QuickButtonPanel extends JPanel{
 		makeQuickSkillSpace();
 		makeSkillCancelSpace();
 		itemAddKeyListener(panel);
+		skillAddKeyListener(panel);
 	}
 	
-	public void itemAddKeyListener(JPanel panel) {
+	private void skillAddKeyListener(JPanel panel) {
 		panel.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
-				int index = 0;
+				int index = -1;
+				switch(e.getKeyCode()) {
+				case KeyEvent.VK_Z:
+					index = 0;
+					break;
+				case KeyEvent.VK_X:
+					index = 1;
+					break;
+				case KeyEvent.VK_C:
+					index = 2;
+					break;
+				case KeyEvent.VK_V:
+					index = 3;
+					break;
+				case KeyEvent.VK_B:
+					index = 4;
+					break;
+				}
+				if(index != -1) {
+					quickSkillEvent(index);
+				}
+			}
+		});
+	}
+	
+	private void itemAddKeyListener(JPanel panel) {
+		panel.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				int index = -1;
 				switch(e.getKeyCode()) {
 				case KeyEvent.VK_Q:
 					index = 0;
@@ -79,10 +110,9 @@ public class QuickButtonPanel extends JPanel{
 					index = 4;
 					break;
 				}
-				if (quickItemButton[index].getItem() == null || !player.isCanUsePortion()) {
-					return;
+				if(index != -1) {
+					quickItemEvent(index);
 				}
-				quickItemEvent(index);
 			}
 		});
 	}
@@ -98,13 +128,18 @@ public class QuickButtonPanel extends JPanel{
 			quickSkillButton[i].setBounds(230 + i * 60, 20, 50, 50);
 			quickSkillButton[i].addMouseListener(new MouseAdapter() {
 				public void mousePressed(MouseEvent e) {
-					quickItemEvent(index);
+					quickSkillEvent(index);
 				}
 			});
 			add(quickSkillButton[i]);
 		}
 	}
 	
+	private void quickSkillEvent(int index) {
+		if(!player.isHunt() || !player.isCanUseSkill()) return;
+		mainMapleInterface.playerUseSkill(quickSkillButton[index].getSkill().getName());
+	}
+
 	private void makeQuickItemSpace() {
 		for (int i = 0; i < Adventurer.QUICK_ITEM_ARRAY_SIZE; i++) {
 			final int index = i;
@@ -128,6 +163,7 @@ public class QuickButtonPanel extends JPanel{
 		if(player.isHunt()) {
 			stateBox.updateStateBox();
 			player.setCanUsePortion(false);
+			mainMapleInterface.nextTurn();
 		}
 	}
 
