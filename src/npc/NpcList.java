@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import map.PointMapName;
+import map.UpdatedMapInfor;
 import maplestory.Player;
 
 public class NpcList implements Serializable {
@@ -38,6 +39,16 @@ public class NpcList implements Serializable {
 		return npcList;
 	}
 	
+	
+	private void updateLocNpc(UpdatedNpcInfor infor) {
+		for(int i = 0; i < npcList.size(); i++) {
+			if(npcList.get(i).getName().equals(infor.getNpcName())) {
+				npcList.get(i).setPointMapName(infor.getPointMapName());
+			}
+		}
+	}
+	
+
 	public void loadNpcData(Player player) {
 		ArrayList<Npc> savedNpc = player.getNpcList();
 		for(int i = 0; i < savedNpc.size(); i++) {
@@ -48,6 +59,10 @@ public class NpcList implements Serializable {
 					npcList.get(i).setQuestNum(savedNpc.get(i).getQuestNum());
 				}
 			}
+		}
+		ArrayList<UpdatedNpcInfor> updatedNpcList = player.getUpdatedNpcList();
+		for(int i = 0; i < updatedNpcList.size(); i++) {
+			updateLocNpc(updatedNpcList.get(i));
 		}
 	}
 	

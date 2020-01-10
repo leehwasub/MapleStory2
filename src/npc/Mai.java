@@ -27,8 +27,7 @@ public class Mai extends Npc implements Serializable {
 		} else if (this.questNum == 1) {
 			quest = Quest.makeQuest(0, 3, "암허스트").addMessage(
 							"첫번째 수련을 마치고 휴식을 취할 시간이다. 초보자의 숲2에서 동쪽으로 가게되 면 암허스트라는 마을이 있는데 이곳에 있으면 될것같다.")
-							.addMessage(
-									"이후에 마을 동쪽 포탈로 이동하게 되면 달팽이의 숲이 있다고 한다. 마이가 그곳에서 기다린다고 하니 그곳에서 다음 수련을 진행하자.")
+							.addMessage("이후에 마을 동쪽 포탈로 이동하게 되면 달팽이의 숲이 있다고 한다. 마이가 그곳에서 기다린다고 하니 그곳에서 다음 수련을 진행하자.")
 							.setRewardExp(10).setPlayerQuestProceed(QuestProceed.MAI_QUEST_2);
 		} else if (this.questNum == 2) {
 			quest = Quest.makeQuest(0, 4, "마이의 두번째 수련").addMessage(
@@ -52,10 +51,13 @@ public class Mai extends Npc implements Serializable {
 	}
 
 	public void clearEvent(Player player) {
-		if (this.clearNum == 0) {
+		if (clearNum == 0) {
 			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(3, 8, "초보자의숲2"), MapleMap.MAP_EMPTY_STATE));
 			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(6, 7, "달팽이의숲"), MapleMap.MAP_NPC_STATE));
+			player.addUpdatedNpc(new UpdatedNpcInfor(new PointMapName(6, 7, "달팽이의숲"), "마이"));
 			NpcList.getInstance().getNpcWithName("마이").setPointMapName(new PointMapName(6, 7, "달팽이의숲"));
+		} else if (clearNum == 3) {
+			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(5, 14, "달팽이의숲"), MapleMap.MAP_PORTAL_STATE));
 		}
 	}
 }

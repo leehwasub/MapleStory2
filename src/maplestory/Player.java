@@ -23,6 +23,7 @@ import map.PointMapName;
 import map.UpdatedMapInfor;
 import npc.Npc;
 import npc.NpcList;
+import npc.UpdatedNpcInfor;
 import quest.Quest;
 import quest.QuestProceed;
 import skill.Skill;
@@ -46,6 +47,7 @@ public class Player implements Serializable {
 	private ArrayList<String> visitList = new ArrayList<String>();
 	private HashMap<String, Integer> killList = new HashMap<String, Integer>();
 	private ArrayList<UpdatedMapInfor> updatedMapList = new ArrayList<UpdatedMapInfor>();
+	private ArrayList<UpdatedNpcInfor> updatedNpcList = new ArrayList<UpdatedNpcInfor>();
 	private ArrayList<Npc> npcList = new ArrayList<Npc>();
 	private Npc curNpc;
 	private Quest quest;
@@ -612,12 +614,20 @@ public class Player implements Serializable {
 	}
 
 	public void addUpdatedMap(UpdatedMapInfor infor) {
+		PointMapName p = infor.getPointMapName();
+		MapleMapList.getInstance().getMap(p.getMapName()).setMap(p.getX(), p.getY(), infor.getAfterState());
 		updatedMapList.add(infor);
 	}
 
-	public void setUpdatedMapList(ArrayList<UpdatedMapInfor> updatedMapList) {
-		this.updatedMapList = updatedMapList;
+	public ArrayList<UpdatedNpcInfor> getUpdatedNpcList() {
+		return updatedNpcList;
 	}
+
+	public void addUpdatedNpc(UpdatedNpcInfor infor) {
+		NpcList.getInstance().getNpcWithName(infor.getNpcName()).setPointMapName(infor.getPointMapName());
+		updatedNpcList.add(infor);
+	}
+
 
 	public boolean isCanUsePortion() {
 		return isCanUsePortion;
