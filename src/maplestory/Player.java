@@ -25,6 +25,7 @@ import npc.Npc;
 import npc.NpcList;
 import quest.Quest;
 import quest.QuestProceed;
+import skill.Skill;
 import utils.FontUtils;
 import utils.MusicUtils;
 
@@ -49,7 +50,7 @@ public class Player implements Serializable {
 	private Quest quest;
 	private QuestProceed questProceed;
 	private static final int[] dx = { 0, 0, -1, 1 };
-	private static final int[] dy = { -1, 1, 0, 0};
+	private static final int[] dy = { -1, 1, 0, 0 };
 	public static final int MOVE_LEFT = 0;
 	public static final int MOVE_RIGHT = 1;
 	public static final int MOVE_UP = 2;
@@ -177,7 +178,7 @@ public class Player implements Serializable {
 	public void setNpcList(ArrayList<Npc> npcList) {
 		this.npcList = npcList;
 	}
-	
+
 	public void addNpcList(Npc npc) {
 		this.npcList.add(npc);
 	}
@@ -285,7 +286,8 @@ public class Player implements Serializable {
 					if (state != 1) {
 						this._curX = xx;
 						this._curY = yy;
-						if (xx >= basePoint.getX() + Math.min(maxX, MapleMap.MAX_MAP_VIEW_X) - 2 && (basePoint.getX() + Math.min(maxX, MapleMap.MAX_MAP_VIEW_X) < maxX)) {
+						if (xx >= basePoint.getX() + Math.min(maxX, MapleMap.MAX_MAP_VIEW_X) - 2
+								&& (basePoint.getX() + Math.min(maxX, MapleMap.MAX_MAP_VIEW_X) < maxX)) {
 							basePoint.setX(basePoint.getX() + 1);
 						}
 						if ((xx <= basePoint.getX() + 2) && (basePoint.getX() > 0)) {
@@ -294,7 +296,8 @@ public class Player implements Serializable {
 						if ((yy <= basePoint.getY() + 2) && (basePoint.getY() > 0)) {
 							basePoint.setY(basePoint.getY() - 1);
 						}
-						if ((yy >= basePoint.getY() + Math.min(maxY, MapleMap.MAX_MAP_VIEW_Y) - 2) && (basePoint.getY() + Math.min(maxY, MapleMap.MAX_MAP_VIEW_Y) < maxY)) {
+						if ((yy >= basePoint.getY() + Math.min(maxY, MapleMap.MAX_MAP_VIEW_Y) - 2)
+								&& (basePoint.getY() + Math.min(maxY, MapleMap.MAX_MAP_VIEW_Y) < maxY)) {
 							basePoint.setY(basePoint.getY() + 1);
 						}
 						System.out.println(basePoint.toString());
@@ -339,8 +342,7 @@ public class Player implements Serializable {
 		}
 		e.setNum(e.getNum() - 1);
 		removeEmptyItem();
-		mainAdventurer.setWearEquipmentByIndex(e.getType(),
-				(EquipmentItem) ItemPool.getItem(e.getName(), 1));
+		mainAdventurer.setWearEquipmentByIndex(e.getType(), (EquipmentItem) ItemPool.getItem(e.getName(), 1));
 		calState();
 		return (EquipmentItem) ItemPool.getItem(e.getName(), 1);
 	}
@@ -548,9 +550,14 @@ public class Player implements Serializable {
 	public ConsumableItem[] getPlayerQuickItem() {
 		return mainAdventurer.getQuickItem();
 	}
+	
+	public Skill getPlayerQuickSkillByIndex(int i) {
+		return mainAdventurer.getQuickSkillByIndex(i);
+	}
 
-	
-	
+	public Skill[] getPlayerSkillItem() {
+		return mainAdventurer.getQuickSkill();
+	}
 
 	public void usePortion(ConsumableItem item) {
 		mainAdventurer.usePortion(item);
@@ -602,7 +609,7 @@ public class Player implements Serializable {
 	public ArrayList<UpdatedMapInfor> getUpdatedMapList() {
 		return updatedMapList;
 	}
-	
+
 	public void addUpdatedMap(UpdatedMapInfor infor) {
 		updatedMapList.add(infor);
 	}
@@ -618,5 +625,5 @@ public class Player implements Serializable {
 	public void setCanUsePortion(boolean isCanUsePortion) {
 		this.isCanUsePortion = isCanUsePortion;
 	}
-	
+
 }

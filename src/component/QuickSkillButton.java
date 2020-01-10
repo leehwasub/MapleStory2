@@ -83,7 +83,7 @@ public class QuickSkillButton extends JButton {
 		return this.skill;
 	}
 
-	public void setItem(Skill skill) {
+	public void setSkill(Skill skill) {
 		if (skill != null) {
 			this.skill = skill;
 			this.buttonImage = new ImageIcon(skill.getImage());
