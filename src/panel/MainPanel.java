@@ -445,17 +445,37 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 
 	private void moveOtherMapEvent() {
 		int type = this.player.get_curMap().getNextMapType(player);
-		if(type == MapleMap.MAP_SAILING_TYPE) {
+		switch(type) {
+		case MapleMap.MAP_SAILING_TYPE:
 			int ans = JOptionPane.showConfirmDialog(null, "배에 탑승하면 도중에 내릴 수 없습니다. 탑승하시겠습니까?", "확인", JOptionPane.YES_NO_OPTION);
 			if(ans == JOptionPane.YES_OPTION) {
+				moveOtherMapButton.setVisible(false);
 				Sailing sailing = SailingFactory.makeSailing(player, this, player.get_curMap().getName());
 				sailing.start();
 			}else {
 				return;
 			}
+			break;
+		case MapleMap.MAP_BOSS_TYPE:
+			ans = JOptionPane.showConfirmDialog(null, "보스맵에 입장합니다. 입장하시겠습니까?", "확인", JOptionPane.YES_NO_OPTION);
+			if(ans != JOptionPane.YES_OPTION) {
+				return;
+			}
+			moveOtherMapButton.setVisible(false);
+			break;
+		case MapleMap.MAP_HARBOR_TYPE:
+			MusicUtils.startEffectSound("harborEnter");
+			break;
+		case MapleMap.MAP_DUNGEON_TYPE:
+			ans = JOptionPane.showConfirmDialog(null, "던전에 입장한 이후에는 저장할 수 없으며 클리어시까지 퇴장할 수 없습니다. 입장 하시겠습니까?", "확인", JOptionPane.YES_NO_OPTION);
+			if(ans != JOptionPane.YES_OPTION) {
+				return;
+			}
+			moveOtherMapButton.setVisible(false);
+			break;
 		}
 		this.player.get_curMap().moveOtherMap(this.player, this);
-		if (this.player.get_curMap().getMapType() == 2) {
+		if (this.player.get_curMap().getMapType() == MapleMap.MAP_BOSS_TYPE) {
 			meetMonsterEvent();
 		}
 	}

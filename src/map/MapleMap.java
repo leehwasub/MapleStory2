@@ -38,6 +38,8 @@ public class MapleMap implements Serializable {
 	public static final int MAP_HUNTING_TYPE = 1;
 	public static final int MAP_BOSS_TYPE = 2;
 	public static final int MAP_SAILING_TYPE = 3;
+	public static final int MAP_HARBOR_TYPE = 4;
+	public static final int MAP_DUNGEON_TYPE = 5;
 	private static final Point[][] calMapPosition;
 	private static final int MINI_POINT = 5;
 	private static Image mapPanelImage = ResourceLoader.getImage("componentImage", "mapPanelImage.png");

@@ -8,9 +8,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import component.MapleButton;
+import editor.EditorFrame;
 import maplestory.MapleInterface;
 import utils.MusicUtils;
 import utils.ResourceLoader;
@@ -40,6 +42,8 @@ public class StartPanel extends JPanel {
 	private static final int POSITON_Y = 300;
 	private static final int POSITON_INTERVAL = 90;
 	MapleInterface mapleInterface;
+	
+	private JButton editorButton = new JButton("에디터 열기");
 
 	public StartPanel(final MapleInterface mapleInterface) {
 		MusicUtils.changeMusic("main");
@@ -75,6 +79,16 @@ public class StartPanel extends JPanel {
 			}
 		});
 		add(this.exitButton);
+		
+		editorButton.setBounds(10, 10, 120, 40);
+		editorButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				EditorFrame frame = new EditorFrame();
+				frame.setVisible(true);
+			}
+		});
+		add(editorButton);
 	}
 
 	public void reload() {
