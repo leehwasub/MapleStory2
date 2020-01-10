@@ -6,4 +6,5 @@ public interface MapleInterface {
 	public void toLoadPage();
 	public void fromLoadPageToStartPage();
 	public void dataLoad(Player player);
+	public void toMainMenu();
 }

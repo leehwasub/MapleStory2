@@ -101,7 +101,7 @@ public class Player implements Serializable {
 	}
 
 	public boolean getIsCanMove() {
-		return this.isCanMove;
+		return isCanMove;
 	}
 
 	public void setIsCanMove(boolean isCanMove) {

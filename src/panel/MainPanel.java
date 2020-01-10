@@ -22,6 +22,7 @@ import component.MapleHpBar;
 import component.MapleIsland;
 import component.MapleMpBar;
 import hunt.Hunt;
+import map.MapleMap;
 import map.PointMapName;
 import maplestory.MainMapleInterface;
 import maplestory.MapleInterface;
@@ -196,16 +197,16 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 				if (player.getIsCanMove()) {
 					if (e.getKeyCode() == 38) {
 						player.move(2);
-						MainPanel.this.moveEvent();
+						moveEvent();
 					} else if (e.getKeyCode() == 37) {
 						player.move(0);
-						MainPanel.this.moveEvent();
+						moveEvent();
 					} else if (e.getKeyCode() == 39) {
 						player.move(1);
-						MainPanel.this.moveEvent();
+						moveEvent();
 					} else if (e.getKeyCode() == 40) {
 						player.move(3);
-						MainPanel.this.moveEvent();
+						moveEvent();
 					}
 					MainPanel.this.repaint();
 				}
@@ -264,7 +265,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		player.setCanSave(true);
 		player.setIsCanMove(true);
 		this.mapleIsland.setImage(player);
-		this.inventoryMainPanel = new InventoryMainPanel(player);
+		this.inventoryMainPanel = new InventoryMainPanel(player, this);
 		this.inventoryMainPanel.setBounds(40, 70, 1220, 570);
 		add(this.inventoryMainPanel);
 
@@ -282,28 +283,28 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	public void moveEvent() {
 		int mapState = this.player.get_curMap().getMap(this.player.getCurX(), this.player.getCurY());
 		switch (mapState) {
-		case 0:
+		case MapleMap.MAP_EMPTY_STATE:
 			this.meetNpcButton.setVisible(false);
 			this.moveOtherMapButton.setVisible(false);
 			this.buyItemButton.setVisible(false);
 			meetMonsterEvent();
 			break;
-		case 2:
+		case MapleMap.MAP_NPC_STATE:
 			this.moveOtherMapButton.setVisible(false);
 			this.meetNpcButton.setVisible(true);
 			this.buyItemButton.setVisible(false);
 			break;
-		case 3:
+		case MapleMap.MAP_PORTAL_STATE:
 			this.meetNpcButton.setVisible(false);
 			this.moveOtherMapButton.setVisible(true);
 			this.buyItemButton.setVisible(false);
 			break;
-		case 4:
+		case MapleMap.MAP_STORE_STATE:
 			this.buyItemButton.setVisible(true);
 			this.moveOtherMapButton.setVisible(false);
 			this.meetNpcButton.setVisible(false);
 			break;
-		case 5:
+		case MapleMap.MAP_HEAL_STATE:
 			this.player.allAdventuerFullHeal();
 			break;
 		}
@@ -338,10 +339,11 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	private void meetMonsterEvent() {
 		Monster monsters = MonsterFactory.readyMonster(this.player.get_curMap().getName());
 		if (monsters != null) {
-			this.player.setIsCanMove(false);
-			this.player.setHunt(true);
-			this.hunt = new Hunt(this.player, this, this, this.player.getMainAdventurer(), monsters);
-			this.hunt.start();
+			player.setIsCanMove(false);
+			player.setHunt(true);
+			player.setCanSave(false);
+			hunt = new Hunt(this.player, this, this, this.player.getMainAdventurer(), monsters);
+			hunt.start();
 		}
 	}
 
@@ -445,16 +447,16 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		switch (mapState) {
 		case 0:
 			break;
-		case 2:
+		case MapleMap.MAP_NPC_STATE:
 			this.meetNpcButton.setVisible(true);
 			break;
-		case 3:
+		case MapleMap.MAP_PORTAL_STATE:
 			this.moveOtherMapButton.setVisible(true);
 			break;
-		case 4:
+		case MapleMap.MAP_STORE_STATE:
 			this.buyItemButton.setVisible(true);
 			break;
-		case 5:
+		case MapleMap.MAP_HEAL_STATE:
 			break;
 		}
 	}
@@ -523,16 +525,17 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 
 	public void addDamageText(DamageText damageText) {
 		damageText.start();
-		this.damageTextList.add(damageText);
+		damageTextList.add(damageText);
 	}
 
 	public void endHunt() {
-		this.hunt = null;
+		hunt = null;
 		updateMainStateBar();
-		this.player.setIsCanMove(true);
-		this.player.setHunt(false);
-		this.messageList.clearMessage();
-		this.player.allSetAlive();
+		player.setIsCanMove(true);
+		player.setCanSave(true);
+		player.setHunt(false);
+		messageList.clearMessage();
+		player.allSetAlive();
 	}
 
 	public void pushMessage(Message message) {
@@ -543,5 +546,10 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		this.hpBar.progressUpdate();
 		this.mpBar.progressUpdate();
 		this.expBar.progressUpdate();
+	}
+
+	@Override
+	public void toMainMenu() {
+		mapleInterface.toMainMenu();
 	}
 }

@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 import component.MapleButton;
 import component.MapleButtonGroup;
+import maplestory.MainMapleInterface;
 import maplestory.Player;
 import utils.ResourceLoader;
 
@@ -80,14 +81,15 @@ public class InventoryMainPanel extends JPanel {
 	private int inventoryState;
 	
 	private MapleButtonGroup mapleButtonGroup;
+	
+	private MainMapleInterface mainMapleInterface;
 
-	public InventoryMainPanel(Player player) {
+	public InventoryMainPanel(Player player, MainMapleInterface mainMapleInterface) {
 		setLayout(null);
 		setVisible(false);
+		
 		this.player = player;
-		
-
-		
+		this.mainMapleInterface = mainMapleInterface;
 		this.inventoryStatePanel = new InventoryStatePanel(player);
 		this.inventoryStatePanel.setBounds(50, 98, 1120, 440);
 		add(this.inventoryStatePanel);
@@ -112,7 +114,7 @@ public class InventoryMainPanel extends JPanel {
 		this.inventorySkillPanel.setBounds(50, 98, 1120, 440);
 		add(this.inventorySkillPanel);
 
-		this.inventorySystemPanel = new InventorySystemPanel(player);
+		this.inventorySystemPanel = new InventorySystemPanel(player, mainMapleInterface);
 		this.inventorySystemPanel.setBounds(50, 98, 1120, 440);
 		add(this.inventorySystemPanel);
 		

@@ -6,12 +6,17 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 import component.MapleButton;
 import dialog.SaveDialog;
+import maplestory.Main;
+import maplestory.MainMapleInterface;
 import maplestory.Player;
 import maplestory.SaveLoad;
+import utils.FontUtils;
 import utils.ResourceLoader;
 
 public class InventorySystemPanel extends JPanel {
@@ -28,22 +33,28 @@ public class InventorySystemPanel extends JPanel {
 			this.inventorySaveButtonEnteredImage);
 	private MapleButton inventoryMainMenuButton = new MapleButton(this.inventoryMainMenuButtonBasicImage,
 			this.inventoryMainMenuButtonEnteredImage);
+	
+	private MainMapleInterface mainMapleInterface;
+	private Player player;
 
-	public InventorySystemPanel(final Player player) {
+	public InventorySystemPanel(Player player, MainMapleInterface mainMapleInterface) {
 		setVisible(false);
 		setLayout(null);
 		setBackground(new Color(0, 0, 0, 0));
 
+		this.player = player;
+		this.mainMapleInterface = mainMapleInterface;
+		
 		inventorySaveButton.setBounds(60, 30, 120, 40);
 		inventorySaveButton.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				SaveDialog saveDialog = new SaveDialog(player);
-				saveDialog.setVisible(true);
-				/*
-				if (player.isCanSave()) {
-					SaveLoad.savePlayer(player);
+				UIManager.put("OptionPane.messageFont", FontUtils.SMALL_FONT);
+				if(!player.isCanSave()) {
+					JOptionPane.showMessageDialog(null, "지금은 저장할 수 없습니다.", "경고", JOptionPane.WARNING_MESSAGE);
+				} else {
+					SaveDialog saveDialog = new SaveDialog(player);
+					saveDialog.setVisible(true);
 				}
-				*/
 			}
 		});
 		add(this.inventorySaveButton);
@@ -51,7 +62,15 @@ public class InventorySystemPanel extends JPanel {
 		inventoryMainMenuButton.setBounds(60, 90, 120, 40);
 		inventoryMainMenuButton.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				super.mouseClicked(e);
+				UIManager.put("OptionPane.messageFont", FontUtils.SMALL_FONT);
+				if(!player.isCanSave()) {
+					JOptionPane.showMessageDialog(null, "지금은 메인 메뉴로 이동할 수 없습니다.", "경고", JOptionPane.WARNING_MESSAGE);
+				} else {
+					int answer = JOptionPane.showConfirmDialog(null, "메인 메뉴로 이동하시겠습니까?", "확인", JOptionPane.YES_NO_OPTION);
+					if(answer == JOptionPane.YES_OPTION) {
+						mainMapleInterface.toMainMenu();
+					}
+				}
 			}
 		});
 		add(inventoryMainMenuButton);
