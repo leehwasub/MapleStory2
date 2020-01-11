@@ -93,7 +93,11 @@ public abstract class Npc implements Serializable {
 			m.pushMessage(new Message(player.getQuest().getRewardString(), color, true));
 			return;
 		} else if(talk.getType() == Talk.UPGRADE_TYPE) {
+			color = Color.MAGENTA;
 			MusicUtils.startEffectSound("getCareer");
+			player.questClear();
+			clearEvent(player);
+			this.clearNum += 1;
 		}
 		m.pushMessage(new Message(talk.getMessage(), color, true));
 	}
@@ -101,11 +105,12 @@ public abstract class Npc implements Serializable {
 	private void mappingMessage(Player player, Talk talk) {
 		String message = talk.getMessage();
 		if(message.indexOf("<name>") != -1) {
-			message.replace("<name>", player.getMainAdventurer().getName());
+			message = message.replace("<name>", player.getMainAdventurer().getName());
 		}
 		if(message.indexOf("<sex>") != -1) {
-			message.replace("<sex>", player.getMainAdventurer().getSex().equals("남자") ? "그" : "그녀");
+			message = message.replace("<sex>", player.getMainAdventurer().getSex().equals("남자") ? "그" : "그녀");
 		}
+		talk.setMessage(message);
 	}
 
 	public boolean process(Player player, MainMapleInterface m) {

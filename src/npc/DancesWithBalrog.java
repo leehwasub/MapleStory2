@@ -1,5 +1,8 @@
 package npc;
 
+import character.Adventurer;
+import character.AdventurerFactory;
+import item.ItemPool;
 import map.PointMapName;
 import maplestory.Player;
 import quest.Quest;
@@ -15,7 +18,20 @@ public class DancesWithBalrog extends Npc{
 
 	@Override
 	public void clearEvent(Player player) {
-		
+		if(clearNum == 0) {
+			Adventurer adventurer = player.getMainAdventurer();
+			AdventurerFactory.upgradeAdventurer("검사", adventurer);
+			adventurer.setCareer("검사");
+			adventurer.setCareerLevel(1);
+			player.addItem(ItemPool.getItem("카알대검", 1));
+			if(adventurer.getSex().equals("남자")) {
+				player.addItem(ItemPool.getItem("로리카아머(남)", 1));
+				player.addItem(ItemPool.getItem("로리카바지(남)", 1));
+			}else if(adventurer.getSex().equals("여자")) {
+				player.addItem(ItemPool.getItem("스퀘이머(여)", 1));
+				player.addItem(ItemPool.getItem("소피아바지(여)", 1));
+			}
+		}
 	}
 
 	@Override

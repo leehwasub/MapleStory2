@@ -214,6 +214,7 @@ public class InventoryMainPanel extends JPanel {
 			this.inventorySkillPanel.setVisible(false);
 		} else {
 			this.inventorySkillPanel.setVisible(true);
+			inventorySkillPanel.skillLoad();
 		}
 		if (this.inventoryState != 6) {
 			this.inventorySystemPanel.setVisible(false);
