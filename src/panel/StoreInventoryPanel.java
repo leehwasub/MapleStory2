@@ -60,7 +60,7 @@ public class StoreInventoryPanel extends JPanel {
 	private static final int STORE_INVENTORY_EQUIPMENT = 0;
 	private static final int STORE_INVENTORY_CONSUMABLE = 1;
 	private static final int STORE_INVENTORY_MATERIAL = 2;
-	private TooltipPanel itemTooltip = new TooltipPanel();
+	private ItemTooltipPanel itemTooltip = new ItemTooltipPanel();
 	JScrollPane scrollPane;
 	DefaultListModel<Item> dm = new DefaultListModel();
 	JList<Item> jList = new JList();

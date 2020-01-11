@@ -40,11 +40,16 @@ public class InventoryStatePanel extends JPanel {
 	private QuickItemButton[] quickItemButton = new QuickItemButton[Adventurer.QUICK_ITEM_ARRAY_SIZE];
 	private MapleButton[] quickCancelButton = new MapleButton[Adventurer.QUICK_ITEM_ARRAY_SIZE];
 	private Player player;
+	
+	private ItemTooltipPanel toolTipPanel = new ItemTooltipPanel();
 
 	public InventoryStatePanel(Player player) {
 		setLayout(null);
 		setVisible(true);
 		this.player = player;
+		toolTipPanel.setBounds(0, 0, 1100, 420);
+		add(toolTipPanel);
+		
 		makeInventoryMyInfo();
 		setBackground(new Color(0, 0, 0, 0));
 		setEquipmentStateImage();
@@ -167,10 +172,6 @@ public class InventoryStatePanel extends JPanel {
 		g.drawString("신발", 790, 345);
 		g.drawString("장갑", 790, 405);
 		g.drawString("칭호", 940, 405);
-		EquipmentItem[] wearedInventory = this.player.getPlayerEquipment();
-		for (int i = 0; i < wearedInventory.length; i++) {
-			this.inventoryMyInfoButton[i].drawInfor(g);
-		}
 		g.setColor(Color.YELLOW);
 		g.setFont(FontUtils.SMALL_FONT);
 		ConsumableItem[] quickItemArray = this.player.getPlayerQuickItem();
@@ -203,6 +204,7 @@ public class InventoryStatePanel extends JPanel {
 			} else {
 				this.inventoryMyInfoButton[i].setBounds(1000, 15 + i * 60 - 60, 50, 50);
 			}
+			inventoryMyInfoButton[i].setItemToolTip(toolTipPanel);
 			final int index = i;
 			this.inventoryMyInfoButton[i].addMouseListener(new MouseAdapter() {
 				public void mousePressed(MouseEvent e) {

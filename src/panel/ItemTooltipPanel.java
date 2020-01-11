@@ -10,14 +10,14 @@ import javax.swing.JPanel;
 import item.Item;
 import map.Point;
 
-public class TooltipPanel extends JPanel {
+public class ItemTooltipPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	public static final int TOOLTIP_WIDTH = 200;
 	public static final int TOOLTIP_HEIGHT = 300;
 	private Item item;
 	private Point point;
 
-	public TooltipPanel() {
+	public ItemTooltipPanel() {
 		setLayout(null);
 		setBackground(new Color(0, 0, 0, 0));
 	}

@@ -619,4 +619,5 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	public void playerUseSkill(String skillName) {
 		hunt.playerSetAttack(skillName);
 	}
+
 }

@@ -24,9 +24,15 @@ public class InventoryEquipmentPanel extends JPanel {
 			ResourceLoader.getImage("componentImage", "inventoryItemSpaceButton.png"));
 	private ItemButton[] inventoryItemSpace = new ItemButton[50];
 	private Player player;
+	
+	private ItemTooltipPanel toolTipPanel = new ItemTooltipPanel();
 
 	public InventoryEquipmentPanel(Player player) {
 		this.player = player;
+		
+		toolTipPanel.setBounds(0, 0, 1100, 420);
+		add(toolTipPanel);
+		
 		setLayout(null);
 		setBackground(new Color(0, 0, 0, 0));
 		setVisible(false);
@@ -70,43 +76,8 @@ public class InventoryEquipmentPanel extends JPanel {
 					InventoryEquipmentPanel.this.inventoryItemEvent(index);
 				}
 			});
+			inventoryItemSpace[i].setItemToolTip(toolTipPanel);
 			add(this.inventoryItemSpace[i]);
-		}
-	}
-
-	private void setNearInventoryItemVisibleTrue(int a) {
-
-		for (int i = 0; i < 4; i++) {
-			int b = a + i * 10;
-			if (b < 50) {
-				this.inventoryItemSpace[b].setVisible(true);
-			}
-		}
-		if (a % 10 != 9) {
-			for (int i = 0; i < 4; i++) {
-				int b = a + i * 10 + 1;
-				if (b < 50) {
-					this.inventoryItemSpace[b].setVisible(true);
-				}
-			}
-		}
-	}
-
-	private void setNearInventoryItemVisibleFalse(int a) {
-
-		for (int i = 0; i < 4; i++) {
-			int b = a + i * 10;
-			if (b < 50) {
-				this.inventoryItemSpace[b].setVisible(false);
-			}
-		}
-		if (a % 10 != 9) {
-			for (int i = 0; i < 4; i++) {
-				int b = a + i * 10 + 1;
-				if (b < 50) {
-					this.inventoryItemSpace[b].setVisible(false);
-				}
-			}
 		}
 	}
 
@@ -124,11 +95,6 @@ public class InventoryEquipmentPanel extends JPanel {
 			int x = this.inventoryItemSpace[i].getLocation().x + 5;
 			int y = this.inventoryItemSpace[i].getLocation().y - 5;
 			g.drawString("X" + ((EquipmentItem) equipmentInventory.get(i)).getNum(), x, y);
-			if (this.inventoryItemSpace[i].drawInfor(g)) {
-				setNearInventoryItemVisibleFalse(i);
-				break;
-			}
-			setNearInventoryItemVisibleTrue(i);
 		}
 		repaint();
 	}

@@ -57,7 +57,7 @@ public class StorePanel extends JPanel {
 			storeEquipmentButtonEnteredImage);
 	private MapleButton storeConsumableButton = new MapleButton(this.storeConsumableButtonBasicImage,
 			storeConsumableButtonEnteredImage);
-	private TooltipPanel itemTooltip = new TooltipPanel();
+	private ItemTooltipPanel itemTooltip = new ItemTooltipPanel();
 	DefaultListModel<Item> dm = new DefaultListModel<Item>();
 	JList<Item> jList = new JList<Item>();
 	MapleButtonGroup mapleButtonGroup;

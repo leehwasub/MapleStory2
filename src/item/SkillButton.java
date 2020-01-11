@@ -4,10 +4,14 @@ import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import map.Point;
+import panel.ItemTooltipPanel;
+import panel.SkillTooltipPanel;
 import skill.Skill;
 import utils.MusicUtils;
 import utils.ResourceLoader;
@@ -19,6 +23,7 @@ public class SkillButton extends JButton {
 	private ImageIcon buttonImage;
 	private Skill skill;
 	private boolean isEntered;
+	private SkillTooltipPanel skillToolTip;
 
 	public SkillButton(Skill skill, ImageIcon buttonImage) {
 		super(new ImageIcon(skill.getImage()));
@@ -56,28 +61,41 @@ public class SkillButton extends JButton {
 		setFocusable(false);
 		addMouseListener(new MouseAdapter() {
 			public void mouseEntered(MouseEvent e) {
-				SkillButton.this.setCursor(new Cursor(12));
-				SkillButton.this.isEntered = true;
+				setCursor(new Cursor(Cursor.HAND_CURSOR));
+				isEntered = true;
 			}
 
 			public void mouseExited(MouseEvent e) {
-				SkillButton.this.setCursor(new Cursor(0));
-				SkillButton.this.setIcon(SkillButton.this.buttonImage);
-				SkillButton.this.isEntered = false;
+				setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+				setIcon(SkillButton.this.buttonImage);
+				isEntered = false;
+				if(skillToolTip != null) {
+					skillToolTip.setVisible(false);
+				}
 			}
 
 			public void mousePressed(MouseEvent e) {
 				MusicUtils.startEffectSound("ButtonPressed");
 			}
 		});
+		addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				if(skillToolTip != null) {
+					skillToolTip.setPoint(new Point(getX() + e.getX(), getY() + e.getY()));
+					skillToolTip.setVisible(true);
+					skillToolTip.setSkill(skill);
+				}
+			}
+		});
+	}
+	
+	public SkillTooltipPanel getSkillToolTip() {
+		return skillToolTip;
 	}
 
-	public boolean drawInfor(Graphics2D g) {
-		if ((this.skill != null) && (this.isEntered)) {
-			this.skill.drawInfor(g, new map.Point(getLocation().x + 55, getLocation().y));
-			return true;
-		}
-		return false;
+	public void setSkillToolTip(SkillTooltipPanel skillToolTip) {
+		this.skillToolTip = skillToolTip;
 	}
 
 	public Skill getSkill() {

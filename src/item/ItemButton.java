@@ -4,10 +4,15 @@ import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.SwingUtilities;
 
+import map.Point;
+import panel.StoreInventoryPanel;
+import panel.ItemTooltipPanel;
 import utils.MusicUtils;
 import utils.ResourceLoader;
 
@@ -18,6 +23,7 @@ public class ItemButton extends JButton {
 	private ImageIcon buttonImage;
 	private Item item;
 	private boolean isEntered;
+	private ItemTooltipPanel itemToolTip;
 
 	public ItemButton(Item item, ImageIcon buttonImage) {
 		super(new ImageIcon(item.getImage()));
@@ -55,28 +61,33 @@ public class ItemButton extends JButton {
 		setFocusable(false);
 		addMouseListener(new MouseAdapter() {
 			public void mouseEntered(MouseEvent e) {
-				ItemButton.this.setCursor(new Cursor(12));
-				ItemButton.this.isEntered = true;
+				setCursor(new Cursor(Cursor.HAND_CURSOR));
+				isEntered = true;
 			}
 
 			public void mouseExited(MouseEvent e) {
-				ItemButton.this.setCursor(new Cursor(0));
-				ItemButton.this.setIcon(ItemButton.this.buttonImage);
-				ItemButton.this.isEntered = false;
+				setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+				setIcon(ItemButton.this.buttonImage);
+				isEntered = false;
+				if(itemToolTip != null) {
+					itemToolTip.setVisible(false);
+				}
 			}
 
 			public void mousePressed(MouseEvent e) {
 				MusicUtils.startEffectSound("ButtonPressed");
 			}
 		});
-	}
-
-	public boolean drawInfor(Graphics2D g) {
-		if ((this.item != null) && (this.isEntered)) {
-			this.item.drawInfor(g, new map.Point(getLocation().x + 55, getLocation().y));
-			return true;
-		}
-		return false;
+		addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				if(itemToolTip != null) {
+					itemToolTip.setPoint(new Point(getX() + e.getX(), getY() + e.getY()));
+					itemToolTip.setVisible(true);
+					itemToolTip.setItem(item);
+				}
+			}
+		});
 	}
 
 	public Item getItem() {
@@ -94,4 +105,14 @@ public class ItemButton extends JButton {
 			setIcon(BUTTON_BASIC_IMAGE);
 		}
 	}
+
+	public ItemTooltipPanel getItemToolTip() {
+		return itemToolTip;
+	}
+
+	public void setItemToolTip(ItemTooltipPanel itemToolTip) {
+		this.itemToolTip = itemToolTip;
+	}
+
+	
 }

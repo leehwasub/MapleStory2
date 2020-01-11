@@ -71,15 +71,6 @@ public class QuickItemButton extends JButton {
 			}
 		});
 	}
-
-	public boolean drawInfor(Graphics2D g) {
-		if ((this.item != null) && (this.isEntered)) {
-			this.item.drawInfor(g, new map.Point(getLocation().x + 55, getLocation().y));
-			return true;
-		}
-		return false;
-	}
-
 	public ConsumableItem getItem() {
 		return this.item;
 	}

@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import map.PointMapName;
-import map.UpdatedMapInfor;
 import maplestory.Player;
 
 public class NpcList implements Serializable {
@@ -33,6 +32,8 @@ public class NpcList implements Serializable {
 		npcList.clear();
 		npcList.add(new Sugar("sugar", "슈가", new PointMapName(6, 7, "초보자의숲1")));
 		npcList.add(new Mai("mai", "마이", new PointMapName(3, 8, "초보자의숲2")));
+		npcList.add(new Lucas("lucas", "루카스", new PointMapName(9, 6, "암허스트")));
+		npcList.add(new Rain("rain", "레인", new PointMapName(4, 13, "암허스트")));
 	}
 
 	public ArrayList<Npc> getNpcListArray() {

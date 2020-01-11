@@ -26,17 +26,23 @@ public class InventoryConsumablePanel extends JPanel {
 	private Player player;
 	private ImageIcon inventoryItemSpaceButtonImage = new ImageIcon(
 			ResourceLoader.getImage("componentImage", "inventoryItemSpaceButton.png"));
-	
 	private MainMapleInterface mainMapleInterface;
+	
+	private ItemTooltipPanel toolTipPanel = new ItemTooltipPanel();
 
 	public InventoryConsumablePanel(Player player, MainMapleInterface mainMapleInterface) {
 		this.mainMapleInterface = mainMapleInterface;
 		this.player = player;
+		
+		toolTipPanel.setBounds(0, 0, 1100, 420);
+		add(toolTipPanel);
+		
 		setLayout(null);
 		setBackground(new Color(0, 0, 0, 0));
 		setVisible(false);
 		makeSpace();
 		setConsumableItemImage();
+		
 	}
 
 	private void setConsumableItemImage() {
@@ -61,6 +67,7 @@ public class InventoryConsumablePanel extends JPanel {
 					InventoryConsumablePanel.this.inventoryItemEvent(index);
 				}
 			});
+			this.inventoryItemSpace[i].setItemToolTip(toolTipPanel);
 			add(this.inventoryItemSpace[i]);
 		}
 	}
@@ -108,7 +115,6 @@ public class InventoryConsumablePanel extends JPanel {
 			int x = this.inventoryItemSpace[i].getLocation().x + 5;
 			int y = this.inventoryItemSpace[i].getLocation().y - 5;
 			g.drawString("X" + ((ConsumableItem) consumableInventory.get(i)).getNum(), x, y);
-			this.inventoryItemSpace[i].drawInfor(g);
 		}
 	}
 

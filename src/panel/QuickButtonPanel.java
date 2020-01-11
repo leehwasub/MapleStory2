@@ -23,6 +23,7 @@ import item.ConsumableItem;
 import item.Item;
 import maplestory.MainMapleInterface;
 import maplestory.Player;
+import skill.Skill;
 import utils.FontUtils;
 import utils.ResourceLoader;
 
@@ -57,8 +58,10 @@ public class QuickButtonPanel extends JPanel{
 		makeSkillCancelSpace();
 		itemAddKeyListener(panel);
 		skillAddKeyListener(panel);
+		setQuickItemImage();
+		setQuickSkillImage();
 	}
-	
+
 	private void skillAddKeyListener(JPanel panel) {
 		panel.addKeyListener(new KeyAdapter() {
 			@Override
@@ -217,6 +220,20 @@ public class QuickButtonPanel extends JPanel{
 	private void quickSkillCancelEvent(int keyIndex) {
 		player.getMainAdventurer().removeQuickSkill(keyIndex);
 		setQuickItemImage();
+	}
+	
+	private void setQuickSkillImage() {
+		if (player.getMainAdventurer() == null) {
+			return;
+		}
+		for (int i = 0; i < Adventurer.QUICK_SKILL_ARRAY_SIZE; i++) {
+			Skill skill = player.getMainAdventurer().getQuickSkillByIndex(i);
+			if (skill != null) {
+				this.quickSkillButton[i].setSkill(player.getMainAdventurer().getQuickSkillByIndex(i));
+			} else {
+				this.quickSkillButton[i].setSkill(null);
+			}
+		}
 	}
 	
 
