@@ -31,4 +31,9 @@ public class PowerStrikeSkill extends ActiveSkill{
 		return 200 + point * 5;
 	}
 
+	@Override
+	public String getEffectDetail(int point) {
+		return "MP " + getNeedMp(point) + " 소비, " + getEffect(point) + "% 물리데미지";
+	}
+
 }

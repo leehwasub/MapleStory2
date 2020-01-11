@@ -40,6 +40,7 @@ public abstract class Skill {
 		
 	}
 
+	public abstract String getEffectDetail(int point);
 	public abstract int getEffect(int point);
 
 	public String getName() {

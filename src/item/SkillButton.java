@@ -9,6 +9,7 @@ import java.awt.event.MouseMotionAdapter;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import dialog.SkillDetailDialog;
 import map.Point;
 import panel.ItemTooltipPanel;
 import panel.SkillTooltipPanel;
@@ -76,6 +77,8 @@ public class SkillButton extends JButton {
 
 			public void mousePressed(MouseEvent e) {
 				MusicUtils.startEffectSound("ButtonPressed");
+				SkillDetailDialog skillDetailDialog = new SkillDetailDialog(skill);
+				skillDetailDialog.setVisible(true);
 			}
 		});
 		addMouseMotionListener(new MouseMotionAdapter() {

@@ -268,11 +268,11 @@ public class MapleMap implements Serializable {
 	}
 
 	public void calLoc(Player player, MapleMap mapleMap) {
-		for (int i = 0; i < mapleMap.getMaxX() - Math.min(maxX, MAX_MAP_VIEW_X); i++) {
-			for (int j = 0; j < mapleMap.getMaxY() - Math.min(maxY, MAX_MAP_VIEW_Y); j++) {
-				int midX = (i + Math.min(maxX, MAX_MAP_VIEW_X)) / 2;
-				int midY = (j + Math.min(maxY, MAX_MAP_VIEW_Y)) / 2;
-				boolean ret = isIncludePlayer(player.getCurX(), player.getCurY(), i, j);
+		for (int i = 0; i < mapleMap.getMaxX() - Math.min(mapleMap.getMaxX(), MAX_MAP_VIEW_X) + 1; i++) {
+			for (int j = 0; j < mapleMap.getMaxY() - Math.min(mapleMap.getMaxY(), MAX_MAP_VIEW_Y) + 1; j++) {
+				int midX = (i + Math.min(mapleMap.getMaxX(), MAX_MAP_VIEW_X) + i) / 2;
+				int midY = (j + Math.min(mapleMap.getMaxY() , MAX_MAP_VIEW_Y) + j) / 2;
+				boolean ret = isIncludePlayer(mapleMap, player.getCurX(), player.getCurY(), i, j);
 				if (ret) {
 					if (midX < player.getCurX()) {
 						mapleMap.getBasePoint().setX(i);
@@ -285,8 +285,8 @@ public class MapleMap implements Serializable {
 		}
 	}
 
-	public boolean isIncludePlayer(int curX, int curY, int x, int y) {
-		if ((x <= curX) && (curX < x + Math.min(maxX, MAX_MAP_VIEW_X)) && (y <= curY) && (curY < y + Math.min(maxY, MAX_MAP_VIEW_Y))) {
+	public boolean isIncludePlayer(MapleMap mapleMap, int curX, int curY, int x, int y) {
+		if ((x <= curX) && (curX < x + Math.min(mapleMap.getMaxX(), MAX_MAP_VIEW_X)) && (y <= curY) && (curY < y + Math.min(mapleMap.getMaxY(), MAX_MAP_VIEW_Y))) {
 			return true;
 		}
 		return false;

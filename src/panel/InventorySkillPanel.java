@@ -39,9 +39,8 @@ public class InventorySkillPanel extends JPanel {
 			ResourceLoader.getImage("componentImage", "stateUpButtonEntered.png"));
 	private MapleButton[] stateUpButton = new MapleButton[4];
 	
-	private SkillButton[] oneLevelSkillButton = new SkillButton[3];
-	private SkillButton[] twoLevelSkillButton = new SkillButton[5];
-	private SkillButton[] threeLevelSkillButton = new SkillButton[5];
+	private SkillButton[][] skillButton = new SkillButton[3][];
+	private MapleButton[][] skillUpButton = new MapleButton[3][];
 	
 	private SkillTooltipPanel skillTooltip = new SkillTooltipPanel();
 	
@@ -60,37 +59,35 @@ public class InventorySkillPanel extends JPanel {
 	}
 	
 	public void skillLoad() {
-		if(!skillIsLoaded[0] && player.getMainAdventurer().getCareerLevel() >= 1) {
-			loadOneLevelSkill();
-			skillIsLoaded[0] = true;
-		} else if(!skillIsLoaded[1] && player.getMainAdventurer().getCareerLevel() >= 2) {
-			loadTwoLevelSkill();
-			skillIsLoaded[1] = true;
-		} else if(!skillIsLoaded[2] && player.getMainAdventurer().getCareerLevel() >= 3) {
-			loadThreeLevelSkill();
-			skillIsLoaded[2] = true;
+		for(int i = 0; i < 3; i++) {
+			if(!skillIsLoaded[i] && player.getMainAdventurer().getCareerLevel() >= (i+1)) {
+				loadSkill(i);
+				skillIsLoaded[i] = true;
+			}
 		}
 	}
 	
-	private void loadOneLevelSkill() {
-		ArrayList<Skill> oneSkillList = player.getMainAdventurer().getSkillList(1);
-		for(int i = 0; i < oneLevelSkillButton.length; i++) {
-			oneLevelSkillButton[i] = new SkillButton();
-			oneLevelSkillButton[i].setBounds(240, 70+(65*i), 50, 50);
-			oneLevelSkillButton[i].setSkill(oneSkillList.get(i));
-			oneLevelSkillButton[i].setSkillToolTip(skillTooltip);
-			add(oneLevelSkillButton[i]);
+	private void loadSkill(int level) {
+		ArrayList<Skill> skillList = player.getMainAdventurer().getSkillList(level+1);
+		if(level == 0) {
+			skillButton[level] = new SkillButton[3];
+			skillUpButton[level] = new MapleButton[3];
+		} else {
+			skillButton[level] = new SkillButton[5];
+			skillUpButton[level] = new MapleButton[5];
 		}
-	}
-	
-	
-	private void loadTwoLevelSkill() {
-		
-	}
-	
-	
-	private void loadThreeLevelSkill() {
-		
+		for(int i = 0; i < skillButton[level].length; i++) {
+			skillButton[level][i] = new SkillButton();
+			skillButton[level][i].setBounds(240 + (300 * level), 70 + (65 * i), 50, 50);
+			skillButton[level][i].setSkill(skillList.get(i));
+			skillButton[level][i].setSkillToolTip(skillTooltip);
+			add(skillButton[level][i]);
+		}
+		for(int i = 0; i < skillUpButton[level].length; i++) {
+			skillUpButton[level][i] = new MapleButton(stateUpButtonBasicImage, stateUpButtonEnteredImage);
+			skillUpButton[level][i].setBounds(310 + (300 * level), 85 + (65 * i), 20, 20);
+			add(skillUpButton[level][i]);
+		}
 	}
 
 	protected void paintComponent(Graphics g) {
@@ -105,18 +102,26 @@ public class InventorySkillPanel extends JPanel {
 		g.drawString("스킬포인트", 40, 40);
 		g.setColor(Color.WHITE);
 		g.drawString(""+player.getMainAdventurer().getSkillPoint(), 140, 40);
-		if(player.getMainAdventurer().getCareerLevel() >= 0) {
+		if(player.getMainAdventurer().getCareerLevel() >= 1) {
 			g.setFont(FontUtils.MID_FONT);
 			g.setColor(Color.YELLOW);
-			g.drawString("1차 스킬", 220, 45);
-		} if(player.getMainAdventurer().getCareerLevel() >= 0) {
+			g.drawString("1차 스킬", 240, 45);
+			if(skillIsLoaded[0]) {
+				for(int i = 0; i < 3; i++) {
+					Skill skill = skillButton[0][i].getSkill();
+					g.setFont(FontUtils.generalFont);
+					g.setColor(Color.WHITE);
+					g.drawString(skill.getPoint() + " / " + skill.getMaxPoint(), 350, 101 + (65 * i));
+				}
+			}
+		} if(player.getMainAdventurer().getCareerLevel() >= 2) {
 			g.setFont(FontUtils.MID_FONT);
 			g.setColor(Color.YELLOW);
-			g.drawString("2차 스킬", 520, 45);
-		} if(player.getMainAdventurer().getCareerLevel() >= 0) {
+			g.drawString("2차 스킬", 540, 45);
+		} if(player.getMainAdventurer().getCareerLevel() >= 3) {
 			g.setFont(FontUtils.MID_FONT);
 			g.setColor(Color.YELLOW);
-			g.drawString("3차 스킬", 820, 45);
+			g.drawString("3차 스킬", 840, 45);
 		}
 	}
 	

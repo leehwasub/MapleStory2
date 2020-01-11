@@ -20,5 +20,10 @@ public class HpIncreasingSkill extends PassiveSkill{
 		return 2*point;
 	}
 
+	@Override
+	public String getEffectDetail(int point) {
+		return "HP "+ getEffect(point) +"% 증가";
+	}
+
 
 }

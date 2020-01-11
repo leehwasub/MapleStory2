@@ -18,7 +18,7 @@ public class ironBodySkill extends ActiveSkill{
 
 	@Override
 	public int getLast(int point) {
-		return 0;
+		return 6 + (point / 4);
 	}
 
 	@Override
@@ -29,6 +29,11 @@ public class ironBodySkill extends ActiveSkill{
 	@Override
 	public int getEffect(int point) {
 		return 5 + point * 5;
+	}
+
+	@Override
+	public String getEffectDetail(int point) {
+		return "MP " + getNeedMp(point) + " 소비, " + getLast(point) + "턴간 물리방어력 " + getEffect(point) + " 증가";
 	}
 
 }
