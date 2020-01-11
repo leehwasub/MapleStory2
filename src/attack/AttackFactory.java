@@ -1,11 +1,10 @@
 package attack;
 
-import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 
 import component.StateBox;
 import hunt.Hunt;
+import utils.DialogUtils;
 
 public class AttackFactory {
 	public static Attack makeMonsterAttack(Hunt hunt, StateBox attacker, StateBox opponents, String attackName,
@@ -16,7 +15,7 @@ public class AttackFactory {
 		case "플래쉬":
 			return new FlashAttack(hunt, attacker, opponents, skillPoint);
 		}
-		JOptionPane.showMessageDialog(null, "AttackFactory class 몬스터 스킬 생성 실패!!", "오류", JOptionPane.ERROR_MESSAGE);
+		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack(...) 몬스터 공격 실패!");
 		return null;
 	}
 	
@@ -26,7 +25,7 @@ public class AttackFactory {
 		case "일반공격":
 			return new NormalAttack(hunt, attacker, opponents, 0);
 		}
-		JOptionPane.showMessageDialog(null, "AttackFactory class 플레이어 스킬 생성 실패!!", "오류", JOptionPane.ERROR_MESSAGE);
+		DialogUtils.showErrorDialog("AttackFactory.makeAdventurerAttack(...) 플레이어 공격 실패!");
 		return null;
 	}
 	

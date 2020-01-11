@@ -1,5 +1,6 @@
 package character;
 
+import java.awt.Dialog;
 import java.util.ArrayList;
 
 import attack.Attack;
@@ -8,6 +9,7 @@ import component.StateBox;
 import hunt.Hunt;
 import maplestory.Player;
 import monster.DropItemFactory;
+import utils.DialogUtils;
 
 public abstract class Monster extends Character {
 	
@@ -44,10 +46,12 @@ public abstract class Monster extends Character {
 			if(infor.getPercentSt() <= percent && percent <= infor.getPercentEd() && curHp <= infor.getUnderHpCondition()) {
 				Attack attack = AttackFactory.makeMonsterAttack(hunt, attacker, opponent, infor.getSkillName(), infor.getSkillPoint());
 				if(attack.calNeedMp() <= curMp) {
+					curMp = curMp - attack.calNeedMp();
 					return attack;
 				}
 			}
 		}
+		DialogUtils.showErrorDialog("Monster.attack(...) " + name + " 몬스터 공격 선택 실패!");
 		return null;
 	}
 

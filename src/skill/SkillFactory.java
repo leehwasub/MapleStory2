@@ -2,6 +2,7 @@ package skill;
 
 import attack.AttackType;
 import attack.Property;
+import utils.DialogUtils;
 
 public class SkillFactory {
 	
@@ -14,6 +15,7 @@ public class SkillFactory {
 		case "아이언바디":
 			return new ironBodySkill("ironBody", "아이언바디", 20, "일정 시간동안 물리방어력을 강화한다", AttackType.MYSELF, Property.PROPERTY_NOTHING);
 		}
+		DialogUtils.showErrorDialog("SkillFactory.makeSkill(skillName) 새로운 스킬 생성 실패!");
 		return null;
 	}
 

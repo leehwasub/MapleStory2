@@ -1,9 +1,8 @@
 package monster;
 
-import java.util.ArrayList;
-
 import character.Monster;
 import maplestory.Main;
+import utils.DialogUtils;
 
 public class MonsterFactory {
 	public static boolean isRange(int mid, int low, int high) {
@@ -27,6 +26,7 @@ public class MonsterFactory {
 		case "초록버섯":
 			return new GreenMushroom();
 		}
+		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
 	}
 
