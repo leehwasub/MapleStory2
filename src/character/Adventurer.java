@@ -38,6 +38,7 @@ public class Adventurer extends Character implements Serializable {
 	}
 
 	public void calState() {
+		proficiency = 20;
 		this.strength.setPhysicalDefense(0);
 		this.strength.setMagicDefense(this.status.Int);
 		this.strength.setPhysicalDamage(0);
@@ -59,8 +60,6 @@ public class Adventurer extends Character implements Serializable {
 				this.strength.addEvasionRate(this.wearEquipment[i].getStrength().getEvasionRate());
 			}
 		}
-		
-		
 		
 		
 		

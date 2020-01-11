@@ -164,6 +164,7 @@ public class Hunt extends Thread {
 				this.mInterface.pushMessage(new Message(this.monsterAttack.attackInfor(), Color.CYAN, true));
 			} else if ((character instanceof Adventurer)) {
 
+				playerAttack = null;
 				player.setCanUsePortion(true);
 				player.setCanUseSkill(true);
 				((Adventurer) this.nowStateBox.getCharacter()).calState();

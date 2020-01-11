@@ -41,9 +41,9 @@ public class MonsterFactory {
 			}
 			break;
 		case "달팽이의숲":
-			if (isRange(percent, 0, 5)) {
+			if (isRange(percent, 0, 4)) {
 				ret = makeMonster("파란달팽이");
-			} else if (isRange(percent, 5, 10)) {
+			} else if (isRange(percent, 6, 10)) {
 				ret = makeMonster("빨간달팽이");
 			}
 			break;
@@ -51,6 +51,25 @@ public class MonsterFactory {
 			ret = makeMonster("마노");
 			break;
 		case "리스항구외각":
+			if (isRange(percent, 0, 4)) {
+				ret = makeMonster("빨간달팽이");
+			} else if (isRange(percent, 6, 10)) {
+				ret = makeMonster("돼지");
+			}
+			break;
+		case "해안가풀숲":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("돼지");
+			} else if (isRange(percent, 5, 10)) {
+				ret = makeMonster("리본돼지");
+			}
+			break;
+		case "버섯동산":
+			if (isRange(percent, 0, 8)) {
+				ret = makeMonster("주황버섯");
+			} else if (isRange(percent, 8, 10)) {
+				ret = makeMonster("초록버섯");
+			}
 			break;
 		}
 		return ret;

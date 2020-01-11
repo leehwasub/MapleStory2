@@ -2,6 +2,7 @@ package quest;
 
 import java.io.Serializable;
 
+import maplestory.Main;
 import maplestory.Player;
 
 public class QuestKill extends QuestCondition implements Serializable {
@@ -14,6 +15,9 @@ public class QuestKill extends QuestCondition implements Serializable {
 	public QuestKill(String monsterName, int num) {
 		this.monsterName = monsterName;
 		this.num = num;
+		if(Main.QUEST_TEST) {
+			this.num /= 10;
+		}
 	}
 
 	public String getMonsterName() {

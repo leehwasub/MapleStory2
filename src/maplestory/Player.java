@@ -157,6 +157,18 @@ public class Player implements Serializable {
 		int getNum = this.killList.get(monsterName);
 		return getNum >= num;
 	}
+	
+	public int getMaterialItemNum(String itemName) {
+		int retNum = 0;
+		ArrayList<MaterialItem> materialItemInventory = inventory.getMaterialInventory();
+		for(int i = 0; i < materialItemInventory.size(); i++) {
+			MaterialItem item = materialItemInventory.get(i);
+			if(item.getName().equals(itemName)) {
+				retNum += item.getNum();
+			}
+		}
+		return retNum;
+	}
 
 	public void initVisitList() {
 		this.visitList.clear();

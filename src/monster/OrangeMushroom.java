@@ -3,6 +3,7 @@ package monster;
 import attack.Attack;
 import attack.AttackFactory;
 import character.Monster;
+import character.MonsterSkillInfor;
 import character.Resistance;
 import character.Strength;
 import component.StateBox;
@@ -21,7 +22,7 @@ public final class OrangeMushroom extends Monster {
 
 	@Override
 	public void initSkillList() {
-		
+		skillList.add(new MonsterSkillInfor(0, 1000, "몸통박치기", strength.getMaxHp(), 0));
 	}
 
 }

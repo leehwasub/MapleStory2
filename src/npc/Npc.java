@@ -15,6 +15,7 @@ import maplestory.Message;
 import maplestory.Player;
 import utils.FileLoader;
 import utils.FontUtils;
+import utils.MusicUtils;
 import utils.ResourceLoader;
 
 public abstract class Npc implements Serializable {
@@ -84,14 +85,27 @@ public abstract class Npc implements Serializable {
 	}
 
 	public void setTalk(Talk talk, MainMapleInterface m, Player player) {
+		mappingMessage(player, talk);
 		Color color = Color.WHITE;
-		if (talk.getType() == 1) {
+		if (talk.getType() == Talk.REWARD_TALK_TYPE) {
 			color = Color.MAGENTA;
 			System.out.println(player.getQuest().getRewardString());
 			m.pushMessage(new Message(player.getQuest().getRewardString(), color, true));
 			return;
+		} else if(talk.getType() == Talk.UPGRADE_TYPE) {
+			MusicUtils.startEffectSound("getCareer");
 		}
 		m.pushMessage(new Message(talk.getMessage(), color, true));
+	}
+	
+	private void mappingMessage(Player player, Talk talk) {
+		String message = talk.getMessage();
+		if(message.indexOf("<name>") != -1) {
+			message.replace("<name>", player.getMainAdventurer().getName());
+		}
+		if(message.indexOf("<sex>") != -1) {
+			message.replace("<sex>", player.getMainAdventurer().getSex().equals("남자") ? "그" : "그녀");
+		}
 	}
 
 	public boolean process(Player player, MainMapleInterface m) {
@@ -125,9 +139,8 @@ public abstract class Npc implements Serializable {
 		}
 	}
 
-	public abstract void clearEvent(Player paramPlayer);
-
-	public abstract void requestQuest(Player paramPlayer);
+	public abstract void clearEvent(Player player);
+	public abstract void requestQuest(Player player);
 
 	public void draw(Graphics2D g) {
 		npcDraw(this.image, g);

@@ -20,13 +20,17 @@ import npc.NpcList;
 
 public class SaveLoad {
 	public static final String filename[];
-	public static final String dirname = Main.findSource(Main.class) + "/mapleData";
+	//이클립스
+	public static final String dirname = Main.findSource(Main.class) + "/../../mapleData";
+	//jar
+	//public static final String dirname = Main.findSource(Main.class) + "/mapleData";
 	public static final int DATA_NUM = 5;
 	
 	static {
 		filename = new String[DATA_NUM];
 		for(int i = 0; i < DATA_NUM; i++) {
-			filename[i] = Main.findSource(Main.class) + "/mapleData/playerinfo"+i+".dat";
+			//filename[i] = Main.findSource(Main.class) + "/mapleData/playerinfo"+i+".dat";
+			filename[i] = Main.findSource(Main.class) + "/../../mapleData/playerinfo"+i+".dat";
 		}
 	}
 	
@@ -34,7 +38,7 @@ public class SaveLoad {
 	private static void makeDir(File dir) {
 		if(!dir.exists()) {
 			try {
-				dir.mkdir();
+				dir.mkdirs();
 			}catch(Exception e) {
 				JOptionPane.showMessageDialog(null, "폴더 생성 오류!!");
 			}

@@ -34,6 +34,10 @@ public class NpcList implements Serializable {
 		npcList.add(new Mai("mai", "마이", new PointMapName(3, 8, "초보자의숲2")));
 		npcList.add(new Lucas("lucas", "루카스", new PointMapName(9, 6, "암허스트")));
 		npcList.add(new Rain("rain", "레인", new PointMapName(4, 13, "암허스트")));
+		npcList.add(new Biggs("biggs", "빅스", new PointMapName(2, 12, "사우스페리")));
+		npcList.add(new Parbell("parbell", "파벨", new PointMapName(15, 2, "리스항구")));
+		npcList.add(new Jane("jane", "제인", new PointMapName(11, 6, "리스항구")));
+		npcList.add(new DancesWithBalrog("dancesWithBalrog", "주먹펴고일어서", new PointMapName(10, 9, "페리온")));
 	}
 
 	public ArrayList<Npc> getNpcListArray() {

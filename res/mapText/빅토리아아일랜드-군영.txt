@@ -1,4 +1,4 @@
-40 10 빅토리아아일랜드 군영 excavationArea excavationArea 1
+40 10 빅토리아아일랜드 군영 militaryCamp militaryCamp 1
 2 0 1
 2 1 1
 2 2 1

@@ -268,10 +268,10 @@ public class MapleMap implements Serializable {
 	}
 
 	public void calLoc(Player player, MapleMap mapleMap) {
-		for (int i = 0; i < mapleMap.getMaxX() - Math.min(maxX, MAX_MAP_VIEW_X) - 1; i++) {
-			for (int j = 0; j < mapleMap.getMaxY() - Math.min(maxY, MAX_MAP_VIEW_Y) - 1; j++) {
-				int midX = (i + Math.min(maxX, MAX_MAP_VIEW_X) - 1) / 2;
-				int midY = (j + Math.min(maxY, MAX_MAP_VIEW_Y) - 1) / 2;
+		for (int i = 0; i < mapleMap.getMaxX() - Math.min(maxX, MAX_MAP_VIEW_X); i++) {
+			for (int j = 0; j < mapleMap.getMaxY() - Math.min(maxY, MAX_MAP_VIEW_Y); j++) {
+				int midX = (i + Math.min(maxX, MAX_MAP_VIEW_X)) / 2;
+				int midY = (j + Math.min(maxY, MAX_MAP_VIEW_Y)) / 2;
 				boolean ret = isIncludePlayer(player.getCurX(), player.getCurY(), i, j);
 				if (ret) {
 					if (midX < player.getCurX()) {

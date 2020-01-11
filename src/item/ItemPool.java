@@ -236,10 +236,10 @@ public class ItemPool {
 		items.put("빨간달팽이의껍질",
 				new MaterialItem("빨간달팽이의껍질", 20, "redSnailSkin", 1, "빨간 달팽이의 껍질을 벗긴것이다."));
 		items.put("돼지의리본", new MaterialItem("돼지의리본", 30, "pigRibbon", 1, "리본돼지의 리본을 끊은 것이다."));
-		items.put("������������",
-				new MaterialItem("������������", 40, "orangeMushroomCap", 1, "���������� ���� ����������"));
-		items.put("������������",
-				new MaterialItem("������������", 50, "greenMushroomCap", 1, "���������� ���� ����������"));
+		items.put("주황버섯의갓",
+				new MaterialItem("주황버섯의갓", 40, "orangeMushroomCap", 1, "주황 버섯의 갓이다."));
+		items.put("초록버섯의갓",
+				new MaterialItem("초록버섯의갓", 50, "greenMushroomCap", 1, "초록 버섯의 갓이다."));
 		items.put("��������", new MaterialItem("��������", 60, "branch", 1, "�������� ������������"));
 		items.put("����", new MaterialItem("����", 70, "firewood", 1, "������������ ������ ������ ��������"));
 		items.put("����������", new MaterialItem("����������", 500, "animalLeather", 1, "������ ������ ������ ������"));

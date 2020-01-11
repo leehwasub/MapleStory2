@@ -93,6 +93,33 @@ public class MapleMapList {
 		getMap("달팽이의숲").addPortal(new Portal(new PointMapName(5, 14, "달팽이의숲"), new PointMapName(2, 0, "사우스페리")));
 		getMap("사우스페리").addPortal(new Portal(new PointMapName(2, 0, "사우스페리"), new PointMapName(5, 14, "달팽이의숲")));
 		getMap("사우스페리").addPortal(new Portal(new PointMapName(2, 15, "사우스페리"), new PointMapName(2, 1, "메이플->빅토리아")));
+		getMap("리스항구").addPortal(new Portal(new PointMapName(14, 14, "리스항구"), new PointMapName(3, 0, "리스항구외각")));
+		getMap("리스항구외각").addPortal(new Portal(new PointMapName(3, 0, "리스항구외각"), new PointMapName(14, 14, "리스항구")));
+		getMap("리스항구외각").addPortal(new Portal(new PointMapName(5, 19, "리스항구외각"), new PointMapName(4, 0, "해안가풀숲")));
+		getMap("해안가풀숲").addPortal(new Portal(new PointMapName(4, 0, "해안가풀숲"), new PointMapName(5, 19, "리스항구외각")));
+		getMap("해안가풀숲").addPortal(new Portal(new PointMapName(9, 13, "해안가풀숲"), new PointMapName(0, 8, "버섯동산")));
+		getMap("버섯동산").addPortal(new Portal(new PointMapName(0, 8, "버섯동산"), new PointMapName(9, 13, "해안가풀숲")));
+		getMap("해안가풀숲").addPortal(new Portal(new PointMapName(4, 26, "해안가풀숲"), new PointMapName(8, 0, "페리온서쪽길목")));
+		getMap("페리온서쪽길목").addPortal(new Portal(new PointMapName(8, 0, "페리온서쪽길목"), new PointMapName(4, 26, "해안가풀숲")));
+		getMap("페리온서쪽길목").addPortal(new Portal(new PointMapName(15, 19, "페리온서쪽길목"), new PointMapName(10, 0, "페리온")));
+		getMap("페리온").addPortal(new Portal(new PointMapName(10, 0, "페리온"), new PointMapName(15, 19, "페리온서쪽길목")));
+		getMap("페리온").addPortal(new Portal(new PointMapName(2, 19, "페리온"), new PointMapName(8, 0, "페리온동쪽길목")));
+		getMap("페리온동쪽길목").addPortal(new Portal(new PointMapName(8, 0, "페리온동쪽길목"), new PointMapName(2, 19, "페리온")));
+		getMap("페리온동쪽길목").addPortal(new Portal(new PointMapName(14, 19, "페리온동쪽길목"), new PointMapName(17, 0, "와일드보어의땅1")));
+		getMap("와일드보어의땅1").addPortal(new Portal(new PointMapName(17, 0, "와일드보어의땅1"), new PointMapName(14, 19, "페리온동쪽길목")));
+		getMap("와일드보어의땅1").addPortal(new Portal(new PointMapName(11, 34, "와일드보어의땅1"), new PointMapName(17, 0, "와일드보어의땅2")));
+		getMap("와일드보어의땅2").addPortal(new Portal(new PointMapName(17, 0, "와일드보어의땅2"), new PointMapName(11, 34, "와일드보어의땅1")));
+		getMap("페리온").addPortal(new Portal(new PointMapName(17, 19, "페리온"), new PointMapName(0, 9, "유적발굴지")));
+		getMap("유적발굴지").addPortal(new Portal(new PointMapName(0, 9, "유적발굴지"), new PointMapName(17, 19, "페리온")));
+		getMap("유적발굴지").addPortal(new Portal(new PointMapName(9, 22, "유적발굴지"), new PointMapName(0, 4, "유적발굴캠프장")));
+		getMap("유적발굴캠프장").addPortal(new Portal(new PointMapName(0, 4, "유적발굴캠프장"), new PointMapName(9, 22, "유적발굴지")));
+		getMap("유적발굴캠프장").addPortal(new Portal(new PointMapName(14, 4, "유적발굴캠프장"), new PointMapName(0, 4, "발굴중단지역")));
+		getMap("발굴중단지역").addPortal(new Portal(new PointMapName(0, 4, "발굴중단지역"), new PointMapName(14, 4, "유적발굴캠프장")));
+		getMap("발굴중단지역").addPortal(new Portal(new PointMapName(24, 8, "발굴중단지역"), new PointMapName(17, 1, "폐쇄구역")));
+		getMap("폐쇄구역").addPortal(new Portal(new PointMapName(17, 1, "폐쇄구역"), new PointMapName(24, 8, "발굴중단지역")));
+		getMap("폐쇄구역").addPortal(new Portal(new PointMapName(10, 12, "폐쇄구역"), new PointMapName(14, 0, "군영")));
+		getMap("군영").addPortal(new Portal(new PointMapName(14, 0, "군영"), new PointMapName(10, 12, "폐쇄구역")));
+		getMap("폐쇄구역").addPortal(new Portal(new PointMapName(10, 12, "폐쇄구역"), new PointMapName(14, 0, "군영")));
 	}
 
 	public MapleMap getMap(String mapName) {

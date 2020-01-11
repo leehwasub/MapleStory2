@@ -2,6 +2,7 @@ package quest;
 
 import java.io.Serializable;
 
+import maplestory.Main;
 import maplestory.Player;
 
 public class QuestMaterial extends QuestCondition implements Serializable {
@@ -14,6 +15,9 @@ public class QuestMaterial extends QuestCondition implements Serializable {
 	public QuestMaterial(String materialName, int num) {
 		this.materialName = materialName;
 		this.num = num;
+		if(Main.QUEST_TEST) {
+			this.num /= 10;
+		}
 	}
 
 	public String getMaterialName() {
@@ -33,13 +37,13 @@ public class QuestMaterial extends QuestCondition implements Serializable {
 	}
 
 	@Override
-	public String checkState(Player paramPlayer) {
-		return null;
+	public String checkState(Player player) {
+		return this.materialName + " : " + player.getMaterialItemNum(materialName) + " / " + this.num;
 	}
 
 	@Override
-	public boolean checkClear(Player paramPlayer) {
-		return false;
+	public boolean checkClear(Player player) {
+		return player.getMaterialItemNum(materialName) >= this.num;
 	}
 	
 	

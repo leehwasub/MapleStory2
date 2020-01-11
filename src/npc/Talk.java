@@ -12,6 +12,7 @@ public class Talk implements Serializable {
 	public static final int REWARD_TALK_TYPE = 1;
 	public static final int REQUEST_QUEST_TALK_TYPE = 2;
 	public static final int QUEST_CLEAR_CHECK_TYPE = 3;
+	public static final int UPGRADE_TYPE = 4;
 
 	public Talk(String message) {
 		this.message = message;

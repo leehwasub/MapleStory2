@@ -147,7 +147,7 @@ public class PrologPanel extends JPanel {
 		Quest quest = Quest.makeQuest(0, 1, "메이플 아일랜드")
 				.addMessage("메이플 아일랜드에 도착했다. 일단 슈가라는 NPC에게 가보도록 하자.")
 				.setPlayerQuestProceed(QuestProceed.PROLOGUE).setRewardExp(8).addRewardItem("초보모험가의빨간포션", 10)
-				.addRewardItem("초보모험가의파란포션", 10).addNpcQuestProceed("마이", 1);
+				.addRewardItem("초보모험가의파란포션", 10).addRewardNpcQuestProceed("마이", 1);
 		this.player.setQuest(quest);
 		updateText();
 		this.nextButton.setVisible(true);

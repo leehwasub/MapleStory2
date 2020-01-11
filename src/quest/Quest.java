@@ -6,6 +6,7 @@ import java.awt.Graphics2D;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import character.Status;
 import item.ItemPool;
 import maplestory.Player;
 import utils.FontUtils;
@@ -48,6 +49,11 @@ public class Quest implements Serializable {
 		this.questCondition.add(new QuestKill(monsterName, num));
 		return this;
 	}
+	
+	public Quest addQuestStatus(int str, int dex, int Int, int luk) {
+		this.questCondition.add(new QuestStatus(new Status(str, dex, Int, luk)));
+		return this;
+	}
 
 	public Quest addQuestVisit(String name) {
 		this.questCondition.add(new QuestVisit(name));
@@ -79,7 +85,7 @@ public class Quest implements Serializable {
 		return this;
 	}
 
-	public Quest addNpcQuestProceed(String npcName, int process) {
+	public Quest addRewardNpcQuestProceed(String npcName, int process) {
 		this.questReward.addQuestNpcProceed(new QuestNpcProceed(npcName, process));
 		return this;
 	}

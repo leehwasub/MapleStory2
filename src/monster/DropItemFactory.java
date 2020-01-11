@@ -16,15 +16,15 @@ public class DropItemFactory {
 		ArrayList<Item> getItems = new ArrayList<Item>();
 		int percent = (int) (Math.random() * 100.0D);
 		if (isRange(percent, 0, 40)) {
-			if ((monster instanceof BlueSnail)) {
+			if (monster instanceof BlueSnail) {
 				getItems.add(ItemPool.getItem("파란달팽이의껍질", 1));
-			} else if ((monster instanceof RedSnail)) {
+			} else if (monster instanceof RedSnail) {
 				getItems.add(ItemPool.getItem("빨간달팽이의껍질", 1));
-			} else if ((monster instanceof RibbonPig)) {
+			} else if (monster instanceof RibbonPig) {
 				getItems.add(ItemPool.getItem("돼지의리본", 1));
-			} else if ((monster instanceof OrangeMushroom)) {
+			} else if (monster instanceof OrangeMushroom) {
 				getItems.add(ItemPool.getItem("주황버섯의갓", 1));
-			} else if ((monster instanceof GreenMushroom)) {
+			} else if (monster instanceof GreenMushroom) {
 				getItems.add(ItemPool.getItem("초록버섯의갓", 1));
 			}
 		}
