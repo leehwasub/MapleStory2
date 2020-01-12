@@ -6,7 +6,7 @@ import utils.MusicUtils;
 
 public class PowerStrikeHitImage extends SkillImage {
 	public PowerStrikeHitImage(Hunt hunt, StateBox attacker, StateBox opponent) {
-		super("playerSkillImage/powerStrikeUse", hunt, attacker, opponent, 60);
+		super("playerSkillImage/powerStrikeHit", hunt, attacker, opponent, 60);
 	}
 
 	public void run() {

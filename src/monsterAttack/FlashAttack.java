@@ -3,13 +3,10 @@ package monsterAttack;
 import attack.Damage;
 import attack.Property;
 import attackImage.FlashAttackImage;
-import attackImage.FlashAttackMovingImage;
-import attackImage.SkillImage;
 import character.Character;
 import component.StateBox;
 import hunt.Hunt;
 import skill.MonsterSkill;
-import utils.MusicUtils;
 
 public class FlashAttack extends MonsterAttack {
 	public FlashAttack(Hunt hunt, StateBox attacker, StateBox opponent, MonsterSkill monsterSkill) {

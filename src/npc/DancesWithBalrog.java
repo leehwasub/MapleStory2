@@ -31,6 +31,7 @@ public class DancesWithBalrog extends Npc{
 				player.addItem(ItemPool.getItem("스퀘이머(여)", 1));
 				player.addItem(ItemPool.getItem("소피아바지(여)", 1));
 			}
+			player.calState();
 		}
 	}
 

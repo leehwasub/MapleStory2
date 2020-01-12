@@ -13,6 +13,7 @@ import utils.DialogUtils;
 import utils.ExpUtils;
 import utils.MusicUtils;
 import utils.NewbieStateUtils;
+import utils.WarriorStateUtils;
 
 public class Adventurer extends Character implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -43,11 +44,17 @@ public class Adventurer extends Character implements Serializable {
 	public void calState() {
 		proficiency = 20;
 		this.strength.setPhysicalDefense(0);
-		this.strength.setMagicDefense(this.status.Int);
+		this.strength.setMagicDefense(0);
 		this.strength.setPhysicalDamage(0);
 		this.strength.setMagicDamage(0);
-		this.strength.setMaxHp(NewbieStateUtils.getMaxHpByIndex(this.strength.getLevel()) * 10);
-		this.strength.setMaxMp(NewbieStateUtils.getMaxMpByIndex(this.strength.getLevel()));
+		
+		if(careerLevel == 0) {
+			strength.setMaxHp(NewbieStateUtils.getMaxHpByIndex(strength.getLevel()));
+			strength.setMaxMp(NewbieStateUtils.getMaxMpByIndex(strength.getLevel()));
+		} else {
+			strength.setMaxHp(WarriorStateUtils.getMaxHpByIndex(strength.getLevel()));
+			strength.setMaxMp(WarriorStateUtils.getMaxMpByIndex(strength.getLevel()));
+		}
 
 		this.strength.setAccuracyRate(this.status.dex / 2);
 		this.strength.setEvasionRate(this.status.luk / 2);
@@ -304,6 +311,18 @@ public class Adventurer extends Character implements Serializable {
 			}
 		}
 		return null;
+	}
+
+	public void setAllSkillImageForInit() {
+		for(int i = 0; i < oneLevelSkillList.size(); i++) {
+			oneLevelSkillList.get(i).setSkillImageForInit();
+		}
+		for(int i = 0; i < twoLevelSkillList.size(); i++) {
+			twoLevelSkillList.get(i).setSkillImageForInit();
+		}
+		for(int i = 0; i < threeLevelSkillList.size(); i++) {
+			threeLevelSkillList.get(i).setSkillImageForInit();
+		}
 	}
 
 	

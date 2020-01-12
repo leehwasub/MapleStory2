@@ -4,6 +4,7 @@ import attack.Property;
 import character.Resistance;
 import character.Strength;
 import skill.Skill;
+import utils.DialogUtils;
 
 public class BuffFactory {
 	public static Buff makeMonsterBuff(String buffName, int skillPoint) {
@@ -33,6 +34,7 @@ public class BuffFactory {
 			return new StrengthBuff("evasionRateDecreasing", "회피율약화", 6 + skillPoint / 5, "회피율을 일정시간 동안 약화한다", 
 					new Strength(new Resistance(), 0, 0, 0, 0, 0, 0, 0, 0, -(4 + skillPoint), 0));
 		}
+		DialogUtils.showErrorDialog("BuffFactory.makeMonsterBuff(...) 버프 생성 실패!");
 		return null;
 		
 	}

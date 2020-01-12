@@ -110,5 +110,6 @@ public class SaveLoad {
 		}
 		player.getMainAdventurer().setImageWithInstanceForInit();
 		player.get_curMap().MapleMapBackgroundInit();
+		player.getMainAdventurer().setAllSkillImageForInit();
 	}
 }

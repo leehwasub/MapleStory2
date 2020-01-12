@@ -21,7 +21,7 @@ public abstract class MonsterAttack extends Attack {
 	public void setMonsterSkill(MonsterSkill monsterSkill) {
 		this.monsterSkill = monsterSkill;
 	}
-	
+
 	public abstract int calNeedMp();
 	
 }

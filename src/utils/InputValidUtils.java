@@ -8,7 +8,7 @@ public class InputValidUtils {
 			}
 		}
 		int num = Integer.parseInt(s);
-		if (num > 1000) {
+		if (num == 0 || num > 1000) {
 			return false;
 		}
 		return true;

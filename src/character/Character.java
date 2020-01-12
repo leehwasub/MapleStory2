@@ -172,23 +172,25 @@ public abstract class Character implements Serializable{
 	}
 	
 	public void addBuff(Buff buff) {
-		if(isAlreadyBuffed(buff)) {
-			removeBuff(buff);
+		if(isAlreadyBuffed(buff.getName())) {
+			removeBuff(buff.getName());
+			return;
 		}
 		buffList.add(buff);
+		System.out.println("버프 사이즈 : " + buffList.size());
 	}
 	
-	private void removeBuff(Buff buff) {
+	public void removeBuff(String buffName) {
 		for(int i = 0; i < buffList.size(); i++) {
-			if(buffList.get(i).getName().equals(buff.getName())) {
+			if(buffList.get(i).getName().equals(buffName)) {
 				buffList.remove(i);
 			}
 		}
 	}
 	
-	private boolean isAlreadyBuffed(Buff buff) {
+	public boolean isAlreadyBuffed(String buffName) {
 		for(int i = 0; i < buffList.size(); i++) {
-			if(buffList.get(i).getName().equals(buff.getName())) {
+			if(buffList.get(i).getName().equals(buffName)) {
 				return true;
 			}
 		}

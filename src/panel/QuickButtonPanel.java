@@ -139,7 +139,7 @@ public class QuickButtonPanel extends JPanel{
 	}
 	
 	private void quickSkillEvent(int index) {
-		if(!player.isHunt() || !player.isCanUseSkill()) return;
+		if(!player.isHunt() || !player.isCanUseSkill() || quickSkillButton[index].getSkill() == null) return;
 		mainMapleInterface.playerUseSkill(quickSkillButton[index].getSkill().getName());
 	}
 

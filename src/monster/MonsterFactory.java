@@ -25,6 +25,8 @@ public class MonsterFactory {
 			return new OrangeMushroom();
 		case "초록버섯":
 			return new GreenMushroom();
+		case "스텀프":
+			return new Stump();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -69,6 +71,13 @@ public class MonsterFactory {
 				ret = makeMonster("주황버섯");
 			} else if (isRange(percent, 8, 10)) {
 				ret = makeMonster("초록버섯");
+			}
+			break;
+		case "페리온서쪽길목":
+			if (isRange(percent, 0, 4)) {
+				ret = makeMonster("초록버섯");
+			} else if (isRange(percent, 6, 10)) {
+				ret = makeMonster("스텀프");
 			}
 			break;
 		}

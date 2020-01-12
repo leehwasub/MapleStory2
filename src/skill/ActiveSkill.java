@@ -1,5 +1,7 @@
 package skill;
 
+import java.io.Serializable;
+
 import attack.AttackType;
 import attack.Property;
 import component.StateBox;
@@ -8,6 +10,8 @@ import playerAttack.PlayerAttack;
 
 public abstract class ActiveSkill extends Skill {
 
+	private static final long serialVersionUID = 1L;
+	
 	protected AttackType attackType;
 	protected Property property;
 

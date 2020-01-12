@@ -2,6 +2,7 @@ package skill;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import attack.Attack;
@@ -14,9 +15,12 @@ import utils.ResourceLoader;
  * @author Leehwasub
  *
  */
-public abstract class Skill {
+public abstract class Skill implements Serializable {
 	
-	protected Image image;
+	private static final long serialVersionUID = 1L;
+	
+	protected transient Image image;
+	private String imageUrl;
 	protected String name;
 	protected int point;
 	protected int maxPoint;
@@ -30,12 +34,17 @@ public abstract class Skill {
 	 * @param infor 스킬 설명
 	 */
 	public Skill(String imageUrl, String name, int maxPoint, String infor) {
-		if(imageUrl != null) {
-			this.image = ResourceLoader.getImage("skillImage", imageUrl + "skillImage.png");
+		this.imageUrl = imageUrl;
+		if(this.imageUrl != null) {
+			setSkillImageForInit();
 		}
 		this.name = name;
 		this.maxPoint = maxPoint;
 		this.infor = infor;
+	}
+	
+	public void setSkillImageForInit() {
+		this.image = ResourceLoader.getImage("skillImage", this.imageUrl + "SkillImage.png");
 	}
 
 	public void drawInfor(Graphics2D g, Point point) {
