@@ -1,26 +1,25 @@
-package attack;
+package monsterAttack;
 
+import attack.Damage;
+import attack.Property;
 import attackImage.FlashAttackImage;
 import attackImage.FlashAttackMovingImage;
 import attackImage.SkillImage;
 import character.Character;
 import component.StateBox;
 import hunt.Hunt;
+import skill.MonsterSkill;
 import utils.MusicUtils;
 
-public class FlashAttack extends Attack {
-	public FlashAttack(Hunt hunt, StateBox attacker, StateBox opponent, int skillPoint) {
-		super(hunt, attacker, opponent, "플래시", Property.PROPERTY_NOTHING, 0, AttackType.OPPONENT);
-	}
-
-	public void readyForAttack() {
-		
+public class FlashAttack extends MonsterAttack {
+	public FlashAttack(Hunt hunt, StateBox attacker, StateBox opponent, MonsterSkill monsterSkill) {
+		super(hunt, attacker, opponent, monsterSkill);
 	}
 
 	public void run() {
 		this.attacker.attackForwardMotion();
 		Character opponentCh = this.opponent.getCharacter();
-		double percent = 0.9f + (double)skillPoint * 0.1f;
+		double percent = 0.9f + (double)monsterSkill.getSkillPoint() * 0.1f;
 		int damage = opponentCh.hit(new Damage(this.attacker.getCharacter(), Property.PROPERTY_NOTHING,
 				0, this.attacker.getCharacter().calNormalDamge(percent)));
 		this.damage = damage;
@@ -40,10 +39,10 @@ public class FlashAttack extends Attack {
 	}
 
 	public String attackInfor() {
-		return this.attacker.getCharacterName() + "는 " + this.attackName + "을 사용. " + this.opponent.getCharacterName() + "에게 " + this.damage + "의 피해를 주었다.";
+		return this.attacker.getCharacterName() + "는 " + this.monsterSkill.getAttackName() + "을 사용. " + this.opponent.getCharacterName() + "에게 " + this.damage + "의 피해를 주었다.";
 	}
 
 	public int calNeedMp() {
-		return skillPoint*10;
+		return monsterSkill.getSkillPoint()*10;
 	}
 }

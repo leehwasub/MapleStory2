@@ -280,7 +280,7 @@ public class ItemPool {
 		if (item instanceof BuffItem) {
 			BuffItem item2 = (BuffItem) item;
 			BuffItem e = new BuffItem(item2.getName(), item2.getCost(), item2.getImageUrl(), num, item2.getStrength(),
-					item2.getLastTime(), item2.getCancelRate());
+					item2.getLastTime());
 			return e;
 		}
 		if (item instanceof HealItem) {

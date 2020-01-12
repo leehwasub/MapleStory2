@@ -33,19 +33,19 @@ public class QuestStatus extends QuestCondition implements Serializable {
 		StringBuffer ret = new StringBuffer();
 		Status playerStatus = player.getMainAdventurer().getStatus();
 		if(status.getStr() != 0) {
-			ret.append("STR : " + this.status.getStr() + " / " + playerStatus.getStr());
+			ret.append("STR : " + playerStatus.getStr() + " / " + status.getStr());
 		}
 		if(status.getDex() != 0) {
 			if(ret.length() != 0) ret.append("\n");
-			ret.append("DEX : " + this.status.getDex() + " / " + playerStatus.getDex());
+			ret.append("DEX : " + playerStatus.getDex() + " / " + status.getDex());
 		}
 		if(status.getInt() != 0) {
 			if(ret.length() != 0) ret.append("\n");
-			ret.append("INT : " + this.status.getInt() + " / " + playerStatus.getInt());
+			ret.append("INT : " + playerStatus.getInt() + " / " + status.getInt());
 		}
 		if(status.getLuk() != 0) {
 			if(ret.length() != 0) ret.append("\n");
-			ret.append("LUK : " + this.status.getLuk() + " / " + playerStatus.getLuk());
+			ret.append("LUK : " + playerStatus.getLuk() + " / " + status.getLuk());
 		}
 		return ret.toString();
 	}

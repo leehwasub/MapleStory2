@@ -7,7 +7,7 @@ import utils.MusicUtils;
 
 public class FlashAttackMovingImage extends MovableSkillImage {
 	public FlashAttackMovingImage(Hunt hunt, StateBox attacker, StateBox opponent) {
-		super(hunt, "monsterSkillImage/flash", attacker, opponent, 120, 3000);
+		super("monsterSkillImage/flash", hunt, attacker, opponent, 120, 3000);
 	}
 
 	public void run() {

@@ -14,7 +14,7 @@ import component.MapleButton;
 import utils.FontUtils;
 import utils.ResourceLoader;
 
-public class skillKeySelectDialog extends JDialog {
+public class SkillKeySelectDialog extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private static final int DIALOG_WIDTH = 420;
 	private static final int DIALOG_HEIGHT = 200;
@@ -46,7 +46,7 @@ public class skillKeySelectDialog extends JDialog {
 			quickCButtonEnteredImage, quickVButtonEnteredImage,  quickBButtonEnteredImage};
 	private int returnIndex = -1;
 
-	public skillKeySelectDialog() {
+	public SkillKeySelectDialog() {
 		setTitle("key select");
 		setSize(DIALOG_WIDTH, DIALOG_HEIGHT);
 		setResizable(false);

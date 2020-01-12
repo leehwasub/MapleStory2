@@ -607,6 +607,11 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	public void setQuickItemImage() {
 		quickButtonPanel.setQuickItemImage();
 	}
+	
+	@Override
+	public void setQuickSkillImage() {
+		quickButtonPanel.setQuickSkillImage();
+	}
 
 	@Override
 	public void nextTurn() {

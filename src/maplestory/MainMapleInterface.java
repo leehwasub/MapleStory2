@@ -19,4 +19,5 @@ public interface MainMapleInterface {
 	public void setQuickItemImage();
 	public void nextTurn();
 	public void playerUseSkill(String skillName);
+	public void setQuickSkillImage();
 }

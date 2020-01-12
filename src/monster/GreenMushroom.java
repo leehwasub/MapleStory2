@@ -8,6 +8,7 @@ import character.Resistance;
 import character.Strength;
 import component.StateBox;
 import hunt.Hunt;
+import maplestory.Main;
 
 public final class GreenMushroom extends Monster {
 
@@ -16,7 +17,7 @@ public final class GreenMushroom extends Monster {
 	public GreenMushroom() {
 		super("초록버섯", "greenMushroom",
 				new Strength(new Resistance(100, 100, 150, 100, 100, 100), 9, 125, 10, 0, 0, 3, 0, 2, 2, 0), 34, 37, 0, 0,
-				15, 24, false);
+				15 * Main.EXP_BONUS, 24 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}
 	

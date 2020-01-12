@@ -1,20 +1,17 @@
-package attack;
+package monsterAttack;
 
-import attackImage.FlashAttackImage;
-import attackImage.FlashAttackMovingImage;
-import attackImage.SkillImage;
+import attack.Damage;
+import attack.Property;
 import character.Character;
 import component.StateBox;
 import hunt.Hunt;
+import skill.MonsterSkill;
 import utils.MusicUtils;
 
-public class TackleAttack extends Attack {
-	public TackleAttack(Hunt hunt, StateBox attacker, StateBox opponent, int skillPoint) {
-		super(hunt, attacker, opponent, "몸통박치기",Property.PROPERTY_NOTHING, 0, AttackType.OPPONENT);
-	}
-
-	public void readyForAttack() {
-		
+public class TackleAttack extends MonsterAttack {
+	
+	public TackleAttack(Hunt hunt, StateBox attacker, StateBox opponent, MonsterSkill monsterSkill) {
+		super(hunt, attacker, opponent, monsterSkill);
 	}
 
 	public void run() {
@@ -23,7 +20,6 @@ public class TackleAttack extends Attack {
 		int damage = opponentCh.hit(new Damage(this.attacker.getCharacter(), Property.PROPERTY_NOTHING,
 				this.attacker.getCharacter().calNormalDamge(1.0D), 0));
 		MusicUtils.startEffectSound("monsterAttack1");
-		this.damage = damage;
 		this.hunt.addDamageText(damage, opponent, 0);
 		this.opponent.updateStateBox(); 
 		attackMoveDelay();
@@ -34,7 +30,7 @@ public class TackleAttack extends Attack {
 	}
 
 	public String attackInfor() {
-		return this.attacker.getCharacterName() + "는 " + this.attackName + "을 사용. " + this.opponent.getCharacterName() + "에게 " + this.damage + "의 피해를 주었다.";
+		return this.attacker.getCharacterName() + "는 " + this.monsterSkill.getAttackName() + "을 사용. " + this.opponent.getCharacterName() + "에게 " + this.damage + "의 피해를 주었다.";
 	}
 
 	public int calNeedMp() {

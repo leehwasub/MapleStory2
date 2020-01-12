@@ -16,6 +16,7 @@ import item.Item;
 import item.ItemButton;
 import maplestory.Player;
 import utils.FontUtils;
+import utils.MusicUtils;
 import utils.ResourceLoader;
 
 public class InventoryEquipmentPanel extends JPanel {
@@ -44,9 +45,8 @@ public class InventoryEquipmentPanel extends JPanel {
 		if (this.player.getInventory().getEquipmentInventory().size() <= index) {
 			return;
 		}
-		for (int i = 0; i < 50; i++) {
-			this.inventoryItemSpace[i].setVisible(true);
-		}
+		player.wearEquipment(index);
+		MusicUtils.startEffectSound("itemWear");
 		setEquipmentItemImage();
 	}
 
@@ -73,7 +73,7 @@ public class InventoryEquipmentPanel extends JPanel {
 			this.inventoryItemSpace[i].setBounds(x + i % 10 * 100, y + i / 10 * 70, 50, 50);
 			this.inventoryItemSpace[i].addMouseListener(new MouseAdapter() {
 				public void mousePressed(MouseEvent e) {
-					InventoryEquipmentPanel.this.inventoryItemEvent(index);
+					inventoryItemEvent(index);
 				}
 			});
 			inventoryItemSpace[i].setItemToolTip(toolTipPanel);

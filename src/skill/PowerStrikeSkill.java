@@ -1,9 +1,11 @@
 package skill;
 
-import attack.Attack;
 import attack.AttackType;
 import attack.Property;
 import component.StateBox;
+import hunt.Hunt;
+import playerAttack.PlayerAttack;
+import playerAttack.PowerStrikeAttack;
 
 public class PowerStrikeSkill extends ActiveSkill{
 
@@ -22,8 +24,8 @@ public class PowerStrikeSkill extends ActiveSkill{
 	}
 
 	@Override
-	public Attack skillUse(StateBox attacker, StateBox opponent) {
-		return null;
+	public PlayerAttack skillUse(Hunt hunt, StateBox attacker, StateBox opponent) {
+		return new PowerStrikeAttack(hunt, attacker, opponent, this);
 	}
 
 	@Override

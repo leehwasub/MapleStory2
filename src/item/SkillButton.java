@@ -2,6 +2,7 @@ package item;
 
 import java.awt.Cursor;
 import java.awt.Graphics2D;
+import java.awt.event.InputEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -77,8 +78,10 @@ public class SkillButton extends JButton {
 
 			public void mousePressed(MouseEvent e) {
 				MusicUtils.startEffectSound("ButtonPressed");
-				SkillDetailDialog skillDetailDialog = new SkillDetailDialog(skill);
-				skillDetailDialog.setVisible(true);
+				if(e.getModifiers() == InputEvent.BUTTON3_MASK) {
+					SkillDetailDialog skillDetailDialog = new SkillDetailDialog(skill);
+					skillDetailDialog.setVisible(true);
+				}
 			}
 		});
 		addMouseMotionListener(new MouseMotionAdapter() {
@@ -103,6 +106,18 @@ public class SkillButton extends JButton {
 
 	public Skill getSkill() {
 		return this.skill;
+	}
+	
+	public boolean addSkillPoint() {
+		return skill.addSkillPoint();
+	}
+	
+	public int getSkillPoint() {
+		return skill.getPoint();
+	}
+	
+	public int getSkillMaxPoint() {
+		return skill.getMaxPoint();
 	}
 
 	public void setSkill(Skill skill) {

@@ -110,7 +110,7 @@ public class InventoryMainPanel extends JPanel {
 		this.inventoryQuestPanel.setBounds(50, 98, 1120, 440);
 		add(this.inventoryQuestPanel);
 
-		this.inventorySkillPanel = new InventorySkillPanel(player);
+		this.inventorySkillPanel = new InventorySkillPanel(player, mainMapleInterface);
 		this.inventorySkillPanel.setBounds(50, 98, 1120, 440);
 		add(this.inventorySkillPanel);
 

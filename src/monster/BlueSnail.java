@@ -8,6 +8,7 @@ import character.Resistance;
 import character.Strength;
 import component.StateBox;
 import hunt.Hunt;
+import maplestory.Main;
 
 public final class BlueSnail extends Monster {
 
@@ -15,8 +16,8 @@ public final class BlueSnail extends Monster {
 
 	public BlueSnail() {
 		super("파란달팽이", "blueSnail",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 1, 15, 2, 8, 0, 0, 0, 0, 0, 0), 7, 10, 0, 0, 3,
-				10, false);
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 1, 15, 2, 8, 0, 0, 0, 0, 0, 0), 7, 10, 0, 0, 3 * Main.EXP_BONUS,
+				10 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}
 

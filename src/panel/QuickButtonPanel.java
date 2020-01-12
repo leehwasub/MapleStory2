@@ -222,7 +222,7 @@ public class QuickButtonPanel extends JPanel{
 		setQuickItemImage();
 	}
 	
-	private void setQuickSkillImage() {
+	public void setQuickSkillImage() {
 		if (player.getMainAdventurer() == null) {
 			return;
 		}

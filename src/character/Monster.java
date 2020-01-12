@@ -1,6 +1,5 @@
 package character;
 
-import java.awt.Dialog;
 import java.util.ArrayList;
 
 import attack.Attack;
@@ -9,6 +8,7 @@ import component.StateBox;
 import hunt.Hunt;
 import maplestory.Player;
 import monster.DropItemFactory;
+import monsterAttack.MonsterAttack;
 import utils.DialogUtils;
 
 public abstract class Monster extends Character {
@@ -39,12 +39,12 @@ public abstract class Monster extends Character {
 	
 	public abstract void initSkillList();
 
-	public final Attack attack(Hunt hunt, StateBox attacker, StateBox opponent) {
+	public final MonsterAttack attack(Hunt hunt, StateBox attacker, StateBox opponent) {
 		int percent = (int)(Math.random() * 1001);
 		for(int i = 0; i < skillList.size(); i++) {
 			MonsterSkillInfor infor = skillList.get(i);
 			if(infor.getPercentSt() <= percent && percent <= infor.getPercentEd() && curHp <= infor.getUnderHpCondition()) {
-				Attack attack = AttackFactory.makeMonsterAttack(hunt, attacker, opponent, infor.getSkillName(), infor.getSkillPoint());
+				MonsterAttack attack = AttackFactory.makeMonsterAttack(hunt, attacker, opponent, infor.getSkillName(), infor.getSkillPoint());
 				if(attack.calNeedMp() <= curMp) {
 					curMp = curMp - attack.calNeedMp();
 					return attack;

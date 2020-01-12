@@ -82,6 +82,7 @@ public class Adventurer extends Character implements Serializable {
 			this.curHp = getMaxHp();
 			this.curMp = getMaxMp();
 			this.statePoint += 5;
+			if(this.getStrength().getLevel() >= 10) this.skillPoint += 3;
 		}
 	}
 
@@ -125,6 +126,10 @@ public class Adventurer extends Character implements Serializable {
 
 	public int getSkillPoint() {
 		return this.skillPoint;
+	}
+	
+	public void subSkillPoint() {
+		this.skillPoint -= 1;
 	}
 
 	public int getStatePoint() {
@@ -265,6 +270,37 @@ public class Adventurer extends Character implements Serializable {
 			threeLevelSkillList.add(skill);
 			break;
 		}
+	}
+	
+	public Skill getSkillWithLevelIndex(int level, int index) {
+		switch(level) {
+		case 1:
+			return oneLevelSkillList.get(index);
+		case 2:
+			return twoLevelSkillList.get(index);
+		case 3:
+			return threeLevelSkillList.get(index);
+		}
+		return null;
+	}
+
+	public Skill getSkillWithName(String skillName) {
+		for(int i = 0; i < oneLevelSkillList.size(); i++) {
+			if(oneLevelSkillList.get(i).getName().equals(skillName)) {
+				return oneLevelSkillList.get(i);
+			}
+		}
+		for(int i = 0; i < twoLevelSkillList.size(); i++) {
+			if(twoLevelSkillList.get(i).getName().equals(skillName)) {
+				return twoLevelSkillList.get(i);
+			}
+		}
+		for(int i = 0; i < threeLevelSkillList.size(); i++) {
+			if(threeLevelSkillList.get(i).getName().equals(skillName)) {
+				return threeLevelSkillList.get(i);
+			}
+		}
+		return null;
 	}
 
 	

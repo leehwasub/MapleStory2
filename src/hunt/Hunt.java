@@ -26,6 +26,9 @@ import map.WarpMapBossRoom;
 import maplestory.MainMapleInterface;
 import maplestory.Message;
 import maplestory.Player;
+import monsterAttack.MonsterAttack;
+import playerAttack.PlayerAttack;
+import skill.ActiveSkill;
 import utils.ResourceLoader;
 
 public class Hunt extends Thread {
@@ -48,8 +51,8 @@ public class Hunt extends Thread {
 	private boolean winFlag;
 	private JPanel panel;
 	private Player player;
-	private Attack monsterAttack;
-	private Attack playerAttack;
+	private MonsterAttack monsterAttack;
+	private PlayerAttack playerAttack;
 	private MouseListener m;
 	private ArrayList<SkillImage> skillImageList = new ArrayList<SkillImage>();
 
@@ -156,7 +159,7 @@ public class Hunt extends Thread {
 			if ((character instanceof Monster)) {
 				Monster turnMonster = (Monster) character;
 				this.monsterAttack = turnMonster.attack(this, this.nowStateBox, this.adventurerState);
-				if(monsterAttack.getAttackType() == AttackType.MYSELF) {
+				if(monsterAttack.getMonsterSkill().getAttackType() == AttackType.MYSELF) {
 					monsterAttack.setOpponent(nowStateBox);
 				}
 				this.monsterAttack.start();
@@ -215,14 +218,24 @@ public class Hunt extends Thread {
 		if (!this.attackButton.isVisible()) {
 			return;
 		}
+		if(skillName.equals("일반공격")) {
+			playerAttack = AttackFactory.makeAdventurerAttack(this, nowStateBox, monsterState, "일반공격", 0);
+		} else {
+			playerAttack = ((ActiveSkill)player.getMainAdventurer().getSkillWithName(skillName)).skillUse(this, nowStateBox, monsterState);
+			int needMp = playerAttack.getActiveSkill().getNeedMp(playerAttack.getActiveSkill().getPoint());
+			if(player.getMainAdventurer().getCurMp() < needMp) {
+				this.mInterface.pushMessage(new Message("마나가 부족합니다.", Color.RED, true));
+				return;
+			}
+			player.getMainAdventurer().spendMp(needMp);
+		}
+		if(playerAttack.getActiveSkill().getAttackType() == AttackType.MYSELF) {
+			playerAttack.setOpponent(nowStateBox);
+		}
 		player.setCanUseSkill(false);
 		player.setCanUsePortion(false);
 		attackButton.setVisible(false);
 		runButton.setVisible(false);
-		playerAttack = AttackFactory.makeAdventurerAttack(this, this.nowStateBox, this.monsterState, skillName, 0);
-		if(playerAttack.getAttackType() == AttackType.MYSELF) {
-			playerAttack.setOpponent(nowStateBox);
-		}
 		wakeUp();
 	}
 

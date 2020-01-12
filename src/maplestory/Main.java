@@ -10,8 +10,8 @@ import utils.StringHelper;
 public class Main {
 	public static final int SCREEN_WIDTH = 1280;
 	public static final int SCREEN_HEIGHT = 720;
-	public static final int MONEY_BONUS = 1;
-	public static final int EXP_BONUS = 1;
+	public static final int MONEY_BONUS = 5;
+	public static final int EXP_BONUS = 5;
 	public static final boolean MONSTER_TEST_MODE = false;
 	public static final boolean DAMAGE_TEST_MODE = true;
 	public static final boolean QUEST_TEST = true;

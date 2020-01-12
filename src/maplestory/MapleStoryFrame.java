@@ -17,7 +17,6 @@ public class MapleStoryFrame extends JFrame implements MapleInterface {
 	private PrologPanel prologPanel;
 	private LoadPanel loadPanel = new LoadPanel(this);
 	private JPanel mainPanel;
-	private Player player;
 
 	MapleStoryFrame() {
 		setTitle("MapleStory");

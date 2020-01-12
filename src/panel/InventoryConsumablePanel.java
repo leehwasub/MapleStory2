@@ -64,7 +64,7 @@ public class InventoryConsumablePanel extends JPanel {
 			this.inventoryItemSpace[i].setBounds(x + i % 10 * 100, y + i / 10 * 70, 50, 50);
 			this.inventoryItemSpace[i].addMouseListener(new MouseAdapter() {
 				public void mousePressed(MouseEvent e) {
-					InventoryConsumablePanel.this.inventoryItemEvent(index);
+					inventoryItemEvent(index);
 				}
 			});
 			this.inventoryItemSpace[i].setItemToolTip(toolTipPanel);

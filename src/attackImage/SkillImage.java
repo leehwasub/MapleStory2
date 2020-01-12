@@ -24,11 +24,11 @@ public abstract class SkillImage extends Thread {
 	protected StateBox opponent;
 	protected boolean isDead;
 
-	public SkillImage(Hunt hunt, String root, StateBox attacker, StateBox opponent, int delay) {
+	public SkillImage(String root, Hunt hunt, StateBox attacker, StateBox opponent, int delay) {
 		this.delay = delay;
 		this.attacker = attacker;
-		this.hunt = hunt;
 		this.opponent = opponent;
+		this.hunt = hunt;
 		this.point = attacker.getPoint();
 		try {
 			new FileLoader();
@@ -102,6 +102,14 @@ public abstract class SkillImage extends Thread {
 
 	public void setDead(boolean isDead) {
 		this.isDead = isDead;
+	}
+
+	public StateBox getOpponent() {
+		return opponent;
+	}
+
+	public void setOpponent(StateBox opponent) {
+		this.opponent = opponent;
 	}
 
 	public void draw(Graphics2D g) {

@@ -6,28 +6,20 @@ import java.util.ArrayList;
 import attackImage.SkillImage;
 import component.StateBox;
 import hunt.Hunt;
+import skill.Skill;
 
 public abstract class Attack extends Thread {
 	protected Hunt hunt;
 	protected StateBox attacker;
 	protected StateBox opponent;
-	protected String attackName;
-	protected Property property;
-	protected int skillPoint;
-	protected AttackType attackType;
-	protected int damage;
-	protected int needMp;
 	protected ArrayList<SkillImage> skillImageList = new ArrayList<SkillImage>();
+	
+	protected int damage;
 
-	public Attack(Hunt hunt, StateBox attacker, StateBox opponent, String attackName, Property property, int skillPoint, 
-			AttackType attackType) {
+	public Attack(Hunt hunt, StateBox attacker, StateBox opponent) {
 		this.hunt = hunt;
 		this.attacker = attacker;
 		this.opponent = opponent;
-		this.attackName = attackName;
-		this.property = property;
-		this.skillPoint = skillPoint;
-		this.attackType = attackType;
 	}
 
 	public void attackMoveDelay() {
@@ -49,6 +41,14 @@ public abstract class Attack extends Thread {
 	public void wakeUpThread() {
 		synchronized (this.hunt) {
 			this.hunt.notify();
+		}
+	}
+	
+	public void sleep(int sleep) {
+		try {
+			Thread.sleep(sleep);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -85,33 +85,6 @@ public abstract class Attack extends Thread {
 		this.opponent = opponent;
 	}
 
-	public String getAttackName() {
-		return this.attackName;
-	}
-
-	public void setAttackName(String attackName) {
-		this.attackName = attackName;
-	}
-
-	public int getDamage() {
-		return this.damage;
-	}
-
-	public void setDamage(int damage) {
-		this.damage = damage;
-	}
-
-	public AttackType getAttackType() {
-		return this.attackType;
-	}
-
-	public void setAttackType(AttackType attackType) {
-		this.attackType = attackType;
-	}
-
 	public abstract void run();
-
 	public abstract String attackInfor();
-
-	public abstract int calNeedMp();
 }

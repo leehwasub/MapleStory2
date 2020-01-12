@@ -1,9 +1,10 @@
 package skill;
 
-import attack.Attack;
 import attack.AttackType;
 import attack.Property;
 import component.StateBox;
+import hunt.Hunt;
+import playerAttack.PlayerAttack;
 
 public abstract class ActiveSkill extends Skill {
 
@@ -16,9 +17,24 @@ public abstract class ActiveSkill extends Skill {
 		this.property = property;
 	}
 	
+	public AttackType getAttackType() {
+		return attackType;
+	}
+
+	public Property getProperty() {
+		return property;
+	}
+
+	public void setAttackType(AttackType attackType) {
+		this.attackType = attackType;
+	}
+
+	public void setProperty(Property property) {
+		this.property = property;
+	}
+
 	public abstract int getNeedMp(int point);
 	public abstract int getLast(int point);
-	public abstract Attack skillUse(StateBox attacker, StateBox opponent);
-	
+	public abstract PlayerAttack skillUse(Hunt hunt, StateBox attacker, StateBox opponent);
 	
 }

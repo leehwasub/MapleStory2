@@ -54,6 +54,11 @@ public class Quest implements Serializable {
 		this.questCondition.add(new QuestStatus(new Status(str, dex, Int, luk)));
 		return this;
 	}
+	
+	public Quest addQuestLevel(int level) {
+		this.questCondition.add(new QuestLevel(level));
+		return this;
+	}
 
 	public Quest addQuestVisit(String name) {
 		this.questCondition.add(new QuestVisit(name));

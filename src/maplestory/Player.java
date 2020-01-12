@@ -347,6 +347,21 @@ public class Player implements Serializable {
 		calState();
 		return true;
 	}
+	
+	public ConsumableItem registQuickSkill(int level, int index, int keyIndex) {
+		Skill skill = mainAdventurer.getSkillWithLevelIndex(level, index);
+		if (mainAdventurer.getQuickItemByIndex(keyIndex) != null) {
+			removeQuickSkill(keyIndex);
+		}
+		mainAdventurer.setQuickSkillByIndex(keyIndex, skill);
+		return null;
+	}
+
+	public boolean removeQuickSkill(int keyIndex) {
+		mainAdventurer.setQuickSkillByIndex(keyIndex, null);
+		calState();
+		return true;
+	}
 
 	public EquipmentItem wearEquipment(int index) {
 		if (index >= getInventory().getEquipmentInventory().size()) {

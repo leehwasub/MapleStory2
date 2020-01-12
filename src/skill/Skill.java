@@ -30,7 +30,9 @@ public abstract class Skill {
 	 * @param infor 스킬 설명
 	 */
 	public Skill(String imageUrl, String name, int maxPoint, String infor) {
-		this.image = ResourceLoader.getImage("skillImage", imageUrl + "skillImage.png");
+		if(imageUrl != null) {
+			this.image = ResourceLoader.getImage("skillImage", imageUrl + "skillImage.png");
+		}
 		this.name = name;
 		this.maxPoint = maxPoint;
 		this.infor = infor;
@@ -81,6 +83,14 @@ public abstract class Skill {
 
 	public void setInfor(String infor) {
 		this.infor = infor;
+	}
+	
+	public boolean addSkillPoint() {
+		if(this.point < this.maxPoint) {
+			this.point += 1;
+			return true;
+		}
+		return false;
 	}
 
 }
