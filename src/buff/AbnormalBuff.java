@@ -7,10 +7,12 @@ import character.Character;
 
 public final class AbnormalBuff extends Buff{
 	
+	private Property property;
 	private int damage;
 	
-	public AbnormalBuff(String imageUri, String name, Property property, int last, String infor, int damage) {
-		super(imageUri, name, property, last, infor);
+	public AbnormalBuff(String imageUri, String name, int last, String infor, Property property, int damage) {
+		super(imageUri, name, last, infor);
+		this.property = property;
 		this.damage = damage;
 	}
 
@@ -22,6 +24,14 @@ public final class AbnormalBuff extends Buff{
 	@Override
 	public void effect(Character character) {
 		
+	}
+
+	public Property getProperty() {
+		return property;
+	}
+
+	public void setProperty(Property property) {
+		this.property = property;
 	}
 
 	public int getDamage() {

@@ -10,8 +10,8 @@ public final class StrengthBuff extends Buff{
 
 	private Strength strength;
 
-	public StrengthBuff(String imageUri, String name, Property property, int last, String infor, Strength strength) {
-		super(imageUri, name, property, last, infor);
+	public StrengthBuff(String imageUri, String name, int last, String infor, Strength strength) {
+		super(imageUri, name, last, infor);
 		this.strength = strength;
 	}
 	

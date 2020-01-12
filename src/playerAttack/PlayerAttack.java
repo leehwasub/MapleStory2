@@ -4,7 +4,6 @@ import attack.Attack;
 import component.StateBox;
 import hunt.Hunt;
 import skill.ActiveSkill;
-import skill.MonsterSkill;
 
 public abstract class PlayerAttack extends Attack {
 	

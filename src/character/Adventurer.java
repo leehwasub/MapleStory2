@@ -3,10 +3,13 @@ package character;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import item.BuffItem;
 import item.ConsumableItem;
 import item.EquipmentItem;
+import item.HealItem;
 import maplestory.Main;
 import skill.Skill;
+import utils.DialogUtils;
 import utils.ExpUtils;
 import utils.MusicUtils;
 import utils.NewbieStateUtils;

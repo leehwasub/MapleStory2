@@ -13,12 +13,10 @@ import utils.MusicUtils;
 public class HealItem extends ConsumableItem implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Heal heal;
-	private int level;
 
 	public HealItem(String name, int cost, String imageUrl, int num, Heal heal, int level) {
-		super(name, cost, imageUrl, num);
+		super(name, cost, imageUrl, num, level);
 		this.heal = heal;
-		this.level = level;
 	}
 
 	public Heal getHeal() {

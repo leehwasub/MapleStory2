@@ -23,7 +23,7 @@ public abstract class Character implements Serializable{
 	protected int minMagicDamage;
 	protected int maxMagicDamage;
 	protected Strength strength = new Strength();
-	protected ArrayList<Buff> _buff = new ArrayList<Buff>();
+	protected ArrayList<Buff> buffList = new ArrayList<Buff>();
 	protected boolean isDead;
 	
 	public Character(String name, String imageUrl, Strength strength) {
@@ -170,9 +170,33 @@ public abstract class Character implements Serializable{
 	public Strength getStrength() {
 		return this.strength;
 	}
+	
+	public void addBuff(Buff buff) {
+		if(isAlreadyBuffed(buff)) {
+			removeBuff(buff);
+		}
+		buffList.add(buff);
+	}
+	
+	private void removeBuff(Buff buff) {
+		for(int i = 0; i < buffList.size(); i++) {
+			if(buffList.get(i).getName().equals(buff.getName())) {
+				buffList.remove(i);
+			}
+		}
+	}
+	
+	private boolean isAlreadyBuffed(Buff buff) {
+		for(int i = 0; i < buffList.size(); i++) {
+			if(buffList.get(i).getName().equals(buff.getName())) {
+				return true;
+			}
+		}
+		return false;
+	}
 
-	public ArrayList<Buff> getBuff() {
-		return this._buff;
+	public ArrayList<Buff> getBuffList() {
+		return this.buffList;
 	}
 
 	public void setName(String name) {
@@ -211,8 +235,8 @@ public abstract class Character implements Serializable{
 		this.strength = strength;
 	}
 
-	public void setBuff(ArrayList<Buff> buff) {
-		this._buff = buff;
+	public void setBuff(ArrayList<Buff> buffList) {
+		this.buffList = buffList;
 	}
 
 	public boolean isDead() {
@@ -233,11 +257,9 @@ public abstract class Character implements Serializable{
 	
 
 	public String toString() {
-		return
-
-		"Character [name=" + this.name + ", image=" + this.image + ", curHp=" + this.curHp + ", curMp=" + this.curMp
+		return "Character [name=" + this.name + ", image=" + this.image + ", curHp=" + this.curHp + ", curMp=" + this.curMp
 				+ ", minPhysicalDamage=" + this.minPhysicalDamage + ", maxPhysicalDamage=" + this.maxPhysicalDamage
 				+ ", minMagicDamage=" + this.minMagicDamage + ", maxMagicDamage=" + this.maxMagicDamage + ", strength="
-				+ this.strength + ", _buff=" + this._buff + "]";
+				+ this.strength + ", buffList=" + this.buffList + "]";
 	}
 }
