@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author Leehwasub
  *
  */
-public class Strength implements Serializable {
+public class Strength implements Serializable, Cloneable {
 	private static final long serialVersionUID = 1L;
 	private Resistance resistance;
 	private int level;
@@ -210,6 +210,13 @@ public class Strength implements Serializable {
 
 	public void setCriticalRate(int criticalRate) {
 		this.criticalRate = criticalRate;
+	}
+	
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		Strength strength = (Strength)super.clone();
+		strength.setResistance((Resistance)resistance.clone());
+		return super.clone();
 	}
 
 	@Override

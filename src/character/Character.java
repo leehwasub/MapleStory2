@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import attack.Damage;
 import buff.Buff;
+import buff.StrengthBuff;
 import utils.ResourceLoader;
 
 public abstract class Character implements Serializable{
@@ -196,6 +197,14 @@ public abstract class Character implements Serializable{
 		}
 		return false;
 	}
+	
+	public void strengthBuffEffect() {
+		for(int i = 0; i < buffList.size(); i++) {
+			if(buffList.get(i) instanceof StrengthBuff) {
+				buffList.get(i).effect(this);
+			}
+		}
+	}
 
 	public ArrayList<Buff> getBuffList() {
 		return this.buffList;
@@ -231,6 +240,22 @@ public abstract class Character implements Serializable{
 
 	public void setMaxMagicDamage(int maxMagicDamage) {
 		this.maxMagicDamage = maxMagicDamage;
+	}
+	
+	public void addMinPhysicalDamage(int minPhysicalDamage) {
+		this.minPhysicalDamage += minPhysicalDamage;
+	}
+
+	public void addMaxPhysicalDamage(int maxPhysicalDamage) {
+		this.maxPhysicalDamage += maxPhysicalDamage;
+	}
+
+	public void addMinMagicDamage(int minMagicDamage) {
+		this.minMagicDamage += minMagicDamage;
+	}
+
+	public void addMaxMagicDamage(int maxMagicDamage) {
+		this.maxMagicDamage += maxMagicDamage;
 	}
 
 	public void setStrength(Strength strength) {

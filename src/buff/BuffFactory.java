@@ -1,6 +1,5 @@
 package buff;
 
-import attack.Property;
 import character.Resistance;
 import character.Strength;
 import skill.Skill;

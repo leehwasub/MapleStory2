@@ -264,7 +264,6 @@ public class ItemPool {
 
 	public static Item getItem(String itemName, int num) {
 		Item item = (Item) items.get(itemName);
-		System.out.println(item);
 		if ((item instanceof WeaponItem)) {
 			WeaponItem item2 = (WeaponItem) item;
 			WeaponItem e = new WeaponItem(item2.getName(), item2.getCost(), item2.getImageUrl(), num,

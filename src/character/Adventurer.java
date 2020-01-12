@@ -71,7 +71,7 @@ public class Adventurer extends Character implements Serializable {
 			}
 		}
 		
-		
+		strengthBuffEffect();
 		
 		this.maxPhysicalDamage = (this.strength.getPhysicalDamage() * this.status.str / 10);
 		if(Main.DAMAGE_TEST_MODE) {

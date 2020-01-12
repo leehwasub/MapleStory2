@@ -156,6 +156,7 @@ public class Hunt extends Thread {
 			this.nowStateBox = this.turnQueue.peek();
 			this.turnQueue.add(this.turnQueue.peek());
 			this.turnQueue.poll();
+			this.nowStateBox.getCharacter().calState();
 			if ((character instanceof Monster)) {
 				Monster turnMonster = (Monster) character;
 				this.monsterAttack = turnMonster.attack(this, this.nowStateBox, this.adventurerState);
@@ -170,7 +171,6 @@ public class Hunt extends Thread {
 				playerAttack = null;
 				player.setCanUsePortion(true);
 				player.setCanUseSkill(true);
-				((Adventurer) this.nowStateBox.getCharacter()).calState();
 
 				this.attackButton.setVisible(true);
 				this.runButton.setVisible(true);

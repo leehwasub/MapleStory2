@@ -20,6 +20,13 @@ public abstract class Monster extends Character {
 	protected int exp;
 	protected int money;
 	protected boolean isBoss;
+	
+	private Strength calStrength;
+	private int calMinPhysicalDamage;
+	private int calMaxPhysicalDamage;
+	private int calMinMagicDamage;
+	private int calMaxMagicDamage;
+
 
 	public Monster(String name, String imageUrl, Strength strength, int minPhysicalDamage, int maxPhysicalDamage,
 			int minMagicDamage, int maxMagicDamage, int exp, int money, boolean isBoss) {
@@ -31,11 +38,30 @@ public abstract class Monster extends Character {
 		this.exp = exp;
 		this.money = money;
 		this.isBoss = isBoss;
+		
+		try {
+			this.calStrength = (Strength)strength.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		this.calMinPhysicalDamage = minPhysicalDamage;
+		this.calMaxPhysicalDamage = maxPhysicalDamage;
+		this.calMinMagicDamage = minMagicDamage;
+		this.calMaxMagicDamage = maxMagicDamage;
 	}
 	
 	@Override
 	public void calState() {
-		
+		this.minPhysicalDamage = calMinPhysicalDamage;
+		this.maxPhysicalDamage = calMaxPhysicalDamage;
+		this.minMagicDamage = calMinMagicDamage;
+		this.maxMagicDamage = calMaxMagicDamage;
+		try {
+			this.strength = (Strength)calStrength.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		strengthBuffEffect();
 	}
 	
 	public abstract void initSkillList();

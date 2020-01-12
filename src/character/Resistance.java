@@ -3,7 +3,7 @@ package character;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Resistance implements Serializable {
+public class Resistance implements Serializable, Cloneable {
 	private static final long serialVersionUID = 1L;
 	int fire;
 	int ice;
@@ -103,6 +103,11 @@ public class Resistance implements Serializable {
 
 	public void setHoly(int holy) {
 		this.holy = holy;
+	}
+	
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 
 	public String toString() {
