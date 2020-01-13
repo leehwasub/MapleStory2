@@ -37,6 +37,20 @@ public class MonsterFactory {
 			return new IronHog();
 		case "아이언보어":
 			return new IronBoar();
+		case "우드마스크":
+			return new WoodenMask();
+		case "스톤마스크":
+			return new RockyMask();
+		case "스켈독":
+			return new Skeledog();
+		case "머미독":
+			return new Mummydog();
+		case "스켈레톤사병":
+			return new SkeletonSoldier();
+		case "스켈레톤장교":
+			return new SkeletonOfficer();
+		case "스켈레톤지휘관":
+			return new SkeletonCommander();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -109,6 +123,36 @@ public class MonsterFactory {
 				ret = makeMonster("아이언호그");
 			} else if (isRange(percent, 5, 10)) {
 				ret = makeMonster("아이언보어");
+			}
+			break;
+		case "유적발굴지":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("우드마스크");
+			} else if (isRange(percent, 5, 10)) {
+				ret = makeMonster("스톤마스크");
+			}
+			break;
+		case "발굴중단지역":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("스켈독");
+			} else if (isRange(percent, 5, 10)) {
+				ret = makeMonster("머미독");
+			}
+			break;
+		case "폐쇄구역":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("스켈레톤사병");
+			} else if (isRange(percent, 5, 10)) {
+				ret = makeMonster("스켈레톤장교");
+			}
+			break;
+		case "군영":
+			if (isRange(percent, 0, 4)) {
+				ret = makeMonster("스켈레톤사병");
+			} else if (isRange(percent, 4, 7)) {
+				ret = makeMonster("스켈레톤장교");
+			} else if (isRange(percent, 7, 10)) {
+				ret = makeMonster("스켈레톤지휘관");
 			}
 			break;
 		}

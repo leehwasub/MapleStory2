@@ -12,6 +12,7 @@ import monsterAttack.EvasionRateDownAttack;
 import monsterAttack.EvasionRateUpAttack;
 import monsterAttack.FlashAttack;
 import monsterAttack.MonsterAttack;
+import monsterAttack.SwordAttack;
 import monsterAttack.TackleAttack;
 import playerAttack.NormalAttack;
 import playerAttack.PlayerAttack;
@@ -43,6 +44,8 @@ public class AttackFactory {
 			return new AccuracyRateDownAttack(hunt, attacker, opponents, new MonsterSkill("적중률약화", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
 		case "회피율약화":
 			return new EvasionRateDownAttack(hunt, attacker, opponents, new MonsterSkill("회피율약화", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
+		case "베기":
+			return new SwordAttack(hunt, attacker, opponents, new MonsterSkill("베기", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

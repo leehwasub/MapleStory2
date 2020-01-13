@@ -34,7 +34,7 @@ public class NormalAttack extends PlayerAttack {
 	}
 
 	public String attackInfor() {
-		return this.attacker.getCharacterName() + "는 " + this + "를 사용. " + opponent.getCharacterName() + "에게 " + this.damage + "의 피해를 주었다.";
+		return this.attacker.getCharacterName() + "는 " + activeSkill.getName() + "를 사용. " + opponent.getCharacterName() + "에게 " + this.damage + "의 피해를 주었다.";
 	}
 
 }

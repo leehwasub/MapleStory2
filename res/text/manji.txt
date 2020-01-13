@@ -35,6 +35,6 @@
 보상!
 0 true true
 일단 페리온에 있는 '열마리의 부기'에게 가보도록. 자세한 내용은 그녀에게 들으면 될거야.
-0 false true
+2 false true
 '열마리의 부기'에게 가보도록해
 0 false false

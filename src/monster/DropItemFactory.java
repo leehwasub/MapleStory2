@@ -26,6 +26,18 @@ public class DropItemFactory {
 				getItems.add(ItemPool.getItem("주황버섯의갓", 1));
 			} else if (monster instanceof GreenMushroom) {
 				getItems.add(ItemPool.getItem("초록버섯의갓", 1));
+			} else if (monster instanceof Stump) {
+				getItems.add(ItemPool.getItem("나뭇가지", 1));
+			} else if (monster instanceof AxeStump) {
+				getItems.add(ItemPool.getItem("장작", 1));
+			} else if (monster instanceof WildBoar) {
+				getItems.add(ItemPool.getItem("와일드보어의송곳니", 1));
+			} else if (monster instanceof FireBoar) {
+				getItems.add(ItemPool.getItem("파이어보어의송곳니", 1));
+			} else if (monster instanceof IronHog) {
+				getItems.add(ItemPool.getItem("아이언호그의철발굽", 1));
+			} else if (monster instanceof IronBoar) {
+				getItems.add(ItemPool.getItem("아이언보어의갑옷조각", 1));
 			}
 		}
 		return getItems;
@@ -40,6 +52,18 @@ public class DropItemFactory {
 				getItems.add(ItemPool.getItem("초보모험가의빨간포션", 1));
 			} else if (isRange(percent, 100, 200)) {
 				getItems.add(ItemPool.getItem("초보모험가의파란포션", 1));
+			}
+		} else if(isRange(lv, 5, 10)) {
+			if (isRange(percent, 0, 100)) {
+				getItems.add(ItemPool.getItem("빨간포션", 1));
+			} else if (isRange(percent, 100, 200)) {
+				getItems.add(ItemPool.getItem("파란포션", 1));
+			}
+		}  else if(isRange(lv, 10, 15)) {
+			if (isRange(percent, 0, 100)) {
+				getItems.add(ItemPool.getItem("주황포션", 1));
+			} else if (isRange(percent, 100, 200)) {
+				getItems.add(ItemPool.getItem("파란포션", 1));
 			}
 		}
 		StringBuffer getItemInfor = new StringBuffer();
