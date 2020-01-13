@@ -17,31 +17,17 @@ public class PowerStrikeAttack extends PlayerAttack {
 	public void run() {
 		this.attacker.attackForwardMotion();
 		Character opponentCh = this.opponent.getCharacter();
-		
 		double rate = (double)activeSkill.getEffect(activeSkill.getPoint()) / 100.0;
-		
-		Thread thread1 = new Thread(()-> {
-			PowerStrikeUseImage image = new PowerStrikeUseImage(hunt, attacker, opponent);
-			addSkillImage(image);
-			image.start();
-		});
-		thread1.start();
+		addSkillImageThread(new PowerStrikeUseImage(hunt, attacker, opponent));
+		attacker.updateStateBox();
 		sleep(360);
-		int damage = opponentCh.hit(new Damage(this.attacker.getCharacter(), activeSkill.getProperty(),
-				this.attacker.getCharacter().calNormalDamge(rate), 0));
+		int damage = opponentCh.hit(new Damage(this.attacker.getCharacter(), activeSkill.getProperty(), this.attacker.getCharacter().calNormalDamge(rate), 0));
 		this.damage = damage;
 		hunt.addDamageText(damage, opponent, 0);
 		opponent.updateStateBox();
-		Thread thread2 = new Thread(()-> {
-			PowerStrikeHitImage image = new PowerStrikeHitImage(hunt, opponent, opponent);
-			addSkillImage(image);
-			image.start();
-		});
-		thread2.start();
+		addSkillImageThread(new PowerStrikeHitImage(hunt, opponent, opponent));
 		sleep(360);
-		attackMoveDelay();
 		this.attacker.attackBackMotion();
-		
 		afterAttackDelay();
 		wakeUpThread();
 	}

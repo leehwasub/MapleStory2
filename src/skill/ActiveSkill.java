@@ -37,6 +37,11 @@ public abstract class ActiveSkill extends Skill {
 		this.property = property;
 	}
 
+	@Override
+	public String toString() {
+		return "ActiveSkill [attackType=" + attackType + ", property=" + property + "]";
+	}
+
 	public abstract int getNeedMp(int point);
 	public abstract int getLast(int point);
 	public abstract PlayerAttack skillUse(Hunt hunt, StateBox attacker, StateBox opponent);

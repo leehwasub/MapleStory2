@@ -93,6 +93,7 @@ public class ItemButton extends JButton {
 	public Item getItem() {
 		return this.item;
 	}
+	
 
 	public void setItem(Item item) {
 		if (item != null) {

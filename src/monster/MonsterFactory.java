@@ -27,6 +27,16 @@ public class MonsterFactory {
 			return new GreenMushroom();
 		case "스텀프":
 			return new Stump();
+		case "엑스텀프":
+			return new AxeStump();
+		case "와일드보어":
+			return new WildBoar();
+		case "파이어보어":
+			return new FireBoar();
+		case "아이언호그":
+			return new IronHog();
+		case "아이언보어":
+			return new IronBoar();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -78,6 +88,27 @@ public class MonsterFactory {
 				ret = makeMonster("초록버섯");
 			} else if (isRange(percent, 6, 10)) {
 				ret = makeMonster("스텀프");
+			}
+			break;
+		case "페리온동쪽길목":
+			if (isRange(percent, 0, 3)) {
+				ret = makeMonster("스텀프");
+			} else if (isRange(percent, 7, 10)) {
+				ret = makeMonster("엑스텀프");
+			}
+			break;
+		case "와일드보어의땅1":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("와일드보어");
+			} else if (isRange(percent, 5, 10)) {
+				ret = makeMonster("파이어보어");
+			}
+			break;
+		case "와일드보어의땅2":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("아이언호그");
+			} else if (isRange(percent, 5, 10)) {
+				ret = makeMonster("아이언보어");
 			}
 			break;
 		}

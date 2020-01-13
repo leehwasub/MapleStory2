@@ -152,11 +152,12 @@ public class Hunt extends Thread {
 			if (isCheckEnd() != 0) {
 				break;
 			}
-			Character character = this.turnQueue.peek().getCharacter();
-			this.nowStateBox = this.turnQueue.peek();
-			this.turnQueue.add(this.turnQueue.peek());
-			this.turnQueue.poll();
-			this.nowStateBox.getCharacter().calState();
+			Character character = turnQueue.peek().getCharacter();
+			nowStateBox = turnQueue.peek();
+			turnQueue.add(turnQueue.peek());
+			turnQueue.poll();
+			nowStateBox.getCharacter().buffLastOneTurn();
+			nowStateBox.getCharacter().calState();
 			if ((character instanceof Monster)) {
 				Monster turnMonster = (Monster) character;
 				this.monsterAttack = turnMonster.attack(this, this.nowStateBox, this.adventurerState);
@@ -225,6 +226,7 @@ public class Hunt extends Thread {
 			int needMp = playerAttack.getActiveSkill().getNeedMp(playerAttack.getActiveSkill().getPoint());
 			if(player.getMainAdventurer().getCurMp() < needMp) {
 				this.mInterface.pushMessage(new Message("마나가 부족합니다.", Color.RED, true));
+				playerAttack = null;
 				return;
 			}
 			player.getMainAdventurer().spendMp(needMp);

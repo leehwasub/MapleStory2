@@ -67,10 +67,10 @@ public abstract class Monster extends Character {
 	public abstract void initSkillList();
 
 	public final MonsterAttack attack(Hunt hunt, StateBox attacker, StateBox opponent) {
-		int percent = (int)(Math.random() * 1001);
+		int percent = (int)(Math.random() * 1000);
 		for(int i = 0; i < skillList.size(); i++) {
 			MonsterSkillInfor infor = skillList.get(i);
-			if(infor.getPercentSt() <= percent && percent <= infor.getPercentEd() && curHp <= infor.getUnderHpCondition()) {
+			if(infor.getPercentSt() <= percent && percent < infor.getPercentEd() && curHp <= infor.getUnderHpCondition()) {
 				MonsterAttack attack = AttackFactory.makeMonsterAttack(hunt, attacker, opponent, infor.getSkillName(), infor.getSkillPoint());
 				//if the attack is the buff skill that is already buffed, monster will not use the skill.
 				if(attack.getMonsterSkill().getAttackType() == AttackType.MYSELF && isAlreadyBuffed(attack.getMonsterSkill().getAttackName())) continue;

@@ -3,6 +3,7 @@ package attack;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+import attackImage.PowerStrikeHitImage;
 import attackImage.SkillImage;
 import component.StateBox;
 import hunt.Hunt;
@@ -50,6 +51,14 @@ public abstract class Attack extends Thread {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void addSkillImageThread(SkillImage skillImage) {
+		Thread thread = new Thread(()-> {
+			addSkillImage(skillImage);
+			skillImage.start();
+		});
+		thread.start();
 	}
 
 	public void addSkillImage(SkillImage image) {

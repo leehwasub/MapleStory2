@@ -7,6 +7,11 @@ public class ResourceLoader {
 	static ResourceLoader rl = new ResourceLoader();
 
 	public static Image getImage(String folder, String fileName) {
-		return Toolkit.getDefaultToolkit().getImage(rl.getClass().getResource("/" + folder + "/" + fileName));
+		try {
+			return Toolkit.getDefaultToolkit().getImage(rl.getClass().getResource("/" + folder + "/" + fileName));
+		}catch(Exception e) {
+			DialogUtils.showErrorDialog(folder + " 폴더의" + fileName + " 이미지파일 로딩 실패!");
+		}
+		return null;
 	}
 }

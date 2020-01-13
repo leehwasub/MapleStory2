@@ -8,6 +8,7 @@ import item.ConsumableItem;
 import item.EquipmentItem;
 import item.HealItem;
 import maplestory.Main;
+import skill.PassiveSkill;
 import skill.Skill;
 import utils.DialogUtils;
 import utils.ExpUtils;
@@ -55,6 +56,8 @@ public class Adventurer extends Character implements Serializable {
 			strength.setMaxHp(WarriorStateUtils.getMaxHpByIndex(strength.getLevel()));
 			strength.setMaxMp(WarriorStateUtils.getMaxMpByIndex(strength.getLevel()));
 		}
+		
+		calPassiveSkillState();
 
 		this.strength.setAccuracyRate(this.status.dex / 2);
 		this.strength.setEvasionRate(this.status.luk / 2);
@@ -93,6 +96,25 @@ public class Adventurer extends Character implements Serializable {
 			this.curMp = getMaxMp();
 			this.statePoint += 5;
 			if(this.getStrength().getLevel() >= 10) this.skillPoint += 3;
+		}
+	}
+	
+	public void calPassiveSkillState() {
+		for(int i = 0; i < oneLevelSkillList.size(); i++) {
+			if(oneLevelSkillList.get(i) instanceof PassiveSkill) {
+				((PassiveSkill)oneLevelSkillList.get(i)).skillUpEffect(this);
+			}
+		}
+		for(int i = 0; i < twoLevelSkillList.size(); i++) {
+			if(twoLevelSkillList.get(i) instanceof PassiveSkill) {
+				((PassiveSkill)twoLevelSkillList.get(i)).skillUpEffect(this);
+			}
+	
+		}
+		for(int i = 0; i < threeLevelSkillList.size(); i++) {
+			if(threeLevelSkillList.get(i) instanceof PassiveSkill) {
+				((PassiveSkill)threeLevelSkillList.get(i)).skillUpEffect(this);
+			}
 		}
 	}
 
@@ -244,6 +266,10 @@ public class Adventurer extends Character implements Serializable {
 	public void fullHeal() {
 		this.curHp = this.strength.getMaxHp();
 		this.curMp = this.strength.getMaxMp();
+	}
+	
+	public int getAdventurerLevel() {
+		return strength.getLevel();
 	}
 
 	/**

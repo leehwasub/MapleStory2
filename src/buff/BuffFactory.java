@@ -2,6 +2,7 @@ package buff;
 
 import character.Resistance;
 import character.Strength;
+import skill.ActiveSkill;
 import skill.Skill;
 import utils.DialogUtils;
 
@@ -33,15 +34,18 @@ public class BuffFactory {
 			return new StrengthBuff("evasionRateDecreasing", "회피율약화", 6 + skillPoint / 5, "회피율을 일정시간 동안 약화한다", 
 					new Strength(new Resistance(), 0, 0, 0, 0, 0, 0, 0, 0, -(4 + skillPoint), 0));
 		}
-		DialogUtils.showErrorDialog("BuffFactory.makeMonsterBuff(...) 버프 생성 실패!");
+		DialogUtils.showErrorDialog("BuffFactory.makeMonsterBuff("+buffName+") 버프 생성 실패!");
 		return null;
 		
 	}
 	
 	public static Buff makeAdventurerBuff(Skill skill) {
 		switch(skill.getName()) {
-		
+		case "아이언바디":
+			return new StrengthBuff(skill.getImageUrl(), skill.getName(), ((ActiveSkill)skill).getLast(skill.getPoint()), skill.getInfor(), 
+					new Strength(new Resistance(), 0, 0, 0, 0, 0, skill.getEffect(skill.getPoint()), 0, 0, 0, 0));
 		}
+		DialogUtils.showErrorDialog("BuffFactory.makeAdventurerBuff("+skill.getName()+") 버프 생성 실패!");
 		return null;
 	}
 }

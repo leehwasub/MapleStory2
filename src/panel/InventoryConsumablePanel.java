@@ -13,10 +13,12 @@ import javax.swing.JPanel;
 
 import dialog.ItemKeySelectDialog;
 import item.ConsumableItem;
+import item.EquipmentItem;
 import item.Item;
 import item.ItemButton;
 import maplestory.MainMapleInterface;
 import maplestory.Player;
+import utils.DialogUtils;
 import utils.FontUtils;
 import utils.ResourceLoader;
 
@@ -79,6 +81,11 @@ public class InventoryConsumablePanel extends JPanel {
 
 	public void inventoryItemEvent(int index) {
 		if (this.player.getInventory().getConsumableInventory().size() <= index) {
+			return;
+		}
+		ConsumableItem item = (ConsumableItem)inventoryItemSpace[index].getItem();
+		if(player.getMainAdventurer().getAdventurerLevel() < item.getLevel()) {
+			DialogUtils.showWarningDialog("래벨이 부족합니다.");
 			return;
 		}
 		int keyIndex = getKeySelectWithDialog();

@@ -56,7 +56,6 @@ public class Mai extends Npc implements Serializable {
 			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(3, 8, "초보자의숲2"), MapleMap.MAP_EMPTY_STATE));
 			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(6, 7, "달팽이의숲"), MapleMap.MAP_NPC_STATE));
 			player.addUpdatedNpc(new UpdatedNpcInfor(new PointMapName(6, 7, "달팽이의숲"), "마이"));
-			NpcList.getInstance().getNpcWithName("마이").setPointMapName(new PointMapName(6, 7, "달팽이의숲"));
 		} else if (clearNum == 3) {
 			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(5, 14, "달팽이의숲"), MapleMap.MAP_PORTAL_STATE));
 		}

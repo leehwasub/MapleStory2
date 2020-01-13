@@ -11,10 +11,12 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import character.SexType;
 import item.EquipmentItem;
 import item.Item;
 import item.ItemButton;
 import maplestory.Player;
+import utils.DialogUtils;
 import utils.FontUtils;
 import utils.MusicUtils;
 import utils.ResourceLoader;
@@ -43,6 +45,18 @@ public class InventoryEquipmentPanel extends JPanel {
 
 	public void inventoryItemEvent(int index) {
 		if (this.player.getInventory().getEquipmentInventory().size() <= index) {
+			return;
+		}
+		EquipmentItem item = (EquipmentItem)inventoryItemSpace[index].getItem();
+		if(player.getMainAdventurer().getAdventurerLevel() < item.getStrength().getLevel()) {
+			DialogUtils.showWarningDialog("래벨이 부족합니다.");
+			return;
+		}
+		if(player.getMainAdventurer().getSex().equals("남자") && item.getSex() == SexType.WOMAN) {
+			DialogUtils.showWarningDialog("착용할 수 없는아이템 입니다.");
+			return;
+		} else if(player.getMainAdventurer().getSex().equals("여자") && item.getSex() == SexType.MAN) {
+			DialogUtils.showWarningDialog("착용할 수 없는아이템 입니다.");
 			return;
 		}
 		player.wearEquipment(index);

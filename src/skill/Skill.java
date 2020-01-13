@@ -94,12 +94,26 @@ public abstract class Skill implements Serializable {
 		this.infor = infor;
 	}
 	
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
 	public boolean addSkillPoint() {
 		if(this.point < this.maxPoint) {
 			this.point += 1;
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public String toString() {
+		return "Skill [imageUrl=" + imageUrl + ", name=" + name + ", point=" + point + ", maxPoint=" + maxPoint
+				+ ", infor=" + infor + "]";
 	}
 
 }

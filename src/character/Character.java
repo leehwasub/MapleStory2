@@ -27,6 +27,10 @@ public abstract class Character implements Serializable{
 	protected ArrayList<Buff> buffList = new ArrayList<Buff>();
 	protected boolean isDead;
 	
+	public Character() {
+		
+	}
+	
 	public Character(String name, String imageUrl, Strength strength) {
 		this.name = name;
 		this.imageUrl = imageUrl;
@@ -175,14 +179,27 @@ public abstract class Character implements Serializable{
 	public void addBuff(Buff buff) {
 		if(isAlreadyBuffed(buff.getName())) {
 			removeBuff(buff.getName());
-			return;
+		}
+		if(buffList == null) {
+			newBuffList();
 		}
 		buffList.add(buff);
-		System.out.println("버프 사이즈 : " + buffList.size());
+	}
+	
+	public void newBuffList() {
+		buffList = new ArrayList<Buff>();
+	}
+	
+	public void removeAllBuff() {
+		if(buffList == null || buffList.size() == 0) return;
+		for(int i = buffList.size() - 1; i >= 0; i--) {
+			buffList.remove(i);
+		}
 	}
 	
 	public void removeBuff(String buffName) {
-		for(int i = 0; i < buffList.size(); i++) {
+		if(buffList == null || buffList.size() == 0) return;
+		for(int i = buffList.size() - 1; i >= 0; i--) {
 			if(buffList.get(i).getName().equals(buffName)) {
 				buffList.remove(i);
 			}
@@ -190,6 +207,7 @@ public abstract class Character implements Serializable{
 	}
 	
 	public boolean isAlreadyBuffed(String buffName) {
+		if(buffList == null || buffList.size() == 0) return false;
 		for(int i = 0; i < buffList.size(); i++) {
 			if(buffList.get(i).getName().equals(buffName)) {
 				return true;
@@ -198,7 +216,16 @@ public abstract class Character implements Serializable{
 		return false;
 	}
 	
+	public void buffLastOneTurn() {
+		if(buffList == null || buffList.size() == 0) return;
+		for(int i = buffList.size() - 1; i >= 0; i--) {
+			buffList.get(i).oneTurnLast();
+			if(buffList.get(i).isEnd()) buffList.remove(i);
+		}
+	}
+	
 	public void strengthBuffEffect() {
+		if(buffList == null || buffList.size() == 0) return;
 		for(int i = 0; i < buffList.size(); i++) {
 			if(buffList.get(i) instanceof StrengthBuff) {
 				buffList.get(i).effect(this);
@@ -207,6 +234,7 @@ public abstract class Character implements Serializable{
 	}
 
 	public ArrayList<Buff> getBuffList() {
+		if(buffList == null) newBuffList();
 		return this.buffList;
 	}
 

@@ -9,6 +9,7 @@ public class ShopList {
 
 	static {
 		shopList.add(new MapleIslandShop());
+		shopList.add(new PellionShop());
 	}
 
 	public static Shop getShop(PointMapName m) {

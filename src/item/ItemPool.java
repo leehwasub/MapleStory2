@@ -171,10 +171,18 @@ public class ItemPool {
 	}
 
 	private static void initComsumableItem() {
-		items.put("초보모험가의빨간포션",
-				new HealItem("초보모험가의빨간포션", 12, "newbieRedPortion", 1, new Heal(50, 0, 0, 0), 1));
-		items.put("초보모험가의파란포션",
-				new HealItem("초보모험가의파란포션", 25, "newbieBluePortion", 1, new Heal(0, 50, 0, 0), 1));
+		items.put("초보모험가의빨간포션",new HealItem("초보모험가의빨간포션", 12, "newbieRedPortion", 1, new Heal(50, 0, 0, 0), 1));
+		items.put("초보모험가의파란포션", new HealItem("초보모험가의파란포션", 25, "newbieBluePortion", 1, new Heal(0, 50, 0, 0), 1));
+		items.put("빨간포션", new HealItem("빨간포션", 25, "redPortion", 1, new Heal(100, 0, 0, 0), 5));
+		items.put("파란포션", new HealItem("파란포션", 50, "bluePortion", 1, new Heal(0, 100, 0, 0), 5));
+		items.put("레몬", new HealItem("레몬", 75, "remon", 1, new Heal(0, 150, 0, 0), 10));
+		items.put("마나엘릭서", new HealItem("마나엘릭서", 150, "manaElixir", 1, new Heal(0, 300, 0, 0), 10));
+		items.put("주황포션", new HealItem("주황포션", 75, "orangePortion", 1, new Heal(300, 0, 0, 0), 10));
+		items.put("하얀포션", new HealItem("하얀포션", 125, "whitePortion", 1, new Heal(500, 0, 0, 0), 10));
+		items.put("새우튀김", new HealItem("새우튀김", 190, "friedShrimp", 1, new Heal(750, 0, 0, 0), 15));
+		items.put("장어구이", new HealItem("장어구이", 250, "grilledEel", 1, new Heal(1000, 0, 0, 0), 20));
+		items.put("쭈쭈바", new HealItem("쭈쭈바", 500, "pencilBar", 1, new Heal(2000, 0, 0, 0), 25));
+		items.put("살살녹는치즈", new HealItem("살살녹는치즈", 1000, "goodCheese", 1, new Heal(4000, 0, 0, 0), 30));
 	}
 	
 	private static void initTitleItem() {
@@ -231,35 +239,25 @@ public class ItemPool {
 	}
 
 	private static void initMaterialItem() {
-		items.put("파란달팽이의껍질",
-				new MaterialItem("파란달팽이의껍질", 10, "blueSnailSkin", 1, "파란 달팽이의 껍질을 벗긴것이다."));
-		items.put("빨간달팽이의껍질",
-				new MaterialItem("빨간달팽이의껍질", 20, "redSnailSkin", 1, "빨간 달팽이의 껍질을 벗긴것이다."));
-		items.put("돼지의리본", new MaterialItem("돼지의리본", 30, "pigRibbon", 1, "리본돼지의 리본을 끊은 것이다."));
-		items.put("주황버섯의갓",
-				new MaterialItem("주황버섯의갓", 40, "orangeMushroomCap", 1, "주황 버섯의 갓이다."));
-		items.put("초록버섯의갓",
-				new MaterialItem("초록버섯의갓", 50, "greenMushroomCap", 1, "초록 버섯의 갓이다."));
-		items.put("��������", new MaterialItem("��������", 60, "branch", 1, "�������� ������������"));
-		items.put("����", new MaterialItem("����", 70, "firewood", 1, "������������ ������ ������ ��������"));
-		items.put("����������", new MaterialItem("����������", 500, "animalLeather", 1, "������ ������ ������ ������"));
-		items.put("������������������",
-				new MaterialItem("������������������", 90, "wildBoarCanine", 1, "������������ �������� ������ ������"));
-		items.put("������������������", new MaterialItem("������������������", 100, "fireBoarCanine", 1,
-				"������������ �������� ������ ������"));
-		items.put("������������������", new MaterialItem("������������������", 110, "ironHoof", 1,
-				"������ ������ ������ ������ ���� ������ �� ��������"));
-		items.put("��������������������", new MaterialItem("��������������������", 120, "armorPiece", 1,
-				"������������ �������� �������� ������ ������"));
-		items.put("����", new MaterialItem("����", 130, "woodPan", 1, "���� �������� ���� ������ ���� ��������"));
-		items.put("����", new MaterialItem("����", 140, "stonePan", 1, "���� �������� ���� ������ ��������"));
-		items.put("����������", new MaterialItem("����������", 130, "skelDogBone", 1, "�������� ������ ������ ������"));
-		items.put("����������",
-				new MaterialItem("����������", 140, "dirtyBandage", 1, "�������� ���� �������� ������ ��������"));
-		items.put("������", new MaterialItem("������", 150, "rib", 1, "�������� ������ ����������"));
-		items.put("������", new MaterialItem("������", 160, "pelvicBone", 1, "�������� ������ ����������"));
-		items.put("��������",
-				new MaterialItem("��������", 200, "horseHeadBone", 1, "�������� �������� ���������� ���� ����������"));
+		items.put("파란달팽이의껍질", new MaterialItem("파란달팽이의껍질", 10, "blueSnailSkin", 1, "파란 달팽이의 껍질을 벗긴것이다"));
+		items.put("빨간달팽이의껍질", new MaterialItem("빨간달팽이의껍질", 20, "redSnailSkin", 1, "빨간 달팽이의 껍질을 벗긴것이다"));
+		items.put("돼지의리본", new MaterialItem("돼지의리본", 30, "pigRibbon", 1, "리본돼지의 리본을 끊은 것이다"));
+		items.put("주황버섯의갓", new MaterialItem("주황버섯의갓", 40, "orangeMushroomCap", 1, "주황 버섯의 갓이다"));
+		items.put("초록버섯의갓", new MaterialItem("초록버섯의갓", 50, "greenMushroomCap", 1, "초록 버섯의 갓이다"));
+		items.put("나뭇가지", new MaterialItem("나뭇가지", 60, "branch", 1, "스텀프의 나뭇가지이다"));
+		items.put("장작", new MaterialItem("장작", 70, "firewood", 1, "엑스텀프에서 떼어난 고품질 장작이다"));
+		items.put("동물의가죽", new MaterialItem("동물의가죽", 500, "animalLeather", 1, "동물의 가죽을 잘라온 것이다"));
+		items.put("와일드보어의송곳니", new MaterialItem("와일드보어의송곳니", 90, "wildBoarCanine", 1, "와일드보어의 송곳니를 잘라온것이다"));
+		items.put("파이어보어의송곳니", new MaterialItem("파이어보어의송곳니", 100, "fireBoarCanine", 1, "파이어보어의 송곳니를 잘라온것이다"));
+		items.put("아이언호그의철발굽", new MaterialItem("아이언호그의철발굽", 110, "ironHoof", 1, "아이언 호그의 다리를 감싸고 있는 강철로 된 발굽이다"));
+		items.put("아이언보어의갑옷조각", new MaterialItem("아이언보어의갑옷조각", 120, "armorPiece", 1, "아이언보어가 입고있던 갑옷에서 얻어낸 것이다"));
+		items.put("목판", new MaterialItem("목판", 130, "woodPan", 1, "우드 마스크가 쓰고 다니는 나무 판자이다"));
+		items.put("석판", new MaterialItem("석판", 140, "stonePan", 1, "스톤 마스크가 쓰고 다니는 석판이다"));
+		items.put("스켈독의뼈", new MaterialItem("스켈독의뼈", 130, "skelDogBone", 1, "스켈독의 몸에서 떨어진 뼈이다"));
+		items.put("더러운붕대", new MaterialItem("더러운붕대", 140, "dirtyBandage", 1, "머미독의 몸을 감고 있던 더러운 붕대이다"));
+		items.put("갈비뼈", new MaterialItem("갈비뼈", 150, "rib", 1, "스켈레톤 사병의 갈비뼈이다"));
+		items.put("골반뼈", new MaterialItem("골반뼈", 160, "pelvicBone", 1, "스켈레톤 장교의 골반뼈이다"));
+		items.put("말머리뼈", new MaterialItem("말머리뼈", 200, "horseHeadBone", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
 	}
 
 	public static Item getItem(String itemName, int num) {

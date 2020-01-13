@@ -30,6 +30,14 @@ public abstract class Buff {
 	public int getLast() {
 		return last;
 	}
+	
+	public boolean isEnd() {
+		return (last == 0);
+	}
+	
+	public void oneTurnLast() {
+		last--;
+	}
 
 	public void setName(String name) {
 		this.name = name;

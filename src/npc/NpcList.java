@@ -38,12 +38,35 @@ public class NpcList implements Serializable {
 		npcList.add(new Parbell("parbell", "파벨", new PointMapName(15, 2, "리스항구")));
 		npcList.add(new Jane("jane", "제인", new PointMapName(11, 6, "리스항구")));
 		npcList.add(new DancesWithBalrog("dancesWithBalrog", "주먹펴고일어서", new PointMapName(10, 9, "페리온")));
+		npcList.add(new Blackbull("blackbull", "돼지와함께춤을", new PointMapName(5, 15, "페리온")));
+		npcList.add(new Ayan("ayan", "이얀", new PointMapName(16, 2, "페리온")));
+		npcList.add(new TenBoogies("tenBoogies", "열마리의부기", new PointMapName(16, 13, "페리온")));
+		npcList.add(new Manji("manji", "만지", new PointMapName(23, 18, "페리온동쪽길목")));
+		npcList.add(new Winston("winston", "윈스턴", new PointMapName(6, 2, "유적발굴캠프장")));
+		npcList.add(new Shuang("shuang", "슈앵", new PointMapName(8, 2, "유적발굴캠프장")));
+		npcList.add(new Starling("starling", "세릴", new PointMapName(10, 19, "폐쇄구역")));
 	}
 
 	public ArrayList<Npc> getNpcListArray() {
 		return npcList;
 	}
 	
+	public int getNpcProcess(String npcName) {
+		for(int i = 0; i < npcList.size(); i++) {
+			if(npcList.get(i).getName().equals(npcName)) {
+				return npcList.get(i).getProcess();
+			}
+		}
+		return -1;
+	}
+	
+	public void setNpcProcess(String npcName, int process) {
+		for(int i = 0; i < npcList.size(); i++) {
+			if(npcList.get(i).getName().equals(npcName)) {
+				npcList.get(i).setProcess(process);
+			}
+		}
+	}
 	
 	private void updateLocNpc(UpdatedNpcInfor infor) {
 		for(int i = 0; i < npcList.size(); i++) {

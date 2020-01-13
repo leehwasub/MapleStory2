@@ -90,7 +90,7 @@ public abstract class Npc implements Serializable {
 		if (talk.getType() == Talk.REWARD_TALK_TYPE) {
 			color = Color.MAGENTA;
 			System.out.println(player.getQuest().getRewardString());
-			m.pushMessage(new Message(player.getQuest().getRewardString(), color, true));
+			m.pushMessage(new Message(player.getQuest().getRewardString(), color, !talk.isCanTalkMore()));
 			return;
 		} else if(talk.getType() == Talk.UPGRADE_TYPE) {
 			color = Color.MAGENTA;
@@ -99,7 +99,7 @@ public abstract class Npc implements Serializable {
 			clearEvent(player);
 			this.clearNum += 1;
 		}
-		m.pushMessage(new Message(talk.getMessage(), color, true));
+		m.pushMessage(new Message(talk.getMessage(), color, !talk.isCanTalkMore()));
 	}
 	
 	private void mappingMessage(Player player, Talk talk) {

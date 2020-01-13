@@ -21,6 +21,7 @@ import item.SkillButton;
 import maplestory.MainMapleInterface;
 import maplestory.Player;
 import skill.ActiveSkill;
+import skill.PassiveSkill;
 import skill.Skill;
 import utils.FontUtils;
 import utils.ResourceLoader;
@@ -62,6 +63,7 @@ public class InventorySkillPanel extends JPanel {
 		makeQuickSkillSpace();
 		makeSkillCancelSpace();
 		skillLoad();
+		setQuickSkillImage();
 	}
 	
 	public void skillLoad() {
@@ -107,7 +109,12 @@ public class InventorySkillPanel extends JPanel {
 				public void mousePressed(MouseEvent e) {
 					if(player.getMainAdventurer().getSkillPoint() >= 1) {
 						boolean isUp = skillButton[level][index].addSkillPoint();
-						if(isUp) player.getMainAdventurer().subSkillPoint();
+						if(isUp) {
+							if(skillButton[level][index].getSkill() instanceof PassiveSkill) {
+								player.calState();
+							}
+							player.getMainAdventurer().subSkillPoint();
+						}
 					}
 				}
 			});

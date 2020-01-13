@@ -42,7 +42,7 @@ public class DancesWithBalrog extends Npc{
 			quest = Quest.makeQuest(1, 4, "전사 전직").addMessage("전사로 전직하기 위해 페리온에서 주먹펴고 일어서를 만났다.")
 					.addMessage("그는 전사로 전직하기 위해서는 힘35 래벨 10이상이 되어야 한다고 한다. 조건이 충족되었는지 확인한후 다시 찾아가 말을 걸어보자.")
 					.addQuestStatus(35, 0, 0, 0).setRewardExp(10).setPlayerQuestProceed(QuestProceed.DANCESWITHBALROG_QUEST_1)
-					.addQuestLevel(10);
+					.addQuestLevel(10).addRewardNpcQuestProceed("돼지와함께춤을", 1);
 			player.setQuest(quest);
 		}
 	}

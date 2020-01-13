@@ -581,6 +581,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		player.allSetAlive();
 		player.setCanUsePortion(true);
 		player.setCanUseSkill(false);
+		player.getMainAdventurer().removeAllBuff();
 	}
 
 	public void pushMessage(Message message) {

@@ -65,7 +65,7 @@ public class InventoryStatePanel extends JPanel {
 
 	public void screenDraw(Graphics2D g) {
 		rendering(g);
-		Adventurer adventurer = (Adventurer) this.player.getMainAdventurer();
+		Adventurer adventurer = this.player.getMainAdventurer();
 		g.setFont(FontUtils.generalFont);
 		g.setColor(Color.yellow);
 		g.drawString("이름", 50, 40);

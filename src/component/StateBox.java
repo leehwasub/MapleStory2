@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 import attackImage.SkillImage;
+import buff.Buff;
 import character.Character;
 import map.Point;
 import utils.FontUtils;
@@ -27,6 +28,7 @@ public class StateBox extends Thread {
 	public static final int DIR_LEFT = 0;
 	public static final int DIR_RIGHT = 1;
 	private ArrayList<SkillImage> skillImageList = new ArrayList<SkillImage>();
+	private ArrayList<Buff> buffList;
 
 	public StateBox(int x, int y, Character character, int dir, JPanel panel) {
 		this.x = x;
@@ -39,6 +41,7 @@ public class StateBox extends Thread {
 		this.mapleMpBar.setBounds(x + 170, y + 80, 180, 20);
 		panel.add(this.mapleMpBar);
 		this.dir = dir;
+		buffList = character.getBuffList();
 	}
 
 	public void removeFromPanel(JPanel panel) {
@@ -50,7 +53,7 @@ public class StateBox extends Thread {
 
 	public void draw(Graphics2D g, JPanel panel) {
 		g.drawImage(STATE_BOX_IMAGE, this.x, this.y, panel);
-		g.drawImage(this.character.getImage(), this.x + 15, this.y + 15, panel);
+		g.drawImage(this.character.getImage(), this.x + 65 - character.getImage().getWidth(panel) / 2, this.y + 65 - character.getImage().getHeight(panel) / 2, panel);
 		g.setFont(FontUtils.generalFont);
 		g.setColor(Color.red);
 		g.drawString("HP", this.x + 130, this.y + 66);
@@ -61,6 +64,14 @@ public class StateBox extends Thread {
 		g.drawString(this.character.getName(), this.x + 190, this.y + 35);
 		g.setColor(Color.yellow);
 		g.drawString("Lv " + this.character.getStrength().getLevel(), this.x + 140, this.y + 35);
+		
+		g.setFont(FontUtils.SMALL_FONT);
+		if(buffList != null && buffList.size() != 0) {
+			for(int i = 0; i < buffList.size(); i++) {
+				g.drawString("X"+buffList.get(i).getLast(), x + 5 + (32 * i), y - 40);
+				g.drawImage(buffList.get(i).getImage(), x + (32 * i), y - 35, panel);
+			}
+		}
 	}
 
 	public void updateBounds() {
