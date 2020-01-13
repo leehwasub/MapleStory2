@@ -8,7 +8,10 @@ import java.util.ArrayList;
 
 import character.Status;
 import item.ItemPool;
+import map.PointMapName;
+import map.UpdatedMapInfor;
 import maplestory.Player;
+import npc.UpdatedNpcInfor;
 import utils.FontUtils;
 
 public class Quest implements Serializable {
@@ -92,6 +95,16 @@ public class Quest implements Serializable {
 
 	public Quest addRewardNpcQuestProceed(String npcName, int process) {
 		this.questReward.addQuestNpcProceed(new QuestNpcProceed(npcName, process));
+		return this;
+	}
+	
+	public Quest addRewardUpdateMap(String mapName, int x, int y, int afterState) {
+		this.questReward.addQuestUpdateMapInfor(new UpdatedMapInfor(new PointMapName(x, y, mapName), afterState));
+		return this;
+	}
+	
+	public Quest addRewardUpdateNpc(String mapName, int x, int y, String npcName) {
+		this.questReward.addQuestUpdateNpcInfor(new UpdatedNpcInfor(new PointMapName(x, y, mapName), npcName));
 		return this;
 	}
 

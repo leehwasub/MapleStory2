@@ -38,6 +38,20 @@ public class DropItemFactory {
 				getItems.add(ItemPool.getItem("아이언호그의철발굽", 1));
 			} else if (monster instanceof IronBoar) {
 				getItems.add(ItemPool.getItem("아이언보어의갑옷조각", 1));
+			} else if (monster instanceof WoodenMask) {
+				getItems.add(ItemPool.getItem("목판", 1));
+			} else if (monster instanceof RockyMask) {
+				getItems.add(ItemPool.getItem("석판", 1));
+			} else if (monster instanceof Skeledog) {
+				getItems.add(ItemPool.getItem("스켈독의뼈", 1));
+			} else if (monster instanceof Mummydog) {
+				getItems.add(ItemPool.getItem("더러운붕대", 1));
+			} else if (monster instanceof SkeletonSoldier) {
+				getItems.add(ItemPool.getItem("갈비뼈", 1));
+			} else if (monster instanceof SkeletonOfficer) {
+				getItems.add(ItemPool.getItem("골반뼈", 1));
+			} else if (monster instanceof SkeletonCommander) {
+				getItems.add(ItemPool.getItem("말머리뼈", 1));
 			}
 		}
 		return getItems;

@@ -83,6 +83,7 @@ public class MapleMapList {
 	}
 
 	private void makeEdge() {
+		//메이플 아일랜드
 		getMap("초보자의숲1").addPortal(new Portal(new PointMapName(4, 9, "초보자의숲1"), new PointMapName(4, 0, "초보자의숲2")));
 		getMap("초보자의숲2").addPortal(new Portal(new PointMapName(4, 0, "초보자의숲2"), new PointMapName(4, 9, "초보자의숲1")));
 		getMap("초보자의숲2").addPortal(new Portal(new PointMapName(6, 14, "초보자의숲2"), new PointMapName(4, 0, "암허스트")));
@@ -93,6 +94,7 @@ public class MapleMapList {
 		getMap("달팽이의숲").addPortal(new Portal(new PointMapName(5, 14, "달팽이의숲"), new PointMapName(2, 0, "사우스페리")));
 		getMap("사우스페리").addPortal(new Portal(new PointMapName(2, 0, "사우스페리"), new PointMapName(5, 14, "달팽이의숲")));
 		getMap("사우스페리").addPortal(new Portal(new PointMapName(2, 15, "사우스페리"), new PointMapName(2, 1, "메이플->빅토리아")));
+		//빅토리아 아일랜드
 		getMap("리스항구").addPortal(new Portal(new PointMapName(14, 14, "리스항구"), new PointMapName(3, 0, "리스항구외각")));
 		getMap("리스항구외각").addPortal(new Portal(new PointMapName(3, 0, "리스항구외각"), new PointMapName(14, 14, "리스항구")));
 		getMap("리스항구외각").addPortal(new Portal(new PointMapName(5, 19, "리스항구외각"), new PointMapName(4, 0, "해안가풀숲")));
@@ -120,6 +122,9 @@ public class MapleMapList {
 		getMap("폐쇄구역").addPortal(new Portal(new PointMapName(10, 12, "폐쇄구역"), new PointMapName(14, 0, "군영")));
 		getMap("군영").addPortal(new Portal(new PointMapName(14, 0, "군영"), new PointMapName(10, 12, "폐쇄구역")));
 		getMap("폐쇄구역").addPortal(new Portal(new PointMapName(10, 12, "폐쇄구역"), new PointMapName(14, 0, "군영")));
+		getMap("폐쇄구역").addPortal(new Portal(new PointMapName(0, 24, "폐쇄구역"), new PointMapName(7, 0, "샤레니안왕성1")));
+		getMap("샤레니안왕성1").addPortal(new Portal(new PointMapName(4, 34, "샤레니안왕성1"), new PointMapName(6, 0, "샤레니안왕성2")));
+		getMap("샤레니안왕성2").addPortal(new Portal(new PointMapName(0, 30, "샤레니안왕성2"), new PointMapName(0, 0, "에레고스왕좌")));
 	}
 
 	public MapleMap getMap(String mapName) {

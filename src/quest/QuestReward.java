@@ -4,8 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import item.Item;
+import map.MapleMapList;
+import map.PointMapName;
+import map.UpdatedMapInfor;
 import maplestory.Player;
 import npc.NpcList;
+import npc.UpdatedNpcInfor;
 
 public class QuestReward implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -14,6 +18,8 @@ public class QuestReward implements Serializable {
 	private ArrayList<Item> rewardItem = new ArrayList<Item>();
 	private QuestProceed questProceed;
 	private ArrayList<QuestNpcProceed> questNpcProceedList = new ArrayList<QuestNpcProceed>();
+	private ArrayList<UpdatedMapInfor> questUpdateMapInfor = new ArrayList<UpdatedMapInfor>();
+	private ArrayList<UpdatedNpcInfor> questUpdateNpcInfor = new ArrayList<UpdatedNpcInfor>();
 
 	public void givePlayerReward(Player player) {
 		player.addMainAdventurerExp(this.rewardExp);
@@ -21,9 +27,30 @@ public class QuestReward implements Serializable {
 		for (int i = 0; i < this.rewardItem.size(); i++) {
 			player.addItem((Item) this.rewardItem.get(i));
 		}
-		for (int i = 0; i < this.questNpcProceedList.size(); i++) {
+		arrayListInit();
+		for (int i = 0; i < questNpcProceedList.size(); i++) {
 			QuestNpcProceed q = (QuestNpcProceed) this.questNpcProceedList.get(i);
 			NpcList.getInstance().getNpcWithName(q.getNpcName()).setProcess(q.getNpcProceed());
+		}
+		for (int i = 0; i < questUpdateMapInfor.size(); i++) {
+			UpdatedMapInfor infor = (UpdatedMapInfor)questUpdateMapInfor.get(i);
+			player.addUpdatedMap(infor);
+		}
+		for (int i = 0; i < questUpdateNpcInfor.size(); i++) {
+			UpdatedNpcInfor infor = (UpdatedNpcInfor)questUpdateNpcInfor.get(i);
+			player.addUpdatedNpc(infor);
+		}
+	}
+
+	private void arrayListInit() {
+		if(questNpcProceedList == null) {
+			questNpcProceedList = new ArrayList<QuestNpcProceed>();
+		}
+		if(questUpdateMapInfor == null) {
+			questUpdateMapInfor = new ArrayList<UpdatedMapInfor>();
+		}
+		if(questUpdateNpcInfor == null) {
+			questUpdateNpcInfor = new ArrayList<UpdatedNpcInfor>();
 		}
 	}
 
@@ -81,4 +108,13 @@ public class QuestReward implements Serializable {
 	public void addQuestNpcProceed(QuestNpcProceed questNpcProceed) {
 		this.questNpcProceedList.add(questNpcProceed);
 	}
+	
+	public void addQuestUpdateMapInfor(UpdatedMapInfor updatedMapInfor) {
+		questUpdateMapInfor.add(updatedMapInfor);
+	}
+	
+	public void addQuestUpdateNpcInfor(UpdatedNpcInfor updatedNpcInfor) {
+		questUpdateNpcInfor.add(updatedNpcInfor);
+	}
+	
 }

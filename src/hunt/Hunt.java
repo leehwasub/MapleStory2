@@ -275,7 +275,7 @@ public class Hunt extends Thread {
 			adventurerState.getCharacter().setCurMp(1);
 		}
 		if(monster.isBoss()) {
-			this.player.get_curMap().warp(player, WarpMapBossRoom.warpMapBossRoom(monster.getName()), mInterface);
+			this.player.get_curMap().warp(player, WarpMapBossRoom.warpFromMapBossRoom(monster.getName()), mInterface);
 			if(winFlag) {
 				WarpMapBossRoom.closeMapAfterClear(player, monster.getName());
 			}

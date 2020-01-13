@@ -28,7 +28,7 @@ public class Manji extends Npc{
 			player.setQuest(quest);
 		} else if(questNum == 1) {
 			quest = Quest.makeQuest(1, 8, "만지의 시험 2").addMessage("첫번째 시험을 끝낸이후 이번에는 와일드 보어의땅 2에가서 아이언 호그와 아이언 보어를 각각 10마리를 잡아와라고한다.")
-					.addMessage("놈들이 입고있는 강력한 갑옷을 조심하자. 또한, 와일드 보어의 땅2에서 찾을 수 있는 자수정이라는 원석을 찾아가도록 하자.").addQuestKill("아이언호그", 10).addQuestKill("아이언보어", 10)
+					.addMessage("놈들이 입고있는 강력한 갑옷을 조심하자.").addQuestKill("아이언호그", 10).addQuestKill("아이언보어", 10)
 					.setRewardExp(300).setRewardMoney(500).addRewardItem("일룬", 25).setPlayerQuestProceed(QuestProceed.MANJI_QUEST_2)
 					.addRewardNpcQuestProceed("열마리의부기", 1);
 			player.setQuest(quest);
