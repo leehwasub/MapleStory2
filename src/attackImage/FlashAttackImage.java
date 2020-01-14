@@ -1,16 +1,20 @@
 package attackImage;
 
+import attack.AttackInfor;
+import attack.Hit;
 import component.StateBox;
 import hunt.Hunt;
 import utils.MusicUtils;
 
 public class FlashAttackImage extends SkillImage {
-	public FlashAttackImage(Hunt hunt, StateBox attacker, StateBox opponent) {
-		super("monsterSkillImage/flash", hunt, attacker, opponent, 120);
+	public FlashAttackImage(Hunt hunt, StateBox attacker, StateBox opponent, AttackInfor attackInfor) {
+		super("monsterSkillImage/flash", hunt, attacker, opponent, attackInfor, 120);
 	}
 
 	public void run() {
+		attacker.updateStateBox();
 		MusicUtils.startEffectSound("flashSkill");
+		hit();
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
 			System.out.println(this.index);
@@ -20,6 +24,5 @@ public class FlashAttackImage extends SkillImage {
 				e.printStackTrace();
 			}
 		}
-		this.isDead = true;
 	}
 }

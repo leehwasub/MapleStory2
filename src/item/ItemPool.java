@@ -5,6 +5,7 @@ import java.util.HashMap;
 import character.Resistance;
 import character.SexType;
 import character.Strength;
+import utils.DialogUtils;
 
 public class ItemPool {
 	private static HashMap<String, Item> items = new HashMap<String, Item>();
@@ -183,6 +184,10 @@ public class ItemPool {
 		items.put("장어구이", new HealItem("장어구이", 250, "grilledEel", 1, new Heal(1000, 0, 0, 0), 20));
 		items.put("쭈쭈바", new HealItem("쭈쭈바", 500, "pencilBar", 1, new Heal(2000, 0, 0, 0), 25));
 		items.put("살살녹는치즈", new HealItem("살살녹는치즈", 1000, "goodCheese", 1, new Heal(4000, 0, 0, 0), 30));
+		
+		items.put("전사의물약", new BuffItem("전사의물약", 500, "warriorPower", 1, 10, new Strength(new Resistance(), 0, 0, 0, 5, 0, 0, 0, 0, 0, 0), 10));
+		items.put("명사수의물약", new BuffItem("명사수의물약", 500, "shooterPower", 1, 10, new Strength(new Resistance(), 0, 0, 0, 0, 0, 0, 0, 5, 0, 0), 10));
+		items.put("민첩함의물약", new BuffItem("민첩함의물약", 500, "agilityPower", 1, 10, new Strength(new Resistance(), 0, 0, 0, 0, 0, 0, 0, 0, 5, 0), 10));
 	}
 	
 	private static void initTitleItem() {
@@ -292,6 +297,7 @@ public class ItemPool {
 					item2.getInfor());
 			return e;
 		}
+		DialogUtils.showErrorDialog("ItemPool.getItem("+itemName+")을 찾지못함! 아이템 이름이 잘못되었거나 해당하는 아이템이 존재하지 않음.");
 		return null;
 	}
 }

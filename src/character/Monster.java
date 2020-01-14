@@ -74,6 +74,7 @@ public abstract class Monster extends Character {
 				MonsterAttack attack = AttackFactory.makeMonsterAttack(hunt, attacker, opponent, infor.getSkillName(), infor.getSkillPoint());
 				//if the attack is the buff skill that is already buffed, monster will not use the skill.
 				if(attack.getMonsterSkill().getAttackType() == AttackType.MYSELF && isAlreadyBuffed(attack.getMonsterSkill().getAttackName())) continue;
+				if(attack.getMonsterSkill().getAttackType() == AttackType.OPPONENT && opponent.getCharacter().isAlreadyBuffed(attack.getMonsterSkill().getAttackName())) continue;
 				if(attack.calNeedMp() <= curMp) {
 					curMp = curMp - attack.calNeedMp();
 					return attack;

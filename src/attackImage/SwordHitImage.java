@@ -1,15 +1,17 @@
 package attackImage;
 
+import attack.AttackInfor;
+import attack.Hit;
 import component.StateBox;
 import hunt.Hunt;
-import utils.MusicUtils;
 
 public class SwordHitImage extends SkillImage {
-	public SwordHitImage(Hunt hunt, StateBox attacker, StateBox opponent) {
-		super("monsterSkillImage/swordHit", hunt, attacker, opponent, 120);
+	public SwordHitImage(Hunt hunt, StateBox attacker, StateBox opponent, AttackInfor attackInfor) {
+		super("monsterSkillImage/swordHit", hunt, attacker, opponent, attackInfor, 120);
 	}
 
 	public void run() {
+		hit();
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
 			System.out.println(this.index);
@@ -19,6 +21,5 @@ public class SwordHitImage extends SkillImage {
 				e.printStackTrace();
 			}
 		}
-		this.isDead = true;
 	}
 }

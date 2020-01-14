@@ -1,5 +1,7 @@
 package item;
 
+import java.awt.Color;
+import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,6 +10,8 @@ import buff.StrengthBuff;
 import character.Character;
 import character.Strength;
 import map.Point;
+import utils.ColorUtils;
+import utils.FontUtils;
 import utils.MusicUtils;
 
 public class BuffItem extends ConsumableItem implements Serializable {
@@ -32,16 +36,42 @@ public class BuffItem extends ConsumableItem implements Serializable {
 	public String getInforForBuff() {
 		ArrayList<String> ret = strength.getStrengthItemInfor();
 		StringBuffer sb = new StringBuffer();
-		sb.append(lastTime + "턴간 ");
+		sb.append(lastTime + "턴간");
 		for(int i = 0; i < ret.size(); i++) {
-			sb.append("," + ret.get(i));
+			sb.append(", " + ret.get(i));
 		}
 		return sb.toString();
 	}
 	
+	public ArrayList<String> getInfor() {
+		ArrayList<String> ret = strength.getStrengthItemInfor();
+		ret.add(0, lastTime + "턴간 지속");
+		return ret;
+	}
+	
 	@Override
-	public void drawInfor(Graphics2D g, Point basePoint) {
-		
+	public void drawInfor(Graphics2D g, Point p) {
+		g.drawImage(Item.ITEM_INFOR_PANEL_IMAGE, p.getX(), p.getY(), null);
+		g.setFont(FontUtils.SMALL_FONT);
+		this.fm = g.getFontMetrics(FontUtils.SMALL_FONT);
+		g.setColor(Color.WHITE);
+		int width = this.fm.stringWidth(getName());
+		g.drawString(this.name, p.getX() + (200 - width) / 2, p.getY() + 25);
+		g.drawImage(this.image, p.getX() + 20, p.getY() + 45, null);
+		g.setColor(Color.YELLOW);
+		g.drawString("분류", p.getX() + 80, p.getY() + 57);
+		g.drawString("래벨", p.getX() + 80, p.getY() + 82);
+		g.setColor(Color.WHITE);
+		g.drawString("소모품", p.getX() + 120, p.getY() + 57);
+		g.drawString(this.level+"", p.getX() + 120, p.getY() + 82);
+		ArrayList<String> arr = getInfor();
+		for (int i = 0; i < arr.size(); i++) {
+			int width2 = this.fm.stringWidth((String) arr.get(i));
+			g.drawString((String) arr.get(i), p.getX() + (200 - width2) / 2, p.getY() + 120 + i * 20);
+		}
+		g.setColor(ColorUtils.SEA);
+		g.setFont(FontUtils.SMALL_FONT);
+		g.drawString(this.cost + " 메소", p.getX() + 20, p.getY() + 230);
 	}
 
 	public int getLastTime() {

@@ -7,7 +7,9 @@ import skill.NormalSkill;
 import utils.MusicUtils;
 import attack.Attack;
 import attack.AttackType;
-import attack.Damage;
+import attack.DamageType;
+import attack.Hit;
+import attack.AttackInfor;
 import attack.Property;
 import character.Character;
 
@@ -19,18 +21,21 @@ public class NormalAttack extends PlayerAttack {
 	
 	public void run() {
 		this.attacker.attackForwardMotion();
-		Character opponentCh = this.opponent.getCharacter();
-		int damage = opponentCh.hit(new Damage(this.attacker.getCharacter(), Property.PROPERTY_NOTHING,
-				this.attacker.getCharacter().calNormalDamge(1.0D), 0));
-		MusicUtils.startEffectSound("attack");
-		this.damage = damage;
-		this.hunt.addDamageText(damage, this.opponent, 0);
-		opponent.updateStateBox();
-		attackMoveDelay();
-		this.attacker.attackBackMotion();
 		
-		afterAttackDelay();
-		wakeUpThread();
+		Character opponentCh = this.opponent.getCharacter();
+		Hit damage = opponentCh.hit(makeAttackInfor());
+		MusicUtils.startEffectSound("attack");
+		this.damage = damage.getDamage();
+		this.hunt.addDamageText(damage, this.opponent);
+		opponent.updateStateBox();
+		sleep(250);
+		afterAttack();
+	}
+
+	@Override
+	public AttackInfor makeAttackInfor() {
+		return new AttackInfor(attacker.getCharacter(), Property.PROPERTY_NOTHING, attacker.getCharacter().calNormalDamge(1.0d), 
+				0, DamageType.DAMAGE_HP_TYPE);
 	}
 
 	public String attackInfor() {

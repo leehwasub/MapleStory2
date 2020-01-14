@@ -1,15 +1,17 @@
 package attackImage;
 
+import attack.AttackInfor;
 import component.StateBox;
 import hunt.Hunt;
 import utils.MusicUtils;
 
 public class PowerStrikeUseImage extends SkillImage {
-	public PowerStrikeUseImage(Hunt hunt, StateBox attacker, StateBox opponent) {
-		super("playerSkillImage/powerStrikeUse", hunt, attacker, opponent, 60);
+	public PowerStrikeUseImage(Hunt hunt, StateBox attacker, StateBox opponent, AttackInfor attackInfor) {
+		super("playerSkillImage/powerStrikeUse", hunt, attacker, opponent, attackInfor, 60);
 	}
 
 	public void run() {
+		attacker.updateStateBox();
 		MusicUtils.startEffectSound("powerStrikeUse");
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
@@ -20,6 +22,5 @@ public class PowerStrikeUseImage extends SkillImage {
 				e.printStackTrace();
 			}
 		}
-		this.isDead = true;
 	}
 }

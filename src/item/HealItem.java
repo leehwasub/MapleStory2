@@ -66,12 +66,12 @@ public class HealItem extends ConsumableItem implements Serializable {
 		g.drawString("분류", p.getX() + 80, p.getY() + 57);
 		g.drawString("래벨", p.getX() + 80, p.getY() + 82);
 		g.setColor(Color.WHITE);
-		g.drawString("포션", p.getX() + 120, p.getY() + 57);
+		g.drawString("소모품", p.getX() + 120, p.getY() + 57);
 		g.drawString(this.level+"", p.getX() + 120, p.getY() + 82);
 		ArrayList<String> arr = this.heal.getStrengthItemInfor();
 		for (int i = 0; i < arr.size(); i++) {
 			int width2 = this.fm.stringWidth((String) arr.get(i));
-			g.drawString((String) arr.get(i), p.getX() + (200 - width2) / 2, p.getY() + 120 + i * 15);
+			g.drawString((String) arr.get(i), p.getX() + (200 - width2) / 2, p.getY() + 120 + i * 20);
 		}
 		g.setColor(ColorUtils.SEA);
 		g.setFont(FontUtils.SMALL_FONT);

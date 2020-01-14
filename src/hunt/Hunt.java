@@ -16,6 +16,7 @@ import attack.Attack;
 import attack.AttackFactory;
 import attack.AttackType;
 import attack.DamageText;
+import attack.Hit;
 import attackImage.SkillImage;
 import character.Adventurer;
 import character.Character;
@@ -192,6 +193,7 @@ public class Hunt extends Thread {
 					}
 				}
 			}
+			nowStateBox.getCharacter().calState();
 		}
 		
 		this.isEnd = true;
@@ -295,8 +297,8 @@ public class Hunt extends Thread {
 		this.runButton.invalidate();
 	}
 
-	public void addDamageText(int damage, StateBox opponent, int type) {
-		this.mInterface.addDamageText(new DamageText(opponent.getX(), opponent.getY(), damage, type));
+	public void addDamageText(Hit hit, StateBox opponent) {
+		this.mInterface.addDamageText(new DamageText(hit, opponent.getX(), opponent.getY()));
 	}
 
 	public void updateMainStateBar() {

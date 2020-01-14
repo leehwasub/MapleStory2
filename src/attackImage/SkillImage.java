@@ -7,11 +7,14 @@ import java.util.Collections;
 
 import javax.swing.ImageIcon;
 
+import attack.AttackInfor;
+import attack.Hit;
 import component.StateBox;
 import hunt.Hunt;
 import hunt.ImageFileFrame;
 import map.Point;
 import utils.FileLoader;
+import utils.MusicUtils;
 import utils.ResourceLoader;
 
 public abstract class SkillImage extends Thread {
@@ -22,12 +25,16 @@ public abstract class SkillImage extends Thread {
 	protected Hunt hunt;
 	protected StateBox attacker;
 	protected StateBox opponent;
-	protected boolean isDead;
+	protected AttackInfor attackInfor;
+	
+	protected int totalDelay;
+	protected int totalDamage;
 
-	public SkillImage(String root, Hunt hunt, StateBox attacker, StateBox opponent, int delay) {
+	public SkillImage(String root, Hunt hunt, StateBox attacker, StateBox opponent, AttackInfor attackInfor, int delay) {
 		this.delay = delay;
 		this.attacker = attacker;
 		this.opponent = opponent;
+		this.attackInfor = attackInfor;
 		this.hunt = hunt;
 		this.point = attacker.getPoint();
 		try {
@@ -52,7 +59,15 @@ public abstract class SkillImage extends Thread {
 		}
 		point.setX(point.getX()+65 - imageList.get(0).getWidth(null)/2);
 		point.setY(point.getY()+65 - imageList.get(0).getHeight(null)/2);
-		this.isDead = false;
+		
+		totalDelay = imageList.size() * delay;
+	}
+	
+	public void hit() {
+		Hit hit = opponent.getCharacter().hit(attackInfor);
+		opponent.updateStateBox();
+		hunt.addDamageText(hit, opponent);
+		totalDamage += hit.getDamage();
 	}
 
 	public void run() {
@@ -65,7 +80,6 @@ public abstract class SkillImage extends Thread {
 				e.printStackTrace();
 			}
 		}
-		this.isDead = true;
 	}
 
 	public Image getImage() {
@@ -96,14 +110,6 @@ public abstract class SkillImage extends Thread {
 		this.point = point;
 	}
 
-	public boolean isDead() {
-		return this.isDead;
-	}
-
-	public void setDead(boolean isDead) {
-		this.isDead = isDead;
-	}
-
 	public StateBox getOpponent() {
 		return opponent;
 	}
@@ -112,8 +118,24 @@ public abstract class SkillImage extends Thread {
 		this.opponent = opponent;
 	}
 
+	public int getTotalDelay() {
+		return totalDelay;
+	}
+
+	public void setTotalDelay(int totalDelay) {
+		this.totalDelay = totalDelay;
+	}
+
+	public int getTotalDamage() {
+		return totalDamage;
+	}
+
+	public void setTotalDamage(int totalDamage) {
+		this.totalDamage = totalDamage;
+	}
+
 	public void draw(Graphics2D g) {
-		if ((this.imageList != null) && (this.index < this.imageList.size()) && (!this.isDead)) {
+		if ((this.imageList != null) && (this.index < this.imageList.size()) && (this.isAlive())) {
 			g.drawImage((Image) this.imageList.get(this.index), this.point.getX(), this.point.getY(), null);
 		}
 	}

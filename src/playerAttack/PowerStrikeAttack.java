@@ -1,9 +1,9 @@
 package playerAttack;
 
-import attack.Damage;
+import attack.AttackInfor;
+import attack.DamageType;
 import attackImage.PowerStrikeHitImage;
 import attackImage.PowerStrikeUseImage;
-import character.Character;
 import component.StateBox;
 import hunt.Hunt;
 import skill.ActiveSkill;
@@ -15,23 +15,19 @@ public class PowerStrikeAttack extends PlayerAttack {
 	}
 	
 	public void run() {
-		this.attacker.attackForwardMotion();
-		Character opponentCh = this.opponent.getCharacter();
-		double rate = (double)activeSkill.getEffect(activeSkill.getPoint()) / 100.0;
-		addSkillImageThread(new PowerStrikeUseImage(hunt, attacker, opponent));
-		attacker.updateStateBox();
-		sleep(360);
-		int damage = opponentCh.hit(new Damage(this.attacker.getCharacter(), activeSkill.getProperty(), this.attacker.getCharacter().calNormalDamge(rate), 0));
-		this.damage = damage;
-		hunt.addDamageText(damage, opponent, 0);
-		opponent.updateStateBox();
-		addSkillImageThread(new PowerStrikeHitImage(hunt, opponent, opponent));
-		sleep(360);
-		this.attacker.attackBackMotion();
-		afterAttackDelay();
-		wakeUpThread();
+		attacker.attackForwardMotion();
+		addSkillImageThread(new PowerStrikeUseImage(hunt, attacker, opponent, null));
+		addSkillImageThread(new PowerStrikeHitImage(hunt, opponent, opponent, makeAttackInfor()));
+		afterAttack();
 	}
 
+	@Override
+	protected AttackInfor makeAttackInfor() {
+		double rate = (double)activeSkill.getEffect(activeSkill.getPoint()) / 100.0;
+		return new AttackInfor(attacker.getCharacter(), activeSkill.getProperty(), attacker.getCharacter().calNormalDamge(rate), 0, DamageType.DAMAGE_HP_TYPE);
+	}
+	
+	@Override
 	public String attackInfor() {
 		return this.attacker.getCharacterName() + "는 " + activeSkill.getName()  + "를 사용. " + opponent.getCharacterName() + "에게 " + this.damage + "의 피해를 주었다.";
 	}

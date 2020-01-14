@@ -1,6 +1,8 @@
 package monsterAttack;
 
-import attack.Damage;
+import attack.AttackInfor;
+import attack.DamageType;
+import attack.Hit;
 import attack.Property;
 import character.Character;
 import component.StateBox;
@@ -16,17 +18,19 @@ public class TackleAttack extends MonsterAttack {
 
 	public void run() {
 		this.attacker.attackForwardMotion();
-		Character opponentCh = this.opponent.getCharacter();
-		int damage = opponentCh.hit(new Damage(this.attacker.getCharacter(), Property.PROPERTY_NOTHING,
-				this.attacker.getCharacter().calNormalDamge(1.0D), 0));
-		MusicUtils.startEffectSound("monsterAttack1");
-		this.hunt.addDamageText(damage, opponent, 0);
-		this.opponent.updateStateBox(); 
-		attackMoveDelay();
-		this.attacker.attackBackMotion();
 		
-		afterAttackDelay();
-		wakeUpThread();
+		Character opponentCh = this.opponent.getCharacter();
+		Hit hit = opponentCh.hit(makeAttackInfor());
+		MusicUtils.startEffectSound("monsterAttack1");
+		this.hunt.addDamageText(hit, opponent);
+		this.opponent.updateStateBox(); 
+		sleep(250);
+		afterAttack();
+	}
+	
+	@Override
+	protected AttackInfor makeAttackInfor() {
+		return new AttackInfor(this.attacker.getCharacter(), Property.PROPERTY_NOTHING, this.attacker.getCharacter().calNormalDamge(1.0d), 0, DamageType.DAMAGE_HP_TYPE);
 	}
 
 	public String attackInfor() {
@@ -36,4 +40,5 @@ public class TackleAttack extends MonsterAttack {
 	public int calNeedMp() {
 		return 0;
 	}
+	
 }

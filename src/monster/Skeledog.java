@@ -11,7 +11,7 @@ public final class Skeledog extends Monster {
 	private static final long serialVersionUID = 1L;
 
 	public Skeledog() {
-		super("스켈독", "rockyMask",
+		super("스켈독", "skeledog",
 				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 20, 1120, 80, 0, 0, 80, 80, 12, 12, 0), 180, 190, 0, 0,
 				60 * Main.EXP_BONUS, 110 * Main.MONEY_BONUS, false);
 		initSkillList();

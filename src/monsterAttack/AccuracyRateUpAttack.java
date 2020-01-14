@@ -1,5 +1,6 @@
 package monsterAttack;
 
+import attack.AttackInfor;
 import buff.BuffFactory;
 import component.StateBox;
 import hunt.Hunt;
@@ -30,4 +31,10 @@ public class AccuracyRateUpAttack extends MonsterAttack {
 	public int calNeedMp() {
 		return 10 * monsterSkill.getSkillPoint();
 	}
+
+	@Override
+	public AttackInfor makeAttackInfor() {
+		return null;
+	}
+	
 }

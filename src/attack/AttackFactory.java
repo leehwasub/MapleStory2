@@ -8,8 +8,10 @@ import monsterAttack.DamageDownAttack;
 import monsterAttack.DamageUpAttack;
 import monsterAttack.DefenceDownAttack;
 import monsterAttack.DefenceUpAttack;
+import monsterAttack.DoubleSlashAttack;
 import monsterAttack.EvasionRateDownAttack;
 import monsterAttack.EvasionRateUpAttack;
+import monsterAttack.FlameShootAttack;
 import monsterAttack.FlashAttack;
 import monsterAttack.MonsterAttack;
 import monsterAttack.SwordAttack;
@@ -37,15 +39,19 @@ public class AttackFactory {
 		case "회피율강화":
 			return new EvasionRateUpAttack(hunt, attacker, opponents, new MonsterSkill("회피율강화", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
 		case "공격력약화":
-			return new DamageDownAttack(hunt, attacker, opponents, new MonsterSkill("공격력약화", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
+			return new DamageDownAttack(hunt, attacker, opponents, new MonsterSkill("공격력약화", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		case "방어력약화":
-			return new DefenceDownAttack(hunt, attacker, opponents, new MonsterSkill("방어력약화", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
+			return new DefenceDownAttack(hunt, attacker, opponents, new MonsterSkill("방어력약화", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		case "적중률약화":
-			return new AccuracyRateDownAttack(hunt, attacker, opponents, new MonsterSkill("적중률약화", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
+			return new AccuracyRateDownAttack(hunt, attacker, opponents, new MonsterSkill("적중률약화", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		case "회피율약화":
-			return new EvasionRateDownAttack(hunt, attacker, opponents, new MonsterSkill("회피율약화", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
+			return new EvasionRateDownAttack(hunt, attacker, opponents, new MonsterSkill("회피율약화", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		case "베기":
 			return new SwordAttack(hunt, attacker, opponents, new MonsterSkill("베기", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
+		case "더블슬래쉬":
+			return new DoubleSlashAttack(hunt, attacker, opponents, new MonsterSkill("더블슬래쉬", Property.PROPERTY_DARK, skillPoint, AttackType.OPPONENT));
+		case "플레임샷":
+			return new FlameShootAttack(hunt, attacker, opponents, new MonsterSkill("플레임샷", Property.PROPERTY_FIRE, skillPoint, AttackType.OPPONENT));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

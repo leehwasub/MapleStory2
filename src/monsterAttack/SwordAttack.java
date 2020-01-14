@@ -1,6 +1,7 @@
 package monsterAttack;
 
-import attack.Damage;
+import attack.AttackInfor;
+import attack.DamageType;
 import attack.Property;
 import attackImage.SwordHitImage;
 import attackImage.SwordUseImage;
@@ -18,18 +19,14 @@ public class SwordAttack extends MonsterAttack {
 
 	public void run() {
 		this.attacker.attackForwardMotion();
-		MusicUtils.startEffectSound("attack");
-		addSkillImageThread(new SwordUseImage(hunt, attacker, opponent));
-		sleep(200);
-		Character opponentCh = this.opponent.getCharacter();
-		int damage = opponentCh.hit(new Damage(this.attacker.getCharacter(), Property.PROPERTY_NOTHING, this.attacker.getCharacter().calNormalDamge(1.2d), 0));
-		addSkillImageThread(new SwordHitImage(hunt, opponent, opponent));
-		sleep(200);
-		this.hunt.addDamageText(damage, opponent, 0);
-		this.opponent.updateStateBox(); 
-		this.attacker.attackBackMotion();
-		afterAttackDelay();
-		wakeUpThread();
+		addSkillImageThread(new SwordUseImage(hunt, attacker, opponent, null));
+		addSkillImageThread(new SwordHitImage(hunt, opponent, opponent, makeAttackInfor()));
+		afterAttack();
+	}
+	
+	@Override
+	protected AttackInfor makeAttackInfor() {
+		return new AttackInfor(this.attacker.getCharacter(), Property.PROPERTY_NOTHING, this.attacker.getCharacter().calNormalDamge(1.2d), 0, DamageType.DAMAGE_HP_TYPE);
 	}
 
 	public String attackInfor() {
@@ -39,4 +36,5 @@ public class SwordAttack extends MonsterAttack {
 	public int calNeedMp() {
 		return 5;
 	}
+
 }

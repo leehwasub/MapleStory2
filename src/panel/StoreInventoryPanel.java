@@ -120,7 +120,7 @@ public class StoreInventoryPanel extends JPanel {
 				Item item = (Item) StoreInventoryPanel.this.jList.getSelectedValue();
 				if (item != null) {
 					UIManager.put("OptionPane.messageFont", FontUtils.SMALL_FONT);
-					String input = JOptionPane.showInputDialog(null, item.getName() + "��(��) ���� ���� ������������?");
+					String input = JOptionPane.showInputDialog(null, item.getName() + "을(를) 몇개 판매 하시겠습니까?");
 					if (input == null) {
 						return;
 					}
@@ -129,11 +129,11 @@ public class StoreInventoryPanel extends JPanel {
 						if (item.getNum() >= num) {
 							player.addMoney(num * (item.getCost() / 10));
 							item.setNum(item.getNum() - num);
-							JOptionPane.showMessageDialog(null, "������ ��������������.");
+							JOptionPane.showMessageDialog(null, "판매가 완료되었습니다.");
 							player.removeEmptyItem();
 							StoreInventoryPanel.this.updateStoreInventory();
 						} else {
-							JOptionPane.showMessageDialog(null, "������ ����������.");
+							JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
 						}
 					} else {
 						JOptionPane.showMessageDialog(null, "1000이하의 올바른 숫자를 입력해 주세요.");

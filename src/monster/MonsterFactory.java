@@ -51,6 +51,8 @@ public class MonsterFactory {
 			return new SkeletonOfficer();
 		case "스켈레톤지휘관":
 			return new SkeletonCommander();
+		case "에레고스":
+			return new Ergoth();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -154,6 +156,9 @@ public class MonsterFactory {
 			} else if (isRange(percent, 7, 10)) {
 				ret = makeMonster("스켈레톤지휘관");
 			}
+			break;
+		case "에레고스왕좌":
+			ret = makeMonster("에레고스");
 			break;
 		}
 		return ret;

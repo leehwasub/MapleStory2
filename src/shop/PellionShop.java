@@ -32,5 +32,8 @@ public class PellionShop extends Shop {
 		consumableItemList.add(ItemPool.getItem("레몬", 1));
 		consumableItemList.add(ItemPool.getItem("하얀포션", 1));
 		consumableItemList.add(ItemPool.getItem("새우튀김", 1));
+		consumableItemList.add(ItemPool.getItem("전사의물약", 1));
+		consumableItemList.add(ItemPool.getItem("명사수의물약", 1));
+		consumableItemList.add(ItemPool.getItem("민첩함의물약", 1));
 	}
 }

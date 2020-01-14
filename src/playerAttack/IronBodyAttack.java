@@ -7,7 +7,7 @@ import skill.NormalSkill;
 import utils.MusicUtils;
 import attack.Attack;
 import attack.AttackType;
-import attack.Damage;
+import attack.AttackInfor;
 import attack.Property;
 import buff.BuffFactory;
 import character.Character;
@@ -32,6 +32,11 @@ public class IronBodyAttack extends PlayerAttack {
 		wakeUpThread();
 	}
 
+	@Override
+	public AttackInfor makeAttackInfor() {
+		return null;
+	}
+	
 	public String attackInfor() {
 		return this.attacker.getCharacterName() + "는 " +activeSkill.getName() + "를 사용. 자신에게 물리방어력을 강화시키는 버프를 걸었다.";
 	}

@@ -1,9 +1,9 @@
 package monsterAttack;
 
-import attack.Damage;
+import attack.AttackInfor;
+import attack.DamageType;
 import attack.Property;
 import attackImage.FlashAttackImage;
-import character.Character;
 import component.StateBox;
 import hunt.Hunt;
 import skill.MonsterSkill;
@@ -15,24 +15,15 @@ public class FlashAttack extends MonsterAttack {
 
 	public void run() {
 		this.attacker.attackForwardMotion();
-		Character opponentCh = this.opponent.getCharacter();
+		addSkillImageThread(new FlashAttackImage(hunt, attacker, opponent, makeAttackInfor()));
+		afterAttack();
+	}
+	
+	@Override
+	protected AttackInfor makeAttackInfor() {
 		double percent = 0.9f + (double)monsterSkill.getSkillPoint() * 0.1f;
-		int damage = opponentCh.hit(new Damage(this.attacker.getCharacter(), Property.PROPERTY_NOTHING,
-				0, this.attacker.getCharacter().calNormalDamge(percent)));
-		this.damage = damage;
-		Thread thread = new Thread(()->{
-			FlashAttackImage image = new FlashAttackImage(hunt, attacker, opponent);
-			addSkillImage(image);
-			image.start();
-		});
-		thread.start();
-		this.hunt.addDamageText(damage, opponent, 0);
-		this.opponent.updateStateBox(); 
-		attackMoveDelay();
-		this.attacker.attackBackMotion();
-		
-		afterAttackDelay();
-		wakeUpThread();
+		return new AttackInfor(this.attacker.getCharacter(), Property.PROPERTY_NOTHING,
+				0, this.attacker.getCharacter().calNormalDamge(percent), DamageType.DAMAGE_HP_TYPE);
 	}
 
 	public String attackInfor() {
@@ -42,4 +33,5 @@ public class FlashAttack extends MonsterAttack {
 	public int calNeedMp() {
 		return monsterSkill.getSkillPoint()*10;
 	}
+	
 }

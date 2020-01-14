@@ -77,7 +77,7 @@ public class EquipmentItem extends Item implements Serializable {
 		ArrayList<String> arr = this.strength.getStrengthItemInfor();
 		for (int i = 0; i < arr.size(); i++) {
 			int width2 = this.fm.stringWidth((String) arr.get(i));
-			g.drawString((String) arr.get(i), p.getX() + (200 - width2) / 2, p.getY() + 120 + i * 15);
+			g.drawString((String) arr.get(i), p.getX() + (200 - width2) / 2, p.getY() + 120 + i * 20);
 		}
 		g.setColor(ColorUtils.SEA);
 		g.setFont(FontUtils.SMALL_FONT);

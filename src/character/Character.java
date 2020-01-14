@@ -5,7 +5,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
-import attack.Damage;
+import attack.AttackInfor;
+import attack.Hit;
 import buff.Buff;
 import buff.StrengthBuff;
 import utils.ResourceLoader;
@@ -50,30 +51,37 @@ public abstract class Character implements Serializable{
 		}
 	}
 
-	public int hit(Damage damage) {
+	public Hit hit(AttackInfor damage) {
 		Strength opponentStr = damage.getAttacker().getStrength();
 		int successRate = opponentStr.getAccuracyRate() - this.strength.getEvasionRate() + opponentStr.getLevel()
 				- this.strength.getLevel() + 90;
 		int d = 0;
 		boolean isMiss = false;
-		int calMiss = (int) (Math.random() * 100.0D) + 1;
+		boolean isCritical = false;
+		int calMiss = (int) (Math.random() * 100.0d) + 1;
 		if (calMiss > successRate) {
 			isMiss = true;
 		}
 		if (!isMiss) {
 			System.out.println(damage + " " + this.curHp);
 			d = Math.max(0, damage.getPhysicalDamage() - this.strength.getPhysicalDefense());
-			d += Math.max(1, damage.getMagicDamage() - this.strength.getMagicDamage());
+			d += Math.max(1, damage.getMagicDamage() - this.strength.getMagicDefense());
 			d = calResistenceDamage(d, damage);
+
+			int calCritical = (int)(Math.random() * 100) + 1;
+			if(opponentStr.getCriticalRate() >= calCritical) {
+				isCritical = true;
+				d *= 2;
+			}
 			this.curHp -= Math.max(1, d);
 		}
 		if (this.curHp <= 0) {
 			this.isDead = true;
 		}
-		return d;
+		return new Hit(d, damage.getDamageType(), isCritical);
 	}
 
-	public int calResistenceDamage(int d, Damage damage) {
+	public int calResistenceDamage(int d, AttackInfor damage) {
 		Resistance resistance = this.strength.getResistance();
 		int resist = 100;
 		switch (damage.getProperty()) {

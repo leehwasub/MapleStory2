@@ -54,11 +54,19 @@ public abstract class Attack extends Thread {
 	}
 	
 	public void addSkillImageThread(SkillImage skillImage) {
+		int delay = skillImage.getTotalDelay();
 		Thread thread = new Thread(()-> {
-			addSkillImage(skillImage);
 			skillImage.start();
+			addSkillImage(skillImage);
 		});
 		thread.start();
+		sleep(delay);
+	}
+	
+	public void afterAttack() {
+		this.attacker.attackBackMotion();
+		afterAttackDelay();
+		wakeUpThread();
 	}
 
 	public void addSkillImage(SkillImage image) {
@@ -68,7 +76,10 @@ public abstract class Attack extends Thread {
 	public void draw(Graphics2D g) {
 		if (this.skillImageList != null) {
 			for (int i = this.skillImageList.size() - 1; i >= 0; i--) {
-				if (((SkillImage) this.skillImageList.get(i)).isDead()) {
+				if (!skillImageList.get(i).isAlive()) {
+					if(skillImageList.get(i).getTotalDamage() != 0) {
+						this.damage = skillImageList.get(i).getTotalDamage();
+					}
 					this.skillImageList.remove(i);
 				} else {
 					((SkillImage) this.skillImageList.get(i)).draw(g);
@@ -96,4 +107,6 @@ public abstract class Attack extends Thread {
 
 	public abstract void run();
 	public abstract String attackInfor();
+	protected abstract AttackInfor makeAttackInfor();
+	
 }

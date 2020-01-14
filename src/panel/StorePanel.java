@@ -141,7 +141,7 @@ public class StorePanel extends JPanel {
 			}
 
 			public void mouseExited(MouseEvent e) {
-				StorePanel.this.itemTooltip.setVisible(false);
+				itemTooltip.setVisible(false);
 			}
 		});
 		this.jList.addMouseMotionListener(new MouseMotionAdapter() {

@@ -7,31 +7,30 @@ import java.awt.Graphics2D;
 import utils.FontUtils;
 
 public class DamageText extends Thread {
+	
+	private Hit hit;
 	private int x;
 	private int y;
-	private int damage;
-	private int type;
 	private FontMetrics fm;
-	public static final int DAMAGE_HP_TYPE = 0;
-	public static final int DAMAGE_MP_TYPE = 0;
 
-	public DamageText(int x, int y, int damage, int type) {
+	public DamageText(Hit hit, int x, int y) {
+		this.hit = hit;
 		this.x = x;
 		this.y = y;
-		this.damage = damage;
 	}
 
 	public void draw(Graphics2D g) {
 		g.setFont(FontUtils.generalFont);
-		if (this.type == 0) {
+		if (hit.getType() == DamageType.DAMAGE_HP_TYPE) {
 			g.setColor(Color.RED);
-		} else if (this.type == 0) {
+		} else if (hit.getType() == DamageType.DAMAGE_MP_TYPE) {
 			g.setColor(Color.BLUE);
 		}
 		this.fm = g.getFontMetrics();
-		if (this.damage != 0) {
-			int width = this.fm.stringWidth(this.damage+"");
-			g.drawString(this.damage+"", this.x + 170 + (180 - width) / 2, this.y + 45);
+		if (this.hit.getDamage() != 0) {
+			int width = this.fm.stringWidth(this.hit.getDamage()+"");
+			g.drawString(this.hit.getDamage()+"", this.x + 170 + (180 - width) / 2, this.y + 45
+					+ (hit.getType() == DamageType.DAMAGE_HP_TYPE ? 0 : 30));
 		} else {
 			int width = this.fm.stringWidth("MISS");
 			g.drawString("MISS", this.x + 170 + (180 - width) / 2, this.y + 45);
@@ -58,10 +57,6 @@ public class DamageText extends Thread {
 		return this.y;
 	}
 
-	public int getDamage() {
-		return this.damage;
-	}
-
 	public void setX(int x) {
 		this.x = x;
 	}
@@ -70,7 +65,12 @@ public class DamageText extends Thread {
 		this.y = y;
 	}
 
-	public void setDamage(int damage) {
-		this.damage = damage;
+	public Hit getHit() {
+		return hit;
 	}
+
+	public void setHit(Hit hit) {
+		this.hit = hit;
+	}
+
 }

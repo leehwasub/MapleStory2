@@ -2,6 +2,7 @@ package attackImage;
 
 import java.util.ArrayList;
 
+import attack.AttackInfor;
 import component.StateBox;
 import hunt.Hunt;
 import map.Point;
@@ -13,10 +14,11 @@ public class MovableSkillImage extends SkillImage{
 	protected int takeTime;
 	protected int nowTime;
 	
-	public MovableSkillImage(String root, Hunt hunt, StateBox attacker, StateBox opponent, int delay, int takeTime) {
-		super(root, hunt, attacker, opponent, delay);
+	public MovableSkillImage(String root, Hunt hunt, StateBox attacker, StateBox opponent, AttackInfor attackInfor, int delay, int takeTime) {
+		super(root, hunt, attacker, opponent, attackInfor, delay);
 		this.opponent = opponent;
 		this.takeTime = takeTime;
+		this.totalDelay = takeTime;
 		this.targetPoint = opponent.getPoint();
 		targetPoint.setX(targetPoint.getX()+65 - imageList.get(0).getWidth(null)/2);
 		targetPoint.setY(targetPoint.getY()+65 - imageList.get(0).getHeight(null)/2);
@@ -39,7 +41,6 @@ public class MovableSkillImage extends SkillImage{
 				}
 			}
 		}
-		this.isDead = true;
 	}
 	
 	public void moveObject() {

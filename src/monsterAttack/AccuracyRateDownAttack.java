@@ -1,5 +1,6 @@
 package monsterAttack;
 
+import attack.AttackInfor;
 import buff.BuffFactory;
 import component.StateBox;
 import hunt.Hunt;
@@ -16,7 +17,7 @@ public class AccuracyRateDownAttack extends MonsterAttack {
 		this.attacker.attackForwardMotion();
 		attackMoveDelay();
 		MusicUtils.startEffectSound("monsterBuff");
-		attacker.getCharacter().addBuff(BuffFactory.makeMonsterBuff("적중률약화", monsterSkill.getSkillPoint()));
+		opponent.getCharacter().addBuff(BuffFactory.makeMonsterBuff("적중률약화", monsterSkill.getSkillPoint()));
 		this.opponent.updateStateBox(); 
 		this.attacker.attackBackMotion();
 		afterAttackDelay();
@@ -30,4 +31,10 @@ public class AccuracyRateDownAttack extends MonsterAttack {
 	public int calNeedMp() {
 		return 10 * monsterSkill.getSkillPoint();
 	}
+
+	@Override
+	public AttackInfor makeAttackInfor() {
+		return null;
+	}
+	
 }

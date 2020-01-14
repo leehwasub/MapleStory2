@@ -19,6 +19,7 @@ import component.MapleButton;
 import component.QuickItemButton;
 import component.QuickSkillButton;
 import component.StateBox;
+import item.BuffItem;
 import item.ConsumableItem;
 import item.Item;
 import maplestory.MainMapleInterface;
@@ -159,6 +160,9 @@ public class QuickButtonPanel extends JPanel{
 	
 	public void quickItemEvent(int index) {
 		if (this.quickItemButton[index].getItem() == null || !player.isCanUsePortion()) {
+			return;
+		}
+		if(quickItemButton[index].getItem() instanceof BuffItem && !player.isHunt()) {
 			return;
 		}
 		player.getMainAdventurer().usePortion(this.quickItemButton[index].getItem());

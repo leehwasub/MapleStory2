@@ -2,17 +2,20 @@ package attack;
 
 import character.Character;
 
-public class Damage {
+public class AttackInfor {
+	
 	private Character attacker;
 	private Property property;
 	private int physicalDamage;
 	private int magicDamage;
+	private DamageType damageType;
 
-	public Damage(Character attacker, Property property, int physicalDamage, int magicDamage) {
+	public AttackInfor(Character attacker, Property property, int physicalDamage, int magicDamage, DamageType damageType) {
 		this.attacker = attacker;
 		this.property = property;
 		this.physicalDamage = physicalDamage;
 		this.magicDamage = magicDamage;
+		this.damageType = damageType;
 	}
 
 	public Character getAttacker() {
@@ -47,8 +50,18 @@ public class Damage {
 		this.magicDamage = magicDamage;
 	}
 
-	public String toString() {
-		return "Damage [property=" + this.property + ", physicalDamage=" + this.physicalDamage + ", magicDamage="
-				+ this.magicDamage + "]";
+	public DamageType getDamageType() {
+		return damageType;
 	}
+
+	public void setDamageType(DamageType damageType) {
+		this.damageType = damageType;
+	}
+
+	@Override
+	public String toString() {
+		return "AttackInfor [attacker=" + attacker + ", property=" + property + ", physicalDamage=" + physicalDamage
+				+ ", magicDamage=" + magicDamage + ", damageType=" + damageType + "]";
+	}
+	
 }
