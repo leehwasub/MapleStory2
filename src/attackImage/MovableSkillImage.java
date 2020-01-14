@@ -14,7 +14,7 @@ public class MovableSkillImage extends SkillImage{
 	protected int takeTime;
 	protected int nowTime;
 	
-	public MovableSkillImage(String root, Hunt hunt, StateBox attacker, StateBox opponent, AttackInfor attackInfor, int delay, int takeTime) {
+	public MovableSkillImage(String root, Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor, int delay, int takeTime) {
 		super(root, hunt, attacker, opponent, attackInfor, delay);
 		this.opponent = opponent;
 		this.takeTime = takeTime;

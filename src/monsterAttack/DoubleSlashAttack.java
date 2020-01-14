@@ -1,5 +1,7 @@
 package monsterAttack;
 
+import java.util.ArrayList;
+
 import attack.AttackInfor;
 import attack.DamageType;
 import attack.Property;
@@ -21,10 +23,13 @@ public class DoubleSlashAttack extends MonsterAttack {
 	}
 	
 	@Override
-	protected AttackInfor makeAttackInfor() {
+	protected ArrayList<AttackInfor> makeAttackInfor() {
+		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
 		double rate = 1.1f + (double)monsterSkill.getSkillPoint() * 0.1f;
-		return new AttackInfor(this.attacker.getCharacter(), Property.PROPERTY_NOTHING,
-				0, this.attacker.getCharacter().calMagicDamge(rate), DamageType.DAMAGE_HP_TYPE);
+		for(int i = 0; i < 2; i++) {
+			ret.add(new AttackInfor(this.attacker.getCharacter(), Property.PROPERTY_NOTHING, 0, this.attacker.getCharacter().calMagicDamge(rate), DamageType.DAMAGE_HP_TYPE));
+		}
+		return ret;
 	}
 
 	public String attackInfor() {

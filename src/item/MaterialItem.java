@@ -19,7 +19,9 @@ public class MaterialItem extends Item implements Serializable {
 	}
 
 	public void drawInfor(Graphics2D g, Point p) {
-		g.drawImage(Item.ITEM_INFOR_PANEL_IMAGE, p.getX(), p.getY(), null);
+		int totalLine = getLine(g);
+		g.setColor(Color.BLACK);
+		g.fillRect(p.getX(), p.getY(), 200, 160 + totalLine * 20);
 		g.setFont(FontUtils.SMALL_FONT);
 		this.fm = g.getFontMetrics(FontUtils.SMALL_FONT);
 		g.setColor(Color.WHITE);
@@ -36,17 +38,33 @@ public class MaterialItem extends Item implements Serializable {
 		for (int i = 0; i < this.infor.length(); i++) {
 			FontMetrics fm = g.getFontMetrics();
 			width2 = fm.stringWidth(this.infor.substring(preIndex, i));
-			if (width2 > 170) {
+			if (width2 > 160) {
 				g.drawString(this.infor.substring(preIndex, i), p.getX() + (200 - width2) / 2,
 						p.getY() + 120 + line * 20);
 				preIndex = i;
 				line++;
 			}
 		}
+		width2 = fm.stringWidth(this.infor.substring(preIndex));
 		g.drawString(this.infor.substring(preIndex), p.getX() + (200 - width2) / 2, p.getY() + 120 + line * 20);
 		g.setColor(ColorUtils.SEA);
 		g.setFont(FontUtils.SMALL_FONT);
-		g.drawString(this.cost + " 메소", p.getX() + 20, p.getY() + 230);
+		g.drawString(this.cost + " 메소", p.getX() + 20, p.getY() + 160 + (totalLine-1) * 20);
+	}
+	
+	private int getLine(Graphics2D g) {
+		int preIndex = 0;
+		int line = 0;
+		int width2 = 0;
+		for (int i = 0; i < this.infor.length(); i++) {
+			FontMetrics fm = g.getFontMetrics();
+			width2 = fm.stringWidth(this.infor.substring(preIndex, i));
+			if (width2 > 160) {
+				preIndex = i;
+				line++;
+			}
+		}
+		return ++line;
 	}
 
 	public String getInfor() {

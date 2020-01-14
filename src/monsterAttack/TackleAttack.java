@@ -1,5 +1,7 @@
 package monsterAttack;
 
+import java.util.ArrayList;
+
 import attack.AttackInfor;
 import attack.DamageType;
 import attack.Hit;
@@ -20,7 +22,7 @@ public class TackleAttack extends MonsterAttack {
 		this.attacker.attackForwardMotion();
 		
 		Character opponentCh = this.opponent.getCharacter();
-		Hit hit = opponentCh.hit(makeAttackInfor());
+		Hit hit = opponentCh.hit(makeAttackInfor().get(0));
 		MusicUtils.startEffectSound("monsterAttack1");
 		this.hunt.addDamageText(hit, opponent);
 		this.opponent.updateStateBox(); 
@@ -29,8 +31,12 @@ public class TackleAttack extends MonsterAttack {
 	}
 	
 	@Override
-	protected AttackInfor makeAttackInfor() {
-		return new AttackInfor(this.attacker.getCharacter(), Property.PROPERTY_NOTHING, this.attacker.getCharacter().calNormalDamge(1.0d), 0, DamageType.DAMAGE_HP_TYPE);
+	protected ArrayList<AttackInfor> makeAttackInfor() {
+		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
+		for(int i = 0; i < 1; i++) {
+			ret.add(new AttackInfor(this.attacker.getCharacter(), Property.PROPERTY_NOTHING, this.attacker.getCharacter().calNormalDamge(1.0d), 0, DamageType.DAMAGE_HP_TYPE));
+		}
+		return ret;
 	}
 
 	public String attackInfor() {

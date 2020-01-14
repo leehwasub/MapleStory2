@@ -5,6 +5,9 @@ import hunt.Hunt;
 import skill.ActiveSkill;
 import skill.NormalSkill;
 import utils.MusicUtils;
+
+import java.util.ArrayList;
+
 import attack.Attack;
 import attack.AttackType;
 import attack.AttackInfor;
@@ -33,7 +36,7 @@ public class IronBodyAttack extends PlayerAttack {
 	}
 
 	@Override
-	public AttackInfor makeAttackInfor() {
+	public ArrayList<AttackInfor> makeAttackInfor() {
 		return null;
 	}
 	

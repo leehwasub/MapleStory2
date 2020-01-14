@@ -51,7 +51,8 @@ public class BuffItem extends ConsumableItem implements Serializable {
 	
 	@Override
 	public void drawInfor(Graphics2D g, Point p) {
-		g.drawImage(Item.ITEM_INFOR_PANEL_IMAGE, p.getX(), p.getY(), null);
+		g.setColor(Color.BLACK);
+		g.fillRect(p.getX(), p.getY(), 200, 160 + getInfor().size() * 20);
 		g.setFont(FontUtils.SMALL_FONT);
 		this.fm = g.getFontMetrics(FontUtils.SMALL_FONT);
 		g.setColor(Color.WHITE);
@@ -71,7 +72,7 @@ public class BuffItem extends ConsumableItem implements Serializable {
 		}
 		g.setColor(ColorUtils.SEA);
 		g.setFont(FontUtils.SMALL_FONT);
-		g.drawString(this.cost + " 메소", p.getX() + 20, p.getY() + 230);
+		g.drawString(this.cost + " 메소", p.getX() + 20, p.getY() + 160 + (getInfor().size()-1) * 20);
 	}
 
 	public int getLastTime() {

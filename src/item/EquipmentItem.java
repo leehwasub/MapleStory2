@@ -61,7 +61,9 @@ public class EquipmentItem extends Item implements Serializable {
 	}
 
 	public void drawInfor(Graphics2D g, Point p) {
-		g.drawImage(Item.ITEM_INFOR_PANEL_IMAGE, p.getX(), p.getY(), null);
+		ArrayList<String> arr = strength.getStrengthItemInfor();
+		g.setColor(Color.BLACK);
+		g.fillRect(p.getX(), p.getY(), 200, 160 + arr.size() * 20);
 		g.setFont(FontUtils.SMALL_FONT);
 		this.fm = g.getFontMetrics(FontUtils.SMALL_FONT);
 		g.setColor(Color.WHITE);
@@ -74,14 +76,13 @@ public class EquipmentItem extends Item implements Serializable {
 		g.setColor(Color.WHITE);
 		g.drawString(getTypeString(this.type), p.getX() + 120, p.getY() + 57);
 		g.drawString(this.strength.getLevel()+"", p.getX() + 120, p.getY() + 82);
-		ArrayList<String> arr = this.strength.getStrengthItemInfor();
 		for (int i = 0; i < arr.size(); i++) {
 			int width2 = this.fm.stringWidth((String) arr.get(i));
 			g.drawString((String) arr.get(i), p.getX() + (200 - width2) / 2, p.getY() + 120 + i * 20);
 		}
 		g.setColor(ColorUtils.SEA);
 		g.setFont(FontUtils.SMALL_FONT);
-		g.drawString(this.cost + " 메소", p.getX() + 20, p.getY() + 230);
+		g.drawString(this.cost + " 메소", p.getX() + 20,  p.getY() + 160 + (arr.size()-1) * 20);
 	}
 
 	private String getTypeString(int type) {

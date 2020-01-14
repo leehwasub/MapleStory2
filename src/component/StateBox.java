@@ -11,6 +11,8 @@ import attackImage.SkillImage;
 import buff.Buff;
 import character.Character;
 import map.Point;
+import maplestory.Main;
+import maplestory.MainMapleInterface;
 import utils.FontUtils;
 import utils.ResourceLoader;
 
@@ -29,8 +31,9 @@ public class StateBox extends Thread {
 	public static final int DIR_RIGHT = 1;
 	private ArrayList<SkillImage> skillImageList = new ArrayList<SkillImage>();
 	private ArrayList<Buff> buffList;
+	private MainMapleInterface mainMapleInterface;
 
-	public StateBox(int x, int y, Character character, int dir, JPanel panel) {
+	public StateBox(int x, int y, Character character, int dir, JPanel panel, MainMapleInterface mainMapleInterface) {
 		this.x = x;
 		this.y = y;
 		this.character = character;
@@ -42,6 +45,7 @@ public class StateBox extends Thread {
 		panel.add(this.mapleMpBar);
 		this.dir = dir;
 		buffList = character.getBuffList();
+		this.mainMapleInterface = mainMapleInterface;
 	}
 
 	public void removeFromPanel(JPanel panel) {
@@ -82,6 +86,7 @@ public class StateBox extends Thread {
 	public void updateStateBox() {
 		this.mapleHpBar.progressUpdate();
 		this.mapleMpBar.progressUpdate();
+		mainMapleInterface.updateMainStateBar();
 	}
 
 	public void barSetVisibleFalse() {

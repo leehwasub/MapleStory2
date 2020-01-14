@@ -1,12 +1,14 @@
 package attackImage;
 
+import java.util.ArrayList;
+
 import attack.AttackInfor;
 import component.StateBox;
 import hunt.Hunt;
 import utils.MusicUtils;
 
 public class flameShootUseImage extends SkillImage {
-	public flameShootUseImage(Hunt hunt, StateBox attacker, StateBox opponent, AttackInfor attackInfor) {
+	public flameShootUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
 		super("monsterSkillImage/flameShootUse", hunt, attacker, opponent, attackInfor, 60);
 	}
 

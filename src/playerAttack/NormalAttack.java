@@ -5,6 +5,9 @@ import hunt.Hunt;
 import skill.ActiveSkill;
 import skill.NormalSkill;
 import utils.MusicUtils;
+
+import java.util.ArrayList;
+
 import attack.Attack;
 import attack.AttackType;
 import attack.DamageType;
@@ -23,7 +26,7 @@ public class NormalAttack extends PlayerAttack {
 		this.attacker.attackForwardMotion();
 		
 		Character opponentCh = this.opponent.getCharacter();
-		Hit damage = opponentCh.hit(makeAttackInfor());
+		Hit damage = opponentCh.hit(makeAttackInfor().get(0));
 		MusicUtils.startEffectSound("attack");
 		this.damage = damage.getDamage();
 		this.hunt.addDamageText(damage, this.opponent);
@@ -33,9 +36,12 @@ public class NormalAttack extends PlayerAttack {
 	}
 
 	@Override
-	public AttackInfor makeAttackInfor() {
-		return new AttackInfor(attacker.getCharacter(), Property.PROPERTY_NOTHING, attacker.getCharacter().calNormalDamge(1.0d), 
-				0, DamageType.DAMAGE_HP_TYPE);
+	public ArrayList<AttackInfor> makeAttackInfor() {
+		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
+		for(int i = 0; i < 1; i++) {
+			ret.add( new AttackInfor(attacker.getCharacter(), Property.PROPERTY_NOTHING, attacker.getCharacter().calNormalDamge(1.0d), 0, DamageType.DAMAGE_HP_TYPE));
+		}
+		return ret;
 	}
 
 	public String attackInfor() {

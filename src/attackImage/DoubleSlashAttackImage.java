@@ -1,5 +1,7 @@
 package attackImage;
 
+import java.util.ArrayList;
+
 import attack.AttackInfor;
 import attack.Hit;
 import component.StateBox;
@@ -7,7 +9,7 @@ import hunt.Hunt;
 import utils.MusicUtils;
 
 public class DoubleSlashAttackImage extends SkillImage {
-	public DoubleSlashAttackImage(Hunt hunt, StateBox attacker, StateBox opponent, AttackInfor attackInfor) {
+	public DoubleSlashAttackImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
 		super("monsterSkillImage/doubleSlash", hunt, attacker, opponent, attackInfor, 120);
 	}
 

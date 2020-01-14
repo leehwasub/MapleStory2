@@ -1,12 +1,14 @@
 package attackImage;
 
+import java.util.ArrayList;
+
 import attack.AttackInfor;
 import component.StateBox;
 import hunt.Hunt;
 import utils.MusicUtils;
 
 public class PowerStrikeUseImage extends SkillImage {
-	public PowerStrikeUseImage(Hunt hunt, StateBox attacker, StateBox opponent, AttackInfor attackInfor) {
+	public PowerStrikeUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
 		super("playerSkillImage/powerStrikeUse", hunt, attacker, opponent, attackInfor, 60);
 	}
 

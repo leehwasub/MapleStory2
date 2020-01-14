@@ -25,12 +25,13 @@ public abstract class SkillImage extends Thread {
 	protected Hunt hunt;
 	protected StateBox attacker;
 	protected StateBox opponent;
-	protected AttackInfor attackInfor;
+	protected ArrayList<AttackInfor> attackInfor;
 	
 	protected int totalDelay;
 	protected int totalDamage;
+	protected int attackNum;
 
-	public SkillImage(String root, Hunt hunt, StateBox attacker, StateBox opponent, AttackInfor attackInfor, int delay) {
+	public SkillImage(String root, Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor, int delay) {
 		this.delay = delay;
 		this.attacker = attacker;
 		this.opponent = opponent;
@@ -64,10 +65,13 @@ public abstract class SkillImage extends Thread {
 	}
 	
 	public void hit() {
-		Hit hit = opponent.getCharacter().hit(attackInfor);
+		Hit hit = opponent.getCharacter().hit(attackInfor.get(attackNum));
 		opponent.updateStateBox();
 		hunt.addDamageText(hit, opponent);
 		totalDamage += hit.getDamage();
+		if(attackNum + 1 < attackInfor.size()) {
+			attackNum++;
+		}
 	}
 
 	public void run() {

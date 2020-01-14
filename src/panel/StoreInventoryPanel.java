@@ -133,7 +133,7 @@ public class StoreInventoryPanel extends JPanel {
 							player.removeEmptyItem();
 							StoreInventoryPanel.this.updateStoreInventory();
 						} else {
-							JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
+							JOptionPane.showMessageDialog(null, "갯수가 부족합니다.");
 						}
 					} else {
 						JOptionPane.showMessageDialog(null, "1000이하의 올바른 숫자를 입력해 주세요.");

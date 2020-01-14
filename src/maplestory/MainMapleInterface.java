@@ -20,4 +20,5 @@ public interface MainMapleInterface {
 	public void nextTurn();
 	public void playerUseSkill(String skillName);
 	public void setQuickSkillImage();
+	public void mainStateBarUpdate();
 }

@@ -1,5 +1,7 @@
 package attackImage;
 
+import java.util.ArrayList;
+
 import attack.AttackInfor;
 import component.StateBox;
 import hunt.Hunt;
@@ -7,7 +9,7 @@ import map.Point;
 import utils.MusicUtils;
 
 public class flameShootBallMovableImage extends MovableSkillImage {
-	public flameShootBallMovableImage(Hunt hunt, StateBox attacker, StateBox opponent, AttackInfor attackInfor) {
+	public flameShootBallMovableImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
 		super("monsterSkillImage/flameShootBall", hunt, attacker, opponent, attackInfor, 120, 1000);
 	}
 

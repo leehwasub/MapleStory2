@@ -1,5 +1,7 @@
 package monsterAttack;
 
+import java.util.ArrayList;
+
 import attack.AttackInfor;
 import buff.BuffFactory;
 import component.StateBox;
@@ -33,7 +35,7 @@ public class AccuracyRateUpAttack extends MonsterAttack {
 	}
 
 	@Override
-	public AttackInfor makeAttackInfor() {
+	public ArrayList<AttackInfor> makeAttackInfor() {
 		return null;
 	}
 	

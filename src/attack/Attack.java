@@ -107,6 +107,6 @@ public abstract class Attack extends Thread {
 
 	public abstract void run();
 	public abstract String attackInfor();
-	protected abstract AttackInfor makeAttackInfor();
+	protected abstract ArrayList<AttackInfor> makeAttackInfor();
 	
 }

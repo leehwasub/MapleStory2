@@ -63,11 +63,11 @@ public class Hunt extends Thread {
 		this.mInterface = mainMapleInterface;
 		this.player = player;
 		
-		StateBox stateBoxAdventurer = new StateBox(40, StateBox.STATE_BOX_Y[1], adventurer, 0, panel);
+		StateBox stateBoxAdventurer = new StateBox(40, StateBox.STATE_BOX_Y[1], adventurer, 0, panel, mainMapleInterface);
 		this.adventurerState = stateBoxAdventurer;
 		this.turnQueue.add(stateBoxAdventurer);
 		
-		StateBox stateBoxMonster = new StateBox(870, StateBox.STATE_BOX_Y[1], monster, 1, panel);
+		StateBox stateBoxMonster = new StateBox(870, StateBox.STATE_BOX_Y[1], monster, 1, panel, mainMapleInterface);
 		this.monster = monster;
 		this.monsterState = stateBoxMonster;
 		this.turnQueue.add(stateBoxMonster);
@@ -162,9 +162,6 @@ public class Hunt extends Thread {
 			if ((character instanceof Monster)) {
 				Monster turnMonster = (Monster) character;
 				this.monsterAttack = turnMonster.attack(this, this.nowStateBox, this.adventurerState);
-				if(monsterAttack.getMonsterSkill().getAttackType() == AttackType.MYSELF) {
-					monsterAttack.setOpponent(nowStateBox);
-				}
 				this.monsterAttack.start();
 				waitForAttack();
 				this.mInterface.pushMessage(new Message(this.monsterAttack.attackInfor(), Color.CYAN, true));
@@ -232,9 +229,7 @@ public class Hunt extends Thread {
 				return;
 			}
 			player.getMainAdventurer().spendMp(needMp);
-		}
-		if(playerAttack.getActiveSkill().getAttackType() == AttackType.MYSELF) {
-			playerAttack.setOpponent(nowStateBox);
+			adventurerState.updateStateBox();
 		}
 		player.setCanUseSkill(false);
 		player.setCanUsePortion(false);

@@ -268,6 +268,7 @@ public class MapleMap implements Serializable {
 	}
 
 	public void calLoc(Player player, MapleMap mapleMap) {
+		mapleMap.setBasePointXY(0, 0);
 		for (int i = 0; i < mapleMap.getMaxX() - Math.min(mapleMap.getMaxX(), MAX_MAP_VIEW_X) + 1; i++) {
 			for (int j = 0; j < mapleMap.getMaxY() - Math.min(mapleMap.getMaxY(), MAX_MAP_VIEW_Y) + 1; j++) {
 				int midX = (i + Math.min(mapleMap.getMaxX(), MAX_MAP_VIEW_X) + i) / 2;

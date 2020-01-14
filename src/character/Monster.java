@@ -77,6 +77,7 @@ public abstract class Monster extends Character {
 				if(attack.getMonsterSkill().getAttackType() == AttackType.OPPONENT && opponent.getCharacter().isAlreadyBuffed(attack.getMonsterSkill().getAttackName())) continue;
 				if(attack.calNeedMp() <= curMp) {
 					curMp = curMp - attack.calNeedMp();
+					attacker.updateStateBox();
 					return attack;
 				}
 			}

@@ -1,5 +1,7 @@
 package playerAttack;
 
+import java.util.ArrayList;
+
 import attack.AttackInfor;
 import attack.DamageType;
 import attackImage.PowerStrikeHitImage;
@@ -22,9 +24,13 @@ public class PowerStrikeAttack extends PlayerAttack {
 	}
 
 	@Override
-	protected AttackInfor makeAttackInfor() {
+	protected ArrayList<AttackInfor> makeAttackInfor() {
 		double rate = (double)activeSkill.getEffect(activeSkill.getPoint()) / 100.0;
-		return new AttackInfor(attacker.getCharacter(), activeSkill.getProperty(), attacker.getCharacter().calNormalDamge(rate), 0, DamageType.DAMAGE_HP_TYPE);
+		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
+		for(int i = 0; i < 1; i++) {
+			ret.add(new AttackInfor(attacker.getCharacter(), activeSkill.getProperty(), attacker.getCharacter().calNormalDamge(rate), 0, DamageType.DAMAGE_HP_TYPE));
+		}
+		return ret;
 	}
 	
 	@Override

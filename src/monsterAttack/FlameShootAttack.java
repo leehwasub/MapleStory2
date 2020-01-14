@@ -1,5 +1,7 @@
 package monsterAttack;
 
+import java.util.ArrayList;
+
 import attack.AttackInfor;
 import attack.DamageType;
 import attack.Property;
@@ -25,10 +27,13 @@ public class FlameShootAttack extends MonsterAttack {
 	}
 	
 	@Override
-	protected AttackInfor makeAttackInfor() {
+	protected ArrayList<AttackInfor> makeAttackInfor() {
+		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
 		double percent = 0.9f + (double)monsterSkill.getSkillPoint() * 0.1f;
-		return new AttackInfor(this.attacker.getCharacter(), Property.PROPERTY_NOTHING,
-				0, this.attacker.getCharacter().calMagicDamge(percent), DamageType.DAMAGE_HP_TYPE);
+		for(int i = 0; i < 1; i++) {
+			ret.add(new AttackInfor(this.attacker.getCharacter(), Property.PROPERTY_NOTHING, 0, this.attacker.getCharacter().calMagicDamge(percent), DamageType.DAMAGE_HP_TYPE));
+		}
+		return ret;
 	}
 
 	public String attackInfor() {
