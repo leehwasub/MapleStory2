@@ -110,6 +110,7 @@ public class InventorySkillPanel extends JPanel {
 						boolean isUp = skillButton[level][index].addSkillPoint();
 						if(isUp) {
 							if(skillButton[level][index].getSkill() instanceof PassiveSkill) {
+								System.out.println("???????");
 								((PassiveSkill)skillButton[level][index].getSkill()).skillUpEffect(player.getMainAdventurer());
 								player.calState();
 							}
@@ -160,7 +161,7 @@ public class InventorySkillPanel extends JPanel {
 				g.setColor(Color.YELLOW);
 				g.drawString((i+1)+"차 스킬", 240 + (i * 300), 45);
 				if(skillIsLoaded[i]) {
-					for(int j = 0; j < 3; j++) {
+					for(int j = 0; j < skillButton[i].length; j++) {
 						Skill skill = skillButton[i][j].getSkill();
 						g.setFont(FontUtils.generalFont);
 						g.setColor(Color.WHITE);

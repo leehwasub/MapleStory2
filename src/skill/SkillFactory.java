@@ -17,7 +17,7 @@ public class SkillFactory {
 		case "검마스터리":
 			return new SwordMasterySkill("swordMastery", "검마스터리", 20, "검의 숙련도와 명중률을 증가시킨다");
 		case "피지컬트레이닝":
-			return new SwordMasterySkill("physicalTraining", "피지컬트레이닝", 10, "STR을 영구히 증가시킨다");
+			return new PhysicalTrainingSkill("physicalTraining", "피지컬트레이닝", 10, "STR을 영구히 증가시킨다");
 		case "분노":
 			return new RageSkill("rage", "분노", 20, "일정 시간동안 물리공격력을 강화한다", AttackType.MYSELF, Property.PROPERTY_NOTHING);
 		case "브랜디쉬":

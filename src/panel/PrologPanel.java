@@ -19,8 +19,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import component.MapleButton;
+import map.MapleMapList;
 import maplestory.MapleInterface;
 import maplestory.Player;
+import npc.NpcList;
 import quest.Quest;
 import quest.QuestProceed;
 import utils.FileLoader;
@@ -53,6 +55,7 @@ public class PrologPanel extends JPanel {
 			this.womanSelectButtonEnteredImage, false);
 	private MapleButton nameButton = new MapleButton(this.nameButtonBasicImage, this.nameButtonEnteredImage);
 	private JTextField nameField = new JTextField();
+	
 	private static final int SEX_SELECT_BUTTON_WIDTH = 150;
 	private static final int SEX_SELECT_BUTTON_HEIGHT = 50;
 	private static final int SEX_SELECT_BUTTON_POSITON_X = 490;
@@ -66,11 +69,13 @@ public class PrologPanel extends JPanel {
 	private static final int TEXT_POSITION_Y = 280;
 	private static final int FIELD_POSITION_X = 480;
 	private static final int FIELD_POSITION_Y = 330;
+	
 	MapleInterface mapleInterface;
-	private ArrayList<String> text = new ArrayList();
+	private ArrayList<String> text = new ArrayList<String>();
 	private int textProcess = 0;
 	private Player player;
 	private String mainAdventurerName;
+ 
 
 	public PrologPanel(MapleInterface mapleInterface) {
 		setLayout(null);
@@ -133,12 +138,41 @@ public class PrologPanel extends JPanel {
 	}
 
 	public void sexSelectEvent(String sex) {
+		makeWarrior(sex);
+		//makeNewAdventurer(sex);
+		updateText();
+		this.nextButton.setVisible(true);
+		this.manSelectButton.setVisible(false);
+		this.womanSelectButton.setVisible(false);
+	}
+	
+	public void makeWarrior(String sex) {
 		if (sex.equals("남자")) {
-			this.player = new Player(this.mainAdventurerName, "남자초보모험가");
+			player = new Player(mainAdventurerName, "남자1차모험가");
+			player.getWearEquipment("마스터서전트(남)");
+			player.getWearEquipment("마스터서전트치마(남)");
+		} else if (sex.equals("여자")) {
+			player = new Player(mainAdventurerName, "여자1차모험가");
+			player.getWearEquipment("샤크(여)");
+			player.getWearEquipment("샤크치마(여)");
+		}
+		Quest quest = Quest.makeQuest(0, 1, "TEST").setRewardExp(100)
+				.addMessage("TEST");
+		player.setQuest(quest);
+		player.getWearEquipment("일룬");
+		player.set_curMap(MapleMapList.getInstance().getMap("페리온"));
+		player.getInventory().setMoney(1000000);
+		NpcList.getInstance().setNpcProcess("주먹펴고일어서", 12);
+		NpcList.getInstance().getNpcWithName("주먹펴고일어서").setQuestNum(1);
+	}
+
+	public void makeNewAdventurer(String sex) {
+		if (sex.equals("남자")) {
+			this.player = new Player(mainAdventurerName, "남자초보모험가");
 			this.player.getWearEquipment("하얀반팔면티(남)");
 			this.player.getWearEquipment("파란청반바지(남)");
 		} else if (sex.equals("여자")) {
-			this.player = new Player(this.mainAdventurerName, "여자초보모험가");
+			this.player = new Player(mainAdventurerName, "여자초보모험가");
 			this.player.getWearEquipment("노란반팔면티(여)");
 			this.player.getWearEquipment("빨간미니스커트(여)");
 		}
@@ -149,10 +183,6 @@ public class PrologPanel extends JPanel {
 				.setPlayerQuestProceed(QuestProceed.PROLOGUE).setRewardExp(8).addRewardItem("초보모험가의빨간포션", 10)
 				.addRewardItem("초보모험가의파란포션", 10).addRewardNpcQuestProceed("마이", 1);
 		this.player.setQuest(quest);
-		updateText();
-		this.nextButton.setVisible(true);
-		this.manSelectButton.setVisible(false);
-		this.womanSelectButton.setVisible(false);
 	}
 
 	public void updateText() {

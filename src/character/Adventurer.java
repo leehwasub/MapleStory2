@@ -53,11 +53,12 @@ public class Adventurer extends Character implements Serializable {
 			strength.setMaxHp(WarriorStateUtils.getMaxHpByIndex(strength.getLevel()));
 			strength.setMaxMp(WarriorStateUtils.getMaxMpByIndex(strength.getLevel()));
 		}
-		
-		calPassiveSkillState();
 
 		strength.setAccuracyRate(this.status.dex / 2);
 		strength.setEvasionRate(this.status.luk / 2);
+		
+		calPassiveSkillState();
+		
 		for (int i = 0; i < 8; i++) {
 			if (wearEquipment[i] != null) {
 				strength.addMaxHp(this.wearEquipment[i].getStrength().getMaxHp());
@@ -155,6 +156,10 @@ public class Adventurer extends Character implements Serializable {
 
 	public int getSkillPoint() {
 		return this.skillPoint;
+	}
+	
+	public void addSkillPoint(int point) {
+		skillPoint += point;
 	}
 	
 	public void subSkillPoint() {

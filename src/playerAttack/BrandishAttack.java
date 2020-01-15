@@ -20,14 +20,9 @@ public class BrandishAttack extends PlayerAttack {
 	
 	public void run() {
 		attacker.attackForwardMotion();
-		Thread thread = new Thread(()-> {
-			addSkillImageThread(new BrandishUseAttackImage(hunt, attacker, opponent, makeAttackInfor()));
-			sleep(240);
-			addSkillImageThread(new BrandishHitAttackImage(hunt, attacker, opponent, null));
-			sleep(480);
-			addSkillImageThread(new BrandishHitAttackImage(hunt, attacker, opponent, null));
-		});
-		thread.start();
+
+		addSkillImageThread(new BrandishUseAttackImage(hunt, attacker, opponent, makeAttackInfor()));
+		
 		afterAttack();
 	}
 

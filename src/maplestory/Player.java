@@ -60,9 +60,9 @@ public class Player implements Serializable {
 	public static final int MOVE_DOWN = 3;
 
 	public Player(String name, String type) {
-		this._curMap = MapleMapList.getInstance().getMap("초보자의숲1");
-		this.mainAdventurer = AdventurerFactory.makeAdventurer(name, type);
-		this.inventory = new Inventory(this.mainAdventurer);
+		_curMap = MapleMapList.getInstance().getMap("초보자의숲1");
+		mainAdventurer = AdventurerFactory.makeAdventurer(name, type);
+		inventory = new Inventory(mainAdventurer);
 	}
 
 	public Inventory getInventory() {

@@ -25,12 +25,13 @@ public class SwordMasterySkill extends PassiveSkill{
 
 	@Override
 	public String getEffectDetail(int point) {
-		return "STR +"+ getEffect(point) + "";
+		return "검 무기 숙련도 +"+ getEffect(point) + ", 검 무기 착용시 적중률 +" + getEffect(point);
 	}
 
 	@Override
 	public void calStateEffect(Adventurer adventurer) {
 		WeaponItem weaponItem = (WeaponItem)adventurer.getWearEquipmentByIndex(EquipmentItem.EQUIPMENT_TYPE_WAEPON);
+		System.out.println(weaponItem);
 		if(weaponItem != null && weaponItem.getWeaponType() == WeaponType.SWORD) {
 			adventurer.getStrength().addAccuracyRate(getEffect(point));
 			adventurer.addProficiency(getEffect(point));

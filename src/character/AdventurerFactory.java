@@ -13,6 +13,22 @@ public class AdventurerFactory {
 			return new Adventurer(name, "newbieWoman",
 					new Strength(new Resistance(100, 100, 100, 100, 100, 100), 1, 15, 4, 0, 0, 0, 0, 0, 0, 0),
 					new Status(4, 4, 4, 4), "초보자");
+		case "남자1차모험가":
+			Adventurer adventurer = new Adventurer(name, "warriorMan",
+					new Strength(new Resistance(100, 100, 100, 100, 100, 100), 25, 15, 4, 0, 0, 0, 0, 0, 0, 0),
+					new Status(104, 24, 4, 4), "검사");
+			adventurer.addSkillPoint(15 * 3);
+			adventurer.setSex("남자");
+			upgradeAdventurer("검사", adventurer);
+			return adventurer;
+		case "여자1차모험가":
+			Adventurer adventurer2 = new Adventurer(name, "warriorWoman",
+					new Strength(new Resistance(100, 100, 100, 100, 100, 100), 25, 15, 4, 0, 0, 0, 0, 0, 0, 0),
+					new Status(104, 24, 4, 4), "검사");
+			adventurer2.addSkillPoint(15 * 3);
+			adventurer2.setSex("여자");
+			upgradeAdventurer("검사", adventurer2);
+			return adventurer2;
 		}
 		return null;
 	}

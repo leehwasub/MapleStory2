@@ -17,9 +17,6 @@ public class BrandishHitAttackImage extends SkillImage {
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
 			System.out.println(this.index);
-			if(i == 1 || i == 5) {
-				hit();
-			}
 			try {
 				Thread.sleep(this.delay);
 			} catch (InterruptedException e) {

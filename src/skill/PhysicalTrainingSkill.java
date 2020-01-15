@@ -12,6 +12,7 @@ public class PhysicalTrainingSkill extends PassiveSkill{
 
 	@Override
 	public void skillUpEffect(Adventurer adventurer) {
+		System.out.println("머지????????");
 		adventurer.getStatus().addStr(2);
 	}
 
