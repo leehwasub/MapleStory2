@@ -1,10 +1,5 @@
 package sailing;
 
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
-
 import map.MapleMapList;
 import map.PointMapName;
 import maplestory.MainMapleInterface;

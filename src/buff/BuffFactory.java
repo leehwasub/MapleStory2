@@ -44,6 +44,9 @@ public class BuffFactory {
 		case "아이언바디":
 			return new StrengthBuff(skill.getImageUrl(), skill.getName(), ((ActiveSkill)skill).getLast(skill.getPoint()), skill.getInfor(), 
 					new Strength(new Resistance(), 0, 0, 0, 0, 0, skill.getEffect(skill.getPoint()), 0, 0, 0, 0));
+		case "분노":
+			return new StrengthBuff(skill.getImageUrl(), skill.getName(), ((ActiveSkill)skill).getLast(skill.getPoint()), skill.getInfor(), 
+					new Strength(new Resistance(), 0, 0, 0, skill.getEffect(skill.getPoint()), 0, 0, 0, 0, 0, 0));
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeAdventurerBuff("+skill.getName()+") 버프 생성 실패!");
 		return null;

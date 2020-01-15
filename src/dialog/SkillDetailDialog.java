@@ -5,22 +5,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Vector;
 
-import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import component.MapleButton;
-import maplestory.Player;
-import maplestory.SaveLoad;
-import npc.NpcList;
-import renderer.PlayerRenderer;
 import skill.Skill;
 import utils.FontUtils;
 import utils.ResourceLoader;

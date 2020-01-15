@@ -12,9 +12,7 @@ import java.util.Queue;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import attack.Attack;
 import attack.AttackFactory;
-import attack.AttackType;
 import attack.DamageText;
 import attack.Hit;
 import attackImage.SkillImage;

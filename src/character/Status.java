@@ -2,7 +2,7 @@ package character;
 
 import java.io.Serializable;
 
-public class Status implements Serializable {
+public class Status implements Serializable, Cloneable {
 	private static final long serialVersionUID = 1L;
 	int str;
 	int dex;
@@ -63,4 +63,26 @@ public class Status implements Serializable {
 	public void addLuk() {
 		this.luk += 1;
 	}
+	
+	public void addStr(int str) {
+		this.str += str;
+	}
+
+	public void addDex(int dex) {
+		this.dex += dex;
+	}
+
+	public void addInt(int Int) {
+		this.Int += Int;
+	}
+
+	public void addLuk(int luk) {
+		this.luk += luk;
+	}
+	
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+	
 }

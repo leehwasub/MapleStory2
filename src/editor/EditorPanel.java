@@ -21,6 +21,8 @@ import javax.swing.JTextField;
 
 public class EditorPanel extends JPanel implements MouseListener{
 	
+	private static final long serialVersionUID = 1L;
+	
 	private JButton startButton = new JButton("시작");
 	private JButton saveButton = new JButton("저장");
 	private int stateNum = 0;
@@ -34,8 +36,7 @@ public class EditorPanel extends JPanel implements MouseListener{
 	
 	private JTextField backgroundField = new JTextField();
 	private JTextField musicField = new JTextField();
-	private JTextField mapTypeField = new JTextField();
-	
+
 	private JButton[][] mapButton;
 	
 	public static final int MAP_EMPTY_STATE = 0;

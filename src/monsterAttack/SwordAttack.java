@@ -7,11 +7,9 @@ import attack.DamageType;
 import attack.Property;
 import attackImage.SwordHitImage;
 import attackImage.SwordUseImage;
-import character.Character;
 import component.StateBox;
 import hunt.Hunt;
 import skill.MonsterSkill;
-import utils.MusicUtils;
 
 public class SwordAttack extends MonsterAttack {
 	

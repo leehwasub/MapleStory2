@@ -15,7 +15,6 @@ import character.Status;
 import component.MapleButton;
 import component.QuickItemButton;
 import item.ConsumableItem;
-import item.EquipmentItem;
 import item.ItemButton;
 import maplestory.Player;
 import utils.FontUtils;

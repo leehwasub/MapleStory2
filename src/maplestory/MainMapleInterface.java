@@ -4,8 +4,6 @@ import java.awt.Image;
 
 import attack.DamageText;
 import component.StateBox;
-import javafx.scene.control.Tooltip;
-import panel.ItemTooltipPanel;
 
 public interface MainMapleInterface {
 	public void myRepaint();

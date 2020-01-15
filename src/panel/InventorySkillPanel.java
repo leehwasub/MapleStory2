@@ -15,7 +15,6 @@ import javax.swing.JPanel;
 import character.Adventurer;
 import component.MapleButton;
 import component.QuickSkillButton;
-import dialog.ItemKeySelectDialog;
 import dialog.SkillKeySelectDialog;
 import item.SkillButton;
 import maplestory.MainMapleInterface;
@@ -111,6 +110,7 @@ public class InventorySkillPanel extends JPanel {
 						boolean isUp = skillButton[level][index].addSkillPoint();
 						if(isUp) {
 							if(skillButton[level][index].getSkill() instanceof PassiveSkill) {
+								((PassiveSkill)skillButton[level][index].getSkill()).skillUpEffect(player.getMainAdventurer());
 								player.calState();
 							}
 							player.getMainAdventurer().subSkillPoint();
@@ -153,27 +153,23 @@ public class InventorySkillPanel extends JPanel {
 		g.drawString("스킬포인트", 40, 40);
 		g.setColor(Color.WHITE);
 		g.drawString(""+player.getMainAdventurer().getSkillPoint(), 140, 40);
-		if(player.getMainAdventurer().getCareerLevel() >= 1) {
-			g.setFont(FontUtils.MID_FONT);
-			g.setColor(Color.YELLOW);
-			g.drawString("1차 스킬", 240, 45);
-			if(skillIsLoaded[0]) {
-				for(int i = 0; i < 3; i++) {
-					Skill skill = skillButton[0][i].getSkill();
-					g.setFont(FontUtils.generalFont);
-					g.setColor(Color.WHITE);
-					g.drawString(skill.getPoint() + " / " + skill.getMaxPoint(), 350, 101 + (65 * i));
+		
+		for(int i = 0; i < 3; i++) {
+			if(player.getMainAdventurer().getCareerLevel() >= (i+1)) {
+				g.setFont(FontUtils.MID_FONT);
+				g.setColor(Color.YELLOW);
+				g.drawString((i+1)+"차 스킬", 240 + (i * 300), 45);
+				if(skillIsLoaded[i]) {
+					for(int j = 0; j < 3; j++) {
+						Skill skill = skillButton[i][j].getSkill();
+						g.setFont(FontUtils.generalFont);
+						g.setColor(Color.WHITE);
+						g.drawString(skill.getPoint() + " / " + skill.getMaxPoint(), 350 + (i * 300), 101 + (65 * j));
+					}
 				}
 			}
-		} if(player.getMainAdventurer().getCareerLevel() >= 2) {
-			g.setFont(FontUtils.MID_FONT);
-			g.setColor(Color.YELLOW);
-			g.drawString("2차 스킬", 540, 45);
-		} if(player.getMainAdventurer().getCareerLevel() >= 3) {
-			g.setFont(FontUtils.MID_FONT);
-			g.setColor(Color.YELLOW);
-			g.drawString("3차 스킬", 840, 45);
 		}
+		
 	}
 	
 	private void makeQuickSkillSpace() {

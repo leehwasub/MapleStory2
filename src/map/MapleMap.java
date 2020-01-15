@@ -42,8 +42,6 @@ public class MapleMap implements Serializable {
 	public static final int MAP_DUNGEON_TYPE = 5;
 	private static final Point[][] calMapPosition;
 	private static final int MINI_POINT = 5;
-	private static Image mapPanelImage = ResourceLoader.getImage("componentImage", "mapPanelImage.png");
-	private static Image mapImage = ResourceLoader.getImage("componentImage", "mapImage.png");
 	private static Image mapPositionImage = ResourceLoader.getImage("componentImage", "mapPositionImage.png");
 	
 	public static final int MAX_MAP_VIEW_X = 12;
@@ -153,35 +151,35 @@ public class MapleMap implements Serializable {
 		for (int i = 0; i < getMaxX; i++) {
 			for (int j = 0; j < getMaxY; j++) {
 				int mapinfo = this.map[i][j];
-				Point point2 = new Point(startX + i * 5, startY + j * 5);
+				Point point2 = new Point(startX + i * MINI_POINT, startY + j * MINI_POINT);
 				g.setFont(FontUtils.generalFont);
 				if (mapinfo == 2) {
 					g.setColor(Color.RED);
-					g.fillRect(point2.getY(), point2.getX(), 5, 5);
+					g.fillRect(point2.getY(), point2.getX(), MINI_POINT, MINI_POINT);
 				} else if (mapinfo == 1) {
 					g.setColor(Color.black);
-					g.fillRect(point2.getY(), point2.getX(), 5, 5);
+					g.fillRect(point2.getY(), point2.getX(), MINI_POINT, MINI_POINT);
 				} else if (mapinfo == 3) {
 					g.setColor(Color.BLUE);
-					g.fillRect(point2.getY(), point2.getX(), 5, 5);
+					g.fillRect(point2.getY(), point2.getX(), MINI_POINT, MINI_POINT);
 				} else if (mapinfo == 4) {
 					g.setColor(Color.MAGENTA);
-					g.fillRect(point2.getY(), point2.getX(), 5, 5);
+					g.fillRect(point2.getY(), point2.getX(), MINI_POINT, MINI_POINT);
 				} else if (mapinfo == 5) {
 					g.setColor(Color.YELLOW);
-					g.fillRect(point2.getY(), point2.getX(), 5, 5);
+					g.fillRect(point2.getY(), point2.getX(), MINI_POINT, MINI_POINT);
 				} else if (mapinfo == 6) {
 					g.setColor(Color.CYAN);
-					g.fillRect(point2.getY(), point2.getX(), 5, 5);
+					g.fillRect(point2.getY(), point2.getX(), MINI_POINT, MINI_POINT);
 				} else {
 					g.setColor(Color.WHITE);
-					g.fillRect(point2.getY(), point2.getX(), 5, 5);
+					g.fillRect(point2.getY(), point2.getX(), MINI_POINT, MINI_POINT);
 				}
 			}
 		}
-		Point point = new Point(startX + player.getCurX() * 5, startY + player.getCurY() * 5);
+		Point point = new Point(startX + player.getCurX() * MINI_POINT, startY + player.getCurY() * MINI_POINT);
 		g.setColor(Color.GREEN);
-		g.fillRect(point.getY(), point.getX(), 5, 5);
+		g.fillRect(point.getY(), point.getX(), MINI_POINT, MINI_POINT);
 	}
 
 	private static void calMapPositonXY() {

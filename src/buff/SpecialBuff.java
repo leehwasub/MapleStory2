@@ -2,7 +2,6 @@ package buff;
 
 import java.awt.Graphics2D;
 
-import attack.Property;
 import character.Character;
 
 public class SpecialBuff extends Buff{

@@ -2,7 +2,6 @@ package quest;
 
 import java.io.Serializable;
 
-import character.Status;
 import maplestory.Player;
 
 public class QuestLevel extends QuestCondition implements Serializable {

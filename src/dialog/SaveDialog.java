@@ -93,7 +93,7 @@ public class SaveDialog extends JDialog {
 	
 	public void updatePlayerData() {
 		dm.clear();
-		for(int i = 0; i < 5; i++) {
+		for(int i = 0; i < SaveLoad.DATA_NUM; i++) {
 			dm.addElement(SaveLoad.loadPlayer(i));
 		}
 	}

@@ -10,6 +10,7 @@ public class ShopList {
 	static {
 		shopList.add(new MapleIslandShop());
 		shopList.add(new PellionShop());
+		shopList.add(new LithHarborShop());
 	}
 
 	public static Shop getShop(PointMapName m) {

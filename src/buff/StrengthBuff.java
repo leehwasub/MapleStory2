@@ -2,7 +2,6 @@ package buff;
 
 import java.awt.Graphics2D;
 
-import attack.Property;
 import character.Adventurer;
 import character.Character;
 import character.Monster;

@@ -23,7 +23,9 @@ import component.MapleHpBar;
 import component.MapleIsland;
 import component.MapleMpBar;
 import component.StateBox;
+import dialog.JobSelectDialog;
 import hunt.Hunt;
+import javafx.scene.input.KeyCode;
 import map.MapleMap;
 import map.PointMapName;
 import maplestory.MainMapleInterface;
@@ -216,24 +218,24 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 					}
 					MainPanel.this.repaint();
 				}
-				if ((MainPanel.this.nextButton.isVisible()) && (e.getKeyCode() == 39)) {
+				if (nextButton.isVisible() && (e.getKeyCode() == 39)) {
 					if (!player.isCanEndConversation()) {
-						MainPanel.this.conversationEvent();
+						conversationEvent();
 					} else {
-						MainPanel.this.converstionEndEvent();
+						converstionEndEvent();
 						player.setCanEndConversation(false);
 					}
-					MainPanel.this.mainStateBarUpdate();
-					MainPanel.this.repaint();
+					mainStateBarUpdate();
+					repaint();
 				}
-				if ((MainPanel.this.meetNpcButton.isVisible()) && (e.getKeyCode() == 80)) {
-					MainPanel.this.converstionStartEvent();
+				if (meetNpcButton.isVisible() && (e.getKeyCode() == 80)) {
+					converstionStartEvent();
 				}
-				if ((MainPanel.this.moveOtherMapButton.isVisible()) && (e.getKeyCode() == 80)) {
-					MainPanel.this.moveOtherMapEvent();
+				if (moveOtherMapButton.isVisible() && (e.getKeyCode() == 80)) {
+					moveOtherMapEvent();
 				}
-				if ((MainPanel.this.islandMapButton.isVisible()) && (e.getKeyCode() == 79)) {
-					MainPanel.this.islandMapButtonEvent();
+				if (islandMapButton.isVisible() && (e.getKeyCode() == 79)) {
+					islandMapButtonEvent();
 					Thread thread = new Thread() {
 						public void run() {
 							try {
@@ -246,7 +248,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 					};
 					thread.start();
 				}
-				if ((MainPanel.this.inventoryButton.isVisible()) && (e.getKeyCode() == 73)) {
+				if (inventoryButton.isVisible() && (e.getKeyCode() == 73)) {
 					MainPanel.this.inventoryButtonEvent();
 					Thread thread = new Thread() {
 						public void run() {
@@ -260,11 +262,15 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 					};
 					thread.start();
 				}
-				if ((MainPanel.this.storeOutButton.isVisible()) && (e.getKeyCode() == 27)) {
+				if (storeOutButton.isVisible() && (e.getKeyCode() == 27)) {
 					MainPanel.this.storeCloseEvent();
 				}
-				if ((MainPanel.this.buyItemButton.isVisible()) && (e.getKeyCode() == 75)) {
-					MainPanel.this.storeOpenEvent();
+				if (buyItemButton.isVisible() && (e.getKeyCode() == 75)) {
+					storeOpenEvent();
+				}
+				if(e.getKeyCode() == KeyEvent.VK_M) {
+					JobSelectDialog dialog = new JobSelectDialog();
+					dialog.setVisible(true);
 				}
 			}
 		});
@@ -467,6 +473,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			MusicUtils.startEffectSound("harborEnter");
 			break;
 		case MapleMap.MAP_DUNGEON_TYPE:
+			if(player.get_curMap().getMapType() == MapleMap.MAP_DUNGEON_TYPE) break;
 			ans = JOptionPane.showConfirmDialog(null, "던전에 입장한 이후에는 저장할 수 없으며 클리어시까지 퇴장할 수 없습니다. 입장 하시겠습니까?", "확인", JOptionPane.YES_NO_OPTION);
 			if(ans != JOptionPane.YES_OPTION) {
 				return;
@@ -505,8 +512,8 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	}
 
 	public void conversationEvent() {
-		if (!this.player.conversation(this)) {
-			this.player.setCanEndConversation(true);
+		if (!player.conversation(this)) {
+			player.setCanEndConversation(true);
 		}
 	}
 
@@ -575,7 +582,9 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		hunt = null;
 		updateMainStateBar();
 		player.setIsCanMove(true);
-		player.setCanSave(true);
+		if(player.get_curMap().getMapType() != MapleMap.MAP_DUNGEON_TYPE) {
+			player.setCanSave(true);
+		}
 		player.setHunt(false);
 		messageList.clearMessage();
 		player.allSetAlive();

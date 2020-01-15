@@ -9,6 +9,8 @@ import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import character.AdventurerFactory;
+import dialog.JobSelectDialog;
 import map.PointMapName;
 import maplestory.MainMapleInterface;
 import maplestory.Message;
@@ -116,29 +118,40 @@ public abstract class Npc implements Serializable {
 	public boolean process(Player player, MainMapleInterface m) {
 		Talk talk = (Talk) this.talkList.get(this.process);
 		setTalk(talk, m, player);
-		boolean ret = talk.isCanTalkMore();
-		int type = talk.getType();
-		System.out.println(type);
-		if ((type == 3) && (player.getQuest() != null) && (player.isQuestsClear())) {
+		if (talk.getType() == Talk.QUEST_CLEAR_CHECK_TYPE && player.getQuest() != null && player.isQuestsClear()) {
 			this.process += 1;
 			talk = (Talk) this.talkList.get(this.process);
 			setTalk(talk, m, player);
-			ret = talk.isCanTalkMore();
 		}
-		doEventWithType(type, player);
+		if(talk.getType() == Talk.JOB_SELECTION_TALK_TYPE) {
+			JobSelectDialog dialog = new JobSelectDialog();
+			dialog.setVisible(true);
+			if(dialog.getReturnIndex() != -1) {
+				this.process += 1;
+				talk = (Talk) this.talkList.get(this.process);
+				talk.setCanTalkMore(true);
+				talk.setProceed(true);
+				AdventurerFactory.upgradeAdventurer(dialog.getSelectedJobName(), player.getMainAdventurer());
+			} else {
+				talk.setCanTalkMore(false);
+				talk.setProceed(false);
+			}
+			setTalk(talk, m, player);
+		}
+		doEventWithType(talk, player);
 		System.out.println(this.process + " " + talk);
 		if (talk.isProceed()) {
 			this.process += 1;
 		}
-		return ret;
+		return talk.isCanTalkMore();
 	}
 
-	public void doEventWithType(int type, Player player) {
-		if (type == 1) {
+	public void doEventWithType(Talk talk, Player player) {
+		if (talk.getType() == 1) {
 			player.questClear();
 			clearEvent(player);
 			this.clearNum += 1;
-		} else if (type == 2) {
+		} else if (talk.getType() == 2) {
 			requestQuest(player);
 			this.questNum += 1;
 		}

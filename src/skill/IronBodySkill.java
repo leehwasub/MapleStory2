@@ -7,9 +7,11 @@ import hunt.Hunt;
 import playerAttack.IronBodyAttack;
 import playerAttack.PlayerAttack;
 
-public class ironBodySkill extends ActiveSkill{
+public class IronBodySkill extends ActiveSkill{
 
-	public ironBodySkill(String imageUrl, String name, int maxPoint, String infor, AttackType attackType, Property property) {
+	private static final long serialVersionUID = 1L;
+
+	public IronBodySkill(String imageUrl, String name, int maxPoint, String infor, AttackType attackType, Property property) {
 		super(imageUrl, name, maxPoint, infor, attackType, property);
 	}
 

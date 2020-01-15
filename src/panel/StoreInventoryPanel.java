@@ -62,8 +62,8 @@ public class StoreInventoryPanel extends JPanel {
 	private static final int STORE_INVENTORY_MATERIAL = 2;
 	private ItemTooltipPanel itemTooltip = new ItemTooltipPanel();
 	JScrollPane scrollPane;
-	DefaultListModel<Item> dm = new DefaultListModel();
-	JList<Item> jList = new JList();
+	DefaultListModel<Item> dm = new DefaultListModel<Item>();
+	JList<Item> jList = new JList<Item>();
 	MapleButtonGroup mapleButtonGroup;
 	private Player player;
 	private int curType;
@@ -79,7 +79,7 @@ public class StoreInventoryPanel extends JPanel {
 		this.jList.setBounds(20, 20, 250, 365);
 		add(this.jList);
 
-		ArrayList<MapleButton> group = new ArrayList();
+		ArrayList<MapleButton> group = new ArrayList<MapleButton>();
 
 		this.inventoryEquipmentButton.setSelectedInGroup(true);
 		this.inventoryEquipmentButton.setIcon(this.inventoryEquipmentButtonEnteredImage);
@@ -117,7 +117,7 @@ public class StoreInventoryPanel extends JPanel {
 
 		this.jList.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
-				Item item = (Item) StoreInventoryPanel.this.jList.getSelectedValue();
+				Item item = StoreInventoryPanel.this.jList.getSelectedValue();
 				if (item != null) {
 					UIManager.put("OptionPane.messageFont", FontUtils.SMALL_FONT);
 					String input = JOptionPane.showInputDialog(null, item.getName() + "을(를) 몇개 판매 하시겠습니까?");
@@ -147,7 +147,8 @@ public class StoreInventoryPanel extends JPanel {
 		});
 		this.jList.addMouseMotionListener(new MouseMotionAdapter() {
 			public void mouseMoved(MouseEvent e) {
-				JList<Item> l = (JList) e.getSource();
+				@SuppressWarnings("unchecked")
+				JList<Item> l = (JList<Item>)e.getSource();
 				ListModel<Item> m = l.getModel();
 				if (m.getSize() == 0) {
 					return;
@@ -156,7 +157,7 @@ public class StoreInventoryPanel extends JPanel {
 				JScrollBar b = StoreInventoryPanel.this.scrollPane.getVerticalScrollBar();
 				StoreInventoryPanel.this.itemTooltip.setPoint(new Point(e.getX() + 20, e.getY() + 20 - b.getValue()));
 				StoreInventoryPanel.this.itemTooltip.setVisible(true);
-				StoreInventoryPanel.this.itemTooltip.setItem((Item) m.getElementAt(index));
+				StoreInventoryPanel.this.itemTooltip.setItem(m.getElementAt(index));
 				StoreInventoryPanel.this.repaint();
 			}
 		});
@@ -173,17 +174,17 @@ public class StoreInventoryPanel extends JPanel {
 		if (type == 0) {
 			ArrayList<EquipmentItem> itemList = this.player.getInventory().getEquipmentInventory();
 			for (int i = 0; i < itemList.size(); i++) {
-				this.dm.addElement((Item) itemList.get(i));
+				this.dm.addElement(itemList.get(i));
 			}
 		} else if (type == 1) {
 			ArrayList<ConsumableItem> itemList = this.player.getInventory().getConsumableInventory();
 			for (int i = 0; i < itemList.size(); i++) {
-				this.dm.addElement((Item) itemList.get(i));
+				this.dm.addElement(itemList.get(i));
 			}
 		} else if (type == 2) {
 			ArrayList<MaterialItem> itemList = this.player.getInventory().getMaterialInventory();
 			for (int i = 0; i < itemList.size(); i++) {
-				this.dm.addElement((Item) itemList.get(i));
+				this.dm.addElement(itemList.get(i));
 			}
 		}
 		this.jList.setModel(this.dm);

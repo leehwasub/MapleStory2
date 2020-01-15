@@ -49,15 +49,6 @@ public class PointMapName implements Serializable {
 		this.mapName = mapName;
 	}
 
-	public int hashCode() {
-		int prime = 31;
-		int result = 1;
-		result = 31 * result + (this.mapName == null ? 0 : this.mapName.hashCode());
-		result = 31 * result + this.x;
-		result = 31 * result + this.y;
-		return result;
-	}
-
 	public boolean equals(Object obj) {
 		PointMapName other = (PointMapName) obj;
 		if ((this.mapName.equals(other.getMapName())) && (this.x == other.getX()) && (this.y == other.getY())) {

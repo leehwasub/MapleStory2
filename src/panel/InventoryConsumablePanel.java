@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 
 import dialog.ItemKeySelectDialog;
 import item.ConsumableItem;
-import item.EquipmentItem;
 import item.Item;
 import item.ItemButton;
 import maplestory.MainMapleInterface;

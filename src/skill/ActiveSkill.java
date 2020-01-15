@@ -1,7 +1,5 @@
 package skill;
 
-import java.io.Serializable;
-
 import attack.AttackType;
 import attack.Property;
 import component.StateBox;

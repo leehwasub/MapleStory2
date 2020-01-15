@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
+
 import attack.AttackInfor;
 import attack.Hit;
 import buff.Buff;
@@ -102,6 +103,8 @@ public abstract class Character implements Serializable{
 			break;
 		case PROPERTY_THUNDER:
 			resist = resistance.getHoly();
+			break;
+		default:
 			break;
 		}
 		if (resist < 100) {
@@ -315,6 +318,7 @@ public abstract class Character implements Serializable{
 	}
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+		setImageWithInstanceForInit();
 	}
 	
 	

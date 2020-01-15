@@ -14,9 +14,6 @@ import javax.swing.JOptionPane;
 import item.ConsumableItem;
 import item.EquipmentItem;
 import item.MaterialItem;
-import map.MapleMapList;
-import npc.Npc;
-import npc.NpcList;
 
 public class SaveLoad {
 	public static final String filename[];
@@ -24,7 +21,7 @@ public class SaveLoad {
 	public static final String dirname = Main.findSource(Main.class) + "/../../mapleData";
 	//jar
 	//public static final String dirname = Main.findSource(Main.class) + "/mapleData";
-	public static final int DATA_NUM = 5;
+	public static final int DATA_NUM = 10;
 	
 	static {
 		filename = new String[DATA_NUM];

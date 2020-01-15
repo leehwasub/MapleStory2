@@ -6,10 +6,8 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -21,7 +19,6 @@ import component.QuickSkillButton;
 import component.StateBox;
 import item.BuffItem;
 import item.ConsumableItem;
-import item.Item;
 import maplestory.MainMapleInterface;
 import maplestory.Player;
 import skill.Skill;

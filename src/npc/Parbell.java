@@ -7,6 +7,8 @@ import quest.QuestProceed;
 
 public class Parbell extends Npc{
 
+	private static final long serialVersionUID = 1L;
+
 	public Parbell(String imageUrl, String name, PointMapName pointMapName) {
 		super(imageUrl, name, pointMapName);
 	}

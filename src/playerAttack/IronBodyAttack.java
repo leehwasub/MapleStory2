@@ -1,19 +1,13 @@
 package playerAttack;
 
+import java.util.ArrayList;
+
+import attack.AttackInfor;
+import buff.BuffFactory;
 import component.StateBox;
 import hunt.Hunt;
 import skill.ActiveSkill;
-import skill.NormalSkill;
 import utils.MusicUtils;
-
-import java.util.ArrayList;
-
-import attack.Attack;
-import attack.AttackType;
-import attack.AttackInfor;
-import attack.Property;
-import buff.BuffFactory;
-import character.Character;
 
 public class IronBodyAttack extends PlayerAttack {
 	

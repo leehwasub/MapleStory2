@@ -7,11 +7,9 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-import attackImage.SkillImage;
 import buff.Buff;
 import character.Character;
 import map.Point;
-import maplestory.Main;
 import maplestory.MainMapleInterface;
 import utils.FontUtils;
 import utils.ResourceLoader;
@@ -29,7 +27,6 @@ public class StateBox extends Thread {
 	private int dir;
 	public static final int DIR_LEFT = 0;
 	public static final int DIR_RIGHT = 1;
-	private ArrayList<SkillImage> skillImageList = new ArrayList<SkillImage>();
 	private ArrayList<Buff> buffList;
 	private MainMapleInterface mainMapleInterface;
 

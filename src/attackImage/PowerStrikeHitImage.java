@@ -3,7 +3,6 @@ package attackImage;
 import java.util.ArrayList;
 
 import attack.AttackInfor;
-import attack.Hit;
 import component.StateBox;
 import hunt.Hunt;
 import utils.MusicUtils;

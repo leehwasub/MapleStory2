@@ -9,6 +9,8 @@ import playerAttack.PowerStrikeAttack;
 
 public class PowerStrikeSkill extends ActiveSkill{
 
+	private static final long serialVersionUID = 1L;
+
 	public PowerStrikeSkill(String imageUrl, String name, int maxPoint, String infor, AttackType attackType, Property property) {
 		super(imageUrl, name, maxPoint, infor, attackType, property);
 	}

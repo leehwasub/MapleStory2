@@ -12,10 +12,8 @@ import javax.swing.UIManager;
 
 import component.MapleButton;
 import dialog.SaveDialog;
-import maplestory.Main;
 import maplestory.MainMapleInterface;
 import maplestory.Player;
-import maplestory.SaveLoad;
 import utils.FontUtils;
 import utils.ResourceLoader;
 
@@ -34,16 +32,11 @@ public class InventorySystemPanel extends JPanel {
 	private MapleButton inventoryMainMenuButton = new MapleButton(this.inventoryMainMenuButtonBasicImage,
 			this.inventoryMainMenuButtonEnteredImage);
 	
-	private MainMapleInterface mainMapleInterface;
-	private Player player;
 
 	public InventorySystemPanel(Player player, MainMapleInterface mainMapleInterface) {
 		setVisible(false);
 		setLayout(null);
 		setBackground(new Color(0, 0, 0, 0));
-
-		this.player = player;
-		this.mainMapleInterface = mainMapleInterface;
 		
 		inventorySaveButton.setBounds(60, 30, 120, 40);
 		inventorySaveButton.addMouseListener(new MouseAdapter() {

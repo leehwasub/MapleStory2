@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import attack.AttackInfor;
 import attack.DamageType;
 import attack.Property;
-import attackImage.FlashAttackImage;
 import attackImage.flameShootBallMovableImage;
 import attackImage.flameShootHitImage;
 import attackImage.flameShootUseImage;

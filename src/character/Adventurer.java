@@ -3,14 +3,11 @@ package character;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import item.BuffItem;
 import item.ConsumableItem;
 import item.EquipmentItem;
-import item.HealItem;
 import maplestory.Main;
 import skill.PassiveSkill;
 import skill.Skill;
-import utils.DialogUtils;
 import utils.ExpUtils;
 import utils.MusicUtils;
 import utils.NewbieStateUtils;
@@ -44,10 +41,10 @@ public class Adventurer extends Character implements Serializable {
 
 	public void calState() {
 		proficiency = 20;
-		this.strength.setPhysicalDefense(0);
-		this.strength.setMagicDefense(0);
-		this.strength.setPhysicalDamage(0);
-		this.strength.setMagicDamage(0);
+		strength.setPhysicalDefense(0);
+		strength.setMagicDefense(0);
+		strength.setPhysicalDamage(0);
+		strength.setMagicDamage(0);
 		
 		if(careerLevel == 0) {
 			strength.setMaxHp(NewbieStateUtils.getMaxHpByIndex(strength.getLevel()));
@@ -59,30 +56,30 @@ public class Adventurer extends Character implements Serializable {
 		
 		calPassiveSkillState();
 
-		this.strength.setAccuracyRate(this.status.dex / 2);
-		this.strength.setEvasionRate(this.status.luk / 2);
+		strength.setAccuracyRate(this.status.dex / 2);
+		strength.setEvasionRate(this.status.luk / 2);
 		for (int i = 0; i < 8; i++) {
-			if (this.wearEquipment[i] != null) {
-				this.strength.addMaxHp(this.wearEquipment[i].getStrength().getMaxHp());
-				this.strength.addMaxMp(this.wearEquipment[i].getStrength().getMaxMp());
-				this.strength.addPhysicalDamage(this.wearEquipment[i].getStrength().getPhysicalDamage());
-				this.strength.addMagicDamage(this.wearEquipment[i].getStrength().getMagicDamage());
-				this.strength.addPhysicalDefense(this.wearEquipment[i].getStrength().getPhysicalDefense());
-				this.strength.addMagicDefense(this.wearEquipment[i].getStrength().getMagicDefense());
-				this.strength.addAccuracyRate(this.wearEquipment[i].getStrength().getAccuracyRate());
-				this.strength.addEvasionRate(this.wearEquipment[i].getStrength().getEvasionRate());
+			if (wearEquipment[i] != null) {
+				strength.addMaxHp(this.wearEquipment[i].getStrength().getMaxHp());
+				strength.addMaxMp(this.wearEquipment[i].getStrength().getMaxMp());
+				strength.addPhysicalDamage(this.wearEquipment[i].getStrength().getPhysicalDamage());
+				strength.addMagicDamage(this.wearEquipment[i].getStrength().getMagicDamage());
+				strength.addPhysicalDefense(this.wearEquipment[i].getStrength().getPhysicalDefense());
+				strength.addMagicDefense(this.wearEquipment[i].getStrength().getMagicDefense());
+				strength.addAccuracyRate(this.wearEquipment[i].getStrength().getAccuracyRate());
+				strength.addEvasionRate(this.wearEquipment[i].getStrength().getEvasionRate());
 			}
 		}
 		
 		strengthBuffEffect();
 		
-		this.maxPhysicalDamage = (this.strength.getPhysicalDamage() * this.status.str / 10);
+		maxPhysicalDamage = (this.strength.getPhysicalDamage() * this.status.str / 10);
 		if(Main.DAMAGE_TEST_MODE) {
-			this.maxPhysicalDamage *= 10;
+			maxPhysicalDamage *= 10;
 		}
-		this.minPhysicalDamage = (this.maxPhysicalDamage * this.proficiency / 10 / 10);
+		minPhysicalDamage = (maxPhysicalDamage * proficiency / 10 / 10);
 
-		this.minPhysicalDamage = Math.min(this.minPhysicalDamage, this.maxPhysicalDamage);
+		minPhysicalDamage = Math.min(minPhysicalDamage, maxPhysicalDamage);
 	}
 
 	public void addExp(int exp) {
@@ -102,18 +99,18 @@ public class Adventurer extends Character implements Serializable {
 	public void calPassiveSkillState() {
 		for(int i = 0; i < oneLevelSkillList.size(); i++) {
 			if(oneLevelSkillList.get(i) instanceof PassiveSkill) {
-				((PassiveSkill)oneLevelSkillList.get(i)).skillUpEffect(this);
+				((PassiveSkill)oneLevelSkillList.get(i)).calStateEffect(this);
 			}
 		}
 		for(int i = 0; i < twoLevelSkillList.size(); i++) {
 			if(twoLevelSkillList.get(i) instanceof PassiveSkill) {
-				((PassiveSkill)twoLevelSkillList.get(i)).skillUpEffect(this);
+				((PassiveSkill)twoLevelSkillList.get(i)).calStateEffect(this);
 			}
 	
 		}
 		for(int i = 0; i < threeLevelSkillList.size(); i++) {
 			if(threeLevelSkillList.get(i) instanceof PassiveSkill) {
-				((PassiveSkill)threeLevelSkillList.get(i)).skillUpEffect(this);
+				((PassiveSkill)threeLevelSkillList.get(i)).calStateEffect(this);
 			}
 		}
 	}
@@ -193,6 +190,10 @@ public class Adventurer extends Character implements Serializable {
 
 	public void setProficiency(int proficiency) {
 		this.proficiency = proficiency;
+	}
+	
+	public void addProficiency(int proficiency) {
+		this.proficiency += proficiency;
 	}
 
 	public void setSkillPoint(int skillPoint) {

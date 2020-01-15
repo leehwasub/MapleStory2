@@ -61,13 +61,11 @@ public class StorePanel extends JPanel {
 	DefaultListModel<Item> dm = new DefaultListModel<Item>();
 	JList<Item> jList = new JList<Item>();
 	MapleButtonGroup mapleButtonGroup;
-	private Player player;
 	private Shop shop;
 	private int curType;
 	private JScrollPane scrollPane;
 
-	public StorePanel(Shop shop, final Player player) {
-		this.player = player;
+	public StorePanel(Shop shop, Player player) {
 		this.shop = shop;
 		setLayout(null);
 		setBackground(new Color(0, 0, 0, 0));
@@ -146,16 +144,17 @@ public class StorePanel extends JPanel {
 		});
 		this.jList.addMouseMotionListener(new MouseMotionAdapter() {
 			public void mouseMoved(MouseEvent e) {
-				JList<Item> l = (JList) e.getSource();
+				@SuppressWarnings("unchecked")
+				JList<Item> l = (JList<Item>) e.getSource();
 				ListModel<Item> m = l.getModel();
 				if (m.getSize() == 0) {
 					return;
 				}
 				int index = l.locationToIndex(e.getPoint());
 				JScrollBar b = StorePanel.this.scrollPane.getVerticalScrollBar();
-				StorePanel.this.itemTooltip.setPoint(new Point(e.getX() + 140, e.getY() + 20 - b.getValue()));
-				StorePanel.this.itemTooltip.setVisible(true);
-				StorePanel.this.itemTooltip.setItem((Item) m.getElementAt(index));
+				itemTooltip.setPoint(new Point(e.getX() + 140, e.getY() + 20 - b.getValue()));
+				itemTooltip.setVisible(true);
+				itemTooltip.setItem((Item) m.getElementAt(index));
 			}
 		});
 		this.scrollPane = new JScrollPane(this.jList);

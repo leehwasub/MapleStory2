@@ -1,13 +1,9 @@
 package monster;
 
-import attack.Attack;
-import attack.AttackFactory;
 import character.Monster;
 import character.MonsterSkillInfor;
 import character.Resistance;
 import character.Strength;
-import component.StateBox;
-import hunt.Hunt;
 import maplestory.Main;
 
 public final class BlueSnail extends Monster {

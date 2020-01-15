@@ -44,6 +44,13 @@ public class DancesWithBalrog extends Npc{
 					.addQuestStatus(35, 0, 0, 0).setRewardExp(10).setPlayerQuestProceed(QuestProceed.DANCESWITHBALROG_QUEST_1)
 					.addQuestLevel(10).addRewardNpcQuestProceed("돼지와함께춤을", 1);
 			player.setQuest(quest);
+		} else if(questNum == 1) {
+			quest = Quest.makeQuest(1, 17, "2차 전직").addMessage("에레고스를 처치한이후 사후 보고를 위해 '주먹펴고 일어서'를 만났다. 그는 에레고스를 처치해준것에 대해")
+					.addMessage("어떻게 보답해야 할지 모르겠다며 감사한다. 그에 대한 보답으로 나에게 더 강력한 힘을 줄 수 있다고 한다. 그를 위해서는 래벨 25이상 힘70이상 그리고")
+					.addMessage("래벨24까지의 모든 스킬포인트를 사용해야 한다고 한다. 조건이 충족되는지 확인한후 다시 찾아가 보자.")
+					.addQuestSpendAllSkillPoint(25).addQuestStatus(70, 0, 0, 0).setPlayerQuestProceed(QuestProceed.DANCESWITHBALROG_QUEST_2)
+					.addQuestLevel(25).addRewardNpcQuestProceed("이얀", 1);
+			player.setQuest(quest);
 		}
 	}
 

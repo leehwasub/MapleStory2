@@ -12,7 +12,7 @@ public final class Ergoth extends Monster {
 
 	public Ergoth() {
 		super("에레고스", "ergoth",
-				new Strength(new Resistance(110, 110, 110, 110, 160, 110), 25, 25000, 40000, 0, 0, 100, 100, 12, 12, 0), 202, 205, 271, 301,
+				new Strength(new Resistance(110, 110, 110, 110, 160, 110), 25, 25000, 40000, 0, 0, 100, 100, 20, 20, 0), 202, 205, 271, 301,
 				3000 * Main.EXP_BONUS, 30000 * Main.MONEY_BONUS, true);
 		initSkillList();
 	}

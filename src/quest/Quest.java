@@ -67,6 +67,11 @@ public class Quest implements Serializable {
 		this.questCondition.add(new QuestVisit(name));
 		return this;
 	}
+	
+	public Quest addQuestSpendAllSkillPoint(int level) {
+		this.questCondition.add(new QuestSkillPoint(level));
+		return this;
+	}
 
 	public Quest addMessage(String message) {
 		this.message.append(message);

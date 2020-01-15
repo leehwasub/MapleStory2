@@ -103,7 +103,7 @@ public class LoadPanel extends JPanel {
 	
 	private void loadSavedData() {
 		dm.clear();
-		for(int i = 0; i < 5; i++) {
+		for(int i = 0; i < SaveLoad.DATA_NUM; i++) {
 			dm.addElement(SaveLoad.loadPlayer(i));
 		}
 	}

@@ -1,20 +1,16 @@
 package playerAttack;
 
+import java.util.ArrayList;
+
+import attack.AttackInfor;
+import attack.DamageType;
+import attack.Hit;
+import attack.Property;
+import character.Character;
 import component.StateBox;
 import hunt.Hunt;
 import skill.ActiveSkill;
-import skill.NormalSkill;
 import utils.MusicUtils;
-
-import java.util.ArrayList;
-
-import attack.Attack;
-import attack.AttackType;
-import attack.DamageType;
-import attack.Hit;
-import attack.AttackInfor;
-import attack.Property;
-import character.Character;
 
 public class NormalAttack extends PlayerAttack {
 	

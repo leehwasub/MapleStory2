@@ -1,7 +1,6 @@
 package item;
 
 import java.awt.Cursor;
-import java.awt.Graphics2D;
 import java.awt.event.InputEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -12,7 +11,6 @@ import javax.swing.JButton;
 
 import dialog.SkillDetailDialog;
 import map.Point;
-import panel.ItemTooltipPanel;
 import panel.SkillTooltipPanel;
 import skill.Skill;
 import utils.MusicUtils;
@@ -24,7 +22,6 @@ public class SkillButton extends JButton {
 			ResourceLoader.getImage("componentImage", "inventoryItemSpaceButton.png"));
 	private ImageIcon buttonImage;
 	private Skill skill;
-	private boolean isEntered;
 	private SkillTooltipPanel skillToolTip;
 
 	public SkillButton(Skill skill, ImageIcon buttonImage) {
@@ -64,13 +61,11 @@ public class SkillButton extends JButton {
 		addMouseListener(new MouseAdapter() {
 			public void mouseEntered(MouseEvent e) {
 				setCursor(new Cursor(Cursor.HAND_CURSOR));
-				isEntered = true;
 			}
 
 			public void mouseExited(MouseEvent e) {
 				setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 				setIcon(SkillButton.this.buttonImage);
-				isEntered = false;
 				if(skillToolTip != null) {
 					skillToolTip.setVisible(false);
 				}

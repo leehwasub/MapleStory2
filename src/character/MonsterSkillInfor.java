@@ -8,6 +8,14 @@ public class MonsterSkillInfor {
 	private int underHpCondition;
 	private int skillPoint;
 	
+	/**
+	 * 
+	 * @param percentSt 퍼센트 최소
+	 * @param percentEd 퍼센트 최대
+	 * @param skillName 스킬 이름
+	 * @param underHpCondition 체력 조건(이보다 낮을시 발동)
+	 * @param skillPoint 스킬포인트
+	 */
 	public MonsterSkillInfor(int percentSt, int percentEd, String skillName, int underHpCondition, int skillPoint) {
 		this.percentSt = percentSt;
 		this.percentEd = percentEd;

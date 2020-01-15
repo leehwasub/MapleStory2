@@ -2,8 +2,6 @@ package quest;
 
 import java.io.Serializable;
 
-import maplestory.Player;
-
 public class QuestNpcProceed implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String npcName;

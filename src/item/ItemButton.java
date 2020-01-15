@@ -1,17 +1,14 @@
 package item;
 
 import java.awt.Cursor;
-import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.SwingUtilities;
 
 import map.Point;
-import panel.StoreInventoryPanel;
 import panel.ItemTooltipPanel;
 import utils.MusicUtils;
 import utils.ResourceLoader;
@@ -22,7 +19,6 @@ public class ItemButton extends JButton {
 			ResourceLoader.getImage("componentImage", "inventoryItemSpaceButton.png"));
 	private ImageIcon buttonImage;
 	private Item item;
-	private boolean isEntered;
 	private ItemTooltipPanel itemToolTip;
 
 	public ItemButton(Item item, ImageIcon buttonImage) {
@@ -62,13 +58,11 @@ public class ItemButton extends JButton {
 		addMouseListener(new MouseAdapter() {
 			public void mouseEntered(MouseEvent e) {
 				setCursor(new Cursor(Cursor.HAND_CURSOR));
-				isEntered = true;
 			}
 
 			public void mouseExited(MouseEvent e) {
 				setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 				setIcon(ItemButton.this.buttonImage);
-				isEntered = false;
 				if(itemToolTip != null) {
 					itemToolTip.setVisible(false);
 				}

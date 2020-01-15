@@ -6,7 +6,6 @@ import attack.AttackInfor;
 import attack.DamageType;
 import attack.Property;
 import attackImage.DoubleSlashAttackImage;
-import attackImage.FlashAttackImage;
 import component.StateBox;
 import hunt.Hunt;
 import skill.MonsterSkill;

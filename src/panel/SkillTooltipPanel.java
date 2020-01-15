@@ -7,7 +7,6 @@ import java.awt.RenderingHints;
 
 import javax.swing.JPanel;
 
-import item.Item;
 import map.Point;
 import skill.Skill;
 

@@ -14,7 +14,6 @@ import hunt.Hunt;
 import hunt.ImageFileFrame;
 import map.Point;
 import utils.FileLoader;
-import utils.MusicUtils;
 import utils.ResourceLoader;
 
 public abstract class SkillImage extends Thread {

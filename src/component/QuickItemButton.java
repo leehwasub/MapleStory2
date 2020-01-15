@@ -1,7 +1,6 @@
 package component;
 
 import java.awt.Cursor;
-import java.awt.Graphics2D;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -18,7 +17,6 @@ public class QuickItemButton extends JButton {
 			ResourceLoader.getImage("componentImage", "quickItemButton.png"));
 	private ImageIcon buttonImage;
 	private ConsumableItem item;
-	private boolean isEntered;
 
 	public QuickItemButton(ConsumableItem item, ImageIcon buttonImage) {
 		super(new ImageIcon(item.getImage()));
@@ -56,14 +54,12 @@ public class QuickItemButton extends JButton {
 		setFocusable(false);
 		addMouseListener(new MouseAdapter() {
 			public void mouseEntered(MouseEvent e) {
-				QuickItemButton.this.setCursor(new Cursor(12));
-				QuickItemButton.this.isEntered = true;
+				setCursor(new Cursor(12));
 			}
 
 			public void mouseExited(MouseEvent e) {
-				QuickItemButton.this.setCursor(new Cursor(0));
-				QuickItemButton.this.setIcon(QuickItemButton.this.buttonImage);
-				QuickItemButton.this.isEntered = false;
+				setCursor(new Cursor(0));
+				setIcon(QuickItemButton.this.buttonImage);
 			}
 
 			public void mousePressed(MouseEvent e) {

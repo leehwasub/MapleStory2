@@ -5,10 +5,7 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.io.Serializable;
-import java.util.ArrayList;
 
-import attack.Attack;
-import component.StateBox;
 import map.Point;
 import utils.ColorUtils;
 import utils.FontUtils;

@@ -18,6 +18,7 @@ public class AdventurerFactory {
 	}
 	
 	public static void upgradeAdventurer(String careerName, Adventurer adventurer) {
+		StringBuffer imageUrl = new StringBuffer("warrior");
 		switch(careerName) {
 		case "검사":
 			adventurer.setCareerLevel(1);
@@ -32,6 +33,7 @@ public class AdventurerFactory {
 			adventurer.addSkill(2, SkillFactory.makeSkill("브랜디쉬"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("분노"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("콤보어택"));
+			imageUrl.append("2");
 			break;
 		case "크루세이더":
 			adventurer.setCareerLevel(3);
@@ -40,6 +42,7 @@ public class AdventurerFactory {
 			adventurer.addSkill(3, SkillFactory.makeSkill("샤우트"));
 			adventurer.addSkill(3, SkillFactory.makeSkill("콤보시너지"));
 			adventurer.addSkill(3, SkillFactory.makeSkill("인듀어"));
+			imageUrl.append("3");
 			break;
 		case "페이지":
 			adventurer.setCareerLevel(2);
@@ -48,6 +51,7 @@ public class AdventurerFactory {
 			adventurer.addSkill(2, SkillFactory.makeSkill("플레임차지"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("블리자드차지"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("엘리멘탈차지"));
+			imageUrl.append("2");
 			break;
 		case "나이트":
 			adventurer.setCareerLevel(3);
@@ -56,14 +60,16 @@ public class AdventurerFactory {
 			adventurer.addSkill(3, SkillFactory.makeSkill("라이트닝차지"));
 			adventurer.addSkill(3, SkillFactory.makeSkill("컴뱃오더스"));
 			adventurer.addSkill(3, SkillFactory.makeSkill("위협"));
+			imageUrl.append("3");
 			break;
-		case "다크나이트":
+		case "스피어맨":
 			adventurer.setCareerLevel(2);
 			adventurer.addSkill(2, SkillFactory.makeSkill("창마스터리"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("피지컬트레이닝"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("아이언윌"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("하이퍼바디"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("피어싱쓰루"));
+			imageUrl.append("2");
 			break;
 		case "버서커":
 			adventurer.setCareerLevel(3);
@@ -72,8 +78,15 @@ public class AdventurerFactory {
 			adventurer.addSkill(3, SkillFactory.makeSkill("라만차스피어"));
 			adventurer.addSkill(3, SkillFactory.makeSkill("비홀더쇼크"));
 			adventurer.addSkill(3, SkillFactory.makeSkill("크로스오버체인"));
+			imageUrl.append("3");
 			break;
 		}
+		if(adventurer.getSex().equals("남자")) {
+			imageUrl.append("Man");
+		} else if(adventurer.getSex().equals("여자")) {
+			imageUrl.append("Woman");
+		}
+		adventurer.setImageUrl(imageUrl.toString());
 	}
 	
 }

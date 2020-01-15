@@ -2,7 +2,6 @@ package character;
 
 import java.util.ArrayList;
 
-import attack.Attack;
 import attack.AttackFactory;
 import attack.AttackType;
 import component.StateBox;

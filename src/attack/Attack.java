@@ -3,11 +3,9 @@ package attack;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
-import attackImage.PowerStrikeHitImage;
 import attackImage.SkillImage;
 import component.StateBox;
 import hunt.Hunt;
-import skill.Skill;
 
 public abstract class Attack extends Thread {
 	protected Hunt hunt;

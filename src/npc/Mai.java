@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import map.MapleMap;
 import map.PointMapName;
-import map.UpdatedMapInfor;
 import maplestory.Player;
 import quest.Quest;
 import quest.QuestProceed;

@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import item.Item;
-import map.MapleMapList;
-import map.PointMapName;
 import map.UpdatedMapInfor;
 import maplestory.Player;
 import npc.NpcList;
