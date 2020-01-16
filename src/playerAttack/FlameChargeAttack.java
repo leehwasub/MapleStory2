@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import attack.AttackInfor;
 import attack.DamageType;
-import attackImage.BrandishHitAttackImage;
-import attackImage.BrandishUseAttackImage;
-import attackImage.FlameChargeUseAttackImage;
+import attackImage.BrandishHitImage;
+import attackImage.BrandishUseImage;
+import attackImage.FlameChargeUseImage;
 import attackImage.PowerStrikeHitImage;
 import attackImage.PowerStrikeUseImage;
 import buff.BuffFactory;
@@ -24,7 +24,7 @@ public class FlameChargeAttack extends PlayerAttack {
 	public void run() {
 		attacker.attackForwardMotion();
 
-		addSkillImageThread(new FlameChargeUseAttackImage(hunt, attacker, opponent, makeAttackInfor()));
+		addSkillImageThread(new FlameChargeUseImage(hunt, attacker, opponent, makeAttackInfor()));
 		makeBurnBuff();
 		afterAttack();
 	}

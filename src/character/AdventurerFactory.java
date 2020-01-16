@@ -84,9 +84,9 @@ public class AdventurerFactory {
 			adventurer.setCareerLevel(2);
 			adventurer.addSkill(2, SkillFactory.makeSkill("창마스터리"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("피지컬트레이닝"));
-			adventurer.addSkill(2, SkillFactory.makeSkill("아이언윌"));
-			adventurer.addSkill(2, SkillFactory.makeSkill("하이퍼바디"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("피어싱쓰루"));
+			adventurer.addSkill(2, SkillFactory.makeSkill("아이언월"));
+			adventurer.addSkill(2, SkillFactory.makeSkill("하이퍼바디"));
 			imageUrl.append("2");
 			break;
 		case "버서커":

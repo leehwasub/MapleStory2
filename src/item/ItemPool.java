@@ -89,6 +89,25 @@ public class ItemPool {
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 60, 0, 0, 83, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
 		items.put("프라우테", new WeaponItem("프라우테", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 70), "praote", 1, 
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 70, 0, 0, 98, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
+	
+		items.put("삼지창", new WeaponItem("삼지창", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 25), "trident", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 25, 0, 0, 47, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SPEAR));
+		items.put("제코", new WeaponItem("제코", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 30), "jeko", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 30, 0, 0, 52, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SPEAR));
+		items.put("장팔사모", new WeaponItem("장팔사모", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 35), "jangpalsamo", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 35, 0, 0, 57, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SPEAR));
+		items.put("나카마키", new WeaponItem("나카마키", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 40), "nakamaki", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 40, 0, 0, 62, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SPEAR));
+		items.put("십자창", new WeaponItem("십자창", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 45), "reticle", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 45, 0, 0, 67, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SPEAR));
+		items.put("스페판", new WeaponItem("스페판", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 50), "spapan", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 50, 0, 0, 75, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SPEAR));
+		items.put("호진공창", new WeaponItem("호진공창", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 55), "hojingongchang", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 55, 0, 0, 83, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SPEAR));
+		items.put("페어프로즌", new WeaponItem("페어프로즌", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 60), "fairFrozen", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 60, 0, 0, 98, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SPEAR));
+		items.put("피나카", new WeaponItem("피나카", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 70), "pinaka", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 70, 0, 0, 105, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SPEAR));
 	}
 
 	private static void initClothsItem() {

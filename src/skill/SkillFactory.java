@@ -30,6 +30,14 @@ public class SkillFactory {
 			return new BlizzardChargeSkill("blizzardCharge", "블리자드차지", 20, "무기에 일시적으로 얼음속성을 부여한뒤 강력한 일격을 가한다.", AttackType.OPPONENT, Property.PROPERTY_ICE);
 		case "엘리멘탈차지":
 			return new ElementalChargeSkill("elementalCharge", "엘리멘탈차지", 5, "차지 스킬을 사용한 직후 다른 차지스킬을 사용할때 엘리멘탈 차지가 충전된다. 충전할때 마다 강력한 방어 능력을 가질수 있다.");
+		case "피어싱쓰루":
+			return new PiercingDriveSkill("piercingDrive", "피어싱쓰루", 20, "적에게 암흑 속성의 강력한 일격을 가한다", AttackType.OPPONENT, Property.PROPERTY_DARK);
+		case "창마스터리":
+			return new SpearMasterySkill("spearMastery", "창마스터리", 20, "창의 숙련도와 명중률을 증가시킨다");
+		case "아이언월":
+			return new IronWillSkill("ironWill", "아이언월", 15, "일정 시간동안 물리방어력과 마법방어력을 강화한다", AttackType.MYSELF, Property.PROPERTY_NOTHING);
+		case "하이퍼바디":
+			return new HyperBodySkill("hyperBody", "하이퍼바디", 10, "일정 시간동안 최대 HP와 최대 MP를 일정량 증가시킨다", AttackType.MYSELF, Property.PROPERTY_NOTHING);
 		}
 		DialogUtils.showErrorDialog("SkillFactory.makeSkill("+skillName+") 새로운 스킬 생성 실패!");
 		return null;

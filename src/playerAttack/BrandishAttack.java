@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import attack.AttackInfor;
 import attack.DamageType;
-import attackImage.BrandishHitAttackImage;
-import attackImage.BrandishUseAttackImage;
+import attackImage.BrandishHitImage;
+import attackImage.BrandishUseImage;
 import attackImage.PowerStrikeHitImage;
 import attackImage.PowerStrikeUseImage;
 import component.StateBox;
@@ -21,7 +21,7 @@ public class BrandishAttack extends PlayerAttack {
 	public void run() {
 		attacker.attackForwardMotion();
 
-		addSkillImageThread(new BrandishUseAttackImage(hunt, attacker, opponent, makeAttackInfor()));
+		addSkillImageThread(new BrandishUseImage(hunt, attacker, opponent, makeAttackInfor()));
 		
 		afterAttack();
 	}

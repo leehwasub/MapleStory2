@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class SwordUseImage extends SkillImage {
 	public SwordUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/swordUse", hunt, attacker, opponent, attackInfor, 120, 0);
+		super("monsterSkillImage/swordUse", hunt, attacker, opponent, attackInfor, 120, 0, 0);
 	}
 
 	public void run() {

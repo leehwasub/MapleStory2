@@ -176,6 +176,8 @@ public class Hunt extends Thread {
 				this.monsterAttack.start();
 				waitForAttack();
 				this.mInterface.pushMessage(new Message(this.monsterAttack.attackInfor(), Color.CYAN, true));
+				nowStateBox.getCharacter().calState();
+				nowStateBox.updateStateBox();
 			} else if ((character instanceof Adventurer)) {
 				//to do thing prior to an attack
 				
@@ -197,6 +199,8 @@ public class Hunt extends Thread {
 					this.playerAttack.start();
 					waitForAttack();
 					this.mInterface.pushMessage(new Message(this.playerAttack.attackInfor(), Color.CYAN, true));
+					nowStateBox.getCharacter().calState();
+					nowStateBox.updateStateBox();
 				} else {
 					attackButton.setVisible(false);
 					runButton.setVisible(false);
@@ -286,7 +290,9 @@ public class Hunt extends Thread {
 	}
 
 	public void dispose() {
-		playerHuntEvent.endHunt((Adventurer)adventurerState.getCharacter());
+		if(playerHuntEvent != null) {
+			playerHuntEvent.endHunt((Adventurer)adventurerState.getCharacter());
+		}
 		if (!this.winFlag) {
 			adventurerState.getCharacter().setCurHp(1);
 			adventurerState.getCharacter().setCurMp(1);

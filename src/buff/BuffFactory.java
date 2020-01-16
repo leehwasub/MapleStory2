@@ -5,6 +5,7 @@ import character.Resistance;
 import character.Strength;
 import skill.ActiveSkill;
 import skill.Skill;
+import skill.HyperBodySkill;
 import utils.DialogUtils;
 
 public class BuffFactory {
@@ -56,6 +57,12 @@ public class BuffFactory {
 		case "분노":
 			return new StrengthBuff(skill.getImageUrl(), skill.getName(), ((ActiveSkill)skill).getLast(skill.getPoint()), skill.getInfor(), 
 					new Strength(new Resistance(), 0, 0, 0, skill.getEffect(skill.getPoint()), 0, 0, 0, 0, 0, 0));
+		case "하이퍼바디":
+			return new StrengthBuff(skill.getImageUrl(), skill.getName(), ((ActiveSkill)skill).getLast(skill.getPoint()), skill.getInfor(), 
+					new Strength(new Resistance(), 0, ((HyperBodySkill)skill).getCreHp(), ((HyperBodySkill)skill).getCreMp(), 0, 0, 0, 0, 0, 0, 0));
+		case "아이언월":
+			return new StrengthBuff(skill.getImageUrl(), skill.getName(), ((ActiveSkill)skill).getLast(skill.getPoint()), skill.getInfor(), 
+					new Strength(new Resistance(), 0, 0, 0, 0, 0, skill.getEffect(skill.getPoint()), skill.getEffect(skill.getPoint()), 0, 0, 0));
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeAdventurerBuff("+skill.getName()+") 버프 생성 실패!");
 		return null;

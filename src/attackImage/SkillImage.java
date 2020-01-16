@@ -28,12 +28,13 @@ public abstract class SkillImage extends Thread {
 	protected StateBox opponent;
 	protected ArrayList<AttackInfor> attackInfor;
 	protected int modifyX;
+	protected int modifyY;
 	
 	protected int totalDelay;
 	protected int totalDamage;
 	protected int attackNum;
 
-	public SkillImage(String root, Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor, int delay, int modifyX) {
+	public SkillImage(String root, Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor, int delay, int modifyX, int modifyY) {
 		this.delay = delay;
 		this.attacker = attacker;
 		this.opponent = opponent;
@@ -41,6 +42,7 @@ public abstract class SkillImage extends Thread {
 		this.hunt = hunt;
 		this.point = attacker.getPoint();
 		this.modifyX = modifyX;
+		this.modifyY = modifyY;
 		try {
 			new FileLoader();
 			ArrayList<String> fileNameList = FileLoader.getFileList(root);
@@ -63,10 +65,10 @@ public abstract class SkillImage extends Thread {
 		}
 		if(attacker.getCharacter() instanceof Monster) {
 			point.setX(point.getX()+ 65 - imageList.get(0).getWidth(null)/2 + modifyX);
-			point.setY(point.getY()+ 65 - imageList.get(0).getHeight(null)/2);
+			point.setY(point.getY()+ 65 - imageList.get(0).getHeight(null)/2 + modifyY);
 		} else {
 			point.setX(point.getX()+ 300 - imageList.get(0).getWidth(null)/2 + modifyX);
-			point.setY(point.getY()+ 65 - imageList.get(0).getHeight(null)/2);
+			point.setY(point.getY()+ 65 - imageList.get(0).getHeight(null)/2 + modifyY);
 		}
 		
 		totalDelay = imageList.size() * delay;

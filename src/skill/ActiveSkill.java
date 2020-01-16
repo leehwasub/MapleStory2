@@ -12,6 +12,9 @@ public abstract class ActiveSkill extends Skill {
 	
 	protected AttackType attackType;
 	protected Property property;
+	protected int coolTime;
+	
+	protected int curCoolTime;
 
 	public ActiveSkill(String imageUrl, String name, int maxPoint, String infor, AttackType attackType, Property property) {
 		super(imageUrl, name, maxPoint, infor);
@@ -19,6 +22,21 @@ public abstract class ActiveSkill extends Skill {
 		this.property = property;
 	}
 	
+	public ActiveSkill(String imageUrl, String name, int maxPoint, String infor, AttackType attackType, Property property, int coolTime) {
+		super(imageUrl, name, maxPoint, infor);
+		this.attackType = attackType;
+		this.property = property;
+		this.coolTime = coolTime;
+	}
+	
+	public int getCoolTime() {
+		return coolTime;
+	}
+
+	public void setCoolTime(int coolTime) {
+		this.coolTime = coolTime;
+	}
+
 	public AttackType getAttackType() {
 		return attackType;
 	}
@@ -40,6 +58,10 @@ public abstract class ActiveSkill extends Skill {
 		return "ActiveSkill [attackType=" + attackType + ", property=" + property + "]";
 	}
 
+	public boolean isCanUseSkill() {
+		return (curCoolTime == 0);
+	}
+	
 	public abstract int getNeedMp(int point);
 	public abstract int getLast(int point);
 	public abstract PlayerAttack skillUse(Hunt hunt, StateBox attacker, StateBox opponent);

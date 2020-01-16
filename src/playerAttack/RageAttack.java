@@ -3,7 +3,7 @@ package playerAttack;
 import java.util.ArrayList;
 
 import attack.AttackInfor;
-import attackImage.RageUseAttackImage;
+import attackImage.RageUseImage;
 import buff.BuffFactory;
 import component.StateBox;
 import hunt.Hunt;
@@ -20,7 +20,7 @@ public class RageAttack extends PlayerAttack {
 		this.attacker.attackForwardMotion();
 		
 		attacker.getCharacter().addBuff(BuffFactory.makeAdventurerBuff(activeSkill));
-		addSkillImageThread(new RageUseAttackImage(hunt, attacker, opponent, null));
+		addSkillImageThread(new RageUseImage(hunt, attacker, opponent, null));
 		
 		afterAttack();
 	}

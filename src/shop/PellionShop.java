@@ -12,6 +12,7 @@ public class PellionShop extends Shop {
 		weaponItemList.add(ItemPool.getItem("샤브르", 1));
 		weaponItemList.add(ItemPool.getItem("바이킹소드", 1));
 		weaponItemList.add(ItemPool.getItem("일룬", 1));
+		weaponItemList.add(ItemPool.getItem("삼지창", 1));
 		equipmentItemList.add(ItemPool.getItem("로리카아머(남)", 1));
 		equipmentItemList.add(ItemPool.getItem("스퀘이머(여)", 1));
 		equipmentItemList.add(ItemPool.getItem("코퍼럴", 1));

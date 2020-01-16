@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 import attack.AttackInfor;
 import attack.DamageType;
-import attackImage.BlizzardChargeUseAttackImage;
-import attackImage.BrandishHitAttackImage;
-import attackImage.BrandishUseAttackImage;
-import attackImage.FlameChargeUseAttackImage;
+import attackImage.BlizzardChargeUseImage;
+import attackImage.BrandishHitImage;
+import attackImage.BrandishUseImage;
+import attackImage.FlameChargeUseImage;
 import attackImage.PowerStrikeHitImage;
 import attackImage.PowerStrikeUseImage;
 import component.StateBox;
@@ -24,7 +24,7 @@ public class BlizzardChargeAttack extends PlayerAttack {
 	public void run() {
 		attacker.attackForwardMotion();
 
-		addSkillImageThread(new BlizzardChargeUseAttackImage(hunt, attacker, opponent, makeAttackInfor()));
+		addSkillImageThread(new BlizzardChargeUseImage(hunt, attacker, opponent, makeAttackInfor()));
 		
 		afterAttack();
 	}

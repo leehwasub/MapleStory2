@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import attack.AttackInfor;
 import attack.DamageType;
 import attack.Property;
-import attackImage.DoubleSlashAttackImage;
+import attackImage.DoubleSlashImage;
 import component.StateBox;
 import hunt.Hunt;
 import skill.MonsterSkill;
@@ -17,7 +17,7 @@ public class DoubleSlashAttack extends MonsterAttack {
 
 	public void run() {
 		this.attacker.attackForwardMotion();
-		addSkillImageThread(new DoubleSlashAttackImage(hunt, attacker, opponent, makeAttackInfor()));
+		addSkillImageThread(new DoubleSlashImage(hunt, attacker, opponent, makeAttackInfor()));
 		afterAttack();
 	}
 	

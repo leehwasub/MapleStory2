@@ -1,5 +1,5 @@
 package item;
 
 public enum WeaponType {
-	SWORD, SPEAR, BLUNT
+	SWORD, SPEAR
 }
