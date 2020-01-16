@@ -57,6 +57,16 @@ public abstract class ActiveSkill extends Skill {
 	public String toString() {
 		return "ActiveSkill [attackType=" + attackType + ", property=" + property + "]";
 	}
+	
+	public void resetCoolTime() {
+		curCoolTime = coolTime;
+	}
+	
+	public void subCoolTime() {
+		if(curCoolTime >= 1) {
+			curCoolTime--;
+		}
+	}
 
 	public boolean isCanUseSkill() {
 		return (curCoolTime == 0);
