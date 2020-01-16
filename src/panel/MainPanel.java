@@ -588,6 +588,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		if(player.get_curMap().getMapType() != MapleMap.MAP_DUNGEON_TYPE) {
 			player.setCanSave(true);
 		}
+		player.getMainAdventurer().setUsedSkill(null);
 		player.setHunt(false);
 		messageList.clearMessage();
 		player.allSetAlive();

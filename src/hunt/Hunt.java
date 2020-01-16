@@ -12,6 +12,8 @@ import java.util.Queue;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import com.sun.media.jfxmedia.events.PlayerStateEvent.PlayerState;
+
 import attack.AttackFactory;
 import attack.DamageText;
 import attack.Hit;
@@ -54,6 +56,8 @@ public class Hunt extends Thread {
 	private PlayerAttack playerAttack;
 	private MouseListener m;
 	private ArrayList<SkillImage> skillImageList = new ArrayList<SkillImage>();
+	
+	private HuntEvent playerHuntEvent;
 
 	public Hunt(Player player, JPanel panel, MainMapleInterface mainMapleInterface, Adventurer adventurer, Monster monster) {
 		this.isEnd = true;
@@ -64,6 +68,7 @@ public class Hunt extends Thread {
 		StateBox stateBoxAdventurer = new StateBox(40, StateBox.STATE_BOX_Y[1], adventurer, 0, panel, mainMapleInterface);
 		this.adventurerState = stateBoxAdventurer;
 		this.turnQueue.add(stateBoxAdventurer);
+		playerHuntEvent = adventurer.getHuntEvent();
 		
 		StateBox stateBoxMonster = new StateBox(870, StateBox.STATE_BOX_Y[1], monster, 1, panel, mainMapleInterface);
 		this.monster = monster;
@@ -92,6 +97,10 @@ public class Hunt extends Thread {
 			}
 		});
 		panel.add(this.runButton);
+		
+		if(playerHuntEvent != null) {
+			playerHuntEvent.startHunt(adventurer);
+		}
 	}
 
 	public void draw(Graphics2D g, JPanel panel) {
@@ -118,6 +127,10 @@ public class Hunt extends Thread {
 			}
 			if (this.playerAttack != null) {
 				this.playerAttack.draw(g);
+			}
+			if(playerHuntEvent != null) {
+				playerHuntEvent.drawInfor(g, (Adventurer)adventurerState.getCharacter());
+				playerHuntEvent.drawObject(g, adventurerState);
 			}
 		}
 	}
@@ -164,14 +177,21 @@ public class Hunt extends Thread {
 				waitForAttack();
 				this.mInterface.pushMessage(new Message(this.monsterAttack.attackInfor(), Color.CYAN, true));
 			} else if ((character instanceof Adventurer)) {
-
+				//to do thing prior to an attack
+				
+				if(playerHuntEvent != null) {
+					playerHuntEvent.startTurn((Adventurer)character);
+					nowStateBox.updateStateBox();
+				}
+				
+				//stand by for an attack
 				playerAttack = null;
 				player.setCanUsePortion(true);
 				player.setCanUseSkill(true);
 
 				this.attackButton.setVisible(true);
 				this.runButton.setVisible(true);
-
+				
 				waitForAttack();
 				if(playerAttack != null) {
 					this.playerAttack.start();
@@ -229,6 +249,7 @@ public class Hunt extends Thread {
 			player.getMainAdventurer().spendMp(needMp);
 			adventurerState.updateStateBox();
 		}
+		player.getMainAdventurer().setUsedSkill(playerAttack.getActiveSkill());
 		player.setCanUseSkill(false);
 		player.setCanUsePortion(false);
 		attackButton.setVisible(false);
@@ -265,6 +286,7 @@ public class Hunt extends Thread {
 	}
 
 	public void dispose() {
+		playerHuntEvent.endHunt((Adventurer)adventurerState.getCharacter());
 		if (!this.winFlag) {
 			adventurerState.getCharacter().setCurHp(1);
 			adventurerState.getCharacter().setCurMp(1);

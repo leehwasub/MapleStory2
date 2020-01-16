@@ -3,6 +3,8 @@ package character;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import hunt.EmptyHuntEvent;
+import hunt.HuntEvent;
 import item.ConsumableItem;
 import item.EquipmentItem;
 import maplestory.Main;
@@ -32,11 +34,15 @@ public class Adventurer extends Character implements Serializable {
 	private int careerLevel;
 	private int exp;
 	private int[] Exp = ExpUtils.getNeedExp();
+	private HuntEvent huntEvent;
+	
+	private Skill usedSkill;
 
 	public Adventurer(String name, String imageUrl, Strength strength, Status status, String career) {
 		super(name, imageUrl, strength);
 		this.status = status;
 		this.career = career;
+		this.huntEvent = new EmptyHuntEvent();
 	}
 
 	public void calState() {
@@ -275,8 +281,24 @@ public class Adventurer extends Character implements Serializable {
 		this.curMp = this.strength.getMaxMp();
 	}
 	
+	public Skill getUsedSkill() {
+		return usedSkill;
+	}
+
+	public void setUsedSkill(Skill usedSkill) {
+		this.usedSkill = usedSkill;
+	}
+
 	public int getAdventurerLevel() {
 		return strength.getLevel();
+	}
+
+	public HuntEvent getHuntEvent() {
+		return huntEvent;
+	}
+
+	public void setHuntEvent(HuntEvent huntEvent) {
+		this.huntEvent = huntEvent;
 	}
 
 	/**
@@ -357,6 +379,8 @@ public class Adventurer extends Character implements Serializable {
 			threeLevelSkillList.get(i).setSkillImageForInit();
 		}
 	}
+	
+	
 
 	
 }

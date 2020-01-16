@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import component.MapleButton;
+import item.ItemPool;
 import map.MapleMapList;
 import maplestory.MapleInterface;
 import maplestory.Player;
@@ -156,6 +157,8 @@ public class PrologPanel extends JPanel {
 			player.getWearEquipment("샤크(여)");
 			player.getWearEquipment("샤크치마(여)");
 		}
+		player.addItem(ItemPool.getItem("새우튀김", 500));
+		player.addItem(ItemPool.getItem("파란포션", 500));
 		Quest quest = Quest.makeQuest(0, 1, "TEST").setRewardExp(100)
 				.addMessage("TEST");
 		player.setQuest(quest);

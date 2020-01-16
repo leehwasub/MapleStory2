@@ -1,5 +1,6 @@
 package character;
 
+import hunt.PageHuntEvent;
 import skill.SkillFactory;
 
 public class AdventurerFactory {
@@ -67,6 +68,7 @@ public class AdventurerFactory {
 			adventurer.addSkill(2, SkillFactory.makeSkill("플레임차지"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("블리자드차지"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("엘리멘탈차지"));
+			adventurer.setHuntEvent(new PageHuntEvent());
 			imageUrl.append("2");
 			break;
 		case "나이트":

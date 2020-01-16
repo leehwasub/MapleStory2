@@ -9,6 +9,7 @@ import java.util.HashMap;
 import character.Adventurer;
 import character.AdventurerFactory;
 import character.Monster;
+import hunt.HuntEvent;
 import item.BuffItem;
 import item.ConsumableItem;
 import item.EquipmentItem;

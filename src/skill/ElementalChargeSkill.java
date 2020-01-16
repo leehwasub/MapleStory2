@@ -76,7 +76,7 @@ public class ElementalChargeSkill extends PassiveSkill{
 		this.chargeNum -= 1;
 	}
 
-	public void setChargeoNum(int chargeNum) {
+	public void setChargeNum(int chargeNum) {
 		this.chargeNum = chargeNum;
 	}
 

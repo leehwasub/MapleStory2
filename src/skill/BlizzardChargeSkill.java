@@ -2,10 +2,10 @@ package skill;
 
 import attack.AttackType;
 import attack.Property;
+import character.Adventurer;
 import component.StateBox;
 import hunt.Hunt;
 import playerAttack.BlizzardChargeAttack;
-import playerAttack.BrandishAttack;
 import playerAttack.PlayerAttack;
 
 public class BlizzardChargeSkill extends ActiveSkill{
@@ -32,7 +32,19 @@ public class BlizzardChargeSkill extends ActiveSkill{
 
 	@Override
 	public PlayerAttack skillUse(Hunt hunt, StateBox attacker, StateBox opponent) {
+		getElementalCombo(attacker);
 		return new BlizzardChargeAttack(hunt, attacker, opponent, this);
+	}
+	
+	private void getElementalCombo(StateBox attacker) {
+		Adventurer adventurer = (Adventurer)attacker.getCharacter();
+		ElementalChargeSkill elementalCharge = (ElementalChargeSkill)adventurer.getSkillWithName("엘리멘탈차지");
+		if(adventurer.getUsedSkill() == null ||elementalCharge == null || 
+				elementalCharge.getPoint() == 0 || elementalCharge.isHaveMaxChargeNum()) return;
+		
+		if(adventurer.getUsedSkill() instanceof FlameChargeSkill) {
+			elementalCharge.addChargeNum();
+		}
 	}
 
 	@Override

@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import buff.Buff;
 import character.Character;
+import hunt.HuntEvent;
 import map.Point;
 import maplestory.MainMapleInterface;
 import utils.FontUtils;
