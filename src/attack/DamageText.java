@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 
+import character.Monster;
+import component.StateBox;
 import utils.FontUtils;
 
 public class DamageText extends Thread {
@@ -13,10 +15,11 @@ public class DamageText extends Thread {
 	private int y;
 	private FontMetrics fm;
 
-	public DamageText(Hit hit, int x, int y) {
+	public DamageText(Hit hit, StateBox stateBox) {
 		this.hit = hit;
-		this.x = x;
-		this.y = y;
+		int startX = (stateBox.getCharacter() instanceof Monster ? 170 : 50);
+		this.x = stateBox.getX() + startX;
+		this.y = stateBox.getY() + 45;
 	}
 
 	public void draw(Graphics2D g) {
@@ -26,19 +29,19 @@ public class DamageText extends Thread {
 		} else if (hit.getType() == DamageType.DAMAGE_MP_TYPE) {
 			g.setColor(Color.BLUE);
 		}
-		this.fm = g.getFontMetrics();
-		if (this.hit.getDamage() != 0) {
-			int width = this.fm.stringWidth(this.hit.getDamage()+"");
-			g.drawString(this.hit.getDamage()+"", this.x + 170 + (180 - width) / 2, this.y + 45
+		fm = g.getFontMetrics();
+		if (hit.getDamage() != 0) {
+			int width = fm.stringWidth(hit.getDamage()+"");
+			g.drawString(hit.getDamage()+"", x + (180 - width) / 2, y
 					+ (hit.getType() == DamageType.DAMAGE_HP_TYPE ? 0 : 30));
 		} else {
 			int width = this.fm.stringWidth("MISS");
-			g.drawString("MISS", this.x + 170 + (180 - width) / 2, this.y + 45);
+			g.drawString("MISS", x + (180 - width) / 2, y);
 		}
 	}
 
 	public void run() {
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < 20; i++) {
 			try {
 				this.y -= 3;
 				Thread.sleep(50L);
@@ -63,6 +66,23 @@ public class DamageText extends Thread {
 
 	public void setY(int y) {
 		this.y = y;
+	}
+	
+	public void subX(int x) {
+		this.x -= x;
+	}
+
+	public void subY(int y) {
+		this.y -= y;
+	}
+
+	
+	public void addX(int x) {
+		this.x += x;
+	}
+
+	public void addY(int y) {
+		this.y += y;
 	}
 
 	public Hit getHit() {

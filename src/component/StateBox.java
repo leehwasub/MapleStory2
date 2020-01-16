@@ -36,10 +36,15 @@ public class StateBox extends Thread {
 		this.character = character;
 		this.mapleHpBar = new MapleHpBar(character);
 		this.mapleMpBar = new MapleMpBar(character);
-		this.mapleHpBar.setBounds(x + 170, y + 50, 180, 20);
-		panel.add(this.mapleHpBar);
-		this.mapleMpBar.setBounds(x + 170, y + 80, 180, 20);
-		panel.add(this.mapleMpBar);
+		if(dir == DIR_RIGHT) {
+			this.mapleHpBar.setBounds(x + 170, y + 50, 180, 20);
+			this.mapleMpBar.setBounds(x + 170, y + 80, 180, 20);
+		} else if(dir == DIR_LEFT) {
+			this.mapleHpBar.setBounds(x + 50, y + 50, 180, 20);
+			this.mapleMpBar.setBounds(x + 50, y + 80, 180, 20);
+		}
+		panel.add(mapleHpBar);
+		panel.add(mapleMpBar);
 		this.dir = dir;
 		buffList = character.getBuffList();
 		this.mainMapleInterface = mainMapleInterface;
@@ -54,17 +59,31 @@ public class StateBox extends Thread {
 
 	public void draw(Graphics2D g, JPanel panel) {
 		g.drawImage(STATE_BOX_IMAGE, this.x, this.y, panel);
-		g.drawImage(this.character.getImage(), this.x + 65 - character.getImage().getWidth(panel) / 2, this.y + 65 - character.getImage().getHeight(panel) / 2, panel);
-		g.setFont(FontUtils.generalFont);
-		g.setColor(Color.red);
-		g.drawString("HP", this.x + 130, this.y + 66);
-		g.setColor(Color.blue);
-		g.drawString("MP", this.x + 130, this.y + 96);
-		g.setFont(FontUtils.SMALL_FONT_2);
-		g.setColor(Color.white);
-		g.drawString(this.character.getName(), this.x + 190, this.y + 35);
-		g.setColor(Color.yellow);
-		g.drawString("Lv " + this.character.getStrength().getLevel(), this.x + 140, this.y + 35);
+		if(dir == DIR_RIGHT) {
+			g.drawImage(this.character.getImage(), this.x + 65 - character.getImage().getWidth(panel) / 2, this.y + 65 - character.getImage().getHeight(panel) / 2, panel);
+			g.setFont(FontUtils.generalFont);
+			g.setColor(Color.red);
+			g.drawString("HP", this.x + 130, this.y + 66);
+			g.setColor(Color.blue);
+			g.drawString("MP", this.x + 130, this.y + 96);
+			g.setFont(FontUtils.SMALL_FONT_2);
+			g.setColor(Color.white);
+			g.drawString(this.character.getName(), this.x + 190, this.y + 35);
+			g.setColor(Color.yellow);
+			g.drawString("Lv " + this.character.getStrength().getLevel(), this.x + 140, this.y + 35);
+		} else if(dir == DIR_LEFT) {
+			g.drawImage(character.getImage(), x + 300 - character.getImage().getWidth(panel) / 2, y + 65 - character.getImage().getHeight(panel) / 2, panel);
+			g.setFont(FontUtils.generalFont);
+			g.setColor(Color.red);
+			g.drawString("HP", x + 10, y + 66);
+			g.setColor(Color.blue);
+			g.drawString("MP", x + 10, y + 96);
+			g.setFont(FontUtils.SMALL_FONT_2);
+			g.setColor(Color.white);
+			g.drawString(character.getName(), x + 70, y + 35);
+			g.setColor(Color.yellow);
+			g.drawString("Lv " + character.getStrength().getLevel(), x + 20, y + 35);
+		}
 		
 		g.setFont(FontUtils.SMALL_FONT);
 		if(buffList != null && buffList.size() != 0) {
@@ -76,8 +95,13 @@ public class StateBox extends Thread {
 	}
 
 	public void updateBounds() {
-		this.mapleHpBar.setBounds(this.x + 170, this.y + 50, 180, 20);
-		this.mapleMpBar.setBounds(this.x + 170, this.y + 80, 180, 20);
+		if(dir == DIR_RIGHT) {
+			mapleHpBar.setBounds(x + 170, y + 50, 180, 20);
+			mapleMpBar.setBounds(x + 170, y + 80, 180, 20);
+		} else if(dir == DIR_LEFT) {
+			mapleHpBar.setBounds(x + 50, y + 50, 180, 20);
+			mapleMpBar.setBounds(x + 50, y + 80, 180, 20);
+		}
 	}
 
 	public void updateStateBox() {

@@ -574,6 +574,9 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	}
 
 	public void addDamageText(DamageText damageText) {
+		for(int i = 0; i < damageTextList.size(); i++) {
+			damageTextList.get(i).subY(12);
+		}
 		damageText.start();
 		damageTextList.add(damageText);
 	}

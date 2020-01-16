@@ -28,6 +28,7 @@ public abstract class Character implements Serializable{
 	protected Strength strength = new Strength();
 	protected ArrayList<Buff> buffList = new ArrayList<Buff>();
 	protected boolean isDead;
+	protected int ignoreDamageRate;
 	
 	public Character() {
 		
@@ -74,6 +75,10 @@ public abstract class Character implements Serializable{
 				isCritical = true;
 				d *= 2;
 			}
+			
+			double ignoreDamageRateDouble = (double)ignoreDamageRate / 100.0;
+			d = d - (int)((double)d * ignoreDamageRateDouble);
+			
 			this.curHp -= Math.max(1, d);
 		}
 		if (this.curHp <= 0) {
@@ -321,7 +326,17 @@ public abstract class Character implements Serializable{
 		setImageWithInstanceForInit();
 	}
 	
+	public int getIgnoreDamageRate() {
+		return ignoreDamageRate;
+	}
 	
+	public void addIgnoreDamageRate(int ignoreDamageRate) {
+		this.ignoreDamageRate += ignoreDamageRate;
+	}
+
+	public void setIgnoreDamageRate(int ignoreDamageRate) {
+		this.ignoreDamageRate = ignoreDamageRate;
+	}
 
 	public String toString() {
 		return "Character [name=" + this.name + ", image=" + this.image + ", curHp=" + this.curHp + ", curMp=" + this.curMp

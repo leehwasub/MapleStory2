@@ -62,7 +62,7 @@ public class AdventurerFactory {
 			break;
 		case "페이지":
 			adventurer.setCareerLevel(2);
-			adventurer.addSkill(2, SkillFactory.makeSkill("둔기마스터리"));
+			adventurer.addSkill(2, SkillFactory.makeSkill("검마스터리"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("피지컬트레이닝"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("플레임차지"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("블리자드차지"));

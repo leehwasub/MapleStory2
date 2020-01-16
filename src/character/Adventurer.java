@@ -45,6 +45,7 @@ public class Adventurer extends Character implements Serializable {
 		strength.setMagicDefense(0);
 		strength.setPhysicalDamage(0);
 		strength.setMagicDamage(0);
+		ignoreDamageRate = 0;
 		
 		if(careerLevel == 0) {
 			strength.setMaxHp(NewbieStateUtils.getMaxHpByIndex(strength.getLevel()));

@@ -24,6 +24,12 @@ public class SkillFactory {
 			return new BrandishSkill("brandish", "브랜디쉬", 20, "적에게 두번의 일격을 가한다", AttackType.OPPONENT, Property.PROPERTY_NOTHING);
 		case "콤보어택":
 			return new ComboAttackSkill("comboAttack", "콤보어택", 5, "공격시 일정 확률로 콤보어택이 생성되어 고급 기술을 사용할 수 있다. 또한 콤보 시너지와 연계하여 공격력을 증가시킬 수 있다.");
+		case "플레임차지":
+			return new FlameChargeSkill("flameCharge", "플레임차지", 20, "무기에 일시적으로 불속성을 부여한뒤 강력한 일격을 가한다.", AttackType.OPPONENT, Property.PROPERTY_FIRE);
+		case "블리자드차지":
+			return new BlizzardChargeSkill("blizzardCharge", "블리자드차지", 20, "무기에 일시적으로 얼음속성을 부여한뒤 강력한 일격을 가한다.", AttackType.OPPONENT, Property.PROPERTY_ICE);
+		case "엘리멘탈차지":
+			return new ElementalChargeSkill("elementalCharge", "엘리멘탈차지", 5, "차지 스킬을 사용한 직후 다른 차지스킬을 사용할때 엘리멘탈 차지가 충전된다. 충전할때 마다 강력한 방어 능력을 가질수 있다.");
 		}
 		DialogUtils.showErrorDialog("SkillFactory.makeSkill("+skillName+") 새로운 스킬 생성 실패!");
 		return null;

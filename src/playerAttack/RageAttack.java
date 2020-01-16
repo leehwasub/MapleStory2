@@ -3,6 +3,7 @@ package playerAttack;
 import java.util.ArrayList;
 
 import attack.AttackInfor;
+import attackImage.RageUseAttackImage;
 import buff.BuffFactory;
 import component.StateBox;
 import hunt.Hunt;
@@ -17,16 +18,11 @@ public class RageAttack extends PlayerAttack {
 	
 	public void run() {
 		this.attacker.attackForwardMotion();
-		attackMoveDelay();
 		
-		MusicUtils.startEffectSound("rageUse");
 		attacker.getCharacter().addBuff(BuffFactory.makeAdventurerBuff(activeSkill));
-		attacker.updateStateBox();
+		addSkillImageThread(new RageUseAttackImage(hunt, attacker, opponent, null));
 		
-		this.attacker.attackBackMotion();
-		afterAttackDelay();
-		
-		wakeUpThread();
+		afterAttack();
 	}
 
 	@Override

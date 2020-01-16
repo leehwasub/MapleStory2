@@ -291,7 +291,7 @@ public class Hunt extends Thread {
 	}
 
 	public void addDamageText(Hit hit, StateBox opponent) {
-		this.mInterface.addDamageText(new DamageText(hit, opponent.getX(), opponent.getY()));
+		this.mInterface.addDamageText(new DamageText(hit, opponent));
 	}
 
 	public void updateMainStateBar() {

@@ -3,6 +3,7 @@ package attackImage;
 import java.util.ArrayList;
 
 import attack.AttackInfor;
+import character.Monster;
 import component.StateBox;
 import hunt.Hunt;
 import map.Point;
@@ -20,8 +21,13 @@ public class MovableSkillImage extends SkillImage{
 		this.takeTime = takeTime;
 		this.totalDelay = takeTime;
 		this.targetPoint = opponent.getPoint();
-		targetPoint.setX(targetPoint.getX()+65 - imageList.get(0).getWidth(null)/2);
-		targetPoint.setY(targetPoint.getY()+65 - imageList.get(0).getHeight(null)/2);
+		if(opponent.getCharacter() instanceof Monster) {
+			targetPoint.setX(targetPoint.getX()+65 - imageList.get(0).getWidth(null)/2);
+			targetPoint.setY(targetPoint.getY()+65 - imageList.get(0).getHeight(null)/2);
+		} else {
+			targetPoint.setX(targetPoint.getX()+300 - imageList.get(0).getWidth(null)/2);
+			targetPoint.setY(targetPoint.getY()+65 - imageList.get(0).getHeight(null)/2);
+		}
 		double intervalX = ((double)targetPoint.getX() - (double)point.getX()) / (double)takeTime;
 		double intervalY = ((double)targetPoint.getY() - (double)point.getY()) / (double)takeTime;
 		for(int i = 0; i < takeTime; i++) {

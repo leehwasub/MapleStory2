@@ -9,6 +9,8 @@ import javax.swing.ImageIcon;
 
 import attack.AttackInfor;
 import attack.Hit;
+import character.Character;
+import character.Monster;
 import component.StateBox;
 import hunt.Hunt;
 import hunt.ImageFileFrame;
@@ -57,8 +59,13 @@ public abstract class SkillImage extends Thread {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		point.setX(point.getX()+65 - imageList.get(0).getWidth(null)/2);
-		point.setY(point.getY()+65 - imageList.get(0).getHeight(null)/2);
+		if(attacker.getCharacter() instanceof Monster) {
+			point.setX(point.getX()+ 65 - imageList.get(0).getWidth(null)/2);
+			point.setY(point.getY()+ 65 - imageList.get(0).getHeight(null)/2);
+		} else {
+			point.setX(point.getX()+ 300 - imageList.get(0).getWidth(null)/2);
+			point.setY(point.getY()+ 65 - imageList.get(0).getHeight(null)/2);
+		}
 		
 		totalDelay = imageList.size() * delay;
 	}

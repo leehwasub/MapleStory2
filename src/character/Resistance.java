@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 public class Resistance implements Serializable, Cloneable {
 	private static final long serialVersionUID = 1L;
-	int fire;
-	int ice;
-	int posion;
-	int thunder;
-	int dark;
-	int holy;
+	private int fire;
+	private int ice;
+	private int posion;
+	private int thunder;
+	private int dark;
+	private int holy;
 	
 	public Resistance() {
 		this.fire = 0;
@@ -104,6 +104,50 @@ public class Resistance implements Serializable, Cloneable {
 	public void setHoly(int holy) {
 		this.holy = holy;
 	}
+	
+	public void addFire(int fire) {
+		this.fire += fire;
+	}
+
+	public void addIce(int ice) {
+		this.ice += ice;
+	}
+
+	public void addPosion(int posion) {
+		this.posion += posion;
+	}
+
+	public void addThunder(int thunder) {
+		this.thunder += thunder;
+	}
+
+	public void addDark(int dark) {
+		this.dark += dark;
+	}
+	
+	public void addHoly(int holy) {
+		this.holy += holy;
+	}
+	
+	
+	public void addAllResistance(int resistance) {
+		this.fire += resistance;
+		this.ice += resistance;
+		this.posion += resistance;
+		this.thunder += resistance;
+		this.dark += resistance;
+		this.holy += resistance;
+	}
+	
+	public void subAllResistance(int resistance) {
+		this.fire -= resistance;
+		this.ice -= resistance;
+		this.posion -= resistance;
+		this.thunder -= resistance;
+		this.dark -= resistance;
+		this.holy -= resistance;
+	}
+
 	
 	@Override
 	public Object clone() throws CloneNotSupportedException {

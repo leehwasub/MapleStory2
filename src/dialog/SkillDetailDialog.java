@@ -1,8 +1,10 @@
 package dialog;
 
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.ImageIcon;
@@ -16,6 +18,8 @@ import component.MapleButton;
 import skill.Skill;
 import utils.FontUtils;
 import utils.ResourceLoader;
+
+import renderer.*;
 
 public class SkillDetailDialog extends JDialog {
 	private static final long serialVersionUID = 1L;
@@ -51,6 +55,7 @@ public class SkillDetailDialog extends JDialog {
 		model = new DefaultTableModel(columnName, 0);
 		
 		jTable = new JTable(model);
+		jTable.setDefaultRenderer(Object.class, new MultiLineCellRenderer());
 		//jTable.getColumnModel().getColumn(0).setPreferredWidth(100);
 		jTable.setFont(FontUtils.VERY_SMALL_FONT);
 		jTable.setEnabled(false);
@@ -65,8 +70,6 @@ public class SkillDetailDialog extends JDialog {
 		this.scrollPane.setBounds(20, 20, 460, 530);
 		add(scrollPane);
 		
-		jTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		
 		backButton.setBounds(420, 560, 60, 60);
 		backButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -79,12 +82,29 @@ public class SkillDetailDialog extends JDialog {
 		addSkillData();
 	}
 	
+	public int getLine(String detail) {
+		int preIndex = 0;
+		int width = 0;
+		int line = 1;
+		for (int i = 0; i < detail.length(); i++) {
+			FontMetrics fm = jTable.getFontMetrics(FontUtils.SMALL_FONT);
+			width = fm.stringWidth(detail.substring(preIndex, i));
+			if (width > 400) {
+				preIndex = i;
+				line++;
+			}
+		}
+		return line;
+	}
+	
 	public void addSkillData() {
 		for(int i = 0; i < skill.getMaxPoint(); i++) {
 			Vector<String> rowData = new Vector<String>();
 			rowData.add((i+1)+"");
+			int line = getLine(skill.getEffectDetail(i+1));
 			rowData.add(skill.getEffectDetail(i+1));
 			model.addRow(rowData);
+			jTable.setRowHeight(i, (line * jTable.getFontMetrics(FontUtils.SMALL_FONT).getHeight()));
 		}
 	}
 
