@@ -8,7 +8,7 @@ import hunt.Hunt;
 
 public class SwordHitImage extends SkillImage {
 	public SwordHitImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/swordHit", hunt, attacker, opponent, attackInfor, 120);
+		super("monsterSkillImage/swordHit", hunt, attacker, opponent, attackInfor, 120, 0);
 	}
 
 	public void run() {

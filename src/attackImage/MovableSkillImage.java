@@ -16,17 +16,17 @@ public class MovableSkillImage extends SkillImage{
 	protected int nowTime;
 	
 	public MovableSkillImage(String root, Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor, int delay, int takeTime) {
-		super(root, hunt, attacker, opponent, attackInfor, delay);
+		super(root, hunt, attacker, opponent, attackInfor, delay, 0);
 		this.opponent = opponent;
 		this.takeTime = takeTime;
 		this.totalDelay = takeTime;
 		this.targetPoint = opponent.getPoint();
 		if(opponent.getCharacter() instanceof Monster) {
-			targetPoint.setX(targetPoint.getX()+65 - imageList.get(0).getWidth(null)/2);
-			targetPoint.setY(targetPoint.getY()+65 - imageList.get(0).getHeight(null)/2);
+			targetPoint.setX(targetPoint.getX() + 65 - imageList.get(0).getWidth(null)/2);
+			targetPoint.setY(targetPoint.getY() + 65 - imageList.get(0).getHeight(null)/2);
 		} else {
-			targetPoint.setX(targetPoint.getX()+300 - imageList.get(0).getWidth(null)/2);
-			targetPoint.setY(targetPoint.getY()+65 - imageList.get(0).getHeight(null)/2);
+			targetPoint.setX(targetPoint.getX() + 300 - imageList.get(0).getWidth(null)/2);
+			targetPoint.setY(targetPoint.getY() + 65 - imageList.get(0).getHeight(null)/2);
 		}
 		double intervalX = ((double)targetPoint.getX() - (double)point.getX()) / (double)takeTime;
 		double intervalY = ((double)targetPoint.getY() - (double)point.getY()) / (double)takeTime;

@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class DoubleSlashAttackImage extends SkillImage {
 	public DoubleSlashAttackImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/doubleSlash", hunt, attacker, opponent, attackInfor, 120);
+		super("monsterSkillImage/doubleSlash", hunt, attacker, opponent, attackInfor, 120, 0);
 	}
 
 	public void run() {

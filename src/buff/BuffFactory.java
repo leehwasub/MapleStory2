@@ -1,5 +1,6 @@
 package buff;
 
+import attack.Property;
 import character.Resistance;
 import character.Strength;
 import skill.ActiveSkill;
@@ -36,7 +37,15 @@ public class BuffFactory {
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeMonsterBuff("+buffName+") 버프 생성 실패!");
 		return null;
-		
+	}
+	
+	public static Buff makeAbnormalBuff(String buffName, int last, int damage) {
+		switch(buffName) {
+		case "화상":
+			return new AbnormalBuff("burn", "화상", last, "일정 시간동안 화상 상태가 되어 불속성 데미지를 입는다", Property.PROPERTY_FIRE, damage);
+		}
+		DialogUtils.showErrorDialog("BuffFactory.makeAbnormalBuff("+buffName+") 버프 생성 실패!");
+		return null;
 	}
 	
 	public static Buff makeAdventurerBuff(Skill skill) {

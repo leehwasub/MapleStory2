@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class BlizzardChargeUseAttackImage extends SkillImage {
 	public BlizzardChargeUseAttackImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("playerSkillImage/blizzardChargeUse", hunt, attacker, opponent, attackInfor, 90);
+		super("playerSkillImage/blizzardChargeUse", hunt, attacker, opponent, attackInfor, 90, 200);
 	}
 
 	public void run() {
@@ -19,6 +19,9 @@ public class BlizzardChargeUseAttackImage extends SkillImage {
 			this.index = i;
 			System.out.println(this.index);
 			if(i == 3 || i == 4 || i == 5) {
+				hit();
+			}
+			if(opponent.getCharacter().isAlreadyBuffed("화상") && i == 6) {
 				hit();
 			}
 			try {

@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class RageUseAttackImage extends SkillImage {
 	public RageUseAttackImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("playerSkillImage/rageUse", hunt, attacker, opponent, attackInfor, 90);
+		super("playerSkillImage/rageUse", hunt, attacker, opponent, attackInfor, 90, 0);
 	}
 
 	public void run() {

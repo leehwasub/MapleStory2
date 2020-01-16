@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class BrandishUseAttackImage extends SkillImage {
 	public BrandishUseAttackImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("playerSkillImage/brandishUse", hunt, attacker, opponent, attackInfor, 120);
+		super("playerSkillImage/brandishUse", hunt, attacker, opponent, attackInfor, 120, 100);
 	}
 
 	public void run() {

@@ -22,7 +22,7 @@ public final class AbnormalBuff extends Buff{
 	}
 	
 	@Override
-	public void effect(Character character) {
+	public final void effect(Character character) {
 		
 	}
 

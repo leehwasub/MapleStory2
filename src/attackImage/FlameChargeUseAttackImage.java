@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class FlameChargeUseAttackImage extends SkillImage {
 	public FlameChargeUseAttackImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("playerSkillImage/flameChargeUse", hunt, attacker, opponent, attackInfor, 90);
+		super("playerSkillImage/flameChargeUse", hunt, attacker, opponent, attackInfor, 90, 200);
 	}
 
 	public void run() {

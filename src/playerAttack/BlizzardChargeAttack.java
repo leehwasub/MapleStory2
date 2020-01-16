@@ -13,6 +13,7 @@ import attackImage.PowerStrikeUseImage;
 import component.StateBox;
 import hunt.Hunt;
 import skill.ActiveSkill;
+import skill.BlizzardChargeSkill;
 
 public class BlizzardChargeAttack extends PlayerAttack {
 	
@@ -34,6 +35,10 @@ public class BlizzardChargeAttack extends PlayerAttack {
 		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
 		for(int i = 0; i < 3; i++) {
 			ret.add(new AttackInfor(attacker.getCharacter(), activeSkill.getProperty(), attacker.getCharacter().calNormalDamge(rate), 0, DamageType.DAMAGE_HP_TYPE));
+		}
+		if(opponent.getCharacter().isAlreadyBuffed("화상")) {
+			double extraDamageRate = (double)((BlizzardChargeSkill)activeSkill).extraEffect(activeSkill.getPoint()) / 100.0;
+			ret.add(new AttackInfor(attacker.getCharacter(), activeSkill.getProperty(), attacker.getCharacter().calNormalDamge(extraDamageRate), 0, DamageType.DAMAGE_HP_TYPE));
 		}
 		return ret;
 	}
