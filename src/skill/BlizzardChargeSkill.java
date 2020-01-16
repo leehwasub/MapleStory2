@@ -35,17 +35,6 @@ public class BlizzardChargeSkill extends ActiveSkill{
 		getElementalCombo(attacker);
 		return new BlizzardChargeAttack(hunt, attacker, opponent, this);
 	}
-	
-	private void getElementalCombo(StateBox attacker) {
-		Adventurer adventurer = (Adventurer)attacker.getCharacter();
-		ElementalChargeSkill elementalCharge = (ElementalChargeSkill)adventurer.getSkillWithName("엘리멘탈차지");
-		if(adventurer.getUsedSkill() == null ||elementalCharge == null || 
-				elementalCharge.getPoint() == 0 || elementalCharge.isHaveMaxChargeNum()) return;
-		
-		if(adventurer.getUsedSkill() instanceof FlameChargeSkill) {
-			elementalCharge.addChargeNum();
-		}
-	}
 
 	@Override
 	public int getEffect(int point) {

@@ -1,5 +1,6 @@
 package character;
 
+import hunt.FighterHuntEvent;
 import hunt.PageHuntEvent;
 import skill.SkillFactory;
 
@@ -50,6 +51,7 @@ public class AdventurerFactory {
 			adventurer.addSkill(2, SkillFactory.makeSkill("브랜디쉬"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("분노"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("콤보어택"));
+			adventurer.setHuntEvent(new FighterHuntEvent());
 			imageUrl.append("2");
 			break;
 		case "크루세이더":
@@ -104,6 +106,7 @@ public class AdventurerFactory {
 		} else if(adventurer.getSex().equals("여자")) {
 			imageUrl.append("Woman");
 		}
+		adventurer.setCareer(careerName);
 		adventurer.setImageUrl(imageUrl.toString());
 	}
 	

@@ -8,6 +8,8 @@ public class SkillFactory {
 	
 	public static Skill makeSkill(String skillName) {
 		switch(skillName) {
+		case "일반공격":
+			return new NormalSkill("hpIncreasing", "일반공격증가", 10, "일반공격이다", AttackType.OPPONENT, Property.PROPERTY_NOTHING);
 		case "HP증가":
 			return new HpIncreasingSkill("hpIncreasing", "HP증가", 10, "최대 HP가 영구적으로 증가한다");
 		case "파워스트라이크":

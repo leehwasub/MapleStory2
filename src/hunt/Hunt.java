@@ -30,6 +30,7 @@ import maplestory.Player;
 import monsterAttack.MonsterAttack;
 import playerAttack.PlayerAttack;
 import skill.ActiveSkill;
+import skill.SkillFactory;
 import utils.ResourceLoader;
 
 public class Hunt extends Thread {
@@ -241,7 +242,7 @@ public class Hunt extends Thread {
 			return;
 		}
 		if(skillName.equals("일반공격")) {
-			playerAttack = AttackFactory.makeAdventurerAttack(this, nowStateBox, monsterState, "일반공격", 0);
+			playerAttack = ((ActiveSkill)SkillFactory.makeSkill("일반공격")).skillUse(this, nowStateBox, monsterState);
 		} else {
 			playerAttack = ((ActiveSkill)player.getMainAdventurer().getSkillWithName(skillName)).skillUse(this, nowStateBox, monsterState);
 			int needMp = playerAttack.getActiveSkill().getNeedMp(playerAttack.getActiveSkill().getPoint());

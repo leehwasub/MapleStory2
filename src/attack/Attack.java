@@ -61,7 +61,7 @@ public abstract class Attack extends Thread {
 		sleep(delay);
 	}
 	
-	public void afterAttack() {
+	protected void afterAttack() {
 		this.attacker.attackBackMotion();
 		afterAttackDelay();
 		wakeUpThread();

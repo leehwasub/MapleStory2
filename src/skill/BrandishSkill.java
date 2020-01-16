@@ -27,6 +27,7 @@ public class BrandishSkill extends ActiveSkill{
 
 	@Override
 	public PlayerAttack skillUse(Hunt hunt, StateBox attacker, StateBox opponent) {
+		getComboAttack(attacker);
 		return new BrandishAttack(hunt, attacker, opponent, this);
 	}
 
@@ -39,5 +40,4 @@ public class BrandishSkill extends ActiveSkill{
 	public String getEffectDetail(int point) {
 		return "MP " + getNeedMp(point) + " 소비, " + getEffect(point) + "% 물리데미지로 두번공격";
 	}
-
 }

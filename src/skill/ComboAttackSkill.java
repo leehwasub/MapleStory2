@@ -19,7 +19,7 @@ public class ComboAttackSkill extends PassiveSkill{
 
 	@Override
 	public int getEffect(int point) {
-		return 8 * point;
+		return 12 * point;
 	}
 
 	@Override

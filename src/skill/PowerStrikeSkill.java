@@ -27,6 +27,7 @@ public class PowerStrikeSkill extends ActiveSkill{
 
 	@Override
 	public PlayerAttack skillUse(Hunt hunt, StateBox attacker, StateBox opponent) {
+		getComboAttack(attacker);
 		return new PowerStrikeAttack(hunt, attacker, opponent, this);
 	}
 
@@ -39,5 +40,5 @@ public class PowerStrikeSkill extends ActiveSkill{
 	public String getEffectDetail(int point) {
 		return "MP " + getNeedMp(point) + " 소비, " + getEffect(point) + "% 물리데미지";
 	}
-
+	
 }

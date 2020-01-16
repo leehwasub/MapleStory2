@@ -2,8 +2,10 @@ package skill;
 
 import attack.AttackType;
 import attack.Property;
+import character.Adventurer;
 import component.StateBox;
 import hunt.Hunt;
+import playerAttack.NormalAttack;
 import playerAttack.PlayerAttack;
 
 public class NormalSkill extends ActiveSkill{
@@ -26,7 +28,8 @@ public class NormalSkill extends ActiveSkill{
 
 	@Override
 	public PlayerAttack skillUse(Hunt hunt, StateBox attacker, StateBox opponent) {
-		return null;
+		getComboAttack(attacker);
+		return new NormalAttack(hunt, attacker, opponent, this);
 	}
 
 	@Override
@@ -38,5 +41,6 @@ public class NormalSkill extends ActiveSkill{
 	public String getEffectDetail(int point) {
 		return "MP " + getNeedMp(point) + " 소비, " + getEffect(point) + "% 물리데미지";
 	}
+	
 
 }
