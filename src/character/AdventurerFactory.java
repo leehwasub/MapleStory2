@@ -2,6 +2,7 @@ package character;
 
 import hunt.FighterHuntEvent;
 import hunt.PageHuntEvent;
+import hunt.SpearManHuntEvent;
 import skill.SkillFactory;
 
 public class AdventurerFactory {
@@ -89,6 +90,7 @@ public class AdventurerFactory {
 			adventurer.addSkill(2, SkillFactory.makeSkill("피어싱쓰루"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("아이언월"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("하이퍼바디"));
+			adventurer.setHuntEvent(new SpearManHuntEvent());
 			imageUrl.append("2");
 			break;
 		case "버서커":
