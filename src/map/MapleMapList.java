@@ -128,6 +128,44 @@ public class MapleMapList {
 		getMap("리스항구").addPortal(new Portal(new PointMapName(0, 0, "리스항구"), new PointMapName(3, 12, "빅토리아->오시리아승강장")));
 		getMap("빅토리아->오시리아승강장").addPortal(new Portal(new PointMapName(3, 12, "빅토리아->오시리아승강장"), new PointMapName(0, 0, "리스항구")));
 		getMap("빅토리아->오시리아승강장").addPortal(new Portal(new PointMapName(3, 0, "빅토리아->오시리아승강장"), new PointMapName(1, 1, "빅토리아->오시리아")));
+		//오시리아 대륙
+		getMap("오르비스").addPortal(new Portal(new PointMapName(2, 0, "오르비스"), new PointMapName(12, 0, "구름공원1")));
+		getMap("구름공원1").addPortal(new Portal(new PointMapName(12, 0, "구름공원1"), new PointMapName(2, 0, "오르비스")));
+		getMap("구름공원1").addPortal(new Portal(new PointMapName(10, 39, "구름공원1"), new PointMapName(12, 0, "구름공원2")));
+		getMap("구름공원2").addPortal(new Portal(new PointMapName(12, 0, "구름공원2"), new PointMapName(10, 39, "구름공원1")));
+		getMap("구름공원2").addPortal(new Portal(new PointMapName(10, 39, "구름공원2"), new PointMapName(11, 0, "하늘계단1")));
+		getMap("하늘계단1").addPortal(new Portal(new PointMapName(11, 0, "하늘계단1"), new PointMapName(10, 39, "구름공원2")));
+		getMap("하늘계단1").addPortal(new Portal(new PointMapName(9, 39, "하늘계단1"), new PointMapName(5, 0, "하늘계단2")));
+		getMap("하늘계단2").addPortal(new Portal(new PointMapName(5, 0, "하늘계단2"), new PointMapName(9, 39, "하늘계단1")));
+		getMap("하늘계단2").addPortal(new Portal(new PointMapName(8, 39, "하늘계단2"), new PointMapName(0, 0, "어둠의공원")));
+		getMap("오르비스").addPortal(new Portal(new PointMapName(21, 24, "오르비스"), new PointMapName(0, 5, "오르비스탑상층")));
+		getMap("오르비스탑상층").addPortal(new Portal(new PointMapName(0, 5, "오르비스탑상층"), new PointMapName(21, 24, "오르비스")));
+		getMap("오르비스탑상층").addPortal(new Portal(new PointMapName(55, 5, "오르비스탑상층"), new PointMapName(0, 5, "오르비스탑하층")));
+		getMap("오르비스탑하층").addPortal(new Portal(new PointMapName(0, 5, "오르비스탑하층"), new PointMapName(55, 5, "오르비스탑상층")));
+		getMap("오르비스탑하층").addPortal(new Portal(new PointMapName(55, 5, "오르비스탑하층"), new PointMapName(10, 0, "얼음벌판")));
+		getMap("얼음벌판").addPortal(new Portal(new PointMapName(10, 0, "얼음벌판"), new PointMapName(55, 5, "오르비스탑하층")));
+		getMap("얼음벌판").addPortal(new Portal(new PointMapName(4, 34, "얼음벌판"), new PointMapName(6, 0, "엘나스")));
+		getMap("엘나스").addPortal(new Portal(new PointMapName(6, 0, "엘나스"), new PointMapName(4, 34, "얼음벌판")));
+		getMap("엘나스").addPortal(new Portal(new PointMapName(4, 29, "엘나스"), new PointMapName(9, 0, "빙판길")));
+		getMap("빙판길").addPortal(new Portal(new PointMapName(9, 0, "빙판길"), new PointMapName(4, 29, "엘나스")));
+		getMap("빙판길").addPortal(new Portal(new PointMapName(4, 34, "빙판길"), new PointMapName(44, 1, "위험한골짜기1")));
+		getMap("위험한골짜기1").addPortal(new Portal(new PointMapName(44, 1, "위험한골짜기1"), new PointMapName(4, 34, "빙판길")));
+		getMap("위험한골짜기1").addPortal(new Portal(new PointMapName(0, 4, "위험한골짜기1"), new PointMapName(44, 8, "위험한골짜기2")));
+		getMap("위험한골짜기2").addPortal(new Portal(new PointMapName(44, 8, "위험한골짜기2"), new PointMapName(0, 4, "위험한골짜기1")));
+		getMap("위험한골짜기2").addPortal(new Portal(new PointMapName(0, 3, "위험한골짜기2"), new PointMapName(44, 9, "늑대의영역")));
+		getMap("늑대의영역").addPortal(new Portal(new PointMapName(44, 9, "늑대의영역"), new PointMapName(0, 3, "위험한골짜기2")));
+		getMap("늑대의영역").addPortal(new Portal(new PointMapName(0, 4, "늑대의영역"), new PointMapName(6, 0, "시련의동굴")));
+		getMap("시련의동굴").addPortal(new Portal(new PointMapName(6, 0, "시련의동굴"), new PointMapName(0, 4, "늑대의영역")));
+		getMap("시련의동굴").addPortal(new Portal(new PointMapName(24, 39, "시련의동굴"), new PointMapName(3, 0, "자쿰의제단입구")));
+		getMap("자쿰의제단입구").addPortal(new Portal(new PointMapName(3, 0, "자쿰의제단입구"), new PointMapName(24, 39, "시련의동굴")));
+		getMap("자쿰의제단입구").addPortal(new Portal(new PointMapName(3, 13, "자쿰의제단입구"), new PointMapName(0, 0, "자쿰의제단")));
+		//니할사막
+		
+		
+		//리프레숲
+		
+		
+		//시간의신전
 	}
 
 	public MapleMap getMap(String mapName) {
