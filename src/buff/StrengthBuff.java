@@ -40,5 +40,12 @@ public final class StrengthBuff extends Buff{
 		str.addEvasionRate(this.strength.getEvasionRate());
 		str.addCriticalRate(this.strength.getCriticalRate());
 	}
+	
+	@Override
+	public boolean isDebuff() {
+		return (strength.getMaxHp() < 0 || strength.getMaxMp() < 0 || strength.getPhysicalDamage() < 0 || strength.getPhysicalDefense() < 0
+				|| strength.getMagicDamage() < 0 || strength.getMagicDefense() < 0 || strength.getAccuracyRate() < 0 
+				|| strength.getEvasionRate() < 0 || strength.getCriticalRate() < 0);
+	}
 
 }

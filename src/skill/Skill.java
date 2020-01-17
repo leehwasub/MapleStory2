@@ -6,6 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.io.Serializable;
 
+import character.Adventurer;
 import map.Point;
 import utils.ColorUtils;
 import utils.FontUtils;
@@ -161,6 +162,14 @@ public abstract class Skill implements Serializable {
 			return true;
 		}
 		return false;
+	}
+	
+	public String requiredSkillInfor() {
+		return "";
+	}
+	
+	public boolean isCanUpgrade(Adventurer adventurer) {
+		return true;
 	}
 
 	@Override

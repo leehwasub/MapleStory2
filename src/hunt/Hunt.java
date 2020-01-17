@@ -70,6 +70,7 @@ public class Hunt extends Thread {
 		this.adventurerState = stateBoxAdventurer;
 		this.turnQueue.add(stateBoxAdventurer);
 		playerHuntEvent = adventurer.getHuntEvent();
+		adventurer.resetAllSkillCoolTime();
 		
 		StateBox stateBoxMonster = new StateBox(870, StateBox.STATE_BOX_Y[1], monster, 1, panel, mainMapleInterface);
 		this.monster = monster;
@@ -151,26 +152,61 @@ public class Hunt extends Thread {
 		}
 		return 0;
 	}
+	
+	public void rightBeforeTurn() {
+		nowStateBox.getCharacter().getAbnormalBuffDamage();
+		nowStateBox.getCharacter().buffLastOneTurn();
+		nowStateBox.getCharacter().calState();
+		nowStateBox.updateStateBox();
+		if(nowStateBox.getCharacter() instanceof Adventurer) {
+			((Adventurer)nowStateBox.getCharacter()).subAllSkillCoolTime();
+		}
+		mInterface.setQuickSkillEnabled();
+	}
+	
+	public int checkDead() {
+		if (this.turnQueue.peek().getCharacter().isDead()) {
+			if (this.turnQueue.peek().getCharacter() instanceof Monster) {
+				this.monsterDead += 1;
+			} else {
+				this.playerDead += 1;
+			}
+			this.turnQueue.poll();
+		}
+		return isCheckEnd();
+	}
+	
+	public int checkDeadBeforeTurn() {
+		if(nowStateBox.getCharacter().isDead()) {
+			if (nowStateBox.getCharacter() instanceof Monster) {
+				this.monsterDead += 1;
+			} else {
+				this.playerDead += 1;
+			}
+		}
+		return isCheckEnd();
+	}
 
 	public void run() {
 		while(true) {
-			if (this.turnQueue.peek().getCharacter().isDead()) {
-				if (this.turnQueue.peek().getCharacter() instanceof Monster) {
-					this.monsterDead += 1;
-				} else {
-					this.playerDead += 1;
-				}
-				this.turnQueue.poll();
-			}
-			if (isCheckEnd() != 0) {
-				break;
-			}
+			if(checkDead() != 0) break;
+			
 			Character character = turnQueue.peek().getCharacter();
 			nowStateBox = turnQueue.peek();
 			turnQueue.add(turnQueue.peek());
 			turnQueue.poll();
-			nowStateBox.getCharacter().buffLastOneTurn();
-			nowStateBox.getCharacter().calState();
+			
+			rightBeforeTurn();
+			
+			if(checkDeadBeforeTurn() != 0) {
+				try {
+					sleep(500);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				break;
+			}
+			
 			if ((character instanceof Monster)) {
 				Monster turnMonster = (Monster) character;
 				this.monsterAttack = turnMonster.attack(this, this.nowStateBox, this.adventurerState);
@@ -216,6 +252,7 @@ public class Hunt extends Thread {
 			nowStateBox.getCharacter().calState();
 		}
 		
+		((Adventurer)adventurerState.getCharacter()).resetAllSkillCoolTime();
 		this.isEnd = true;
 		String getItemInfor = null;
 		if (this.winFlag) {
@@ -251,9 +288,17 @@ public class Hunt extends Thread {
 				playerAttack = null;
 				return;
 			}
+			if(!playerAttack.getActiveSkill().isCanUseSkill()) {
+				this.mInterface.pushMessage(new Message("지금은 사용할 수 없는 스킬입니다.", Color.RED, true));
+				playerAttack = null;
+				return;
+			}
 			player.getMainAdventurer().spendMp(needMp);
 			adventurerState.updateStateBox();
 		}
+		//succeed using the skill
+		playerAttack.getActiveSkill().setFullCoolTime();
+		mInterface.setQuickSkillEnabled();
 		player.getMainAdventurer().setUsedSkill(playerAttack.getActiveSkill());
 		player.setCanUseSkill(false);
 		player.setCanUsePortion(false);
@@ -279,7 +324,8 @@ public class Hunt extends Thread {
 	}
 
 	public void end() {
-		this.mInterface.endHunt();
+		mInterface.setQuickSkillEnabled();
+		mInterface.endHunt();
 	}
 
 	public void setVisibleTrueComponent() {

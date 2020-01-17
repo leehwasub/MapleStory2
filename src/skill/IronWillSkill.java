@@ -2,6 +2,7 @@ package skill;
 
 import attack.AttackType;
 import attack.Property;
+import character.Adventurer;
 import component.StateBox;
 import hunt.Hunt;
 import playerAttack.IronWillAttack;
@@ -34,6 +35,7 @@ public class IronWillSkill extends ActiveSkill{
 	public int getEffect(int point) {
 		return point * 15;
 	}
+	
 
 	@Override
 	public String getEffectDetail(int point) {

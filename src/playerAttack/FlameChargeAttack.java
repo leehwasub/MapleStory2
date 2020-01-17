@@ -6,6 +6,7 @@ import attack.AttackInfor;
 import attack.DamageType;
 import attackImage.BrandishHitImage;
 import attackImage.BrandishUseImage;
+import attackImage.FlameChargeHitImage;
 import attackImage.FlameChargeUseImage;
 import attackImage.PowerStrikeHitImage;
 import attackImage.PowerStrikeUseImage;
@@ -24,7 +25,8 @@ public class FlameChargeAttack extends PlayerAttack {
 	public void run() {
 		attacker.attackForwardMotion();
 
-		addSkillImageThread(new FlameChargeUseImage(hunt, attacker, opponent, makeAttackInfor()));
+		addSkillImageThread(new FlameChargeUseImage(hunt, attacker, opponent, makeAttackInfor()),
+				new FlameChargeHitImage(hunt, opponent, opponent, null));
 		makeBurnBuff();
 		afterAttack();
 	}
@@ -34,7 +36,7 @@ public class FlameChargeAttack extends PlayerAttack {
 		int burnLast = ((FlameChargeSkill)activeSkill).getLast(activeSkill.getPoint());
 		int burn100Rate = (int)(Math.random() *  99) + 1;
 		if(burn100Rate <= burnRate) {
-			double burnDamageRate = ((FlameChargeSkill)activeSkill).burnEffect(activeSkill.getPoint());
+			double burnDamageRate = ((FlameChargeSkill)activeSkill).burnEffect(activeSkill.getPoint()) / 100.0;
 			opponent.getCharacter().addBuff(BuffFactory.makeAbnormalBuff("화상", burnLast, attacker.getCharacter().calNormalDamge(burnDamageRate)));
 		}
 	}

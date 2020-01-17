@@ -20,4 +20,10 @@ public class SpecialBuff extends Buff{
 		
 	}
 
+	@Override
+	public boolean isDebuff() {
+		return true;
+	}
+
+	
 }

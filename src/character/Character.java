@@ -8,6 +8,8 @@ import javax.swing.ImageIcon;
 
 import attack.AttackInfor;
 import attack.Hit;
+import attack.Property;
+import buff.AbnormalBuff;
 import buff.Buff;
 import buff.StrengthBuff;
 import utils.ResourceLoader;
@@ -68,7 +70,7 @@ public abstract class Character implements Serializable{
 			System.out.println(damage + " " + this.curHp);
 			d = Math.max(0, damage.getPhysicalDamage() - this.strength.getPhysicalDefense());
 			d += Math.max(1, damage.getMagicDamage() - this.strength.getMagicDefense());
-			d = calResistenceDamage(d, damage);
+			d = calResistenceDamage(d, damage.getProperty());
 
 			int calCritical = (int)(Math.random() * 100) + 1;
 			if(opponentStr.getCriticalRate() >= calCritical) {
@@ -86,11 +88,11 @@ public abstract class Character implements Serializable{
 		}
 		return new Hit(d, damage.getDamageType(), isCritical);
 	}
-
-	public int calResistenceDamage(int d, AttackInfor damage) {
+	
+	public int calResistenceDamage(int d, Property property) {
 		Resistance resistance = this.strength.getResistance();
 		int resist = 100;
-		switch (damage.getProperty()) {
+		switch (property) {
 		case PROPERTY_DARK:
 			resist = resistance.getFire();
 			break;
@@ -171,6 +173,15 @@ public abstract class Character implements Serializable{
 	public int getCurMp() {
 		return this.curMp;
 	}
+	
+	public void subCurHp(int damage) {
+		curHp = Math.max(curHp - damage, 0);
+		if(curHp == 0) isDead = true;
+	}
+
+	public void subCurMp(int damage) {
+		curMp = Math.max(curMp - damage, 0);
+	}
 
 	public int getMinPhysicalDamage() {
 		return this.minPhysicalDamage;
@@ -244,6 +255,15 @@ public abstract class Character implements Serializable{
 		if(buffList == null || buffList.size() == 0) return;
 		for(int i = 0; i < buffList.size(); i++) {
 			if(buffList.get(i) instanceof StrengthBuff) {
+				buffList.get(i).effect(this);
+			}
+		}
+	}
+	
+	public void getAbnormalBuffDamage() {
+		if(buffList == null || buffList.size() == 0) return;
+		for(int i = 0; i < buffList.size(); i++) {
+			if(buffList.get(i) instanceof AbnormalBuff) {
 				buffList.get(i).effect(this);
 			}
 		}

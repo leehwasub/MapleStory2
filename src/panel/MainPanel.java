@@ -639,4 +639,9 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		hunt.playerSetAttack(skillName);
 	}
 
+	@Override
+	public void setQuickSkillEnabled() {
+		quickButtonPanel.setQuickSkillEnabled();
+	}
+
 }

@@ -22,6 +22,7 @@ public abstract class Buff {
 
 	public abstract void draw(Graphics2D g);
 	public abstract void effect(Character character);
+	public abstract boolean isDebuff();
 
 	public String getName() {
 		return name;

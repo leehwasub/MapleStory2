@@ -58,6 +58,18 @@ public class HyperBodySkill extends ActiveSkill{
 	public int getCreMp() {
 		return creMp;
 	}
+	
+	@Override
+	public String requiredSkillInfor() {
+		return "선행스킬 : 아이언월 3이상";
+	}
+	
+	@Override
+	public boolean isCanUpgrade(Adventurer adventurer) {
+		ActiveSkill ironWillSkill = (ActiveSkill)adventurer.getSkillWithName("아이언월");
+		if(ironWillSkill == null || ironWillSkill.getPoint() < 3) return false;
+		return true;
+	}
 
 	@Override
 	public String getEffectDetail(int point) {

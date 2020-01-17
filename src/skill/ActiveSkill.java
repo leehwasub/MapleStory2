@@ -30,7 +30,6 @@ public abstract class ActiveSkill extends Skill {
 		this.coolTime = coolTime;
 	}
 	
-	
 	protected final void getElementalCombo(StateBox attacker) {
 		Adventurer adventurer = (Adventurer)attacker.getCharacter();
 		ElementalChargeSkill elementalCharge = (ElementalChargeSkill)adventurer.getSkillWithName("엘리멘탈차지");
@@ -86,7 +85,7 @@ public abstract class ActiveSkill extends Skill {
 		return "ActiveSkill [attackType=" + attackType + ", property=" + property + "]";
 	}
 	
-	public void resetCoolTime() {
+	public void setFullCoolTime() {
 		curCoolTime = coolTime;
 	}
 	
@@ -94,6 +93,10 @@ public abstract class ActiveSkill extends Skill {
 		if(curCoolTime >= 1) {
 			curCoolTime--;
 		}
+	}
+	
+	public void resetCoolTime() {
+		curCoolTime = 0;
 	}
 
 	public boolean isCanUseSkill() {

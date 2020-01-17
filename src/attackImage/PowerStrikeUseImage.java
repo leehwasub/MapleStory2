@@ -23,6 +23,7 @@ public class PowerStrikeUseImage extends SkillImage {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			if(i == this.imageList.size() - 1) hit();
 		}
 	}
 }

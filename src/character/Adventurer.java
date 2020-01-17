@@ -8,6 +8,7 @@ import hunt.HuntEvent;
 import item.ConsumableItem;
 import item.EquipmentItem;
 import maplestory.Main;
+import skill.ActiveSkill;
 import skill.PassiveSkill;
 import skill.Skill;
 import utils.ExpUtils;
@@ -22,9 +23,7 @@ public class Adventurer extends Character implements Serializable {
 	private EquipmentItem[] wearEquipment = new EquipmentItem[8];
 	private Skill[] quickSkill = new Skill[QUICK_SKILL_ARRAY_SIZE];
 	private ConsumableItem[] quickItem = new ConsumableItem[QUICK_ITEM_ARRAY_SIZE];
-	private ArrayList<Skill> oneLevelSkillList = new ArrayList<Skill>();
-	private ArrayList<Skill> twoLevelSkillList = new ArrayList<Skill>();
-	private ArrayList<Skill> threeLevelSkillList = new ArrayList<Skill>();
+	private ArrayList<ArrayList<Skill>> skillList = new ArrayList<ArrayList<Skill>>();
 	private Status status;
 	private int proficiency;
 	private int skillPoint;
@@ -43,6 +42,9 @@ public class Adventurer extends Character implements Serializable {
 		this.status = status;
 		this.career = career;
 		this.huntEvent = new EmptyHuntEvent();
+		for(int i = 0; i < 3; i++) {
+			skillList.add(new ArrayList<Skill>());
+		}
 	}
 
 	public void calState() {
@@ -105,20 +107,11 @@ public class Adventurer extends Character implements Serializable {
 	}
 	
 	public void calPassiveSkillState() {
-		for(int i = 0; i < oneLevelSkillList.size(); i++) {
-			if(oneLevelSkillList.get(i) instanceof PassiveSkill) {
-				((PassiveSkill)oneLevelSkillList.get(i)).calStateEffect(this);
-			}
-		}
-		for(int i = 0; i < twoLevelSkillList.size(); i++) {
-			if(twoLevelSkillList.get(i) instanceof PassiveSkill) {
-				((PassiveSkill)twoLevelSkillList.get(i)).calStateEffect(this);
-			}
-	
-		}
-		for(int i = 0; i < threeLevelSkillList.size(); i++) {
-			if(threeLevelSkillList.get(i) instanceof PassiveSkill) {
-				((PassiveSkill)threeLevelSkillList.get(i)).calStateEffect(this);
+		for(int i = 0; i < skillList.size(); i++) {
+			for(int j = 0; j < skillList.get(i).size(); j++) {
+				if(skillList.get(i).get(j) instanceof PassiveSkill) {
+					((PassiveSkill)skillList.get(i).get(j)).calStateEffect(this);
+				}
 			}
 		}
 	}
@@ -307,80 +300,73 @@ public class Adventurer extends Character implements Serializable {
 	 * @return 스킬 목록
 	 */
 	public ArrayList<Skill> getSkillList(int level) {
-		ArrayList<Skill> ret = null;
-		switch(level) {
-		case 1:
-			ret = oneLevelSkillList;
-			break;
-		case 2:
-			ret = twoLevelSkillList;
-			break;
-		case 3:
-			ret = threeLevelSkillList;
-			break;
-		}
-		return ret;
+		--level;
+		return skillList.get(level);
 	}
 	
-	
+	/**
+	 * 
+	 * @param level 몇차 전직 인지
+	 * @param skill 추가할 스킬 본체
+	 */
 	public void addSkill(int level, Skill skill) {
-		switch(level) {
-		case 1:
-			oneLevelSkillList.add(skill);
-			break;
-		case 2:
-			twoLevelSkillList.add(skill);
-			break;
-		case 3:
-			threeLevelSkillList.add(skill);
-			break;
-		}
+		--level;
+		skillList.get(level).add(skill);
 	}
 	
 	public Skill getSkillWithLevelIndex(int level, int index) {
-		switch(level) {
-		case 1:
-			return oneLevelSkillList.get(index);
-		case 2:
-			return twoLevelSkillList.get(index);
-		case 3:
-			return threeLevelSkillList.get(index);
-		}
-		return null;
+		--level;
+		return skillList.get(level).get(index);
 	}
 
 	public Skill getSkillWithName(String skillName) {
-		for(int i = 0; i < oneLevelSkillList.size(); i++) {
-			if(oneLevelSkillList.get(i).getName().equals(skillName)) {
-				return oneLevelSkillList.get(i);
-			}
-		}
-		for(int i = 0; i < twoLevelSkillList.size(); i++) {
-			if(twoLevelSkillList.get(i).getName().equals(skillName)) {
-				return twoLevelSkillList.get(i);
-			}
-		}
-		for(int i = 0; i < threeLevelSkillList.size(); i++) {
-			if(threeLevelSkillList.get(i).getName().equals(skillName)) {
-				return threeLevelSkillList.get(i);
+		for(int i = 0; i < skillList.size(); i++) {
+			for(int j = 0; j < skillList.get(i).size(); j++) {
+				if(skillList.get(i).get(j).getName().equals(skillName)) {
+					return skillList.get(i).get(j);
+				}
 			}
 		}
 		return null;
 	}
 
 	public void setAllSkillImageForInit() {
-		for(int i = 0; i < oneLevelSkillList.size(); i++) {
-			oneLevelSkillList.get(i).setSkillImageForInit();
-		}
-		for(int i = 0; i < twoLevelSkillList.size(); i++) {
-			twoLevelSkillList.get(i).setSkillImageForInit();
-		}
-		for(int i = 0; i < threeLevelSkillList.size(); i++) {
-			threeLevelSkillList.get(i).setSkillImageForInit();
+		for(int i = 0; i < skillList.size(); i++) {
+			for(int j = 0; j < skillList.get(i).size(); j++) {
+				skillList.get(i).get(j).setSkillImageForInit();
+			}
 		}
 	}
 	
+	public void setAllSkillFullCoolTime() {
+		for(int i = 0; i < skillList.size(); i++) {
+			for(int j = 0; j < skillList.get(i).size(); j++) {
+				if(skillList.get(i).get(j) instanceof ActiveSkill) {
+					((ActiveSkill)skillList.get(i).get(j)).setFullCoolTime();
+				}
+			}
+		}
+	}
 	
+	public void resetAllSkillCoolTime() {
+		for(int i = 0; i < skillList.size(); i++) {
+			for(int j = 0; j < skillList.get(i).size(); j++) {
+				if(skillList.get(i).get(j) instanceof ActiveSkill) {
+					((ActiveSkill)skillList.get(i).get(j)).resetCoolTime();
+				}
+			}
+		}
+	}
+	
+	public void subAllSkillCoolTime() {
+		for(int i = 0; i < skillList.size(); i++) {
+			for(int j = 0; j < skillList.get(i).size(); j++) {
+				if(skillList.get(i).get(j) instanceof ActiveSkill) {
+					((ActiveSkill)skillList.get(i).get(j)).subCoolTime();
+				}
+			}
+		}
+	}
 
 	
 }

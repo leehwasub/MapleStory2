@@ -1,5 +1,6 @@
 package buff;
 
+import attack.DamageType;
 import attack.Property;
 import character.Resistance;
 import character.Strength;
@@ -43,7 +44,7 @@ public class BuffFactory {
 	public static Buff makeAbnormalBuff(String buffName, int last, int damage) {
 		switch(buffName) {
 		case "화상":
-			return new AbnormalBuff("burn", "화상", last, "일정 시간동안 화상 상태가 되어 불속성 데미지를 입는다", Property.PROPERTY_FIRE, damage);
+			return new AbnormalBuff("burn", "화상", last, "일정 시간동안 화상 상태가 되어 불속성 데미지를 입는다", Property.PROPERTY_FIRE, damage, DamageType.DAMAGE_HP_TYPE);
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeAbnormalBuff("+buffName+") 버프 생성 실패!");
 		return null;

@@ -22,6 +22,7 @@ import maplestory.Player;
 import skill.ActiveSkill;
 import skill.PassiveSkill;
 import skill.Skill;
+import utils.DialogUtils;
 import utils.FontUtils;
 import utils.ResourceLoader;
 
@@ -107,10 +108,13 @@ public class InventorySkillPanel extends JPanel {
 				@Override
 				public void mousePressed(MouseEvent e) {
 					if(player.getMainAdventurer().getSkillPoint() >= 1) {
+						if(!skillButton[level][index].getSkill().isCanUpgrade(player.getMainAdventurer())) {
+							DialogUtils.showWarningDialog(skillButton[level][index].getSkill().requiredSkillInfor());
+							return;
+						}
 						boolean isUp = skillButton[level][index].addSkillPoint();
 						if(isUp) {
 							if(skillButton[level][index].getSkill() instanceof PassiveSkill) {
-								System.out.println("???????");
 								((PassiveSkill)skillButton[level][index].getSkill()).skillUpEffect(player.getMainAdventurer());
 								player.calState();
 							}

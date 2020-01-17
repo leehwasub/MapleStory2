@@ -11,7 +11,7 @@ import skill.ElementalChargeSkill;
 import utils.ColorUtils;
 import utils.FontUtils;
 
-public class FighterHuntEvent implements HuntEvent, Serializable{
+public class FighterHuntEvent extends EmptyHuntEvent implements HuntEvent, Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private static final int LINE_THINKNESS = 2;

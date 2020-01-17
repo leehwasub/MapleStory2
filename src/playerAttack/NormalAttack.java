@@ -27,7 +27,6 @@ public class NormalAttack extends PlayerAttack {
 		this.damage = damage.getDamage();
 		this.hunt.addDamageText(damage, this.opponent);
 		opponent.updateStateBox();
-		sleep(250);
 		afterAttack();
 	}
 

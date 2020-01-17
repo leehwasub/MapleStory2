@@ -26,7 +26,6 @@ public class TackleAttack extends MonsterAttack {
 		MusicUtils.startEffectSound("monsterAttack1");
 		this.hunt.addDamageText(hit, opponent);
 		this.opponent.updateStateBox(); 
-		sleep(250);
 		afterAttack();
 	}
 	

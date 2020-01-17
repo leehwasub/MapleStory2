@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import skill.ActiveSkill;
 import skill.Skill;
 import utils.MusicUtils;
 import utils.ResourceLoader;
@@ -56,20 +57,31 @@ public class QuickSkillButton extends JButton {
 		setFocusable(false);
 		addMouseListener(new MouseAdapter() {
 			public void mouseEntered(MouseEvent e) {
-				QuickSkillButton.this.setCursor(new Cursor(12));
-				QuickSkillButton.this.isEntered = true;
+				setCursor(new Cursor(12));
+				isEntered = true;
 			}
 
 			public void mouseExited(MouseEvent e) {
-				QuickSkillButton.this.setCursor(new Cursor(0));
-				QuickSkillButton.this.setIcon(QuickSkillButton.this.buttonImage);
-				QuickSkillButton.this.isEntered = false;
+				setCursor(new Cursor(0));
+				setIcon(QuickSkillButton.this.buttonImage);
+				isEntered = false;
 			}
 
 			public void mousePressed(MouseEvent e) {
 				MusicUtils.startEffectSound("ButtonPressed");
 			}
 		});
+	}
+	
+	public void setSkillButtonEnabled() {
+		if(skill != null && skill instanceof ActiveSkill) {
+			ActiveSkill activeSkill = (ActiveSkill)skill;
+			if(activeSkill.isCanUseSkill()) {
+				setEnabled(true);
+			} else {
+				setEnabled(false);
+			}
+		}
 	}
 
 	public boolean drawInfor(Graphics2D g) {

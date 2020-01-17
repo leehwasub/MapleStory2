@@ -7,6 +7,7 @@ import java.util.Collections;
 
 import javax.swing.ImageIcon;
 
+import attack.Attack;
 import attack.AttackInfor;
 import attack.Hit;
 import character.Character;
@@ -33,6 +34,12 @@ public abstract class SkillImage extends Thread {
 	protected int totalDelay;
 	protected int totalDamage;
 	protected int attackNum;
+	
+	protected HitListener hitListener;
+	
+	public interface HitListener{
+		public void hit();
+	}
 
 	public SkillImage(String root, Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor, int delay, int modifyX, int modifyY) {
 		this.delay = delay;
@@ -75,6 +82,9 @@ public abstract class SkillImage extends Thread {
 	}
 	
 	public void hit() {
+		if(attackNum == 0 && hitListener != null) {
+			hitListener.hit();
+		}
 		Hit hit = opponent.getCharacter().hit(attackInfor.get(attackNum));
 		opponent.updateStateBox();
 		hunt.addDamageText(hit, opponent);
@@ -82,6 +92,10 @@ public abstract class SkillImage extends Thread {
 		if(attackNum + 1 < attackInfor.size()) {
 			attackNum++;
 		}
+	}
+	
+	public void addHitImage(Attack attack) {
+		
 	}
 
 	public void run() {
@@ -148,9 +162,18 @@ public abstract class SkillImage extends Thread {
 		this.totalDamage = totalDamage;
 	}
 
+	public HitListener getHitListener() {
+		return hitListener;
+	}
+
+	public void setHitListener(HitListener hitListener) {
+		this.hitListener = hitListener;
+	}
+
 	public void draw(Graphics2D g) {
 		if ((this.imageList != null) && (this.index < this.imageList.size()) && (this.isAlive())) {
 			g.drawImage((Image) this.imageList.get(this.index), this.point.getX(), this.point.getY(), null);
 		}
 	}
+
 }

@@ -8,6 +8,7 @@ import attackImage.BlizzardChargeUseImage;
 import attackImage.BrandishHitImage;
 import attackImage.BrandishUseImage;
 import attackImage.FlameChargeUseImage;
+import attackImage.PiercingDriveHitImage;
 import attackImage.PiercingDriveUseImage;
 import attackImage.PowerStrikeHitImage;
 import attackImage.PowerStrikeUseImage;
@@ -25,7 +26,8 @@ public class PiercingDriveAttack extends PlayerAttack {
 	public void run() {
 		attacker.attackForwardMotion();
 
-		addSkillImageThread(new PiercingDriveUseImage(hunt, attacker, opponent, makeAttackInfor()));
+		addSkillImageThread(new PiercingDriveUseImage(hunt, attacker, opponent, makeAttackInfor()),
+				new PiercingDriveHitImage(hunt, opponent, opponent, null));
 		
 		afterAttack();
 	}

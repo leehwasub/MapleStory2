@@ -21,8 +21,8 @@ public class BrandishAttack extends PlayerAttack {
 	public void run() {
 		attacker.attackForwardMotion();
 
-		addSkillImageThread(new BrandishUseImage(hunt, attacker, opponent, makeAttackInfor()));
-		
+		addSkillImageThread(new BrandishUseImage(hunt, attacker, opponent, makeAttackInfor()), 
+				new BrandishHitImage(hunt, opponent, opponent, null));
 		afterAttack();
 	}
 
