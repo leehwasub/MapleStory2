@@ -27,7 +27,7 @@ public class PiercingDriveAttack extends PlayerAttack {
 		attacker.attackForwardMotion();
 
 		addSkillImageThread(new PiercingDriveUseImage(hunt, attacker, opponent, makeAttackInfor()),
-				new PiercingDriveHitImage(hunt, opponent, opponent, null));
+				new PiercingDriveHitImage(hunt, opponent, opponent, null), false);
 		
 		afterAttack();
 	}

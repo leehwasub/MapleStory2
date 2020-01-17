@@ -54,17 +54,21 @@ public abstract class Attack extends Thread {
 		}
 	}
 	
-	public void addSkillImageThread(SkillImage skillImage) {
+	public void addSkillImageThread(SkillImage skillImage, boolean isNowDelay) {
 		int delay = skillImage.getTotalDelay();
 		Thread thread = new Thread(()-> {
 			skillImage.start();
 			addSkillImage(skillImage);
 		});
 		thread.start();
-		this.skillDelay += delay;
+		if(isNowDelay) {
+			sleep(delay);
+		} else {
+			this.skillDelay += delay;
+		}
 	}
 	
-	public void addSkillImageThread(SkillImage skillImage, SkillImage hitImage) {
+	public void addSkillImageThread(SkillImage skillImage, SkillImage hitImage, boolean isNowDelay) {
 		int delay = skillImage.getTotalDelay();
 		Thread thread = new Thread(()-> {
 			skillImage.start();
@@ -77,7 +81,11 @@ public abstract class Attack extends Thread {
 			});
 		});
 		thread.start();
-		this.skillDelay += delay;
+		if(isNowDelay) {
+			sleep(delay);
+		} else {
+			this.skillDelay += delay;
+		}
 	}
 	
 	public void addHitImageThread(SkillImage hitImage) {
@@ -89,8 +97,7 @@ public abstract class Attack extends Thread {
 	}
 	
 	protected void afterAttack() {
-		sleep(250);
-		sleep(skillDelay);
+		sleep(skillDelay + 250);
 		this.attacker.attackBackMotion();
 		afterAttackDelay();
 		wakeUpThread();

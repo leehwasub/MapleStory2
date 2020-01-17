@@ -24,6 +24,7 @@ public class flameShootBallMovableImage extends MovableSkillImage {
 				}
 			}
 		}
+		hit();
 	}
 	
 }

@@ -20,7 +20,7 @@ public class RageAttack extends PlayerAttack {
 		this.attacker.attackForwardMotion();
 		
 		attacker.getCharacter().addBuff(BuffFactory.makeAdventurerBuff(activeSkill));
-		addSkillImageThread(new RageUseImage(hunt, attacker, opponent, null));
+		addSkillImageThread(new RageUseImage(hunt, attacker, opponent, null), false);
 		
 		afterAttack();
 	}

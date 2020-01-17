@@ -19,9 +19,8 @@ public class FlameShootAttack extends MonsterAttack {
 
 	public void run() {
 		this.attacker.attackForwardMotion();
-		addSkillImageThread(new flameShootUseImage(hunt, attacker, opponent, null));
-		addSkillImageThread(new flameShootBallMovableImage(hunt, attacker, opponent, null));
-		addSkillImageThread(new flameShootHitImage(hunt, opponent, opponent, makeAttackInfor()));
+		addSkillImageThread(new flameShootUseImage(hunt, attacker, opponent, null), true);
+		addSkillImageThread(new flameShootBallMovableImage(hunt, attacker, opponent, makeAttackInfor()), new flameShootHitImage(hunt, opponent, opponent, null), false);
 		afterAttack();
 	}
 	

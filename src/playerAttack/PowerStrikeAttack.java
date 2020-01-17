@@ -18,7 +18,8 @@ public class PowerStrikeAttack extends PlayerAttack {
 	
 	public void run() {
 		attacker.attackForwardMotion();
-		addSkillImageThread(new PowerStrikeUseImage(hunt, attacker, opponent, makeAttackInfor()), new PowerStrikeHitImage(hunt, opponent, opponent, null));
+		addSkillImageThread(new PowerStrikeUseImage(hunt, attacker, opponent, makeAttackInfor()), 
+				new PowerStrikeHitImage(hunt, opponent, opponent, null), false);
 		afterAttack();
 	}
 

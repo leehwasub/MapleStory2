@@ -26,7 +26,7 @@ public class BlizzardChargeAttack extends PlayerAttack {
 		attacker.attackForwardMotion();
 
 		addSkillImageThread(new BlizzardChargeUseImage(hunt, attacker, opponent, makeAttackInfor()),
-				new BlizzardChargeHitImage(hunt, opponent, opponent, null));
+				new BlizzardChargeHitImage(hunt, opponent, opponent, null), false);
 		
 		afterAttack();
 	}

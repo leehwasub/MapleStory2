@@ -19,8 +19,7 @@ public class SwordAttack extends MonsterAttack {
 
 	public void run() {
 		this.attacker.attackForwardMotion();
-		addSkillImageThread(new SwordUseImage(hunt, attacker, opponent, null));
-		addSkillImageThread(new SwordHitImage(hunt, opponent, opponent, makeAttackInfor()));
+		addSkillImageThread(new SwordUseImage(hunt, attacker, opponent, makeAttackInfor()), new SwordHitImage(hunt, opponent, opponent, null), false);
 		afterAttack();
 	}
 	

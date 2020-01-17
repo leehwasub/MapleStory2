@@ -17,7 +17,7 @@ public class DoubleSlashAttack extends MonsterAttack {
 
 	public void run() {
 		this.attacker.attackForwardMotion();
-		addSkillImageThread(new DoubleSlashImage(hunt, attacker, opponent, makeAttackInfor()));
+		addSkillImageThread(new DoubleSlashImage(hunt, attacker, opponent, makeAttackInfor()), false);
 		afterAttack();
 	}
 	

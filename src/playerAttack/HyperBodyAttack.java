@@ -24,7 +24,7 @@ public class HyperBodyAttack extends PlayerAttack {
 		
 		setIncre();
 		attacker.getCharacter().addBuff(BuffFactory.makeAdventurerBuff(activeSkill));
-		addSkillImageThread(new hyperBodyUseImage(hunt, attacker, opponent, null));
+		addSkillImageThread(new hyperBodyUseImage(hunt, attacker, opponent, null), false);
 		
 		afterAttack();
 	}

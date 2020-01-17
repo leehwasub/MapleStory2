@@ -24,5 +24,6 @@ public class SwordUseImage extends SkillImage {
 				e.printStackTrace();
 			}
 		}
+		hit();
 	}
 }

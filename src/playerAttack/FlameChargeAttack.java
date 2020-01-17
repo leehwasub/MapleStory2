@@ -26,7 +26,7 @@ public class FlameChargeAttack extends PlayerAttack {
 		attacker.attackForwardMotion();
 
 		addSkillImageThread(new FlameChargeUseImage(hunt, attacker, opponent, makeAttackInfor()),
-				new FlameChargeHitImage(hunt, opponent, opponent, null));
+				new FlameChargeHitImage(hunt, opponent, opponent, null), false);
 		makeBurnBuff();
 		afterAttack();
 	}

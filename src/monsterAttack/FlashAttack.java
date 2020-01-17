@@ -17,7 +17,7 @@ public class FlashAttack extends MonsterAttack {
 
 	public void run() {
 		this.attacker.attackForwardMotion();
-		addSkillImageThread(new FlashAttackImage(hunt, attacker, opponent, makeAttackInfor()));
+		addSkillImageThread(new FlashAttackImage(hunt, attacker, opponent, makeAttackInfor()), false);
 		afterAttack();
 	}
 	

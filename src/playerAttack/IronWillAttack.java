@@ -23,7 +23,7 @@ public class IronWillAttack extends PlayerAttack {
 		this.attacker.attackForwardMotion();
 		
 		attacker.getCharacter().addBuff(BuffFactory.makeAdventurerBuff(activeSkill));
-		addSkillImageThread(new ironWallUseImage(hunt, attacker, opponent, null));
+		addSkillImageThread(new ironWallUseImage(hunt, attacker, opponent, null), false);
 		
 		afterAttack();
 	}
