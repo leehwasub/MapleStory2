@@ -26,6 +26,7 @@ public class MapleMap implements Serializable {
 	private int mapType;
 	private ArrayList<Portal> portalList = new ArrayList<Portal>();
 	private Point basePoint = new Point(0, 0);
+	
 	public static final int MAP_EMPTY_STATE = 0;
 	public static final int MAP_WALL_STATE = 1;
 	public static final int MAP_NPC_STATE = 2;
@@ -34,12 +35,14 @@ public class MapleMap implements Serializable {
 	public static final int MAP_HEAL_STATE = 5;
 	public static final int MAP_GUARD_STATE = 6;
 	public static final int MAP_START_POINT = 7;
+	
 	public static final int MAP_VILLAGE_TYPE = 0;
 	public static final int MAP_HUNTING_TYPE = 1;
 	public static final int MAP_BOSS_TYPE = 2;
 	public static final int MAP_SAILING_TYPE = 3;
 	public static final int MAP_HARBOR_TYPE = 4;
 	public static final int MAP_DUNGEON_TYPE = 5;
+	
 	private static final Point[][] calMapPosition;
 	private static final int MINI_POINT = 5;
 	private static Image mapPositionImage = ResourceLoader.getImage("componentImage", "mapPositionImage.png");

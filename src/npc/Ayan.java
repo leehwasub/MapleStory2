@@ -1,8 +1,5 @@
 package npc;
 
-import character.Adventurer;
-import character.AdventurerFactory;
-import item.ItemPool;
 import map.PointMapName;
 import maplestory.Player;
 import quest.Quest;
@@ -19,19 +16,7 @@ public class Ayan extends Npc{
 	@Override
 	public void clearEvent(Player player) {
 		if(clearNum == 0) {
-			Adventurer adventurer = player.getMainAdventurer();
-			AdventurerFactory.upgradeAdventurer("검사", adventurer);
-			adventurer.setCareer("검사");
-			adventurer.setCareerLevel(1);
-			player.addItem(ItemPool.getItem("카알대검", 1));
-			if(adventurer.getSex().equals("남자")) {
-				player.addItem(ItemPool.getItem("로리카아머(남)", 1));
-				player.addItem(ItemPool.getItem("로리카바지(남)", 1));
-			}else if(adventurer.getSex().equals("여자")) {
-				player.addItem(ItemPool.getItem("스퀘이머(여)", 1));
-				player.addItem(ItemPool.getItem("소피아바지(여)", 1));
-			}
-			player.calState();
+			
 		}
 	}
 
@@ -39,10 +24,8 @@ public class Ayan extends Npc{
 	public void requestQuest(Player player) {
 		Quest quest = null;
 		if(questNum == 0) {
-			quest = Quest.makeQuest(1, 4, "전사 전직").addMessage("전사로 전직하기 위해 페리온에서 주먹펴고 일어서를 만났다.")
-					.addMessage("그는 전사로 전직하기 위해서는 힘35 래벨 10이상이 되어야 한다고 한다. 조건이 충족되었는지 확인한후 다시 찾아가 말을 걸어보자.")
-					.addQuestStatus(35, 0, 0, 0).setRewardExp(10).setPlayerQuestProceed(QuestProceed.DANCESWITHBALROG_QUEST_1)
-					.addQuestLevel(10);
+			quest = Quest.makeQuest(1, 19, "오르비스로").addMessage("'이얀'의 말에 의하면 리스항구 북서쪽 포탈로 들어가면 배를 타는 승강장으로 이동할수 있다고 한다.")
+					.addMessage("모든 준비가 끝났다면 이동하도록 하자.").setRewardExp(100).setPlayerQuestProceed(QuestProceed.EYAN_QUEST_1);
 			player.setQuest(quest);
 		}
 	}

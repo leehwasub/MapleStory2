@@ -125,7 +125,7 @@ public class EditorPanel extends JPanel implements MouseListener{
 		typeCombo.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int index = combo.getSelectedIndex();
+				int index = typeCombo.getSelectedIndex();
 				typeNum = index;
 			}
 		});
@@ -161,7 +161,7 @@ public class EditorPanel extends JPanel implements MouseListener{
 			public void mousePressed(MouseEvent e) {
 				FileWriter file = null;
 				try {
-					file = new FileWriter("src/file/" + nameField.getText() + ".txt");
+					file = new FileWriter("res/mapText/" + nameField.getText() + ".txt");
 				} catch (IOException e2) {
 					e2.printStackTrace();
 				}
