@@ -11,6 +11,7 @@ import playerAttack.FlameChargeAttack;
 import playerAttack.LightningChargeAttack;
 import playerAttack.PlayerAttack;
 import skill.BlizzardChargeSkill;
+import skill.CombatOrdersSkill;
 import skill.ElementalChargeSkill;
 import skill.FlameChargeSkill;
 import skill.LightningChargeSkill;
@@ -88,12 +89,19 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 			elementalCharge.addChargeNum();
 		}
 		
-		
+ 		CombatOrdersSkill combatOrdersSkill = (CombatOrdersSkill)adventurer.getSkillWithName("컴뱃오더스");
+ 		
+ 		if(adventurer.isAlreadyBuffed("컴뱃오더스") && combatOrdersSkill != null && combatOrdersSkill.getPoint() >= 1) {
+ 			combatOrdersSkill.upSkillPointForCombatOrders(adventurer);
+ 		}
 	}
 
 	@Override
 	public void afterAttack(Adventurer adventurer, PlayerAttack attack) {
-		
+		CombatOrdersSkill combatOrdersSkill = (CombatOrdersSkill)adventurer.getSkillWithName("컴뱃오더스");
+		if(combatOrdersSkill != null && combatOrdersSkill.getPoint() >= 1) {
+ 			combatOrdersSkill.updateToOriginalSkillPoint(adventurer);
+ 		}
 	}
 	
 }

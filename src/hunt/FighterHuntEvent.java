@@ -90,19 +90,13 @@ public class FighterHuntEvent implements HuntEvent, Serializable{
  			comboAttack.addComboNum();
  		}
  		
- 		CombatOrdersSkill combatOrdersSkill = (CombatOrdersSkill)adventurer.getSkillWithName("컴뱃오더스");
- 		
- 		if(adventurer.isAlreadyBuffed("컴뱃오더스") && combatOrdersSkill != null && combatOrdersSkill.getPoint() >= 1) {
- 			combatOrdersSkill.upSkillPointForCombatOrders(adventurer);
- 		}
+
 	}
 
 	@Override
 	public void afterAttack(Adventurer adventurer, PlayerAttack attack) {
-		CombatOrdersSkill combatOrdersSkill = (CombatOrdersSkill)adventurer.getSkillWithName("컴뱃오더스");
-		if(combatOrdersSkill != null && combatOrdersSkill.getPoint() >= 1) {
- 			combatOrdersSkill.updateToOriginalSkillPoint(adventurer);
- 		}
+	
+		
 	}
 	
 }
