@@ -40,6 +40,16 @@ public class SkillFactory {
 			return new IronWillSkill("ironWill", "아이언월", 15, "일정 시간동안 물리방어력과 마법방어력을 강화한다", AttackType.MYSELF, Property.PROPERTY_NOTHING);
 		case "하이퍼바디":
 			return new HyperBodySkill("hyperBody", "하이퍼바디", 10, "일정 시간동안 최대 HP와 최대 MP를 일정량 증가시킨다", AttackType.MYSELF, Property.PROPERTY_NOTHING);
+		case "브레이브슬래시":
+			return new IntrepidSlashSkill("intrepidSlash", "브레이브슬래시", 20, "적에게 세번의 일격을 가한다", AttackType.OPPONENT, Property.PROPERTY_NOTHING);
+		case "패닉":
+			return new PanicSkill("panic", "패닉", 20, "콤보어택을 사용하여 강력한 일격을 가한다", AttackType.OPPONENT, Property.PROPERTY_NOTHING, 3);
+		case "샤우트":
+			return new ShoutSkill("shout", "샤우트", 20, "콤보어택을 사용하여 강력한 포효로 적에게 데미지를 주고 일정 확률로 적을 기절시킨다", AttackType.OPPONENT, Property.PROPERTY_NOTHING, 2);
+		case "콤보시너지":
+			return new ComboSynergySkill("comboSynergy", "콤보시너지", 20, "공격시 콤보어택을 얻을 수있는 확률를 높이고 콤보어택 개수마다 물리 데미지를 일정량 증가시킨다");
+		case "찬스어택":
+			return new ChanceAttackSkill("chanceAttack", "찬스어택", 10, "영구히 크리티컬 확률을 증가시킨다");
 		}
 		DialogUtils.showErrorDialog("SkillFactory.makeSkill("+skillName+") 새로운 스킬 생성 실패!");
 		return null;

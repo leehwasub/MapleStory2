@@ -165,31 +165,31 @@ public class Strength implements Serializable, Cloneable {
 	}
 
 	public void addPhysicalDamage(int physicalDamage) {
-		this.physicalDamage += physicalDamage;
+		this.physicalDamage = Math.max(0, this.physicalDamage + physicalDamage);
 	}
 
 	public void addMagicDamage(int magicDamage) {
-		this.magicDamage += magicDamage;
+		this.magicDamage = Math.max(0, this.magicDamage + magicDamage);
 	}
 
 	public void addPhysicalDefense(int physicalDefense) {
-		this.physicalDefense += physicalDefense;
+		this.physicalDefense = Math.max(0, this.physicalDefense + physicalDefense);
 	}
 
 	public void addMagicDefense(int magicDefense) {
-		this.magicDefense += magicDefense;
+		this.magicDefense = Math.max(0, this.magicDefense + magicDefense);
 	}
 
 	public void addAccuracyRate(int accuracyRate) {
-		this.accuracyRate += accuracyRate;
+		this.accuracyRate = Math.max(0, this.accuracyRate + accuracyRate);
 	}
 
 	public void addEvasionRate(int evasionRate) {
-		this.evasionRate += evasionRate;
+		this.evasionRate = Math.max(0, this.evasionRate + evasionRate);
 	}
 	
 	public void addCriticalRate(int criticalRate) {
-		this.criticalRate = criticalRate;
+		this.criticalRate = Math.max(0, this.criticalRate + criticalRate);
 	}
 
 	public void levelUp() {

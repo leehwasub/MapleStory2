@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 import character.Adventurer;
 import component.StateBox;
+import playerAttack.PlayerAttack;
 
 public class EmptyHuntEvent implements HuntEvent, Serializable {
 
@@ -32,6 +33,11 @@ public class EmptyHuntEvent implements HuntEvent, Serializable {
 
 	@Override
 	public void startTurn(Adventurer adventurer) {
+		
+	}
+	
+	@Override
+	public void startAttack(Adventurer adventurer, PlayerAttack attack) {
 		
 	}
 

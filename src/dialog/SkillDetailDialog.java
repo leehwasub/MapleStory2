@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 import component.MapleButton;
 import skill.Skill;
+import utils.ColorUtils;
 import utils.FontUtils;
 import utils.ResourceLoader;
 
@@ -55,7 +56,7 @@ public class SkillDetailDialog extends JDialog {
 		model = new DefaultTableModel(columnName, 0);
 		
 		jTable = new JTable(model);
-		jTable.setDefaultRenderer(Object.class, new MultiLineCellRenderer());
+		jTable.setDefaultRenderer(Object.class, new MultiLineCellRenderer(skill.getPoint()));
 		//jTable.getColumnModel().getColumn(0).setPreferredWidth(100);
 		jTable.setFont(FontUtils.VERY_SMALL_FONT);
 		jTable.setEnabled(false);

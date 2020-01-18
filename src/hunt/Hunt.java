@@ -31,6 +31,7 @@ import monsterAttack.MonsterAttack;
 import playerAttack.PlayerAttack;
 import skill.ActiveSkill;
 import skill.SkillFactory;
+import skill.SkillValid;
 import utils.ResourceLoader;
 
 public class Hunt extends Thread {
@@ -162,6 +163,8 @@ public class Hunt extends Thread {
 			((Adventurer)nowStateBox.getCharacter()).subAllSkillCoolTime();
 		}
 		mInterface.setQuickSkillEnabled();
+		
+		
 	}
 	
 	public int checkDead() {
@@ -205,6 +208,16 @@ public class Hunt extends Thread {
 					e.printStackTrace();
 				}
 				break;
+			}
+			
+			if(nowStateBox.getCharacter().isStuned()) {
+				mInterface.pushMessage(new Message(nowStateBox.getCharacter().getName() + "는 스턴에 걸려 행동 불능 상태입니다.", Color.CYAN, true));
+				try {
+					sleep(500);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				continue;
 			}
 			
 			if ((character instanceof Monster)) {
@@ -288,8 +301,9 @@ public class Hunt extends Thread {
 				playerAttack = null;
 				return;
 			}
-			if(!playerAttack.getActiveSkill().isCanUseSkill()) {
-				this.mInterface.pushMessage(new Message("지금은 사용할 수 없는 스킬입니다.", Color.RED, true));
+			SkillValid skillValid = playerAttack.getActiveSkill().isCanUseSkill((Adventurer)adventurerState.getCharacter());
+			if(!skillValid.isCanUse()) {
+				this.mInterface.pushMessage(new Message(skillValid.getMessage(), Color.RED, true));
 				playerAttack = null;
 				return;
 			}
@@ -297,6 +311,9 @@ public class Hunt extends Thread {
 			adventurerState.updateStateBox();
 		}
 		//succeed using the skill
+		if(playerHuntEvent != null) {
+			playerHuntEvent.startAttack((Adventurer)nowStateBox.getCharacter(), playerAttack);
+		}
 		playerAttack.getActiveSkill().setFullCoolTime();
 		mInterface.setQuickSkillEnabled();
 		player.getMainAdventurer().setUsedSkill(playerAttack.getActiveSkill());

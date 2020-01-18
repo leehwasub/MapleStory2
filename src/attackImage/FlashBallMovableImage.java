@@ -8,7 +8,7 @@ import hunt.Hunt;
 
 public class FlashBallMovableImage extends MovableSkillImage {
 	public FlashBallMovableImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/flashBall", hunt, attacker, opponent, attackInfor, 120, 1000);
+		super("monsterSkillImage/flashBall", hunt, attacker, opponent, attackInfor, 120, 500);
 	}
 
 	public void run() {

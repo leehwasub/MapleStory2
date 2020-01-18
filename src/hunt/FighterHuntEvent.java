@@ -6,12 +6,16 @@ import java.io.Serializable;
 
 import character.Adventurer;
 import component.StateBox;
+import playerAttack.PlayerAttack;
 import skill.ComboAttackSkill;
+import skill.ComboSynergySkill;
 import skill.ElementalChargeSkill;
+import skill.PanicSkill;
+import skill.ShoutSkill;
 import utils.ColorUtils;
 import utils.FontUtils;
 
-public class FighterHuntEvent extends EmptyHuntEvent implements HuntEvent, Serializable{
+public class FighterHuntEvent implements HuntEvent, Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private static final int LINE_THINKNESS = 2;
@@ -56,6 +60,32 @@ public class FighterHuntEvent extends EmptyHuntEvent implements HuntEvent, Seria
 	@Override
 	public void startTurn(Adventurer adventurer) {
 		
+	}
+
+	@Override
+	public void startAttack(Adventurer adventurer, PlayerAttack attack) {
+		
+		ComboAttackSkill comboAttack = (ComboAttackSkill)adventurer.getSkillWithName("콤보어택");
+		if(comboAttack == null || comboAttack.getPoint() == 0 || comboAttack.isHaveMaxComboNum()) return;
+		
+		if(attack.getActiveSkill() instanceof ShoutSkill) {
+			comboAttack.subComboNum();
+		} else if(attack.getActiveSkill() instanceof PanicSkill) {
+			comboAttack.subComboNum();
+			comboAttack.subComboNum();
+		}
+		
+		int rate = comboAttack.getEffect(comboAttack.getPoint());
+		
+		ComboSynergySkill comboSynergyAttack = (ComboSynergySkill)adventurer.getSkillWithName("콤보시너지");
+		if(comboSynergyAttack != null && comboSynergyAttack.getPoint() >= 1) {
+			rate += comboSynergyAttack.getEffect(comboSynergyAttack.getPoint());
+		}
+		
+		int randomRate = (int)(Math.random() * 99) + 1;
+ 		if(randomRate <= rate) {
+ 			comboAttack.addComboNum();
+ 		}
 	}
 	
 }

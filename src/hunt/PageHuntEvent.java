@@ -6,7 +6,10 @@ import java.io.Serializable;
 
 import character.Adventurer;
 import component.StateBox;
+import playerAttack.PlayerAttack;
+import skill.BlizzardChargeSkill;
 import skill.ElementalChargeSkill;
+import skill.FlameChargeSkill;
 import utils.ColorUtils;
 import utils.FontUtils;
 
@@ -61,6 +64,20 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 			adventurer.healHp((int)(hpRate * (double)adventurer.getMaxHp()));
 		}
 		adventurer.calState();
+	}
+
+	@Override
+	public void startAttack(Adventurer adventurer, PlayerAttack attack) {
+		ElementalChargeSkill elementalCharge = (ElementalChargeSkill)adventurer.getSkillWithName("엘리멘탈차지");
+		if(adventurer.getUsedSkill() == null ||elementalCharge == null || 
+				elementalCharge.getPoint() == 0 || elementalCharge.isHaveMaxChargeNum()) return;
+		
+		if(adventurer.getUsedSkill() instanceof FlameChargeSkill && attack.getActiveSkill() instanceof BlizzardChargeSkill) {
+			elementalCharge.addChargeNum();
+		}
+		else if(adventurer.getUsedSkill() instanceof BlizzardChargeSkill && attack.getActiveSkill() instanceof FlameChargeSkill) {
+			elementalCharge.addChargeNum();
+		}
 	}
 	
 }

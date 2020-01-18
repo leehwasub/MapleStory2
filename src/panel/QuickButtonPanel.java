@@ -239,7 +239,7 @@ public class QuickButtonPanel extends JPanel{
 	
 	public void setQuickSkillEnabled() {
 		for (int i = 0; i < Adventurer.QUICK_SKILL_ARRAY_SIZE; i++) {
-			quickSkillButton[i].setSkillButtonEnabled();
+			quickSkillButton[i].setSkillButtonEnabled(player);
 		}
 	}
 

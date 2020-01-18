@@ -5,8 +5,9 @@ import java.io.Serializable;
 
 import character.Adventurer;
 import component.StateBox;
+import playerAttack.PlayerAttack;
 
-public class SpearManHuntEvent extends EmptyHuntEvent implements HuntEvent, Serializable{
+public class SpearManHuntEvent implements HuntEvent, Serializable{
 
 	private static final long serialVersionUID = 1L;
 
@@ -32,6 +33,11 @@ public class SpearManHuntEvent extends EmptyHuntEvent implements HuntEvent, Seri
 
 	@Override
 	public void startTurn(Adventurer adventurer) {
+		
+	}
+
+	@Override
+	public void startAttack(Adventurer adventurer, PlayerAttack attack) {
 		
 	}
 	

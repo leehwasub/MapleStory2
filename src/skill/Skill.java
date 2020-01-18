@@ -171,6 +171,10 @@ public abstract class Skill implements Serializable {
 	public boolean isCanUpgrade(Adventurer adventurer) {
 		return true;
 	}
+	
+	public void afterCalStateEffect(Adventurer adventurer) {
+		
+	}
 
 	@Override
 	public String toString() {

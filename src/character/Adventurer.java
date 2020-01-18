@@ -53,6 +53,7 @@ public class Adventurer extends Character implements Serializable {
 		strength.setMagicDefense(0);
 		strength.setPhysicalDamage(0);
 		strength.setMagicDamage(0);
+		strength.setCriticalRate(0);
 		ignoreDamageRate = 0;
 		
 		if(careerLevel == 0) {
@@ -90,6 +91,13 @@ public class Adventurer extends Character implements Serializable {
 		minPhysicalDamage = (maxPhysicalDamage * proficiency / 10 / 10);
 
 		minPhysicalDamage = Math.min(minPhysicalDamage, maxPhysicalDamage);
+		
+		afterCalState();
+	}
+	
+
+	private void afterCalState() {
+		afterCalStateSkillEffect();
 	}
 
 	public void addExp(int exp) {
@@ -334,6 +342,14 @@ public class Adventurer extends Character implements Serializable {
 		for(int i = 0; i < skillList.size(); i++) {
 			for(int j = 0; j < skillList.get(i).size(); j++) {
 				skillList.get(i).get(j).setSkillImageForInit();
+			}
+		}
+	}
+	
+	private void afterCalStateSkillEffect() {
+		for(int i = 0; i < skillList.size(); i++) {
+			for(int j = 0; j < skillList.get(i).size(); j++) {
+				skillList.get(i).get(j).afterCalStateEffect(this);
 			}
 		}
 	}

@@ -8,6 +8,8 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import character.Adventurer;
+import maplestory.Player;
 import skill.ActiveSkill;
 import skill.Skill;
 import utils.MusicUtils;
@@ -73,10 +75,10 @@ public class QuickSkillButton extends JButton {
 		});
 	}
 	
-	public void setSkillButtonEnabled() {
+	public void setSkillButtonEnabled(Player player) {
 		if(skill != null && skill instanceof ActiveSkill) {
 			ActiveSkill activeSkill = (ActiveSkill)skill;
-			if(activeSkill.isCanUseSkill()) {
+			if(activeSkill.isCanUseSkill(player.getMainAdventurer()).isCanUse() || !player.isHunt()) {
 				setEnabled(true);
 			} else {
 				setEnabled(false);

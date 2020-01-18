@@ -27,13 +27,12 @@ public class PowerStrikeSkill extends ActiveSkill{
 
 	@Override
 	public PlayerAttack skillUse(Hunt hunt, StateBox attacker, StateBox opponent) {
-		getComboAttack(attacker);
 		return new PowerStrikeAttack(hunt, attacker, opponent, this);
 	}
 
 	@Override
 	public int getEffect(int point) {
-		return 200 + point * 5;
+		return 150 + point * 5;
 	}
 
 	@Override

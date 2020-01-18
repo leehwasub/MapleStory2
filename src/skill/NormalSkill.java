@@ -28,7 +28,6 @@ public class NormalSkill extends ActiveSkill{
 
 	@Override
 	public PlayerAttack skillUse(Hunt hunt, StateBox attacker, StateBox opponent) {
-		getComboAttack(attacker);
 		return new NormalAttack(hunt, attacker, opponent, this);
 	}
 

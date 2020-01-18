@@ -32,7 +32,6 @@ public class BlizzardChargeSkill extends ActiveSkill{
 
 	@Override
 	public PlayerAttack skillUse(Hunt hunt, StateBox attacker, StateBox opponent) {
-		getElementalCombo(attacker);
 		return new BlizzardChargeAttack(hunt, attacker, opponent, this);
 	}
 

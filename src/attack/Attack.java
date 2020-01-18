@@ -54,6 +54,51 @@ public abstract class Attack extends Thread {
 		}
 	}
 	
+
+	/**
+	 * 총알같이 동시다발적으로 여러개의 이미지가 일정한 간격을 두고 실행 되고 hit이미지나 시전 이미지 또한 선택적으로 등록할 수 있는 메소드
+	 * @param readyImage
+	 * @param skillImage
+	 * @param hitImage
+	 * @param midDelay
+	 */
+	public void addMutlipleMovableSkillImageThread(SkillImage readyImage, ArrayList<SkillImage> skillImage, ArrayList<SkillImage> hitImage, int midDelay, boolean isNowDelay) {
+		int delay = skillImage.get(0).getTotalDelay();
+		if(readyImage != null) {
+			addNoDelaySkillImageThread(readyImage);
+		}
+		for(int i = 0; i < skillImage.size(); i++) {
+			final int index = i;
+			Thread thread = new Thread(()-> {
+				skillImage.get(index).start();
+				addSkillImage(skillImage.get(index));
+				if(hitImage != null) {
+					skillImage.get(index).setHitListener(new HitListener() {
+						@Override
+						public void hit() {
+							addHitImageThread(hitImage.get(index));
+						}
+					});
+				}
+			});
+			thread.start();
+			sleep(midDelay);
+		}
+		if(isNowDelay) {
+			sleep(delay);
+		} else {
+			this.skillDelay += delay;
+		}
+	}
+	
+	public void addNoDelaySkillImageThread(SkillImage skillImage) {
+		Thread thread = new Thread(()-> {
+			skillImage.start();
+			addSkillImage(skillImage);
+		});
+		thread.start();
+	}
+	
 	public void addSkillImageThread(SkillImage skillImage, boolean isNowDelay) {
 		int delay = skillImage.getTotalDelay();
 		Thread thread = new Thread(()-> {

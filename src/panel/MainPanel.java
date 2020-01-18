@@ -575,7 +575,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 
 	public void addDamageText(DamageText damageText) {
 		for(int i = 0; i < damageTextList.size(); i++) {
-			damageTextList.get(i).subY(12);
+			damageTextList.get(i).subY(damageText.getHit().isCritical() ? 14 : 12);
 		}
 		damageText.start();
 		damageTextList.add(damageText);
@@ -595,6 +595,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		player.setCanUsePortion(true);
 		player.setCanUseSkill(false);
 		player.getMainAdventurer().removeAllBuff();
+		setQuickSkillEnabled();
 	}
 
 	public void pushMessage(Message message) {

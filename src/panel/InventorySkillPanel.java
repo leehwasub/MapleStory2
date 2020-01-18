@@ -169,7 +169,13 @@ public class InventorySkillPanel extends JPanel {
 						Skill skill = skillButton[i][j].getSkill();
 						g.setFont(FontUtils.generalFont);
 						g.setColor(Color.WHITE);
-						g.drawString(skill.getPoint() + " / " + skill.getMaxPoint(), 350 + (i * 300), 101 + (65 * j));
+						if(skill.isCanUpgrade(player.getMainAdventurer())) {
+							g.drawString(skill.getPoint() + " / " + skill.getMaxPoint(), 350 + (i * 300), 101 + (65 * j));
+						} else {
+							g.setFont(FontUtils.SMALL_FONT);
+							g.setColor(Color.RED);
+							g.drawString(skill.requiredSkillInfor().substring(skill.requiredSkillInfor().indexOf(":")+1), 340 + (i * 300), 100 + (65 * j));
+						}
 					}
 				}
 			}

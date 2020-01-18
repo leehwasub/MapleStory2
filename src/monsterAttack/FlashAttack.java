@@ -19,8 +19,8 @@ public class FlashAttack extends MonsterAttack {
 
 	public void run() {
 		this.attacker.attackForwardMotion();
-		addSkillImageThread(new FlashUseImage(hunt, attacker, opponent, null), true);
-		addSkillImageThread(new FlashBallMovableImage(hunt, attacker, opponent, makeAttackInfor()), new FlashHitImage(hunt, attacker, opponent, null), false);
+		addNoDelaySkillImageThread(new FlashUseImage(hunt, attacker, opponent, null));
+		addSkillImageThread(new FlashBallMovableImage(hunt, attacker, opponent, makeAttackInfor()), new FlashHitImage(hunt, opponent, opponent, null), false);
 		afterAttack();
 	}
 	
@@ -39,7 +39,7 @@ public class FlashAttack extends MonsterAttack {
 	}
 
 	public int calNeedMp() {
-		return monsterSkill.getSkillPoint()*10;
+		return 10 + monsterSkill.getSkillPoint() * 4;
 	}
 	
 }

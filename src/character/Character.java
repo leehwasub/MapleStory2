@@ -11,6 +11,7 @@ import attack.Hit;
 import attack.Property;
 import buff.AbnormalBuff;
 import buff.Buff;
+import buff.SpecialBuff;
 import buff.StrengthBuff;
 import utils.ResourceLoader;
 
@@ -67,12 +68,12 @@ public abstract class Character implements Serializable{
 			isMiss = true;
 		}
 		if (!isMiss) {
-			System.out.println(damage + " " + this.curHp);
 			d = Math.max(0, damage.getPhysicalDamage() - this.strength.getPhysicalDefense());
 			d += Math.max(1, damage.getMagicDamage() - this.strength.getMagicDefense());
 			d = calResistenceDamage(d, damage.getProperty());
 
 			int calCritical = (int)(Math.random() * 100) + 1;
+			System.out.println("크리티컬 테스트 : " + opponentStr.getCriticalRate() + " " + calCritical);
 			if(opponentStr.getCriticalRate() >= calCritical) {
 				isCritical = true;
 				d *= 2;
@@ -80,7 +81,6 @@ public abstract class Character implements Serializable{
 			
 			double ignoreDamageRateDouble = (double)ignoreDamageRate / 100.0;
 			d = d - (int)((double)d * ignoreDamageRateDouble);
-			
 			this.curHp -= Math.max(1, d);
 		}
 		if (this.curHp <= 0) {
@@ -267,6 +267,16 @@ public abstract class Character implements Serializable{
 				buffList.get(i).effect(this);
 			}
 		}
+	}
+	
+	public boolean isStuned() {
+		if(buffList == null || buffList.size() == 0) return false;
+		for(int i = 0; i < buffList.size(); i++) {
+			if(buffList.get(i) instanceof SpecialBuff && buffList.get(i).getName().equals("스턴")) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public ArrayList<Buff> getBuffList() {

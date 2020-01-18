@@ -31,6 +31,15 @@ public class DamageText extends Thread {
 		}
 		fm = g.getFontMetrics();
 		if (hit.getDamage() != 0) {
+			if(hit.isCritical()) {
+				g.setFont(FontUtils.LITTLE_MID_FONT);
+				fm = g.getFontMetrics();
+				if(hit.getType() == DamageType.DAMAGE_HP_TYPE) {
+					g.setColor(Color.MAGENTA);
+				} else if(hit.getType() == DamageType.DAMAGE_MP_TYPE) {
+					g.setColor(Color.CYAN);
+				}
+			}
 			int width = fm.stringWidth(hit.getDamage()+"");
 			g.drawString(hit.getDamage()+"", x + (180 - width) / 2, y
 					+ (hit.getType() == DamageType.DAMAGE_HP_TYPE ? 0 : 30));

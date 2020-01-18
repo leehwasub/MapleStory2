@@ -53,6 +53,12 @@ public class MonsterFactory {
 			return new SkeletonCommander();
 		case "에레고스":
 			return new Ergoth();
+		case "스타픽시":
+			return new StarPixie();
+		case "루나픽시":
+			return new LunarPixie();
+		case "러스터픽시":
+			return new LusterPixie();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -159,6 +165,20 @@ public class MonsterFactory {
 			break;
 		case "에레고스왕좌":
 			ret = makeMonster("에레고스");
+			break;
+		case "구름공원1":
+			if (isRange(percent, 0, 6)) {
+				ret = makeMonster("스타픽시");
+			} else if (isRange(percent, 6, 10)) {
+				ret = makeMonster("루나픽시");
+			}
+			break;
+		case "구름공원2":
+			if (isRange(percent, 0, 6)) {
+				ret = makeMonster("러스터픽시");
+			} else if (isRange(percent, 6, 10)) {
+				ret = makeMonster("루나픽시");
+			}
 			break;
 		}
 		return ret;

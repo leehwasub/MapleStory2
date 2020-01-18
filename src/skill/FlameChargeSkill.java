@@ -36,7 +36,6 @@ public class FlameChargeSkill extends ActiveSkill{
 
 	@Override
 	public PlayerAttack skillUse(Hunt hunt, StateBox attacker, StateBox opponent) {
-		getElementalCombo(attacker);
 		return new FlameChargeAttack(hunt, attacker, opponent, this);
 	}
 
