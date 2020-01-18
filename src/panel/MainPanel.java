@@ -283,7 +283,6 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		quickButtonPanel.setBounds(0, 450, 1280, 120);
 		add(quickButtonPanel);
 		
-
 		this.hpBar = new MapleHpBar(player.getMainAdventurer());
 		this.hpBar.setBounds(480, 575, 150, 20);
 		add(this.hpBar);
@@ -596,6 +595,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		player.setCanUsePortion(true);
 		player.setCanUseSkill(false);
 		player.getMainAdventurer().removeAllBuff();
+		player.calState();
 		setQuickSkillEnabled();
 	}
 

@@ -54,15 +54,6 @@ public class AdventurerFactory {
 			adventurer.addSkill(2, SkillFactory.makeSkill("콤보어택"));
 			adventurer.setHuntEvent(new FighterHuntEvent());
 			imageUrl.append("2");
-			// TEST
-			adventurer.addSkill(3, SkillFactory.makeSkill("찬스어택"));
-			adventurer.addSkill(3, SkillFactory.makeSkill("브레이브슬래시"));
-			adventurer.addSkill(3, SkillFactory.makeSkill("패닉"));
-			adventurer.addSkill(3, SkillFactory.makeSkill("샤우트"));
-			adventurer.addSkill(3, SkillFactory.makeSkill("콤보시너지"));
-			adventurer.addSkillPoint(50);
-			adventurer.setCareerLevel(3);
-			//
 			break;
 		case "크루세이더":
 			adventurer.setCareerLevel(3);
@@ -82,6 +73,9 @@ public class AdventurerFactory {
 			adventurer.addSkill(2, SkillFactory.makeSkill("엘리멘탈차지"));
 			adventurer.setHuntEvent(new PageHuntEvent());
 			imageUrl.append("2");
+			//TEST
+			
+			//
 			break;
 		case "나이트":
 			adventurer.setCareerLevel(3);
@@ -101,6 +95,9 @@ public class AdventurerFactory {
 			adventurer.addSkill(2, SkillFactory.makeSkill("하이퍼바디"));
 			adventurer.setHuntEvent(new SpearManHuntEvent());
 			imageUrl.append("2");
+			//TEST
+			
+			//
 			break;
 		case "버서커":
 			adventurer.setCareerLevel(3);

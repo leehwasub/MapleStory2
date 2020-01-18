@@ -6,7 +6,9 @@ import java.io.Serializable;
 
 import character.Adventurer;
 import component.StateBox;
+import playerAttack.IronBodyAttack;
 import playerAttack.PlayerAttack;
+import playerAttack.RageAttack;
 import skill.ComboAttackSkill;
 import skill.ComboSynergySkill;
 import skill.ElementalChargeSkill;
@@ -83,7 +85,7 @@ public class FighterHuntEvent implements HuntEvent, Serializable{
 		}
 		
 		int randomRate = (int)(Math.random() * 99) + 1;
- 		if(randomRate <= rate) {
+ 		if(randomRate <= rate && !(attack instanceof IronBodyAttack) && !(attack instanceof RageAttack)) {
  			comboAttack.addComboNum();
  		}
 	}
