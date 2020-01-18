@@ -23,8 +23,6 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 	private static final long serialVersionUID = 1L;
 	private static final int LINE_THINKNESS = 2;
 	
-	private boolean isSkillPointUp = false;
-
 	@Override
 	public void drawObject(Graphics2D g, StateBox stateBox) {
 		
@@ -59,6 +57,7 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 		if(!adventurer.isAlreadyBuffed("컴뱃오더스") && combatOrdersSkill != null && combatOrdersSkill.getPoint() >= 1) {
  			combatOrdersSkill.updateToOriginalSkillPoint(adventurer);
  		}
+		adventurer.calState();
 	}
 
 	@Override
@@ -73,6 +72,11 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 			double hpRate = (double)skill.recoveryEffect(skill.getPoint()) / 100.0;
 			adventurer.healHp((int)(hpRate * (double)adventurer.getMaxHp()));
 		}
+		
+ 		CombatOrdersSkill combatOrdersSkill = (CombatOrdersSkill)adventurer.getSkillWithName("컴뱃오더스");
+ 		if(!adventurer.isAlreadyBuffed("컴뱃오더스") && combatOrdersSkill != null && combatOrdersSkill.getPoint() >= 1) {
+ 			combatOrdersSkill.updateToOriginalSkillPoint(adventurer);
+ 		}
 		adventurer.calState();
 	}
 
@@ -91,11 +95,6 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 		else if(adventurer.getUsedSkill() instanceof LightningChargeSkill && (attack instanceof FlameChargeAttack || attack instanceof BlizzardChargeAttack)) {
 			elementalCharge.addChargeNum();
 		}
-		
- 		CombatOrdersSkill combatOrdersSkill = (CombatOrdersSkill)adventurer.getSkillWithName("컴뱃오더스");
- 		if(!adventurer.isAlreadyBuffed("컴뱃오더스") && combatOrdersSkill != null && combatOrdersSkill.getPoint() >= 1) {
- 			combatOrdersSkill.updateToOriginalSkillPoint(adventurer);
- 		}
 	}
 
 	@Override
