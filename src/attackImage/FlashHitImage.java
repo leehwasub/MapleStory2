@@ -7,15 +7,14 @@ import component.StateBox;
 import hunt.Hunt;
 import utils.MusicUtils;
 
-public class FlashAttackImage extends SkillImage {
-	public FlashAttackImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/flash", hunt, attacker, opponent, attackInfor, 120, 0, 0);
+public class FlashHitImage extends SkillImage {
+	public FlashHitImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
+		super("monsterSkillImage/flashHit", hunt, attacker, opponent, attackInfor, 120, 0, 0);
 	}
 
 	public void run() {
 		attacker.updateStateBox();
-		MusicUtils.startEffectSound("flashSkill");
-		hit();
+		MusicUtils.startEffectSound("flashHit");
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
 			System.out.println(this.index);

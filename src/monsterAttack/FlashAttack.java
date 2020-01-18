@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import attack.AttackInfor;
 import attack.DamageType;
 import attack.Property;
-import attackImage.FlashAttackImage;
+import attackImage.FlashBallMovableImage;
+import attackImage.FlashHitImage;
+import attackImage.FlashUseImage;
 import component.StateBox;
 import hunt.Hunt;
 import skill.MonsterSkill;
@@ -17,7 +19,8 @@ public class FlashAttack extends MonsterAttack {
 
 	public void run() {
 		this.attacker.attackForwardMotion();
-		addSkillImageThread(new FlashAttackImage(hunt, attacker, opponent, makeAttackInfor()), false);
+		addSkillImageThread(new FlashUseImage(hunt, attacker, opponent, null), true);
+		addSkillImageThread(new FlashBallMovableImage(hunt, attacker, opponent, makeAttackInfor()), new FlashHitImage(hunt, attacker, opponent, null), false);
 		afterAttack();
 	}
 	
