@@ -9,6 +9,8 @@ import attackImage.BlizzardChargeUseImage;
 import attackImage.BrandishHitImage;
 import attackImage.BrandishUseImage;
 import attackImage.FlameChargeUseImage;
+import attackImage.LightningChargeHitImage;
+import attackImage.LightningChargeUseImage;
 import attackImage.PowerStrikeHitImage;
 import attackImage.PowerStrikeUseImage;
 import buff.BuffFactory;
@@ -17,32 +19,34 @@ import hunt.Hunt;
 import skill.ActiveSkill;
 import skill.BlizzardChargeSkill;
 import skill.FlameChargeSkill;
+import skill.LightningChargeSkill;
+import skill.ShoutSkill;
 
-public class BlizzardChargeAttack extends PlayerAttack {
+public class LightningChargeAttack extends PlayerAttack {
 	
-	public BlizzardChargeAttack(Hunt hunt, StateBox attacker, StateBox opponent, ActiveSkill activeSkill) {
+	public LightningChargeAttack(Hunt hunt, StateBox attacker, StateBox opponent, ActiveSkill activeSkill) {
 		super(hunt, attacker, opponent, activeSkill);
 	}
 	
 	public void run() {
 		attacker.attackForwardMotion();
 
-		addSkillImageThread(new BlizzardChargeUseImage(hunt, attacker, opponent, makeAttackInfor()),
-				new BlizzardChargeHitImage(hunt, opponent, opponent, null), true);
-		makeFrostBiteBuff();
+		addSkillImageThread(new LightningChargeUseImage(hunt, attacker, opponent, makeAttackInfor()),
+				new LightningChargeHitImage(hunt, opponent, opponent, null), true);
+		makeStunBuff();
 		afterAttack();
 	}
 	
-	private void makeFrostBiteBuff() {
-		double frostRate = ((BlizzardChargeSkill)activeSkill).frostBiteRate(activeSkill.getPoint());
-		int frostLast = ((BlizzardChargeSkill)activeSkill).getLast(activeSkill.getPoint());
-		int frost100Rate = (int)(Math.random() *  99) + 1;
-		if(frost100Rate <= frostRate) {
-			double burnDamageRate = ((BlizzardChargeSkill)activeSkill).frostBiteEffect(activeSkill.getPoint()) / 100.0;
-			opponent.getCharacter().addBuff(BuffFactory.makeAbnormalBuff("동상", frostLast, attacker.getCharacter().calNormalDamge(burnDamageRate)));
+	
+	private void makeStunBuff() {
+		double stunRate = ((LightningChargeSkill)activeSkill).stunRate(activeSkill.getPoint());
+		int stunLast = ((LightningChargeSkill)activeSkill).getLast(activeSkill.getPoint());
+		int stun100Rate = (int)(Math.random() *  99) + 1;
+		if(stun100Rate <= stunRate) {
+			opponent.getCharacter().addBuff(BuffFactory.makeSpecialBuff("스턴", stunLast));
 		}
 	}
-
+	
 
 	@Override
 	protected ArrayList<AttackInfor> makeAttackInfor() {
@@ -51,8 +55,8 @@ public class BlizzardChargeAttack extends PlayerAttack {
 		for(int i = 0; i < 3; i++) {
 			ret.add(new AttackInfor(attacker.getCharacter(), activeSkill.getProperty(), attacker.getCharacter().calNormalDamge(rate), 0, DamageType.DAMAGE_HP_TYPE));
 		}
-		if(opponent.getCharacter().isAlreadyBuffed("화상")) {
-			double extraDamageRate = (double)((BlizzardChargeSkill)activeSkill).extraEffect(activeSkill.getPoint()) / 100.0;
+		if(opponent.getCharacter().isAlreadyBuffed("동상")) {
+			double extraDamageRate = (double)((LightningChargeSkill)activeSkill).extraEffect(activeSkill.getPoint()) / 100.0;
 			ret.add(new AttackInfor(attacker.getCharacter(), activeSkill.getProperty(), attacker.getCharacter().calNormalDamge(extraDamageRate), 0, DamageType.DAMAGE_HP_TYPE));
 		}
 		return ret;

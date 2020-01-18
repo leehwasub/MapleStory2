@@ -383,6 +383,22 @@ public class Adventurer extends Character implements Serializable {
 			}
 		}
 	}
+	
+	public void upAllSkillPoint(int point) {
+		for(int i = 0; i < skillList.size(); i++) {
+			for(int j = 0; j < skillList.get(i).size(); j++) {
+				skillList.get(i).get(j).upSkillPoint(point);
+			}
+		}
+	}
+	
+	public void downAllSkillPoint(int point) {
+		for(int i = 0; i < skillList.size(); i++) {
+			for(int j = 0; j < skillList.get(i).size(); j++) {
+				skillList.get(i).get(j).downSkillPoint(point);
+			}
+		}
+	}
 
 	
 }

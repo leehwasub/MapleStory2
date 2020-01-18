@@ -6,10 +6,14 @@ import java.io.Serializable;
 
 import character.Adventurer;
 import component.StateBox;
+import playerAttack.BlizzardChargeAttack;
+import playerAttack.FlameChargeAttack;
+import playerAttack.LightningChargeAttack;
 import playerAttack.PlayerAttack;
 import skill.BlizzardChargeSkill;
 import skill.ElementalChargeSkill;
 import skill.FlameChargeSkill;
+import skill.LightningChargeSkill;
 import utils.ColorUtils;
 import utils.FontUtils;
 
@@ -72,11 +76,25 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 		if(adventurer.getUsedSkill() == null ||elementalCharge == null || 
 				elementalCharge.getPoint() == 0 || elementalCharge.isHaveMaxChargeNum()) return;
 		
-		if(adventurer.getUsedSkill() instanceof FlameChargeSkill && attack.getActiveSkill() instanceof BlizzardChargeSkill) {
+		if(adventurer.getUsedSkill() instanceof FlameChargeSkill && (attack instanceof BlizzardChargeAttack || attack instanceof LightningChargeAttack)) {
 			elementalCharge.addChargeNum();
 		}
-		else if(adventurer.getUsedSkill() instanceof BlizzardChargeSkill && attack.getActiveSkill() instanceof FlameChargeSkill) {
+		else if(adventurer.getUsedSkill() instanceof BlizzardChargeSkill && (attack instanceof FlameChargeAttack || attack instanceof LightningChargeAttack)) {
 			elementalCharge.addChargeNum();
+		}
+		else if(adventurer.getUsedSkill() instanceof LightningChargeSkill && (attack instanceof FlameChargeAttack || attack instanceof BlizzardChargeAttack)) {
+			elementalCharge.addChargeNum();
+		}
+		
+		if(adventurer.isAlreadyBuffed("컴뱃오더스")) {
+			
+		}
+	}
+
+	@Override
+	public void afterAttack(Adventurer adventurer, PlayerAttack attack) {
+		if(adventurer.isAlreadyBuffed("컴뱃오더스")) {
+			
 		}
 	}
 	

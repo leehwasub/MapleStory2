@@ -89,5 +89,11 @@ public class FighterHuntEvent implements HuntEvent, Serializable{
  			comboAttack.addComboNum();
  		}
 	}
+
+	@Override
+	public void afterAttack(Adventurer adventurer, PlayerAttack attack) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

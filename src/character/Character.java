@@ -278,6 +278,16 @@ public abstract class Character implements Serializable{
 		}
 		return false;
 	}
+	
+
+	public void removeAllAbnormalBuff() {
+		if(buffList == null || buffList.size() == 0) return;
+		for(int i = buffList.size() - 1; i >= 0; i--) {
+			if(buffList.get(i) instanceof AbnormalBuff) {
+				buffList.remove(i);
+			}
+		}
+	}
 
 	public ArrayList<Buff> getBuffList() {
 		if(buffList == null) newBuffList();

@@ -40,5 +40,10 @@ public class SpearManHuntEvent implements HuntEvent, Serializable{
 	public void startAttack(Adventurer adventurer, PlayerAttack attack) {
 		
 	}
+
+	@Override
+	public void afterAttack(Adventurer adventurer, PlayerAttack attack) {
+		
+	}
 	
 }

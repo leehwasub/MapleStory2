@@ -25,6 +25,14 @@ public class BlizzardChargeSkill extends ActiveSkill{
 	public int getLast(int point) {
 		return 3 + point;
 	}
+	
+	public int frostBiteRate(int point) {
+		return 30 + point * 3;
+	}
+	
+	public int frostBiteEffect(int point) {
+		return 25 + point;
+	}
 
 	public int extraEffect(int point) {
 		return 106 + (point / 2);
@@ -42,7 +50,8 @@ public class BlizzardChargeSkill extends ActiveSkill{
 
 	@Override
 	public String getEffectDetail(int point) {
-		return "MP " + getNeedMp(point) + " 소비, " + getEffect(point) + "% 얼음속성 물리데미지로 3번 공격, 화상 상태의 적 공격시 " + extraEffect(point) + "% 추가데미지";
+		return "MP " + getNeedMp(point) + " 소비, " + getEffect(point) + "% 얼음속성 물리데미지로 3번 공격,  "+ frostBiteRate(point) + "% 확률로 적 동상 매턴마다 " 
+				+ frostBiteEffect(point) + "% 지속 데미지, 화상 상태의 적 공격시 " + extraEffect(point) + "% 추가데미지";
 	}
 
 }

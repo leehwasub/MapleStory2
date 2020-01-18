@@ -46,6 +46,8 @@ public class BuffFactory {
 		switch(buffName) {
 		case "화상":
 			return new AbnormalBuff("burn", "화상", last, "일정 시간동안 화상 상태가 되어 불속성 데미지를 입는다", Property.PROPERTY_FIRE, damage, DamageType.DAMAGE_HP_TYPE);
+		case "동상":
+			return new AbnormalBuff("frostBite", "동상", last, "일정 시간동안 동상 상태가 되어 얼음속성 데미지를 입는다", Property.PROPERTY_ICE, damage, DamageType.DAMAGE_HP_TYPE);
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeAbnormalBuff("+buffName+") 버프 생성 실패!");
 		return null;
@@ -54,7 +56,9 @@ public class BuffFactory {
 	public static Buff makeSpecialBuff(String buffName, int last) {
 		switch(buffName) {
 		case "스턴":
-			return new SpecialBuff("stun", "스턴", last, "일정 시간 동안 기절하여 행동 불능 상태가 된다.");
+			return new SpecialBuff("stun", "스턴", last, "일정 시간 동안 기절하여 행동 불능 상태가 된다.", true);
+		case "컴뱃오더스":
+			return new SpecialBuff("combatOrders", "컴뱃오더스", last, "일정 시간 동안 모든 스킬래벨이 증가한다.", true);
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeSpecialBuff("+buffName+") 버프 생성 실패!");
 		return null;

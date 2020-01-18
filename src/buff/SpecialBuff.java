@@ -5,9 +5,12 @@ import java.awt.Graphics2D;
 import character.Character;
 
 public class SpecialBuff extends Buff{
+	
+	private boolean isDebuff;
 
-	public SpecialBuff(String imageUri, String name, int last, String infor) {
+	public SpecialBuff(String imageUri, String name, int last, String infor, boolean isDebuff) {
 		super(imageUri, name, last, infor);
+		this.isDebuff = isDebuff;
 	}
 
 	@Override
@@ -22,7 +25,7 @@ public class SpecialBuff extends Buff{
 
 	@Override
 	public boolean isDebuff() {
-		return true;
+		return isDebuff;
 	}
 
 	

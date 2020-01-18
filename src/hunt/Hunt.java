@@ -163,10 +163,8 @@ public class Hunt extends Thread {
 			((Adventurer)nowStateBox.getCharacter()).subAllSkillCoolTime();
 		}
 		mInterface.setQuickSkillEnabled();
-		
-		
 	}
-	
+
 	public int checkDead() {
 		if (this.turnQueue.peek().getCharacter().isDead()) {
 			if (this.turnQueue.peek().getCharacter() instanceof Monster) {
@@ -251,9 +249,16 @@ public class Hunt extends Thread {
 					this.mInterface.pushMessage(new Message(this.playerAttack.attackInfor(), Color.CYAN, true));
 					nowStateBox.getCharacter().calState();
 					nowStateBox.updateStateBox();
+					
+					//after attack
+					if(playerHuntEvent != null) {
+						playerHuntEvent.afterAttack((Adventurer)nowStateBox.getCharacter(), playerAttack);
+					}
+					player.calState();
 				} else {
 					attackButton.setVisible(false);
 					runButton.setVisible(false);
+					player.calState();
 					//this.mInterface.pushMessage(new Message(this.playerAttack.attackInfor(), Color.CYAN, true));
 					try {
 						sleep(1000);
@@ -262,7 +267,8 @@ public class Hunt extends Thread {
 					}
 				}
 			}
-			nowStateBox.getCharacter().calState();
+			
+			
 		}
 		
 		((Adventurer)adventurerState.getCharacter()).resetAllSkillCoolTime();
@@ -310,6 +316,7 @@ public class Hunt extends Thread {
 			player.getMainAdventurer().spendMp(needMp);
 			adventurerState.updateStateBox();
 		}
+		
 		//succeed using the skill
 		if(playerHuntEvent != null) {
 			playerHuntEvent.startAttack((Adventurer)nowStateBox.getCharacter(), playerAttack);
@@ -321,6 +328,7 @@ public class Hunt extends Thread {
 		player.setCanUsePortion(false);
 		attackButton.setVisible(false);
 		runButton.setVisible(false);
+		player.calState();
 		wakeUp();
 	}
 

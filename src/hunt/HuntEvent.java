@@ -13,4 +13,5 @@ public interface HuntEvent {
 	public void startHunt(Adventurer adventurer);
 	public void startTurn(Adventurer adventurer);
 	public void startAttack(Adventurer adventurer, PlayerAttack attack);
+	public void afterAttack(Adventurer adventurer, PlayerAttack attack);
 }

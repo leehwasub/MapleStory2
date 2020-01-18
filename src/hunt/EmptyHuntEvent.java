@@ -41,4 +41,10 @@ public class EmptyHuntEvent implements HuntEvent, Serializable {
 		
 	}
 
+	@Override
+	public void afterAttack(Adventurer adventurer, PlayerAttack attack) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
