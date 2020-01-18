@@ -9,6 +9,7 @@ import component.StateBox;
 import playerAttack.IronBodyAttack;
 import playerAttack.PlayerAttack;
 import playerAttack.RageAttack;
+import skill.CombatOrdersSkill;
 import skill.ComboAttackSkill;
 import skill.ComboSynergySkill;
 import skill.ElementalChargeSkill;
@@ -88,12 +89,20 @@ public class FighterHuntEvent implements HuntEvent, Serializable{
  		if(randomRate <= rate && !(attack instanceof IronBodyAttack) && !(attack instanceof RageAttack)) {
  			comboAttack.addComboNum();
  		}
+ 		
+ 		CombatOrdersSkill combatOrdersSkill = (CombatOrdersSkill)adventurer.getSkillWithName("컴뱃오더스");
+ 		
+ 		if(adventurer.isAlreadyBuffed("컴뱃오더스") && combatOrdersSkill != null && combatOrdersSkill.getPoint() >= 1) {
+ 			combatOrdersSkill.upSkillPointForCombatOrders(adventurer);
+ 		}
 	}
 
 	@Override
 	public void afterAttack(Adventurer adventurer, PlayerAttack attack) {
-		// TODO Auto-generated method stub
-		
+		CombatOrdersSkill combatOrdersSkill = (CombatOrdersSkill)adventurer.getSkillWithName("컴뱃오더스");
+		if(combatOrdersSkill != null && combatOrdersSkill.getPoint() >= 1) {
+ 			combatOrdersSkill.updateToOriginalSkillPoint(adventurer);
+ 		}
 	}
 	
 }

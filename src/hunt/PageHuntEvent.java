@@ -21,6 +21,8 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private static final int LINE_THINKNESS = 2;
+	
+	private boolean isSkillPointUp = false;
 
 	@Override
 	public void drawObject(Graphics2D g, StateBox stateBox) {
@@ -86,16 +88,12 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 			elementalCharge.addChargeNum();
 		}
 		
-		if(adventurer.isAlreadyBuffed("컴뱃오더스")) {
-			
-		}
+		
 	}
 
 	@Override
 	public void afterAttack(Adventurer adventurer, PlayerAttack attack) {
-		if(adventurer.isAlreadyBuffed("컴뱃오더스")) {
-			
-		}
+		
 	}
 	
 }

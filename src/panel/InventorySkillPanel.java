@@ -108,6 +108,10 @@ public class InventorySkillPanel extends JPanel {
 				@Override
 				public void mousePressed(MouseEvent e) {
 					if(player.getMainAdventurer().getSkillPoint() >= 1) {
+						if(player.isHunt()) {
+							DialogUtils.showWarningDialog("사냥중에 스킬포인트를 사용할 수 없습니다.");
+							return;
+						}
 						if(!skillButton[level][index].getSkill().isCanUpgrade(player.getMainAdventurer())) {
 							DialogUtils.showWarningDialog(skillButton[level][index].getSkill().requiredSkillInfor());
 							return;

@@ -164,14 +164,6 @@ public abstract class Skill implements Serializable {
 		return false;
 	}
 	
-	public void upSkillPoint(int point) {
-		this.point += point;
-	}
-	
-	public void downSkillPoint(int point) {
-		this.point -= point;
-	}
-	
 	public String requiredSkillInfor() {
 		return "";
 	}

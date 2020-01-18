@@ -2,6 +2,7 @@ package character;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import hunt.EmptyHuntEvent;
 import hunt.HuntEvent;
@@ -384,20 +385,15 @@ public class Adventurer extends Character implements Serializable {
 		}
 	}
 	
-	public void upAllSkillPoint(int point) {
+	public HashMap<String, Integer> getAllSkillInfor() {
+		HashMap<String, Integer> ret = new HashMap<String, Integer>();
 		for(int i = 0; i < skillList.size(); i++) {
 			for(int j = 0; j < skillList.get(i).size(); j++) {
-				skillList.get(i).get(j).upSkillPoint(point);
+				Skill skill = skillList.get(i).get(j);
+				ret.put(skill.getName(), skill.getPoint());
 			}
 		}
-	}
-	
-	public void downAllSkillPoint(int point) {
-		for(int i = 0; i < skillList.size(); i++) {
-			for(int j = 0; j < skillList.get(i).size(); j++) {
-				skillList.get(i).get(j).downSkillPoint(point);
-			}
-		}
+		return ret;
 	}
 
 	
