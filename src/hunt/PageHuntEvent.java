@@ -53,9 +53,12 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 	public void endHunt(Adventurer adventurer) {
 		ElementalChargeSkill skill = (ElementalChargeSkill)adventurer.getSkillWithName("엘리멘탈차지");
 		if(skill != null && skill.getPoint() >= 1) {
-			System.out.println("머지?????");
 			skill.setChargeNum(0);
 		}
+		CombatOrdersSkill combatOrdersSkill = (CombatOrdersSkill)adventurer.getSkillWithName("컴뱃오더스");
+		if(!adventurer.isAlreadyBuffed("컴뱃오더스") && combatOrdersSkill != null && combatOrdersSkill.getPoint() >= 1) {
+ 			combatOrdersSkill.updateToOriginalSkillPoint(adventurer);
+ 		}
 	}
 
 	@Override
@@ -90,18 +93,14 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 		}
 		
  		CombatOrdersSkill combatOrdersSkill = (CombatOrdersSkill)adventurer.getSkillWithName("컴뱃오더스");
- 		
- 		if(adventurer.isAlreadyBuffed("컴뱃오더스") && combatOrdersSkill != null && combatOrdersSkill.getPoint() >= 1) {
- 			combatOrdersSkill.upSkillPointForCombatOrders(adventurer);
+ 		if(!adventurer.isAlreadyBuffed("컴뱃오더스") && combatOrdersSkill != null && combatOrdersSkill.getPoint() >= 1) {
+ 			combatOrdersSkill.updateToOriginalSkillPoint(adventurer);
  		}
 	}
 
 	@Override
 	public void afterAttack(Adventurer adventurer, PlayerAttack attack) {
-		CombatOrdersSkill combatOrdersSkill = (CombatOrdersSkill)adventurer.getSkillWithName("컴뱃오더스");
-		if(combatOrdersSkill != null && combatOrdersSkill.getPoint() >= 1) {
- 			combatOrdersSkill.updateToOriginalSkillPoint(adventurer);
- 		}
+		
 	}
 	
 }

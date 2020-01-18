@@ -272,6 +272,7 @@ public class Hunt extends Thread {
 		}
 		
 		((Adventurer)adventurerState.getCharacter()).resetAllSkillCoolTime();
+		player.getMainAdventurer().removeAllBuff();
 		this.isEnd = true;
 		String getItemInfor = null;
 		if (this.winFlag) {
@@ -349,6 +350,9 @@ public class Hunt extends Thread {
 	}
 
 	public void end() {
+		if(playerHuntEvent != null) {
+			playerHuntEvent.endHunt(player.getMainAdventurer());
+		}
 		mInterface.setQuickSkillEnabled();
 		mInterface.endHunt();
 	}
@@ -362,9 +366,6 @@ public class Hunt extends Thread {
 	}
 
 	public void dispose() {
-		if(playerHuntEvent != null) {
-			playerHuntEvent.endHunt((Adventurer)adventurerState.getCharacter());
-		}
 		if (!this.winFlag) {
 			adventurerState.getCharacter().setCurHp(1);
 			adventurerState.getCharacter().setCurMp(1);

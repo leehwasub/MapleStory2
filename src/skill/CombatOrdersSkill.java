@@ -28,7 +28,6 @@ public class CombatOrdersSkill extends ActiveSkill{
 	}
 	
 	public void upSkillPointForCombatOrders(Adventurer adventurer) {
-		// if originalSkillInfor is not null, an error must have occurred. so, it needs to reset to original skill Point prior to up skill Point
 		if(originalSkillInfor != null) {
 			updateToOriginalSkillPoint(adventurer);
 		}
