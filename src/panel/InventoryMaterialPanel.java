@@ -29,7 +29,7 @@ public class InventoryMaterialPanel extends JPanel {
 
 	public InventoryMaterialPanel(Player player) {
 		this.player = player;
-		toolTipPanel.setBounds(0, 0, 1100, 420);
+		toolTipPanel.setBounds(0, 0, InventoryMainPanel.INVENTORY_COMPONENT_WIDTH - 10, InventoryMainPanel.INVENTORY_COMPONENT_HEIGHT - 10);
 		add(toolTipPanel);
 		setLayout(null);
 		setBackground(new Color(0, 0, 0, 0));

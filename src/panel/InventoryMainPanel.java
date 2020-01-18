@@ -1,5 +1,6 @@
 package panel;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -83,39 +84,43 @@ public class InventoryMainPanel extends JPanel {
 	private MapleButtonGroup mapleButtonGroup;
 	
 	private MainMapleInterface mainMapleInterface;
+	
+	public static final int INVENTORY_COMPONENT_WIDTH = 1190;
+	public static final int INVENTORY_COMPONENT_HEIGHT = 552;
 
 	public InventoryMainPanel(Player player, MainMapleInterface mainMapleInterface) {
 		setLayout(null);
 		setVisible(false);
+		setBackground(new Color(0, 0, 0, 0));
 		
 		this.player = player;
 		this.mainMapleInterface = mainMapleInterface;
 		this.inventoryStatePanel = new InventoryStatePanel(player);
-		this.inventoryStatePanel.setBounds(50, 98, 1120, 440);
+		this.inventoryStatePanel.setBounds(50, 98, INVENTORY_COMPONENT_WIDTH, INVENTORY_COMPONENT_HEIGHT);
 		add(this.inventoryStatePanel);
 
 		this.inventoryEquipmentPanel = new InventoryEquipmentPanel(player);
-		this.inventoryEquipmentPanel.setBounds(50, 98, 1120, 440);
+		this.inventoryEquipmentPanel.setBounds(50, 98, INVENTORY_COMPONENT_WIDTH, INVENTORY_COMPONENT_HEIGHT);
 		add(this.inventoryEquipmentPanel);
 
 		this.inventoryConsumablePanel = new InventoryConsumablePanel(player, mainMapleInterface);
-		this.inventoryConsumablePanel.setBounds(50, 98, 1120, 440);
+		this.inventoryConsumablePanel.setBounds(50, 98, INVENTORY_COMPONENT_WIDTH, INVENTORY_COMPONENT_HEIGHT);
 		add(this.inventoryConsumablePanel);
 
 		this.inventoryMaterialPanel = new InventoryMaterialPanel(player);
-		this.inventoryMaterialPanel.setBounds(50, 98, 1120, 440);
+		this.inventoryMaterialPanel.setBounds(50, 98, INVENTORY_COMPONENT_WIDTH, INVENTORY_COMPONENT_HEIGHT);
 		add(this.inventoryMaterialPanel);
 
 		this.inventoryQuestPanel = new InventoryQuestPanel(player);
-		this.inventoryQuestPanel.setBounds(50, 98, 1120, 440);
+		this.inventoryQuestPanel.setBounds(50, 98, INVENTORY_COMPONENT_WIDTH, INVENTORY_COMPONENT_HEIGHT);
 		add(this.inventoryQuestPanel);
 
 		this.inventorySkillPanel = new InventorySkillPanel(player, mainMapleInterface);
-		this.inventorySkillPanel.setBounds(50, 98, 1120, 440);
+		this.inventorySkillPanel.setBounds(50, 98, INVENTORY_COMPONENT_WIDTH, INVENTORY_COMPONENT_HEIGHT);
 		add(this.inventorySkillPanel);
 
 		this.inventorySystemPanel = new InventorySystemPanel(player, mainMapleInterface);
-		this.inventorySystemPanel.setBounds(50, 98, 1120, 440);
+		this.inventorySystemPanel.setBounds(50, 98, INVENTORY_COMPONENT_WIDTH, INVENTORY_COMPONENT_HEIGHT);
 		add(this.inventorySystemPanel);
 		
 		ArrayList<MapleButton> group = new ArrayList<MapleButton>();

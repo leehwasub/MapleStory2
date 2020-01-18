@@ -188,18 +188,6 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		});
 		add(this.nextButton);
 
-		this.hpBar = new MapleHpBar(player.getMainAdventurer());
-		this.hpBar.setBounds(480, 575, 150, 20);
-		add(this.hpBar);
-
-		this.mpBar = new MapleMpBar(player.getMainAdventurer());
-		this.mpBar.setBounds(690, 575, 150, 20);
-		add(this.mpBar);
-
-		this.expBar = new MapleExpBar(player.getMainAdventurer());
-		this.expBar.setBounds(1020, 575, 150, 20);
-		add(this.expBar);
-
 		addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e) {
 				if (player.getIsCanMove()) {
@@ -278,7 +266,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		player.setIsCanMove(true);
 		this.mapleIsland.setImage(player);
 		this.inventoryMainPanel = new InventoryMainPanel(player, this);
-		this.inventoryMainPanel.setBounds(40, 70, 1220, 570);
+		this.inventoryMainPanel.setBounds(40, 70, 1240, 650);
 		add(this.inventoryMainPanel);
 
 		this.storeInventory = new StoreInventoryPanel(player);
@@ -294,6 +282,19 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		quickButtonPanel = new QuickButtonPanel(player, this, this);
 		quickButtonPanel.setBounds(0, 450, 1280, 120);
 		add(quickButtonPanel);
+		
+
+		this.hpBar = new MapleHpBar(player.getMainAdventurer());
+		this.hpBar.setBounds(480, 575, 150, 20);
+		add(this.hpBar);
+
+		this.mpBar = new MapleMpBar(player.getMainAdventurer());
+		this.mpBar.setBounds(690, 575, 150, 20);
+		add(this.mpBar);
+
+		this.expBar = new MapleExpBar(player.getMainAdventurer());
+		this.expBar.setBounds(1020, 575, 150, 20);
+		add(this.expBar);
 		
 		player.setCanUsePortion(true);
 		player.setCanUseSkill(false);

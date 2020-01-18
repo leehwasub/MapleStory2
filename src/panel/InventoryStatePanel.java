@@ -46,7 +46,7 @@ public class InventoryStatePanel extends JPanel {
 		setLayout(null);
 		setVisible(true);
 		this.player = player;
-		toolTipPanel.setBounds(0, 0, 1100, 420);
+		toolTipPanel.setBounds(0, 0, InventoryMainPanel.INVENTORY_COMPONENT_WIDTH - 10, InventoryMainPanel.INVENTORY_COMPONENT_HEIGHT - 10);
 		add(toolTipPanel);
 		
 		makeInventoryMyInfo();

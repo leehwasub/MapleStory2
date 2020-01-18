@@ -58,7 +58,7 @@ public class InventorySkillPanel extends JPanel {
 		setBackground(new Color(0, 0, 0, 0));
 		this.player = player;
 		this.mainMapleInterface = mainMapleInterface;
-		skillTooltip.setBounds(0, 0, 1100, 420);
+		skillTooltip.setBounds(0, 0, InventoryMainPanel.INVENTORY_COMPONENT_WIDTH - 10, InventoryMainPanel.INVENTORY_COMPONENT_HEIGHT - 10);
 		add(skillTooltip);
 		makeQuickSkillSpace();
 		makeSkillCancelSpace();
