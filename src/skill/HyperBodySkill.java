@@ -8,6 +8,7 @@ import component.StateBox;
 import hunt.HuntComponent.Hunt;
 import playerAttack.HyperBodyAttack;
 import playerAttack.PlayerAttack;
+import utils.WarriorStateUtils;
 
 public class HyperBodySkill extends ActiveSkill{
 
@@ -40,15 +41,13 @@ public class HyperBodySkill extends ActiveSkill{
 	}
 	
 	public void setHpIncre(Adventurer adventurer) {
-		Strength str = adventurer.getStrength();
 		double rate = ((double)getEffect(point) / 100.0);
-		this.creHp = (int)(str.getMaxHp() * rate);
+		this.creHp = (int)(WarriorStateUtils.getMaxHpByIndex(adventurer.getAdventurerLevel()) * rate);
 	}
 	
 	public void setMpIncre(Adventurer adventurer) {
-		Strength str = adventurer.getStrength();
 		double rate = ((double)getEffect(point) / 100.0);
-		this.creMp = (int)(str.getMaxMp() * rate);
+		this.creMp = (int)(WarriorStateUtils.getMaxMpByIndex(adventurer.getAdventurerLevel()) * rate);
 	}
 
 	public int getCreHp() {

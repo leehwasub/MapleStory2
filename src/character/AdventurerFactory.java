@@ -75,15 +75,6 @@ public class AdventurerFactory {
 			adventurer.addSkill(2, SkillFactory.makeSkill("엘리멘탈차지"));
 			adventurer.setHuntEvent(new PageHuntEvent());
 			imageUrl.append("2");
-			//TEST
-			adventurer.setCareerLevel(3);
-			adventurer.addSkill(3, SkillFactory.makeSkill("실드마스터리"));
-			adventurer.addSkill(3, SkillFactory.makeSkill("라이트닝차지"));
-			adventurer.addSkill(3, SkillFactory.makeSkill("리스토네이션"));
-			adventurer.addSkill(3, SkillFactory.makeSkill("위협"));
-			adventurer.addSkill(3, SkillFactory.makeSkill("컴뱃오더스"));
-			adventurer.addSkillPoint(100);
-			//
 			break;
 		case "나이트":
 			adventurer.setCareerLevel(3);
@@ -104,7 +95,13 @@ public class AdventurerFactory {
 			adventurer.setHuntEvent(new SpearManHuntEvent());
 			imageUrl.append("2");
 			//TEST
-			
+			adventurer.setCareerLevel(3);
+			adventurer.addSkill(3, SkillFactory.makeSkill("로드오브다크니스"));
+			adventurer.addSkill(3, SkillFactory.makeSkill("라만차스피어"));
+			adventurer.addSkill(3, SkillFactory.makeSkill("비홀더스버프"));
+			adventurer.addSkill(3, SkillFactory.makeSkill("비홀더쇼크"));
+			adventurer.addSkill(3, SkillFactory.makeSkill("크로스오버체인"));
+			adventurer.addSkillPoint(100);
 			//
 			break;
 		case "버서커":

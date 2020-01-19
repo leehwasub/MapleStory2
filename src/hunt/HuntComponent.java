@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 import attack.DamageText;
 import attack.Hit;
+import attackImage.EvilEyeShockUseImage;
 import attackImage.SkillImage;
 import character.Adventurer;
 import character.AdventurerFactory;
@@ -211,7 +212,7 @@ public class HuntComponent {
 			}
 		}
 		
-		public void addSkillImageList(SkillImage image) {
+		public void addSkillImage(SkillImage image) {
 			image.start();
 			skillImageList.add(image);
 		}
@@ -471,6 +472,14 @@ public class HuntComponent {
 			return playerAttack;
 		}
 		
+		public StateBox getAdventurerState() {
+			return adventurerState;
+		}
+		
+		public StateBox getMonsterState() {
+			return monsterState;
+		}
+
 	}
 
 }

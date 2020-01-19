@@ -4,10 +4,17 @@ import java.awt.Graphics2D;
 import java.io.Serializable;
 
 import attack.AttackInfor;
+import attack.DamageType;
+import attackImage.EvilEyeBuffUseImage;
+import attackImage.EvilEyeShockUseImage;
+import buff.BuffFactory;
 import character.Adventurer;
 import component.StateBox;
 import hunt.HuntComponent.Hunt;
 import playerAttack.PlayerAttack;
+import skill.CrossSurgeSkill;
+import skill.EvilEyeBuffSkill;
+import skill.EvilEyeShockSkill;
 
 public class SpearManHuntEvent implements HuntEvent, Serializable{
 
@@ -30,12 +37,23 @@ public class SpearManHuntEvent implements HuntEvent, Serializable{
 
 	@Override
 	public void startHunt(Hunt hunt) {
-		
+		EvilEyeBuffSkill evilEyeBuffSkill = (EvilEyeBuffSkill)hunt.getAdventurer().getSkillWithName("비홀더스버프");
+		if(evilEyeBuffSkill != null && evilEyeBuffSkill.getPoint() >= 1) {
+			evilEyeBuffSkill.setEvilEyeCoolTime(0);
+		}
 	}
 
 	@Override
 	public void startTurn(Hunt hunt) {
-		
+		EvilEyeBuffSkill evilEyeBuffSkill = (EvilEyeBuffSkill)hunt.getAdventurer().getSkillWithName("비홀더스버프");
+		if(evilEyeBuffSkill != null && evilEyeBuffSkill.getPoint() >= 1) {
+			evilEyeBuffSkill.subEvilEyeCoolTime();
+			if(evilEyeBuffSkill.getEvilEyeCoolTime() == 0) {
+				hunt.addSkillImage(new EvilEyeBuffUseImage(hunt, hunt.getAdventurerState(), hunt.getMonsterState(), null));
+				hunt.getAdventurer().addBuff(BuffFactory.makeAdventurerBuff(evilEyeBuffSkill));
+				evilEyeBuffSkill.resetEvilEyeCoolTime();
+			}
+		}
 	}
 
 	@Override
@@ -50,7 +68,15 @@ public class SpearManHuntEvent implements HuntEvent, Serializable{
 
 	@Override
 	public void hit(Adventurer adventurer, AttackInfor attackInfor) {
-		
+		CrossSurgeSkill crossSurgeSkill = (CrossSurgeSkill)adventurer.getSkillWithName("크로스오버체인");
+		int point = crossSurgeSkill.getPoint();
+		if(crossSurgeSkill != null && crossSurgeSkill.getPoint() >= 1 && adventurer.isAlreadyBuffed("크로스오버체인") 
+				&& attackInfor.getDamageType() == DamageType.DAMAGE_HP_TYPE) {
+			int damage = attackInfor.getPhysicalDamage();
+			damage += attackInfor.getMagicDamage();
+			double rate = crossSurgeSkill.getRecoveryRate(point) / 100.0;
+			adventurer.healHp(Math.min(crossSurgeSkill.getMaxRecovery(point), (int)(damage * rate)));
+		}
 	}
 	
 }

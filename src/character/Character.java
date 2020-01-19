@@ -57,7 +57,6 @@ public abstract class Character implements Serializable{
 	}
 
 	public Hit hit(AttackInfor attackInfor) {
-		hitEvent(this, attackInfor);
 		Strength opponentStr = attackInfor.getAttacker().getStrength();
 		int successRate = opponentStr.getAccuracyRate() - this.strength.getEvasionRate() + opponentStr.getLevel()
 				- this.strength.getLevel() + 90;
@@ -82,6 +81,7 @@ public abstract class Character implements Serializable{
 			
 			double ignoreDamageRateDouble = (double)ignoreDamageRate / 100.0;
 			d = d - (int)((double)d * ignoreDamageRateDouble);
+			hitEvent(this, attackInfor);
 			this.curHp -= Math.max(1, d);
 		}
 		if (this.curHp <= 0) {

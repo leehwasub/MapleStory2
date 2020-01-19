@@ -57,9 +57,19 @@ public class SkillFactory {
 		case "리스토네이션":
 			return new HpRecoverySkill("hpRecovery", "리스토네이션", 10, "체력을 일정량 회복후 일정 확률로 모든 상태이상 디버프를 해제한다", AttackType.OPPONENT, Property.PROPERTY_NOTHING, 3);
 		case "위협":
-			return new ThreatenSkill("threaten", "위협", 20, "적을 위협하여 일정 확률로 물리마법 공격력, 물리마법방어력, 적중률을 감소시킨다", AttackType.OPPONENT, Property.PROPERTY_NOTHING);
+			return new ThreatenSkill("threaten", "위협", 20, "적을 위협하여 일정 확률로 물리마법 공격력, 물리마법방어력, 적중률을 감소시킨다", AttackType.OPPONENT, Property.PROPERTY_NOTHING, 2);
 		case "컴뱃오더스":
 			return new CombatOrdersSkill("combatOrders", "컴뱃오더스", 20, "일정 시간동안 모든 스킬포인트 증가, 플레임차지와 라이트닝 차지의 효과를 증대시키는 버프를 건다.", AttackType.OPPONENT, Property.PROPERTY_NOTHING, 5);
+		case "라만차스피어":
+			return new LaManchaSpearSkill("laManchaSpear", "라만차스피어", 20, "거대한 창을 휘둘러 시전시에 약간의 데미지를 준후 강력한 한번의 일격을 가한다", AttackType.OPPONENT, Property.PROPERTY_NOTHING);
+		case "비홀더쇼크":
+			return new EvilEyeShockSkill("evilEyeShock", "비홀더쇼크", 20, "비홀더가 강력한 포효를 내지르며 전기 속성의 강력한 데미지를 준다", AttackType.OPPONENT, Property.PROPERTY_THUNDER, 4);
+		case "크로스오버체인":
+			return new CrossSurgeSkill("crossSurge", "크로스오버체인", 20, "일정 시간동안 HP비율에 따라 데미지가 증가하고 받은 피해를 감소시킨다", AttackType.MYSELF, Property.PROPERTY_NOTHING);
+		case "로드오브다크니스":
+			return new LordOfDarknessSkill("lordOfDarkness", "로드오브다크니스", 10, "크리티컬 확률이 증가하고 현재 HP비율에 따라 효과가 증대된다");
+		case "비홀더스버프":
+			return new EvilEyeBuffSkill("evilEyeBuff", "비홀더스버프", 20, "일정 턴을 주기로 비홀더가 플레이어에게 버프를 건다");
 		}
 		DialogUtils.showErrorDialog("SkillFactory.makeSkill("+skillName+") 새로운 스킬 생성 실패!");
 		return null;

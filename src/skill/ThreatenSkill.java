@@ -18,8 +18,8 @@ public class ThreatenSkill extends ActiveSkill{
 	private int decrePhysicalDefense;
 	private int decreMagicDefense;
 
-	public ThreatenSkill(String imageUrl, String name, int maxPoint, String infor, AttackType attackType, Property property) {
-		super(imageUrl, name, maxPoint, infor, attackType, property);
+	public ThreatenSkill(String imageUrl, String name, int maxPoint, String infor, AttackType attackType, Property property, int coolTime) {
+		super(imageUrl, name, maxPoint, infor, attackType, property, coolTime);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class ThreatenSkill extends ActiveSkill{
 	@Override
 	public String getEffectDetail(int point) {
 		return "MP " + getNeedMp(point) + " 소비, "+getRate(point)+"% 확률로 적에게 "+ getLast(point) +"턴간 적중률, 물리마법 공격력, 물리마법 방어력을 "
-				+ getEffect(point) + "% 감소시키는 디버프를 건다.";
+				+ getEffect(point) + "% 감소시키는 디버프를 건다. (쿨타임 " +coolTime+"턴)";
 	}
 	
 }

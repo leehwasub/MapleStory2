@@ -5,6 +5,8 @@ import attack.Property;
 import character.Resistance;
 import character.Strength;
 import skill.ActiveSkill;
+import skill.CrossSurgeSkill;
+import skill.EvilEyeBuffSkill;
 import skill.Skill;
 import skill.ThreatenSkill;
 import skill.HyperBodySkill;
@@ -55,12 +57,13 @@ public class BuffFactory {
 	}
 	
 	public static Buff makeSpecialBuff(String buffName, int last) {
-		System.out.println("어이상실 : " + buffName);
 		switch(buffName) {
 		case "스턴":
 			return new SpecialBuff("stun", "스턴", last, "일정 시간 동안 기절하여 행동 불능 상태가 된다.", true);
 		case "컴뱃오더스":
 			return new SpecialBuff("combatOrders", "컴뱃오더스", last, "일정 시간 동안 모든 스킬래벨이 증가하고 플레임차지와 블리자드 차지의 효과가 증대된다", false);
+		case "크로스오버체인":
+			return new SpecialBuff("crossSurge", "크로스오버체인", last, "일정 시간 동안 HP비율에 따라 물리데미지가 증가하고 피격시 일정 데미지를 회복한다", false);
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeSpecialBuff("+buffName+") 버프 생성 실패!");
 		return null;
@@ -88,6 +91,10 @@ public class BuffFactory {
 			return new StrengthBuff(skill.getImageUrl(), skill.getName(), ((ActiveSkill)skill).getLast(skill.getPoint()), skill.getInfor(), 
 					new Strength(new Resistance(), 0, 0, 0, -((ThreatenSkill)skill).getDecrePhysicalDamage(), -((ThreatenSkill)skill).getDecreMagicDamage()
 					, -((ThreatenSkill)skill).getDecrePhysicalDefense(), -((ThreatenSkill)skill).getDecreMagicDefense(), -((ThreatenSkill)skill).getDecreAccuracyRate(), 0, 0));
+		case "비홀더스버프":
+			return new StrengthBuff(skill.getImageUrl(), skill.getName(), ((EvilEyeBuffSkill)skill).getLast(skill.getPoint()), skill.getInfor(), 
+					new Strength(new Resistance(), 0, 0, 0, ((EvilEyeBuffSkill)skill).getPhysicalDamageEffect(skill.getPoint()), 0
+					, ((EvilEyeBuffSkill)skill).getDefenceEffect(skill.getPoint()), ((EvilEyeBuffSkill)skill).getDefenceEffect(skill.getPoint()), 0, 0, ((EvilEyeBuffSkill)skill).getCriticalEffect(skill.getPoint())));
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeAdventurerBuff("+skill.getName()+") 버프 생성 실패!");
 		return null;
