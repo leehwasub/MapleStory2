@@ -22,7 +22,7 @@ public class IronBodySkill extends ActiveSkill{
 
 	@Override
 	public int getLast(int point) {
-		return 6 + (point / 4);
+		return 6 + (point / 5);
 	}
 
 	@Override

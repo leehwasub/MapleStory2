@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.io.Serializable;
 
+import attack.AttackInfor;
 import character.Adventurer;
 import component.StateBox;
 import playerAttack.IronBodyAttack;
@@ -96,6 +97,11 @@ public class FighterHuntEvent implements HuntEvent, Serializable{
 	@Override
 	public void afterAttack(Adventurer adventurer, PlayerAttack attack) {
 	
+		
+	}
+
+	@Override
+	public void hit(Adventurer adventurer, AttackInfor attackInfor) {
 		
 	}
 	

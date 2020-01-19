@@ -6,6 +6,7 @@ import character.Resistance;
 import character.Strength;
 import skill.ActiveSkill;
 import skill.Skill;
+import skill.ThreatenSkill;
 import skill.HyperBodySkill;
 import skill.PanicSkill;
 import utils.DialogUtils;
@@ -54,11 +55,12 @@ public class BuffFactory {
 	}
 	
 	public static Buff makeSpecialBuff(String buffName, int last) {
+		System.out.println("어이상실 : " + buffName);
 		switch(buffName) {
 		case "스턴":
 			return new SpecialBuff("stun", "스턴", last, "일정 시간 동안 기절하여 행동 불능 상태가 된다.", true);
 		case "컴뱃오더스":
-			return new SpecialBuff("combatOrders", "컴뱃오더스", last, "일정 시간 동안 모든 스킬래벨이 증가한다.", true);
+			return new SpecialBuff("combatOrders", "컴뱃오더스", last, "일정 시간 동안 모든 스킬래벨이 증가하고 플레임차지와 블리자드 차지의 효과가 증대된다", false);
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeSpecialBuff("+buffName+") 버프 생성 실패!");
 		return null;
@@ -82,6 +84,10 @@ public class BuffFactory {
 			return new StrengthBuff(skill.getImageUrl(), skill.getName(), ((ActiveSkill)skill).getLast(skill.getPoint()), skill.getInfor(), 
 					new Strength(new Resistance(), 0, 0, 0, -((PanicSkill)skill).getDecrePhysicalDamage(), -((PanicSkill)skill).getDecreMagicDamage()
 					, 0, 0, -((PanicSkill)skill).getDecreAccuracyRate(), 0, 0));
+		case "위협":
+			return new StrengthBuff(skill.getImageUrl(), skill.getName(), ((ActiveSkill)skill).getLast(skill.getPoint()), skill.getInfor(), 
+					new Strength(new Resistance(), 0, 0, 0, -((ThreatenSkill)skill).getDecrePhysicalDamage(), -((ThreatenSkill)skill).getDecreMagicDamage()
+					, -((ThreatenSkill)skill).getDecrePhysicalDefense(), -((ThreatenSkill)skill).getDecreMagicDefense(), -((ThreatenSkill)skill).getDecreAccuracyRate(), 0, 0));
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeAdventurerBuff("+skill.getName()+") 버프 생성 실패!");
 		return null;

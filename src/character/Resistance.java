@@ -148,7 +148,15 @@ public class Resistance implements Serializable, Cloneable {
 		this.holy -= resistance;
 	}
 
-	
+	public void resetResistence() {
+		this.fire = 100;
+		this.ice = 100;
+		this.posion = 100;
+		this.thunder = 100;
+		this.dark = 100;
+		this.holy = 100;
+	}
+
 	@Override
 	public Object clone() throws CloneNotSupportedException {
 		return super.clone();
@@ -158,4 +166,5 @@ public class Resistance implements Serializable, Cloneable {
 		return "Resistance [fire=" + this.fire + ", ice=" + this.ice + ", posion=" + this.posion + ", thunder="
 				+ this.thunder + ", dark=" + this.dark + ", holy=" + this.holy + "]";
 	}
+	
 }

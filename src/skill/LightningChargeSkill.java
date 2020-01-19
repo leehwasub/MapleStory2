@@ -47,7 +47,7 @@ public class LightningChargeSkill extends ActiveSkill{
 
 	@Override
 	public String getEffectDetail(int point) {
-		return "MP " + getNeedMp(point) + " 소비, " + getEffect(point) + "% 전기속성 물리데미지로 3번 공격 " +stunRate(point) +"% 확률로 " + getLast(point) + "턴간 스턴"
+		return "MP " + getNeedMp(point) + " 소비, " + getEffect(point) + "% 전기속성 물리데미지로 3번 공격, " +stunRate(point) +"% 확률로 " + getLast(point) + "턴간 스턴"
 				+ ", 동상 상태의 적 공격시 " + extraEffect(point) + "% 추가데미지";
 	}
 

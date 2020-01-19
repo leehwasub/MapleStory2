@@ -26,13 +26,13 @@ public class ItemPool {
 		initGloveItem();
 		initTitleItem();
 		initMaterialItem();
+		initshieldItem();
 	}
 	
 	public static int getPrice(int type, int level) {
 		return priceTable[type][level/5];
 	}
-	
-	
+
 	private static void calCostItem(int type) {
 		double price = startPrice[type];
 		double rate = 2.0;
@@ -57,6 +57,31 @@ public class ItemPool {
 			}
 		}
 	}
+	
+	
+	private static void initshieldItem() {
+		items.put("우드버클러", new EquipmentItem("우드버클러", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHIELD, 10), "woodBuckler", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 10, 0, 0, 0, 0, 10, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_SHIELD, SexType.ALL, false));
+		items.put("강철방패", new EquipmentItem("강철방패", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHIELD, 15), "steelShield", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 15, 0, 0, 0, 0, 15, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_SHIELD, SexType.ALL, false));
+		items.put("미스릴버클러", new EquipmentItem("미스릴버클러", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHIELD, 20), "mithrilBuckler", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 20, 0, 0, 0, 0, 20, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_SHIELD, SexType.ALL, false));
+		items.put("빨간삼각방패", new EquipmentItem("빨간삼각방패", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHIELD, 25), "redSquareShield", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 25, 0, 0, 0, 0, 25, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_SHIELD, SexType.ALL, false));
+		items.put("레드크로스실드", new EquipmentItem("레드크로스실드", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHIELD, 30), "redCrossShield", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 30, 0, 0, 0, 0, 30, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_SHIELD, SexType.ALL, false));
+		items.put("배틀실드", new EquipmentItem("배틀실드", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHIELD, 35), "battleShield", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 35, 0, 0, 0, 0, 35, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_SHIELD, SexType.ALL, false));
+		items.put("타워실드", new EquipmentItem("타워실드", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHIELD, 40), "towerShield", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 40, 0, 0, 0, 0, 40, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_SHIELD, SexType.ALL, false));
+		items.put("레전드실드", new EquipmentItem("레전드실드", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHIELD, 50), "legendShield", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 50, 0, 0, 0, 0, 50, 10, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_SHIELD, SexType.ALL, false));
+		items.put("에이전트실드", new EquipmentItem("에이전트실드", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHIELD, 60), "aentShield", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 60, 0, 0, 0, 0, 60, 15, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_SHIELD, SexType.ALL, false));
+		items.put("아퀼라실드", new EquipmentItem("아퀼라실드", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHIELD, 70), "aquilaShield", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 70, 0, 0, 0, 0, 70, 20, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_SHIELD, SexType.ALL, false));
+	}
+
 
 	private static void initWeaponItem() {
 		items.put("검", new WeaponItem("검", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 1), "sword", 1, 

@@ -50,6 +50,16 @@ public class SkillFactory {
 			return new ComboSynergySkill("comboSynergy", "콤보시너지", 20, "공격시 콤보어택을 얻을 수있는 확률를 높이고 콤보어택 개수마다 물리 데미지를 일정량 증가시킨다");
 		case "찬스어택":
 			return new ChanceAttackSkill("chanceAttack", "찬스어택", 10, "영구히 크리티컬 확률을 증가시킨다");
+		case "실드마스터리":
+			return new ShieldMasterySkill("shieldMastery", "실드마스터리", 10, "방패 착용시 방패 방어 효과가 증가되고 물리 공격력, 속성저항 내성이 증가된다. 또한 일정 확률로 적의 공격을 가드후 적을 기절시킬 수 있다");
+		case "라이트닝차지":
+			return new LightningChargeSkill("lightningCharge", "라이트닝차지", 20, "무기에 일시적으로 전기속성을 부여한뒤 강력한 일격을 가한다.", AttackType.OPPONENT, Property.PROPERTY_THUNDER);
+		case "리스토네이션":
+			return new HpRecoverySkill("hpRecovery", "리스토네이션", 10, "체력을 일정량 회복후 일정 확률로 모든 상태이상 디버프를 해제한다", AttackType.OPPONENT, Property.PROPERTY_NOTHING, 3);
+		case "위협":
+			return new ThreatenSkill("threaten", "위협", 20, "적을 위협하여 일정 확률로 물리마법 공격력, 물리마법방어력, 적중률을 감소시킨다", AttackType.OPPONENT, Property.PROPERTY_NOTHING);
+		case "컴뱃오더스":
+			return new CombatOrdersSkill("combatOrders", "컴뱃오더스", 20, "일정 시간동안 모든 스킬포인트 증가, 플레임차지와 라이트닝 차지의 효과를 증대시키는 버프를 건다.", AttackType.OPPONENT, Property.PROPERTY_NOTHING, 5);
 		}
 		DialogUtils.showErrorDialog("SkillFactory.makeSkill("+skillName+") 새로운 스킬 생성 실패!");
 		return null;

@@ -27,6 +27,10 @@ public class PellionShop extends Shop {
 		equipmentItemList.add(ItemPool.getItem("라멜치마(여)", 1));
 		equipmentItemList.add(ItemPool.getItem("마스터서전트치마(남)", 1));
 		equipmentItemList.add(ItemPool.getItem("샤크치마(여)", 1));
+		equipmentItemList.add(ItemPool.getItem("우드버클러", 1));
+		equipmentItemList.add(ItemPool.getItem("강철방패", 1));
+		equipmentItemList.add(ItemPool.getItem("미스릴버클러", 1));
+		equipmentItemList.add(ItemPool.getItem("빨간삼각방패", 1));
 		consumableItemList.add(ItemPool.getItem("빨간포션", 1));
 		consumableItemList.add(ItemPool.getItem("파란포션", 1));
 		consumableItemList.add(ItemPool.getItem("주황포션", 1));

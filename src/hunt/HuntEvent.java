@@ -2,6 +2,7 @@ package hunt;
 
 import java.awt.Graphics2D;
 
+import attack.AttackInfor;
 import character.Adventurer;
 import component.StateBox;
 import playerAttack.PlayerAttack;
@@ -14,4 +15,5 @@ public interface HuntEvent {
 	public void startTurn(Adventurer adventurer);
 	public void startAttack(Adventurer adventurer, PlayerAttack attack);
 	public void afterAttack(Adventurer adventurer, PlayerAttack attack);
+	public void hit(Adventurer adventurer, AttackInfor attackInfor);
 }

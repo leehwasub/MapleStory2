@@ -43,7 +43,7 @@ public class HpRecoverySkill extends ActiveSkill{
 
 	@Override
 	public String getEffectDetail(int point) {
-		return "MP " + getNeedMp(point) + " 소비, HP " + getEffect(point) + "% 회복" + removeAbnormalRate(point) + "% 확률로 모든 상태이상 해제(쿨타임 " + coolTime + "턴)";
+		return "MP " + getNeedMp(point) + " 소비, HP " + getEffect(point) + "% 회복, " + removeAbnormalRate(point) + "% 확률로 모든 상태이상 해제(쿨타임 " + coolTime + "턴)";
 	}
 
 }

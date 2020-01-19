@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import attack.AttackInfor;
 import hunt.EmptyHuntEvent;
 import hunt.HuntEvent;
 import item.ConsumableItem;
@@ -55,6 +56,7 @@ public class Adventurer extends Character implements Serializable {
 		strength.setPhysicalDamage(0);
 		strength.setMagicDamage(0);
 		strength.setCriticalRate(0);
+		strength.getResistance().resetResistence();
 		ignoreDamageRate = 0;
 		
 		if(careerLevel == 0) {
@@ -94,6 +96,11 @@ public class Adventurer extends Character implements Serializable {
 		minPhysicalDamage = Math.min(minPhysicalDamage, maxPhysicalDamage);
 		
 		afterCalState();
+	}
+	
+	@Override
+	public void hitEvent(Character character, AttackInfor attackInfor) {
+		huntEvent.hit((Adventurer)character, attackInfor);
 	}
 	
 
@@ -319,8 +326,14 @@ public class Adventurer extends Character implements Serializable {
 	 * @param skill 추가할 스킬 본체
 	 */
 	public void addSkill(int level, Skill skill) {
+		if(getSkillWithName(skill.getName()) != null) return;
 		--level;
 		skillList.get(level).add(skill);
+	}
+	
+	public int getSkillSizeWithLevel(int level) {
+		--level;
+		return skillList.get(level).size();
 	}
 	
 	public Skill getSkillWithLevelIndex(int level, int index) {
@@ -390,6 +403,7 @@ public class Adventurer extends Character implements Serializable {
 		for(int i = 0; i < skillList.size(); i++) {
 			for(int j = 0; j < skillList.get(i).size(); j++) {
 				Skill skill = skillList.get(i).get(j);
+				System.out.println(skill.getName() + " " + skill.getPoint());
 				ret.put(skill.getName(), skill.getPoint());
 			}
 		}

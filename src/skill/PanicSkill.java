@@ -61,20 +61,20 @@ public class PanicSkill extends ActiveSkill{
 	
 	public void setPhysicalDamageDecre(Monster monster) {
 		double rate = ((double)deBuffEffect(point) / 100.0);
-		int midPhysicalDamage = (monster.getMaxPhysicalDamage() + monster.getMinPhysicalDamage()) / 2;
+		int midPhysicalDamage = (monster.getOriMaxPhysicalDamage() + monster.getOriMinPhysicalDamage()) / 2;
 		int decredMidPhysicalDamage = midPhysicalDamage - (int)(midPhysicalDamage * rate);
 		decrePhysicalDamage =  midPhysicalDamage - decredMidPhysicalDamage;
 	}
 	
 	public void setMagicDamageDecre(Monster monster) {
 		double rate = ((double)deBuffEffect(point) / 100.0);
-		int midMagicDamage = (monster.getMaxMagicDamage() + monster.getMinMagicDamage()) / 2;
+		int midMagicDamage = (monster.getOriMaxMagicDamage() + monster.getOriMinMagicDamage()) / 2;
 		int decredMidMagicDamage = midMagicDamage - (int)(midMagicDamage * rate);
 		decreMagicDamage = midMagicDamage - decredMidMagicDamage;
 	}
 	
 	public void setAccuracyRateDecre(Monster monster) {
-		Strength str = monster.getStrength();
+		Strength str = monster.getOriStrength();
 		double rate = ((double)deBuffEffect(point) / 100.0);
 		int decredAccuracyRate = str.getAccuracyRate()  - (int)(str.getAccuracyRate() * rate);
 		decreAccuracyRate = str.getAccuracyRate() - decredAccuracyRate;

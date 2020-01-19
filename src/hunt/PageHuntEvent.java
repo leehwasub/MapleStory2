@@ -4,8 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.io.Serializable;
 
+import attack.AttackInfor;
+import buff.BuffFactory;
 import character.Adventurer;
 import component.StateBox;
+import item.EquipmentItem;
 import playerAttack.BlizzardChargeAttack;
 import playerAttack.FlameChargeAttack;
 import playerAttack.LightningChargeAttack;
@@ -15,8 +18,11 @@ import skill.CombatOrdersSkill;
 import skill.ElementalChargeSkill;
 import skill.FlameChargeSkill;
 import skill.LightningChargeSkill;
+import skill.ShieldMasterySkill;
+import utils.CalUtils;
 import utils.ColorUtils;
 import utils.FontUtils;
+import utils.MusicUtils;
 
 public class PageHuntEvent implements HuntEvent, Serializable{
 
@@ -100,6 +106,23 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 	@Override
 	public void afterAttack(Adventurer adventurer, PlayerAttack attack) {
 		
+	}
+
+	@Override
+	public void hit(Adventurer adventurer, AttackInfor attackInfor) {
+		ShieldMasterySkill shieldMasterySkill = (ShieldMasterySkill)adventurer.getSkillWithName("실드마스터리");
+		int point = shieldMasterySkill.getPoint();
+		EquipmentItem shieldItem = (EquipmentItem)adventurer.getWearEquipmentByIndex(EquipmentItem.EQUIPMENT_TYPE_SHIELD);
+		if(shieldMasterySkill != null && shieldMasterySkill.getPoint() >= 1 && shieldItem != null) {
+			if(CalUtils.calPercent(shieldMasterySkill.guardRate(point))) {
+				attackInfor.setPhysicalDamage(1);
+				attackInfor.setMagicDamage(1);
+				MusicUtils.startEffectSound("defence");
+				if(CalUtils.calPercent(shieldMasterySkill.stunRate(point))) {
+					attackInfor.getAttacker().addBuff(BuffFactory.makeSpecialBuff("스턴", shieldMasterySkill.stunTurn(point)));
+				}
+			}
+		}
 	}
 	
 }

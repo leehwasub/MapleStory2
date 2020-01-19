@@ -56,8 +56,9 @@ public abstract class Character implements Serializable{
 		}
 	}
 
-	public Hit hit(AttackInfor damage) {
-		Strength opponentStr = damage.getAttacker().getStrength();
+	public Hit hit(AttackInfor attackInfor) {
+		hitEvent(this, attackInfor);
+		Strength opponentStr = attackInfor.getAttacker().getStrength();
 		int successRate = opponentStr.getAccuracyRate() - this.strength.getEvasionRate() + opponentStr.getLevel()
 				- this.strength.getLevel() + 90;
 		int d = 0;
@@ -68,12 +69,12 @@ public abstract class Character implements Serializable{
 			isMiss = true;
 		}
 		if (!isMiss) {
-			d = Math.max(0, damage.getPhysicalDamage() - this.strength.getPhysicalDefense());
-			d += Math.max(1, damage.getMagicDamage() - this.strength.getMagicDefense());
-			d = calResistenceDamage(d, damage.getProperty());
+			d = Math.max(0, attackInfor.getPhysicalDamage() - this.strength.getPhysicalDefense());
+			d += Math.max(1, attackInfor.getMagicDamage() - this.strength.getMagicDefense());
+			d = calResistenceDamage(d, attackInfor.getProperty());
 
 			int calCritical = (int)(Math.random() * 100) + 1;
-			System.out.println("크리티컬 테스트 : " + opponentStr.getCriticalRate() + " " + calCritical);
+			
 			if(opponentStr.getCriticalRate() >= calCritical) {
 				isCritical = true;
 				d *= 2;
@@ -86,7 +87,11 @@ public abstract class Character implements Serializable{
 		if (this.curHp <= 0) {
 			this.isDead = true;
 		}
-		return new Hit(d, damage.getDamageType(), isCritical);
+		return new Hit(d, attackInfor.getDamageType(), isCritical);
+	}
+	
+	public void hitEvent(Character character, AttackInfor attackInfor) {
+		
 	}
 	
 	public int calResistenceDamage(int d, Property property) {

@@ -12,10 +12,12 @@ import attackImage.FlameChargeUseImage;
 import attackImage.PowerStrikeHitImage;
 import attackImage.PowerStrikeUseImage;
 import buff.BuffFactory;
+import character.Adventurer;
 import component.StateBox;
 import hunt.Hunt;
 import skill.ActiveSkill;
 import skill.BlizzardChargeSkill;
+import skill.CombatOrdersSkill;
 import skill.FlameChargeSkill;
 
 public class BlizzardChargeAttack extends PlayerAttack {
@@ -42,11 +44,23 @@ public class BlizzardChargeAttack extends PlayerAttack {
 			opponent.getCharacter().addBuff(BuffFactory.makeAbnormalBuff("동상", frostLast, attacker.getCharacter().calNormalDamge(burnDamageRate)));
 		}
 	}
+	
 
+	private double combatOrdersEffect() {
+		double extraRate = 0.0;
+		if(((Adventurer)attacker.getCharacter()).isAlreadyBuffed("컴뱃오더스")) {
+			CombatOrdersSkill combatOrdersSkill = (CombatOrdersSkill)((Adventurer)attacker.getCharacter()).getSkillWithName("컴뱃오더스");
+			if(combatOrdersSkill != null && combatOrdersSkill.getPoint() >= 1) {
+				extraRate = combatOrdersSkill.getExtraChargeEffect(combatOrdersSkill.getPoint()) / 100.0;
+			}
+		}
+		return extraRate;
+	}
 
 	@Override
 	protected ArrayList<AttackInfor> makeAttackInfor() {
 		double rate = (double)activeSkill.getEffect(activeSkill.getPoint()) / 100.0;
+		rate += combatOrdersEffect();
 		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
 		for(int i = 0; i < 3; i++) {
 			ret.add(new AttackInfor(attacker.getCharacter(), activeSkill.getProperty(), attacker.getCharacter().calNormalDamge(rate), 0, DamageType.DAMAGE_HP_TYPE));

@@ -23,7 +23,7 @@ public class RageSkill extends ActiveSkill{
 
 	@Override
 	public int getLast(int point) {
-		return 8 + (point / 4);
+		return 8 + (point / 5);
 	}
 
 	@Override

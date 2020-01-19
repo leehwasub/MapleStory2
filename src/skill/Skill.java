@@ -163,6 +163,11 @@ public abstract class Skill implements Serializable {
 		}
 		return false;
 	}
+
+	public void addSkillPointForCombatOrders(int point) {
+		if(this.point == 0) return;
+		this.point += point;
+	}
 	
 	public String requiredSkillInfor() {
 		return "";

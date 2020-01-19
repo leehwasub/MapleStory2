@@ -23,7 +23,7 @@ public class IronWillSkill extends ActiveSkill{
 
 	@Override
 	public int getLast(int point) {
-		return 8 + (point / 3);
+		return 8 + (point / 4);
 	}
 
 	@Override

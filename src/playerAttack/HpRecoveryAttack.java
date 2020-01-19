@@ -30,6 +30,7 @@ public class HpRecoveryAttack extends PlayerAttack {
 	private void hpRecovery() {
 		double hpRecoveryRate = activeSkill.getEffect(activeSkill.getPoint()) / 100.0;
 		attacker.getCharacter().healHp((int)(attacker.getCharacter().getMaxHp() / hpRecoveryRate));
+		attacker.updateStateBox();
 	}
 	
 	private void removeAbnormalBuff() {
