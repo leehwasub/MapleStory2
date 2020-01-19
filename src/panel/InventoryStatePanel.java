@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import character.Adventurer;
+import character.Resistance;
 import character.Status;
 import component.MapleButton;
 import component.QuickItemButton;
@@ -39,6 +40,8 @@ public class InventoryStatePanel extends JPanel {
 	private QuickItemButton[] quickItemButton = new QuickItemButton[Adventurer.QUICK_ITEM_ARRAY_SIZE];
 	private MapleButton[] quickCancelButton = new MapleButton[Adventurer.QUICK_ITEM_ARRAY_SIZE];
 	private Player player;
+	
+	private static final int LINE_X[] = {50, 300, 550};
 	
 	private ItemTooltipPanel toolTipPanel = new ItemTooltipPanel();
 
@@ -79,98 +82,98 @@ public class InventoryStatePanel extends JPanel {
 			g.drawString("여자", 100, 70);
 		}
 		g.setColor(Color.yellow);
-		g.drawString("래벨", 50, 100);
+		g.drawString("래벨", LINE_X[0], 100);
 		g.setColor(Color.white);
-		g.drawString(adventurer.getStrength().getLevel()+"", 100, 100);
+		g.drawString(adventurer.getStrength().getLevel()+"", LINE_X[0] + 50, 100);
 		g.setColor(Color.yellow);
-		g.drawString("경험치", 50, 130);
+		g.drawString("경험치", LINE_X[0], 130);
 		g.setColor(Color.white);
-		g.drawString(adventurer.getExp() + "/" + adventurer.getNeedExp(), 110, 130);
+		g.drawString(adventurer.getExp() + "/" + adventurer.getNeedExp(), LINE_X[0] + 60, 130);
 		g.setColor(Color.red);
-		g.drawString("HP", 50, 160);
+		g.drawString("HP", LINE_X[0], 160);
 		g.setColor(Color.white);
-		g.drawString(adventurer.getCurHp() + "/" + adventurer.getStrength().getMaxHp(), 95, 160);
+		g.drawString(adventurer.getCurHp() + "/" + adventurer.getStrength().getMaxHp(), LINE_X[0] + 45, 160);
 		g.setColor(Color.blue);
-		g.drawString("MP", 50, 190);
+		g.drawString("MP", LINE_X[0], 190);
 		g.setColor(Color.white);
-		g.drawString(adventurer.getCurMp() + "/" + adventurer.getStrength().getMaxMp(), 95, 190);
+		g.drawString(adventurer.getCurMp() + "/" + adventurer.getStrength().getMaxMp(), LINE_X[0] + 45, 190);
 		g.setColor(Color.YELLOW);
-		g.drawString("물리 공격력", 50, 220);
+		g.drawString("물리 공격력", LINE_X[0], 220);
 		g.setColor(Color.WHITE);
-		g.drawString(adventurer.getStrength().getPhysicalDamage()+"", 150, 220);
+		g.drawString(adventurer.getStrength().getPhysicalDamage()+"", LINE_X[0] + 100, 220);
 		g.setColor(Color.YELLOW);
-		g.drawString("마법 공격력", 50, 250);
+		g.drawString("마법 공격력", LINE_X[0], 250);
 		g.setColor(Color.WHITE);
-		g.drawString(adventurer.getStrength().getMagicDamage()+"", 150, 250);
+		g.drawString(adventurer.getStrength().getMagicDamage()+"", LINE_X[0] + 100, 250);
 		g.setColor(Color.YELLOW);
-		g.drawString("물리 방어력", 50, 280);
+		g.drawString("물리 방어력", LINE_X[0], 280);
 		g.setColor(Color.WHITE);
-		g.drawString(adventurer.getStrength().getPhysicalDefense()+"", 150, 280);
+		g.drawString(adventurer.getStrength().getPhysicalDefense()+"", LINE_X[0] + 100, 280);
 		g.setColor(Color.YELLOW);
-		g.drawString("마법 방어력", 50, 310);
+		g.drawString("마법 방어력", LINE_X[0], 310);
 		g.setColor(Color.WHITE);
-		g.drawString(adventurer.getStrength().getMagicDefense()+"", 150, 310);
+		g.drawString(adventurer.getStrength().getMagicDefense()+"", LINE_X[0] + 100, 310);
 		g.setColor(Color.YELLOW);
-		g.drawString("적중률", 50, 340);
+		g.drawString("적중률", LINE_X[0], 340);
 		g.setColor(Color.WHITE);
 		g.drawString(adventurer.getStrength().getAccuracyRate()+"", 110, 340);
 		g.setColor(Color.YELLOW);
-		g.drawString("회피율", 50, 370);
+		g.drawString("회피율", LINE_X[0], 370);
 		g.setColor(Color.WHITE);
 		g.drawString(adventurer.getStrength().getEvasionRate()+"", 110, 370);
 		g.setColor(Color.YELLOW);
-		g.drawString("메소", 50, 400);
+		g.drawString("메소", LINE_X[0], 400);
 		g.setColor(Color.WHITE);
 		g.drawString(this.player.getInventory().getMoney()+"", 90, 400);
 		g.setColor(Color.YELLOW);
-		g.drawString("STR", 350, 40);
+		g.drawString("STR", LINE_X[1], 40);
 		g.setColor(Color.WHITE);
-		g.drawString(adventurer.getStatus().getStr()+"", 410, 40);
+		g.drawString(adventurer.getStatus().getStr()+"", LINE_X[1] + 60, 40);
 		g.setColor(Color.YELLOW);
-		g.drawString("DEX", 350, 70);
+		g.drawString("DEX", LINE_X[1], 70);
 		g.setColor(Color.WHITE);
-		g.drawString(adventurer.getStatus().getDex()+"", 410, 70);
+		g.drawString(adventurer.getStatus().getDex()+"", LINE_X[1] + 60, 70);
 		g.setColor(Color.YELLOW);
-		g.drawString("INT", 350, 100);
+		g.drawString("INT", LINE_X[1], 100);
 		g.setColor(Color.WHITE);
-		g.drawString(adventurer.getStatus().getInt()+"", 410, 100);
+		g.drawString(adventurer.getStatus().getInt()+"", LINE_X[1] + 60, 100);
 		g.setColor(Color.YELLOW);
-		g.drawString("LUK", 350, 130);
+		g.drawString("LUK", LINE_X[1], 130);
 		g.setColor(Color.WHITE);
-		g.drawString(adventurer.getStatus().getLuk()+"", 410, 130);
+		g.drawString(adventurer.getStatus().getLuk()+"", LINE_X[1] + 60, 130);
 		g.setColor(Color.YELLOW);
-		g.drawString("스텟 포인트", 350, 160);
+		g.drawString("스텟 포인트", LINE_X[1], 160);
 		g.setColor(Color.WHITE);
-		g.drawString(adventurer.getStatePoint()+"", 450, 160);
+		g.drawString(adventurer.getStatePoint()+"", LINE_X[1] + 100, 160);
 		g.setColor(Color.YELLOW);
-		g.drawString("물리 데미지", 350, 190);
+		g.drawString("물리 데미지", LINE_X[1], 190);
 		g.setColor(Color.WHITE);
-		g.drawString(adventurer.getMinPhysicalDamage() + "~" + adventurer.getMaxPhysicalDamage(), 450, 190);
+		g.drawString(adventurer.getMinPhysicalDamage() + "~" + adventurer.getMaxPhysicalDamage(), LINE_X[1] +100, 190);
 		g.setColor(Color.YELLOW);
-		g.drawString("마법 데미지", 350, 220);
+		g.drawString("마법 데미지", LINE_X[1], 220);
 		g.setColor(Color.WHITE);
-		g.drawString(adventurer.getMinMagicDamage() + "~" + adventurer.getMaxMagicDamage(), 450, 220);
+		g.drawString(adventurer.getMinMagicDamage() + "~" + adventurer.getMaxMagicDamage(), LINE_X[1] + 100, 220);
 		g.setColor(Color.YELLOW);
-		g.drawString("직업", 350, 250);
+		g.drawString("직업", LINE_X[1], 250);
 		g.setColor(Color.WHITE);
-		g.drawString(adventurer.getCareer(), 400, 250);
+		g.drawString(adventurer.getCareer(), LINE_X[1] + 50, 250);
 		g.setColor(Color.YELLOW);
-		g.drawString("포션 단축키", 550, 40);
+		g.drawString("포션 단축키", LINE_X[2], 40);
 		g.setColor(Color.white);
-		g.drawString("Q W E R", 650, 40);
+		g.drawString("Q W E R T", LINE_X[2] + 100, 40);
 		g.setColor(Color.YELLOW);
-		g.drawString("스킬 단축키", 550, 70);
+		g.drawString("스킬 단축키", LINE_X[2], 70);
 		g.setColor(Color.white);
-		g.drawString("Z X C V", 650, 70);
+		g.drawString("Z X C V B", LINE_X[2] + 100, 70);
 		g.setColor(Color.YELLOW);
-		g.drawString("상의", 790, 45);
-		g.drawString("하의", 790, 105);
-		g.drawString("무기", 790, 165);
-		g.drawString("방패", 790, 225);
-		g.drawString("모자", 790, 285);
-		g.drawString("신발", 790, 345);
-		g.drawString("장갑", 790, 405);
-		g.drawString("칭호", 940, 405);
+		g.drawString("상의", 790, 55);
+		g.drawString("하의", 790, 115);
+		g.drawString("무기", 790, 175);
+		g.drawString("방패", 790, 235);
+		g.drawString("모자", 940, 55);
+		g.drawString("신발", 940, 115);
+		g.drawString("장갑", 940, 175);
+		g.drawString("칭호", 940, 235);
 		g.setColor(Color.YELLOW);
 		g.setFont(FontUtils.SMALL_FONT);
 		ConsumableItem[] quickItemArray = this.player.getPlayerQuickItem();
@@ -183,6 +186,22 @@ public class InventoryStatePanel extends JPanel {
 				}
 			}
 		}
+		g.setFont(FontUtils.generalFont);
+		Resistance resistance = player.getMainAdventurer().getStrength().getResistance();
+		g.setColor(Color.YELLOW);
+		g.drawString("불 저항", LINE_X[2], 130);
+		g.drawString("얼음 저항", LINE_X[2], 160);
+		g.drawString("독 저항", LINE_X[2], 190);
+		g.drawString("번개 저항", LINE_X[2], 220);
+		g.drawString("어둠 저항", LINE_X[2], 250);
+		g.drawString("성 저항", LINE_X[2], 280);
+		g.setColor(Color.WHITE);
+		g.drawString(resistance.getFire()+"", LINE_X[2] + 100, 130);
+		g.drawString(resistance.getIce()+"", LINE_X[2] + 100, 160);
+		g.drawString(resistance.getPosion()+"", LINE_X[2] + 100, 190);
+		g.drawString(resistance.getThunder()+"", LINE_X[2] + 100, 220);
+		g.drawString(resistance.getDark()+"", LINE_X[2] + 100, 250);
+		g.drawString(resistance.getHoly()+"", LINE_X[2] + 100, 280);
 	}
 
 	private void setEquipmentStateImage() {
@@ -198,10 +217,10 @@ public class InventoryStatePanel extends JPanel {
 	private void makeInventoryMyInfo() {
 		for (int i = 0; i < 8; i++) {
 			this.inventoryMyInfoButton[i] = new ItemButton(this.inventoryItemSpaceButtonImage);
-			if (i != 7) {
-				this.inventoryMyInfoButton[i].setBounds(850, 15 + i * 60, 50, 50);
+			if (i < 4) {
+				this.inventoryMyInfoButton[i].setBounds(850, 25 + i * 60, 50, 50);
 			} else {
-				this.inventoryMyInfoButton[i].setBounds(1000, 15 + i * 60 - 60, 50, 50);
+				this.inventoryMyInfoButton[i].setBounds(1000, 25 + (i-4) * 60, 50, 50);
 			}
 			inventoryMyInfoButton[i].setItemToolTip(toolTipPanel);
 			final int index = i;
@@ -278,7 +297,7 @@ public class InventoryStatePanel extends JPanel {
 		for (int i = 0; i < 4; i++) {
 			final int index = i;
 			this.stateUpButton[i] = new MapleButton(this.stateUpButtonBasicImage, this.stateUpButtonEnteredImage);
-			this.stateUpButton[i].setBounds(450, 25 + i * 30, 20, 20);
+			this.stateUpButton[i].setBounds(410, 25 + i * 30, 20, 20);
 			this.stateUpButton[i].addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e) {
 					InventoryStatePanel.this.stateUpButtonEvent(index);
