@@ -4,14 +4,12 @@ import java.util.ArrayList;
 
 import attack.AttackInfor;
 import attackImage.CombatOrdersUseImage;
-import attackImage.RageUseImage;
 import buff.BuffFactory;
 import character.Adventurer;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import skill.ActiveSkill;
 import skill.CombatOrdersSkill;
-import utils.MusicUtils;
 
 public class CombatOrdersAttack extends PlayerAttack {
 	

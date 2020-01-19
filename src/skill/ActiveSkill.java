@@ -4,7 +4,7 @@ import attack.AttackType;
 import attack.Property;
 import character.Adventurer;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import playerAttack.PlayerAttack;
 
 public abstract class ActiveSkill extends Skill {

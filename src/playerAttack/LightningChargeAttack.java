@@ -4,23 +4,13 @@ import java.util.ArrayList;
 
 import attack.AttackInfor;
 import attack.DamageType;
-import attackImage.BlizzardChargeHitImage;
-import attackImage.BlizzardChargeUseImage;
-import attackImage.BrandishHitImage;
-import attackImage.BrandishUseImage;
-import attackImage.FlameChargeUseImage;
 import attackImage.LightningChargeHitImage;
 import attackImage.LightningChargeUseImage;
-import attackImage.PowerStrikeHitImage;
-import attackImage.PowerStrikeUseImage;
 import buff.BuffFactory;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import skill.ActiveSkill;
-import skill.BlizzardChargeSkill;
-import skill.FlameChargeSkill;
 import skill.LightningChargeSkill;
-import skill.ShoutSkill;
 
 public class LightningChargeAttack extends PlayerAttack {
 	

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import attack.AttackFactory;
 import attack.AttackType;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import maplestory.Player;
 import monster.DropItemFactory;
 import monsterAttack.MonsterAttack;

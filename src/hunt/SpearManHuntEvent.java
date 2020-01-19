@@ -6,6 +6,7 @@ import java.io.Serializable;
 import attack.AttackInfor;
 import character.Adventurer;
 import component.StateBox;
+import hunt.HuntComponent.Hunt;
 import playerAttack.PlayerAttack;
 
 public class SpearManHuntEvent implements HuntEvent, Serializable{
@@ -13,37 +14,37 @@ public class SpearManHuntEvent implements HuntEvent, Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public void drawObject(Graphics2D g, StateBox stateBox) {
+	public void drawObject(Graphics2D g, Hunt hunt) {
 		
 	}
 
 	@Override
-	public void drawInfor(Graphics2D g, Adventurer adventurer) {
+	public void drawInfor(Graphics2D g, Hunt hunt) {
 		
 	}
 
 	@Override
-	public void endHunt(Adventurer adventurer) {
+	public void endHunt(Hunt hunt) {
 		
 	}
 
 	@Override
-	public void startHunt(Adventurer adventurer) {
+	public void startHunt(Hunt hunt) {
 		
 	}
 
 	@Override
-	public void startTurn(Adventurer adventurer) {
+	public void startTurn(Hunt hunt) {
 		
 	}
 
 	@Override
-	public void startAttack(Adventurer adventurer, PlayerAttack attack) {
+	public void startAttack(Hunt hunt) {
 		
 	}
 
 	@Override
-	public void afterAttack(Adventurer adventurer, PlayerAttack attack) {
+	public void afterAttack(Hunt hunt) {
 		
 	}
 

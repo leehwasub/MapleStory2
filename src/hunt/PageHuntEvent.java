@@ -4,10 +4,12 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.io.Serializable;
 
+import attack.Attack;
 import attack.AttackInfor;
 import buff.BuffFactory;
 import character.Adventurer;
 import component.StateBox;
+import hunt.HuntComponent.Hunt;
 import item.EquipmentItem;
 import playerAttack.BlizzardChargeAttack;
 import playerAttack.FlameChargeAttack;
@@ -30,12 +32,13 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 	private static final int LINE_THINKNESS = 2;
 	
 	@Override
-	public void drawObject(Graphics2D g, StateBox stateBox) {
+	public void drawObject(Graphics2D g, Hunt hunt) {
 		
 	}
 
 	@Override
-	public void drawInfor(Graphics2D g, Adventurer adventurer) {
+	public void drawInfor(Graphics2D g, Hunt hunt) {
+		Adventurer adventurer = hunt.getAdventurer();
 		ElementalChargeSkill skill = (ElementalChargeSkill)adventurer.getSkillWithName("엘리멘탈차지");
 		if(skill != null && skill.getPoint() >= 1) {
 			g.setColor(ColorUtils.BLACK_80);
@@ -54,7 +57,8 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 	}
 
 	@Override
-	public void endHunt(Adventurer adventurer) {
+	public void endHunt(Hunt hunt) {
+		Adventurer adventurer = hunt.getAdventurer();
 		ElementalChargeSkill skill = (ElementalChargeSkill)adventurer.getSkillWithName("엘리멘탈차지");
 		if(skill != null && skill.getPoint() >= 1) {
 			skill.setChargeNum(0);
@@ -67,12 +71,13 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 	}
 
 	@Override
-	public void startHunt(Adventurer adventurer) {
+	public void startHunt(Hunt hunt) {
 		
 	}
 
 	@Override
-	public void startTurn(Adventurer adventurer) {
+	public void startTurn(Hunt hunt) {
+		Adventurer adventurer = hunt.getAdventurer();
 		ElementalChargeSkill skill = (ElementalChargeSkill)adventurer.getSkillWithName("엘리멘탈차지");
 		if(skill != null && skill.getPoint() >= 1) {
 			double hpRate = (double)skill.recoveryEffect(skill.getPoint()) / 100.0;
@@ -87,7 +92,9 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 	}
 
 	@Override
-	public void startAttack(Adventurer adventurer, PlayerAttack attack) {
+	public void startAttack(Hunt hunt) {
+		Adventurer adventurer = hunt.getAdventurer();
+		Attack attack = hunt.getPlayerAttack();
 		ElementalChargeSkill elementalCharge = (ElementalChargeSkill)adventurer.getSkillWithName("엘리멘탈차지");
 		if(adventurer.getUsedSkill() == null ||elementalCharge == null || 
 				elementalCharge.getPoint() == 0 || elementalCharge.isHaveMaxChargeNum()) return;
@@ -104,7 +111,7 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 	}
 
 	@Override
-	public void afterAttack(Adventurer adventurer, PlayerAttack attack) {
+	public void afterAttack(Hunt hunt) {
 		
 	}
 

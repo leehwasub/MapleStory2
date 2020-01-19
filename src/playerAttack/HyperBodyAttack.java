@@ -3,15 +3,13 @@ package playerAttack;
 import java.util.ArrayList;
 
 import attack.AttackInfor;
-import attackImage.RageUseImage;
 import attackImage.hyperBodyUseImage;
 import buff.BuffFactory;
 import character.Adventurer;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import skill.ActiveSkill;
 import skill.HyperBodySkill;
-import utils.MusicUtils;
 
 public class HyperBodyAttack extends PlayerAttack {
 	

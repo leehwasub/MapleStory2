@@ -4,19 +4,14 @@ import java.util.ArrayList;
 
 import attack.AttackInfor;
 import attack.DamageType;
-import attackImage.IntrepidSlashHitImage;
-import attackImage.IntrepidSlashUseImage;
 import attackImage.PanicHitImage;
 import attackImage.PanicUse2Image;
 import attackImage.PanicUseImage;
-import attackImage.ShoutHitImage;
-import attackImage.ShoutUseImage;
 import buff.BuffFactory;
 import character.Monster;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import skill.ActiveSkill;
-import skill.FlameChargeSkill;
 import skill.PanicSkill;
 
 public class PanicAttack extends PlayerAttack {

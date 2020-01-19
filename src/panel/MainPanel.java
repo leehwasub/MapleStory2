@@ -24,8 +24,7 @@ import component.MapleIsland;
 import component.MapleMpBar;
 import component.StateBox;
 import dialog.JobSelectDialog;
-import hunt.Hunt;
-import javafx.scene.input.KeyCode;
+import hunt.HuntComponent;
 import map.MapleMap;
 import map.PointMapName;
 import maplestory.MainMapleInterface;
@@ -105,7 +104,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	private MessageList messageList = new MessageList();
 	private ArrayList<DamageText> damageTextList = new ArrayList<DamageText>();
 	private String messageString;
-	private Hunt hunt;
+	private HuntComponent huntComponent;
 	private StoreInventoryPanel storeInventory;
 	private StorePanel store;
 	
@@ -295,6 +294,8 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		this.expBar.setBounds(1020, 575, 150, 20);
 		add(this.expBar);
 		
+		huntComponent = new HuntComponent(this, this);
+		
 		player.setCanUsePortion(true);
 		player.setCanUseSkill(false);
 	}
@@ -356,13 +357,12 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	}
 
 	private void meetMonsterEvent() {
-		Monster monsters = MonsterFactory.readyMonster(this.player.get_curMap().getName());
-		if (monsters != null) {
+		Monster monster = MonsterFactory.readyMonster(this.player.get_curMap().getName());
+		if (monster != null) {
 			player.setIsCanMove(false);
 			player.setHunt(true);
 			player.setCanSave(false);
-			hunt = new Hunt(this.player, this, this, this.player.getMainAdventurer(), monsters);
-			hunt.start();
+			huntComponent.startHunt(player, player.getMainAdventurer(), monster);
 		}
 	}
 
@@ -548,8 +548,8 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		this.mapleIsland.draw(g);
 
 		repaint();
-		if (this.hunt != null) {
-			this.hunt.draw(g, this);
+		if (this.huntComponent != null) {
+			this.huntComponent.draw(g, this);
 			for (int i = this.damageTextList.size() - 1; i >= 0; i--) {
 				if (!((DamageText) this.damageTextList.get(i)).isAlive()) {
 					this.damageTextList.remove(i);
@@ -582,7 +582,6 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	}
 
 	public void endHunt() {
-		hunt = null;
 		updateMainStateBar();
 		player.setIsCanMove(true);
 		if(player.get_curMap().getMapType() != MapleMap.MAP_DUNGEON_TYPE) {
@@ -631,19 +630,20 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 
 	@Override
 	public void nextTurn() {
-		if(hunt != null) {
-			hunt.wakeUp();
+		if(huntComponent != null) {
+			huntComponent.wakeUp();
 		}
 	}
 
 	@Override
 	public void playerUseSkill(String skillName) {
-		hunt.playerSetAttack(skillName);
+		huntComponent.playerSetAttack(skillName);
 	}
 
 	@Override
 	public void setQuickSkillEnabled() {
 		quickButtonPanel.setQuickSkillEnabled();
 	}
+	
 
 }

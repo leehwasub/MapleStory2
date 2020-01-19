@@ -50,12 +50,12 @@ public class StateBox extends Thread {
 		buffList = character.getBuffList();
 		this.mainMapleInterface = mainMapleInterface;
 	}
-
-	public void removeFromPanel(JPanel panel) {
-		panel.remove(this.mapleHpBar);
-		this.mapleHpBar.revalidate();
-		panel.remove(this.mapleMpBar);
-		this.mapleMpBar.revalidate();
+	
+	public void reload(Character character) {
+		this.character = character;
+		mapleHpBar.setChatacter(character);
+		mapleMpBar.setCharacter(character);
+		buffList = character.getBuffList();
 	}
 
 	public void draw(Graphics2D g, JPanel panel) {

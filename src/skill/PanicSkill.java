@@ -6,8 +6,7 @@ import character.Adventurer;
 import character.Monster;
 import character.Strength;
 import component.StateBox;
-import hunt.Hunt;
-import playerAttack.BrandishAttack;
+import hunt.HuntComponent.Hunt;
 import playerAttack.PanicAttack;
 import playerAttack.PlayerAttack;
 

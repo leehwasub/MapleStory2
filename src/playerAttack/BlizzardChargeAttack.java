@@ -6,19 +6,13 @@ import attack.AttackInfor;
 import attack.DamageType;
 import attackImage.BlizzardChargeHitImage;
 import attackImage.BlizzardChargeUseImage;
-import attackImage.BrandishHitImage;
-import attackImage.BrandishUseImage;
-import attackImage.FlameChargeUseImage;
-import attackImage.PowerStrikeHitImage;
-import attackImage.PowerStrikeUseImage;
 import buff.BuffFactory;
 import character.Adventurer;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import skill.ActiveSkill;
 import skill.BlizzardChargeSkill;
 import skill.CombatOrdersSkill;
-import skill.FlameChargeSkill;
 
 public class BlizzardChargeAttack extends PlayerAttack {
 	

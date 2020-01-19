@@ -9,7 +9,7 @@ import attackImage.FlashBallMovableImage;
 import attackImage.FlashHitImage;
 import attackImage.FlashUseImage;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import skill.MonsterSkill;
 
 public class FlashAttack extends MonsterAttack {

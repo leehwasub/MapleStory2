@@ -6,9 +6,8 @@ import attack.AttackInfor;
 import attackImage.RageUseImage;
 import buff.BuffFactory;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import skill.ActiveSkill;
-import utils.MusicUtils;
 
 public class RageAttack extends PlayerAttack {
 	

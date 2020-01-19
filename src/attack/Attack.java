@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import attackImage.SkillImage;
 import attackImage.SkillImage.HitListener;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 
 public abstract class Attack extends Thread {
 	protected Hunt hunt;

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import attack.AttackInfor;
 import buff.BuffFactory;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import skill.MonsterSkill;
 import utils.MusicUtils;
 

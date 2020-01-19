@@ -4,15 +4,12 @@ import java.util.ArrayList;
 
 import attack.AttackInfor;
 import attack.DamageType;
-import attackImage.IntrepidSlashHitImage;
-import attackImage.IntrepidSlashUseImage;
 import attackImage.ShoutHitImage;
 import attackImage.ShoutUseImage;
 import buff.BuffFactory;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import skill.ActiveSkill;
-import skill.FlameChargeSkill;
 import skill.ShoutSkill;
 
 public class ShoutAttack extends PlayerAttack {

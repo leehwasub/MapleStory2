@@ -3,7 +3,7 @@ package skill;
 import attack.AttackType;
 import attack.Property;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import playerAttack.IronBodyAttack;
 import playerAttack.PlayerAttack;
 

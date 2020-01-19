@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import attack.AttackInfor;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 
 public class FlashBallMovableImage extends MovableSkillImage {
 	public FlashBallMovableImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {

@@ -1,7 +1,7 @@
 package attack;
 
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import monsterAttack.AccuracyRateDownAttack;
 import monsterAttack.AccuracyRateUpAttack;
 import monsterAttack.DamageDownAttack;

@@ -4,8 +4,7 @@ import attack.AttackType;
 import attack.Property;
 import character.Adventurer;
 import component.StateBox;
-import hunt.Hunt;
-import playerAttack.BrandishAttack;
+import hunt.HuntComponent.Hunt;
 import playerAttack.PlayerAttack;
 import playerAttack.ShoutAttack;
 

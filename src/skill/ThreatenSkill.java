@@ -2,13 +2,10 @@ package skill;
 
 import attack.AttackType;
 import attack.Property;
-import character.Adventurer;
 import character.Monster;
 import character.Strength;
 import component.StateBox;
-import hunt.Hunt;
-import playerAttack.BrandishAttack;
-import playerAttack.PanicAttack;
+import hunt.HuntComponent.Hunt;
 import playerAttack.PlayerAttack;
 import playerAttack.ThreatenAttack;
 

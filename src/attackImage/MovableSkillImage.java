@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import attack.AttackInfor;
 import character.Monster;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import map.Point;
 
 public class MovableSkillImage extends SkillImage{

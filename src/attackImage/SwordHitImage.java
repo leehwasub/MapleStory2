@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import attack.AttackInfor;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 
 public class SwordHitImage extends SkillImage {
 	public SwordHitImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {

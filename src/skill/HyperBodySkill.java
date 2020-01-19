@@ -5,7 +5,7 @@ import attack.Property;
 import character.Adventurer;
 import character.Strength;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import playerAttack.HyperBodyAttack;
 import playerAttack.PlayerAttack;
 

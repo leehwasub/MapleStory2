@@ -7,7 +7,7 @@ import attack.DamageType;
 import attack.Property;
 import attackImage.DoubleSlashImage;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import skill.MonsterSkill;
 
 public class DoubleSlashAttack extends MonsterAttack {

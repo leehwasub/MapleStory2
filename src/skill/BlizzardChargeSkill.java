@@ -2,9 +2,8 @@ package skill;
 
 import attack.AttackType;
 import attack.Property;
-import character.Adventurer;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import playerAttack.BlizzardChargeAttack;
 import playerAttack.PlayerAttack;
 

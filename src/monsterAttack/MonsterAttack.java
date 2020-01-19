@@ -2,7 +2,7 @@ package monsterAttack;
 
 import attack.Attack;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import skill.MonsterSkill;
 
 public abstract class MonsterAttack extends Attack {

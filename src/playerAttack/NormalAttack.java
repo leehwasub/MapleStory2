@@ -8,7 +8,7 @@ import attack.Hit;
 import attack.Property;
 import character.Character;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import skill.ActiveSkill;
 import utils.MusicUtils;
 
@@ -34,7 +34,7 @@ public class NormalAttack extends PlayerAttack {
 	public ArrayList<AttackInfor> makeAttackInfor() {
 		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
 		for(int i = 0; i < 1; i++) {
-			ret.add( new AttackInfor(attacker.getCharacter(), Property.PROPERTY_NOTHING, attacker.getCharacter().calNormalDamge(1.0d), 0, DamageType.DAMAGE_HP_TYPE));
+			ret.add(new AttackInfor(attacker.getCharacter(), Property.PROPERTY_NOTHING, attacker.getCharacter().calNormalDamge(1.0d), 0, DamageType.DAMAGE_HP_TYPE));
 		}
 		return ret;
 	}

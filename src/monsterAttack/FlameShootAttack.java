@@ -9,7 +9,7 @@ import attackImage.flameShootBallMovableImage;
 import attackImage.flameShootHitImage;
 import attackImage.flameShootUseImage;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import skill.MonsterSkill;
 
 public class FlameShootAttack extends MonsterAttack {

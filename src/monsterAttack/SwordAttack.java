@@ -8,7 +8,7 @@ import attack.Property;
 import attackImage.SwordHitImage;
 import attackImage.SwordUseImage;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import skill.MonsterSkill;
 
 public class SwordAttack extends MonsterAttack {

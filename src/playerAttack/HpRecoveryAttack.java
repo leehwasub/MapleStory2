@@ -4,13 +4,10 @@ import java.util.ArrayList;
 
 import attack.AttackInfor;
 import attackImage.HpRecoveryUseImage;
-import attackImage.RageUseImage;
-import buff.BuffFactory;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import skill.ActiveSkill;
 import skill.HpRecoverySkill;
-import utils.MusicUtils;
 
 public class HpRecoveryAttack extends PlayerAttack {
 	

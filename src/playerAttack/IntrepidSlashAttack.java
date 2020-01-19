@@ -7,7 +7,7 @@ import attack.DamageType;
 import attackImage.IntrepidSlashHitImage;
 import attackImage.IntrepidSlashUseImage;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import skill.ActiveSkill;
 
 public class IntrepidSlashAttack extends PlayerAttack {

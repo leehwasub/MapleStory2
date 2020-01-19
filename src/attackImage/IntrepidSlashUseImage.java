@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import attack.AttackInfor;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import utils.MusicUtils;
 
 public class IntrepidSlashUseImage extends SkillImage {

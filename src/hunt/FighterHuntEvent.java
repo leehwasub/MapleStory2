@@ -4,12 +4,16 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.io.Serializable;
 
+import attack.Attack;
 import attack.AttackInfor;
 import character.Adventurer;
 import component.StateBox;
+import hunt.HuntComponent.Hunt;
 import playerAttack.IronBodyAttack;
+import playerAttack.PanicAttack;
 import playerAttack.PlayerAttack;
 import playerAttack.RageAttack;
+import playerAttack.ShoutAttack;
 import skill.CombatOrdersSkill;
 import skill.ComboAttackSkill;
 import skill.ComboSynergySkill;
@@ -25,12 +29,13 @@ public class FighterHuntEvent implements HuntEvent, Serializable{
 	private static final int LINE_THINKNESS = 2;
 
 	@Override
-	public void drawObject(Graphics2D g, StateBox stateBox) {
+	public void drawObject(Graphics2D g, Hunt hunt) {
 		
 	}
 
 	@Override
-	public void drawInfor(Graphics2D g, Adventurer adventurer) {
+	public void drawInfor(Graphics2D g, Hunt hunt) {
+		Adventurer adventurer = hunt.getAdventurer();
 		ComboAttackSkill skill = (ComboAttackSkill)adventurer.getSkillWithName("콤보어택");
 		if(skill != null && skill.getPoint() >= 1) {
 			g.setColor(ColorUtils.BLACK_80);
@@ -49,7 +54,8 @@ public class FighterHuntEvent implements HuntEvent, Serializable{
 	}
 
 	@Override
-	public void endHunt(Adventurer adventurer) {
+	public void endHunt(Hunt hunt) {
+		Adventurer adventurer = hunt.getAdventurer();
 		ComboAttackSkill skill = (ComboAttackSkill)adventurer.getSkillWithName("콤보어택");
 		if(skill != null && skill.getPoint() >= 1) {
 			skill.setComboNum(0);
@@ -57,24 +63,27 @@ public class FighterHuntEvent implements HuntEvent, Serializable{
 	}
 
 	@Override
-	public void startHunt(Adventurer adventurer) {
+	public void startHunt(Hunt hunt) {
 		
 	}
 
 	@Override
-	public void startTurn(Adventurer adventurer) {
+	public void startTurn(Hunt hunt) {
 		
 	}
 
 	@Override
-	public void startAttack(Adventurer adventurer, PlayerAttack attack) {
+	public void startAttack(Hunt hunt) {
+		
+		Adventurer adventurer = hunt.getAdventurer();
+		Attack attack = hunt.getPlayerAttack();
 		
 		ComboAttackSkill comboAttack = (ComboAttackSkill)adventurer.getSkillWithName("콤보어택");
 		if(comboAttack == null || comboAttack.getPoint() == 0 || comboAttack.isHaveMaxComboNum()) return;
 		
-		if(attack.getActiveSkill() instanceof ShoutSkill) {
+		if(attack instanceof ShoutAttack) {
 			comboAttack.subComboNum();
-		} else if(attack.getActiveSkill() instanceof PanicSkill) {
+		} else if(attack instanceof PanicAttack) {
 			comboAttack.subComboNum();
 			comboAttack.subComboNum();
 		}
@@ -95,7 +104,7 @@ public class FighterHuntEvent implements HuntEvent, Serializable{
 	}
 
 	@Override
-	public void afterAttack(Adventurer adventurer, PlayerAttack attack) {
+	public void afterAttack(Hunt hunt) {
 	
 		
 	}

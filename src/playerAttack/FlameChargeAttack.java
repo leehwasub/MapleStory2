@@ -4,16 +4,12 @@ import java.util.ArrayList;
 
 import attack.AttackInfor;
 import attack.DamageType;
-import attackImage.BrandishHitImage;
-import attackImage.BrandishUseImage;
 import attackImage.FlameChargeHitImage;
 import attackImage.FlameChargeUseImage;
-import attackImage.PowerStrikeHitImage;
-import attackImage.PowerStrikeUseImage;
 import buff.BuffFactory;
 import character.Adventurer;
 import component.StateBox;
-import hunt.Hunt;
+import hunt.HuntComponent.Hunt;
 import skill.ActiveSkill;
 import skill.CombatOrdersSkill;
 import skill.FlameChargeSkill;
