@@ -1,4 +1,4 @@
-2 2 오시리아대륙 어둠의공원 orbisNear boss1 2
+2 2 오시리아대륙 어둠의공원 orbisNear boss1 2 오르비스
 0 1 1
 1 0 1
 1 1 1

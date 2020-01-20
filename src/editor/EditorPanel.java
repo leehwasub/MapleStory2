@@ -36,6 +36,7 @@ public class EditorPanel extends JPanel implements MouseListener{
 	
 	private JTextField backgroundField = new JTextField();
 	private JTextField musicField = new JTextField();
+	private JTextField warpField = new JTextField();
 
 	private JButton[][] mapButton;
 	
@@ -121,6 +122,12 @@ public class EditorPanel extends JPanel implements MouseListener{
 		musicField.setBounds(870, 50, 80, 50);
 		add(musicField);
 		
+		JLabel warpLabel = new JLabel("워프지점");
+		warpLabel.setBounds(970, 50, 80, 50);
+		add(warpLabel);
+		warpField.setBounds(1040, 50, 80, 50);
+		add(warpField);
+		
 		typeCombo = new JComboBox<String>(typeString);
 		typeCombo.addActionListener(new ActionListener() {
 			@Override
@@ -129,13 +136,13 @@ public class EditorPanel extends JPanel implements MouseListener{
 				typeNum = index;
 			}
 		});
-		typeCombo.setBounds(1000, 50, 200, 50);
+		typeCombo.setBounds(1200, 50, 200, 50);
 		add(typeCombo);
 		
 		add(nameField);
-		startButton.setBounds(1250, 50, 80, 50);
+		startButton.setBounds(1450, 50, 80, 50);
 		add(startButton);
-		saveButton.setBounds(1350, 50, 80, 50);
+		saveButton.setBounds(1550, 50, 80, 50);
 		add(saveButton);
 		startButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -169,7 +176,7 @@ public class EditorPanel extends JPanel implements MouseListener{
 					BufferedWriter bw = new BufferedWriter(file);
 					if(mapButton != null) {
 						String[] nameString = nameField.getText().split("-");
-						bw.write(mapButton.length + " " + mapButton[0].length + " " + nameString[0] + " " + nameString[1] + " " + backgroundField.getText() + " " + musicField.getText() + " " + typeNum + "\n");
+						bw.write(mapButton.length + " " + mapButton[0].length + " " + nameString[0] + " " + nameString[1] + " " + backgroundField.getText() + " " + musicField.getText() + " " + typeNum + " " + warpField.getText() + "\n");
 						for(int i = 0; i < mapButton.length; i++) {
 							for(int j = 0; j < mapButton[i].length; j++) {
 								if(!mapButton[i][j].getText().equals("0")) {

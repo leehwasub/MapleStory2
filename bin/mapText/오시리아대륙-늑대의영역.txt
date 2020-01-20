@@ -1,4 +1,4 @@
-45 13 오시리아대륙 늑대의영역 dangerousCliff dangerousCliff 1
+45 13 오시리아대륙 늑대의영역 dangerousCliff dangerousCliff 1 엘나스
 0 4 3
 1 2 1
 1 10 1

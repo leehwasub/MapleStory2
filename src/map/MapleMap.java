@@ -26,6 +26,7 @@ public class MapleMap implements Serializable {
 	private int mapType;
 	private ArrayList<Portal> portalList = new ArrayList<Portal>();
 	private Point basePoint = new Point(0, 0);
+	private String warpMapName;
 	
 	public static final int MAP_EMPTY_STATE = 0;
 	public static final int MAP_WALL_STATE = 1;
@@ -229,6 +230,40 @@ public class MapleMap implements Serializable {
 		mainMapleInterface.myRepaint();
 	}
 	
+	
+	public void warp(Player player, String nextMapName, MainMapleInterface mainMapleInterface) {
+		MapleMap curMap = MapleMapList.getInstance().getMap(player.get_curMap().getName());
+		MapleMap nextMap = MapleMapList.getInstance().getMap(nextMapName);
+		if (!curMap.getMusic().equals(nextMap.getMusic())) {
+			MusicUtils.changeMusic(nextMap.getMusic());
+		}
+		if (!curMap.getBackground().equals(nextMap.getBackground())) {
+			mainMapleInterface.changeBackground(nextMap.getBackground());
+		}
+		Point nextPoint = setWarpPoint(nextMapName);
+		player.set_curMap(nextMap);
+		player.setCurX(nextPoint.getX());
+		player.setCurY(nextPoint.getY());
+		calLoc(player, nextMap);
+		mainMapleInterface.myRepaint();
+	}
+	
+	public Point setWarpPoint(String mapName) {
+		MapleMap map = MapleMapList.getInstance().getMap(mapName);
+		int X = map.getMaxX() / 2;
+		int Y = map.getMaxY() / 2;
+		for(int i = map.getMaxY() / 2, j = map.getMaxY() / 2; (i < map.getMaxX() && j >= 0); i++, j--) {
+			if(map.getMap(X, i) == MapleMap.MAP_EMPTY_STATE) {
+				Y = i;
+				break;
+			} else if(map.getMap(X, j) == MapleMap.MAP_EMPTY_STATE) {
+				Y = j;
+				break;
+			}
+		}
+		return new Point(X, Y);
+	}
+	
 	public int getNextMapType(Player player) {
 		for (int i = 0; i < this.portalList.size(); i++) {
 			Portal portal = (Portal) this.portalList.get(i);
@@ -243,6 +278,11 @@ public class MapleMap implements Serializable {
 		return -1;
 	}
 
+	/**
+	 *  현재 지점에서 포탈이 있을경우 다른 맵으로 이동하고 음악과 배경사진을 변경
+	 * @param player 유저 위치이동을 위한 Player
+	 * @param mainMapleInterface background 사진을 바꾸기위한 interface
+	 */
 	public void moveOtherMap(Player player, MainMapleInterface mainMapleInterface) {
 		for (int i = 0; i < this.portalList.size(); i++) {
 			Portal portal = (Portal) this.portalList.get(i);
@@ -268,6 +308,11 @@ public class MapleMap implements Serializable {
 		mainMapleInterface.myRepaint();
 	}
 
+	/**
+	 *  다른맵 이동시 basePoint을 계산하여 유저가 맵위에서 잘 보이도록 함
+	 * @param player
+	 * @param mapleMap
+	 */
 	public void calLoc(Player player, MapleMap mapleMap) {
 		mapleMap.setBasePointXY(0, 0);
 		for (int i = 0; i < mapleMap.getMaxX() - Math.min(mapleMap.getMaxX(), MAX_MAP_VIEW_X) + 1; i++) {
@@ -287,6 +332,15 @@ public class MapleMap implements Serializable {
 		}
 	}
 
+	/**
+	 *  현재 계산한 BasePoint를 기준으로 보이는 맵이 유저가 포함되는 위치인지 계산
+	 * @param mapleMap
+	 * @param curX
+	 * @param curY
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public boolean isIncludePlayer(MapleMap mapleMap, int curX, int curY, int x, int y) {
 		if ((x <= curX) && (curX < x + Math.min(mapleMap.getMaxX(), MAX_MAP_VIEW_X)) && (y <= curY) && (curY < y + Math.min(mapleMap.getMaxY(), MAX_MAP_VIEW_Y))) {
 			return true;
@@ -399,12 +453,19 @@ public class MapleMap implements Serializable {
 		this.basePoint.setY(y);
 	}
 
-
 	public void setBasePointXY(int x, int y) {
 		this.basePoint.setX(x);
 		this.basePoint.setY(y);
 	}
 	
+	public String getWarpMapName() {
+		return warpMapName;
+	}
+
+	public void setWarpMapName(String warpMapName) {
+		this.warpMapName = warpMapName;
+	}
+
 	public String toString() {
 		return "MapleMap [name=" + this.name + ", _island=" + this.island + ", maxX=" + this.maxX + ", maxY="
 				+ this.maxY + ", music=" + this.music + ", background=" + this.background + "]";

@@ -7,6 +7,8 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -18,16 +20,28 @@ import item.MaterialItem;
 public class SaveLoad {
 	public static final String filename[];
 	//이클립스
-	public static final String dirname = Main.findSource(Main.class) + "/../../mapleData";
+	public static String dirname = Main.findSource(Main.class) + "/../../mapleData";
 	//jar
-	//public static final String dirname = Main.findSource(Main.class) + "/mapleData";
+	//public static String dirname = Main.findSource(Main.class) + "/mapleData";
 	public static final int DATA_NUM = 10;
 	
 	static {
+		
+		try {
+			dirname = URLDecoder.decode(dirname, "UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
+		
 		filename = new String[DATA_NUM];
 		for(int i = 0; i < DATA_NUM; i++) {
 			//filename[i] = Main.findSource(Main.class) + "/mapleData/playerinfo"+i+".dat";
 			filename[i] = Main.findSource(Main.class) + "/../../mapleData/playerinfo"+i+".dat";
+			try {
+				filename[i] = URLDecoder.decode(filename[i], "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
@@ -45,12 +59,14 @@ public class SaveLoad {
 	public static void savePlayer(int index, Serializable player) {
 		FileOutputStream fos = null;
 		File dir = new File(dirname);
-		JOptionPane.showMessageDialog(null, dirname);
+		JOptionPane.showMessageDialog(null, dirname + " 경로에 파일이 저장되었습니다.");
 		makeDir(dir);
 		File[] dirs = dir.listFiles();
+		/*
 		for (int i = 0; i < dirs.length; i++) {
 			JOptionPane.showMessageDialog(null, dirs[i].getName());
 		}
+		*/
 		try {
 			fos = new FileOutputStream(filename[index]);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);

@@ -55,6 +55,7 @@ public class MapleMapList {
 						mapleMap.setBackground(property[4]);
 						mapleMap.setMusic(property[5]);
 						mapleMap.setMapType(Integer.parseInt(property[6]));
+						mapleMap.setWarpMapName(property[7]);
 						mapleMap.initMap(Integer.parseInt(property[0]), Integer.parseInt(property[1]));
 					} else {
 						mapleMap.setMap(Integer.parseInt(property[0]), Integer.parseInt(property[1]),

@@ -1,4 +1,4 @@
-20 20 빅토리아아일랜드 페리온 pellionNear pellion 1
+20 20 빅토리아아일랜드 페리온 pellionNear pellion 1 페리온
 0 0 1
 0 4 1
 0 5 1

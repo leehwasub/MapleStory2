@@ -1,4 +1,4 @@
-15 15 메이플아일랜드 달팽이의숲 mapleIsland mapleIsland 1
+15 15 메이플아일랜드 달팽이의숲 mapleIsland mapleIsland 1 리스항구
 0 7 1
 2 12 1
 3 3 1

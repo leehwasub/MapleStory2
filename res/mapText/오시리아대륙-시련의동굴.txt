@@ -1,4 +1,4 @@
-30 40 오시리아대륙 시련의동굴 hellCave hellCave 1
+30 40 오시리아대륙 시련의동굴 hellCave hellCave 1 엘나스
 0 0 1
 0 1 1
 0 2 1

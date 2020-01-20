@@ -1,4 +1,4 @@
-2 2 메이플아일랜드 위험한숲 dangerousForest boss1 2
+2 2 메이플아일랜드 위험한숲 dangerousForest boss1 2 암허스트
 0 1 1
 1 0 1
 1 1 1

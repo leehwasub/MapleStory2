@@ -1,4 +1,4 @@
-15 9 빅토리아아일랜드 유적발굴캠프장 excavationArea excavationArea 0
+15 9 빅토리아아일랜드 유적발굴캠프장 excavationArea excavationArea 0 페리온
 0 4 3
 1 0 1
 1 1 1

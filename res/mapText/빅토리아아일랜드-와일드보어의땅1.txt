@@ -1,4 +1,4 @@
-35 35 빅토리아아일랜드 와일드보어의땅1 pellionNear pellion 1
+35 35 빅토리아아일랜드 와일드보어의땅1 pellionNear pellion 1 페리온
 0 5 1
 0 6 1
 0 15 1

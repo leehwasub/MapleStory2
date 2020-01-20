@@ -1,4 +1,4 @@
-25 40 오시리아대륙 구름공원2 orbisNear orbis 1
+25 40 오시리아대륙 구름공원2 orbisNear orbis 1 오르비스
 0 1 1
 0 17 1
 1 0 1
