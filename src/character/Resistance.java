@@ -40,6 +40,15 @@ public class Resistance implements Serializable, Cloneable, Buffable {
 		this.dark = dark;
 		this.holy = holy;
 	}
+	
+	public Resistance(int num) {
+		this.fire = num;
+		this.ice = num;
+		this.posion = num;
+		this.thunder = num;
+		this.dark = num;
+		this.holy = num;
+	}
 
 	public ArrayList<String> getResistenceItemInfor() {
 		ArrayList<String> ret = new ArrayList<String>();

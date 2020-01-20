@@ -74,6 +74,7 @@ public abstract class ActiveSkill extends Skill {
 	}
 
 	public SkillValid isCanUseSkill(Adventurer adventurer) {
+		if(adventurer.isAlreadyBuffed("스킬잠금")) return new SkillValid(false, "스킬잠금 상태입니다");
 		return (curCoolTime == 0 ? new SkillValid(true, "사용가능") : new SkillValid(false, "쿨타임 중인 스킬입니다"));
 	}
 	

@@ -292,8 +292,10 @@ public class ItemPool {
 	}
 
 	private static void initMaterialItem() {
+		//메이플 아일랜드
 		items.put("파란달팽이의껍질", new MaterialItem("파란달팽이의껍질", 10, "blueSnailSkin", 1, "파란 달팽이의 껍질을 벗긴것이다"));
 		items.put("빨간달팽이의껍질", new MaterialItem("빨간달팽이의껍질", 20, "redSnailSkin", 1, "빨간 달팽이의 껍질을 벗긴것이다"));
+		//빅토리아 아일랜드
 		items.put("돼지의리본", new MaterialItem("돼지의리본", 30, "pigRibbon", 1, "리본돼지의 리본을 끊은 것이다"));
 		items.put("주황버섯의갓", new MaterialItem("주황버섯의갓", 40, "orangeMushroomCap", 1, "주황 버섯의 갓이다"));
 		items.put("초록버섯의갓", new MaterialItem("초록버섯의갓", 50, "greenMushroomCap", 1, "초록 버섯의 갓이다"));
@@ -311,7 +313,71 @@ public class ItemPool {
 		items.put("갈비뼈", new MaterialItem("갈비뼈", 150, "rib", 1, "스켈레톤 사병의 갈비뼈이다"));
 		items.put("골반뼈", new MaterialItem("골반뼈", 160, "pelvicBone", 1, "스켈레톤 장교의 골반뼈이다"));
 		items.put("말머리뼈", new MaterialItem("말머리뼈", 200, "horseHeadBone", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		//오시리아 대륙
+		items.put("스타픽시의별조각", new MaterialItem("스타픽시의별조각", 220, "starPixieStarPiece", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("루나픽시의달조각", new MaterialItem("루나픽시의달조각", 230, "moonPixieMoonPiece", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("러스터픽시의태양조각", new MaterialItem("러스터픽시의태양조각", 240, "lusterPixieSunpiece", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("라이오너의꼬리", new MaterialItem("라이오너의꼬리", 250, "lionerTail", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("그류핀의꼬리", new MaterialItem("그류핀의꼬리", 260, "grupinTail", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("샐리온의꼬리", new MaterialItem("샐리온의꼬리", 270, "cellionTail", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("루이넬의꼬리", new MaterialItem("루이넬의꼬리", 280, "lucidaTail", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("뻣뻣한깃털", new MaterialItem("뻣뻣한깃털", 600, "stiffFeather", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("스톤볼의돌조각", new MaterialItem("스톤볼의돌조각", 300, "sentinelStone", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("화이트팽의꼬리", new MaterialItem("화이트팽의꼬리", 310, "whiteFangTail", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("헥터의꼬리", new MaterialItem("헥터의꼬리", 320, "hectorTail", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("페페의부리", new MaterialItem("페페의부리", 330, "pepeBeak", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("다크페페의부리", new MaterialItem("다크페페의부리", 340, "darkpepeBeak", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("예티의뿔", new MaterialItem("예티의뿔", 350, "yetiHorn", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("다크예티의뿔", new MaterialItem("다크예티의뿔", 360, "darkyetiHorn", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("웨어울프의발톱", new MaterialItem("웨어울프의발톱", 370, "werewolfToenail", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("라이칸스로프의발톱", new MaterialItem("라이칸스로프의발톱", 380, "lycanthropeToenail", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("불독의뿔", new MaterialItem("불독의뿔", 400, "cerebesHorn", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("파이어독의목걸이", new MaterialItem("파이어독의목걸이", 400, "bainNecklace", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		//니할사막
+		items.put("선인장의가시", new MaterialItem("선인장의가시", 420, "cactusThorn", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("카투스의꽃", new MaterialItem("카투스의꽃", 430, "cactusFlower", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("뱀방울", new MaterialItem("뱀방울", 450, "snakeBell", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("귀마개", new MaterialItem("귀마개", 460, "earplug", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("키요의부리", new MaterialItem("키요의부리", 470, "kiyoBeak", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("전갈의독침", new MaterialItem("전갈의독침", 480, "scorpionSting", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("금모래가루", new MaterialItem("금모래가루", 500, "scorpionSting", 1, "스켈레톤 지휘관ㅑㅅ이 타고다니는 말의 머리뼈이다"));
+		items.put("젤라틴", new MaterialItem("젤라틴", 510, "gelatin", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("플라스크", new MaterialItem("플라스크", 520, "flask", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("강철파편", new MaterialItem("강철파편", 530, "steelDebris", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("강철파편강화형", new MaterialItem("강철파편강화형", 540, "reinforcedSteelDebris", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("미스릴파편", new MaterialItem("미스릴파편", 550, "mithrilFragments", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("미스릴파편강화형", new MaterialItem("미스릴파편강화형", 560, "reinforcedMithrilFragments", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("전선다발", new MaterialItem("전선다발", 570, "wires", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("콘센트", new MaterialItem("콘센트", 580, "consent", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("출입증", new MaterialItem("출입증", 600, "laboratoryPass", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("5월의이슬", new MaterialItem("5월의이슬", 610, "fiveMonthDew", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("호문스큘러의흙", new MaterialItem("호문스큘러의흙", 620, "homunsculloSoil", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		//미나르 숲
+		items.put("레쉬의털뭉치", new MaterialItem("레쉬의털뭉치", 630, "rashWool", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("다크레쉬의털뭉치", new MaterialItem("다크레쉬의털뭉치", 640, "darkRashWool", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("비틀의뿔", new MaterialItem("비틀의뿔", 650, "beetleHorn", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("듀얼비틀의뿔", new MaterialItem("듀얼비틀의뿔", 660, "dualBeetleHorn", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("헹키의팬플롯", new MaterialItem("헹키의팬플롯", 670, "hankieFanplot", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("하프의꼬리깃털", new MaterialItem("하프의꼬리깃털", 680, "harpTailFeather", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("블러드하프의꼬리깃털", new MaterialItem("블러드하프의꼬리깃털", 700, "bloodHarpTailFeather", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("켄타우로스의불꽃", new MaterialItem("켄타우로스의불꽃", 710, "kentaurusFire", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("와이번의아가미", new MaterialItem("와이번의아가미", 720, "wyverngill", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("와이번의발톱", new MaterialItem("와이번의발톱", 730, "wyvernToenail", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		//시간의 신전
+		items.put("금이간모래시계", new MaterialItem("금이간모래시계", 740, "brokenSandglass", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("녹색고깔모자", new MaterialItem("녹색고깔모자", 750, "greenConeHat", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("푸른고깔모자", new MaterialItem("푸른고깔모자", 770, "blueConeHat", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("붉은고깔모자", new MaterialItem("붉은고깔모자", 790, "redConeHat", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("녹색심장", new MaterialItem("녹색심장", 800, "greenHeart", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("푸른심장", new MaterialItem("푸른심장", 810, "blueHeart", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("붉은심장", new MaterialItem("붉은심장", 820, "redHeart", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("고래의투구", new MaterialItem("고래의투구", 830, "whalePitching", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));	
+		items.put("나이트의가면", new MaterialItem("나이트의가면", 840, "knightMask", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("수호수의뿔", new MaterialItem("수호수의뿔", 850, "guardianHorn", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
+		items.put("검은갑옷조각", new MaterialItem("검은갑옷조각", 900, "blackArmorPiece", 1, "스켈레톤 지휘관이 타고다니는 말의 머리뼈이다"));
 	}
+
+	
 
 	public static Item getItem(String itemName, int num) {
 		Item item = (Item) items.get(itemName);

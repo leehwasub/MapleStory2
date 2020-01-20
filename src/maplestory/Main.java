@@ -13,7 +13,7 @@ public class Main {
 	public static final int MONEY_BONUS = 50;
 	public static final int EXP_BONUS = 3;
 	public static final boolean MONSTER_TEST_MODE = false;
-	public static final boolean DAMAGE_TEST_MODE = false;
+	public static final boolean DAMAGE_TEST_MODE = true;
 	public static final boolean QUEST_TEST = true;
 
 	public static void main(String[] args) {

@@ -120,6 +120,8 @@ public abstract class Character implements Serializable{
 		default:
 			break;
 		}
+		resist = Math.min(200, resist);
+		resist = Math.max(0, resist);
 		if (resist < 100) {
 			double plus = (100.0D - resist) / 200.0D;
 			double tmp = d + d * plus;

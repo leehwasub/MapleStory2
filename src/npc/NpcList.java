@@ -45,6 +45,8 @@ public class NpcList implements Serializable {
 		npcList.add(new Winston("winston", "윈스턴", new PointMapName(6, 2, "유적발굴캠프장")));
 		npcList.add(new Shuang("shuang", "슈앵", new PointMapName(8, 2, "유적발굴캠프장")));
 		npcList.add(new Starling("starling", "세릴", new PointMapName(10, 19, "폐쇄구역")));
+		npcList.add(new Trina("trina", "티나", new PointMapName(14, 16, "오르비스")));
+		npcList.add(new Lisa("lisa", "리사", new PointMapName(6, 8, "오르비스")));
 	}
 
 	public ArrayList<Npc> getNpcListArray() {

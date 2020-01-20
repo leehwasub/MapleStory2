@@ -59,6 +59,16 @@ public class MonsterFactory {
 			return new LunarPixie();
 		case "러스터픽시":
 			return new LusterPixie();
+		case "샐리온":
+			return new Cellion();
+		case "그류핀":
+			return new Grupin();
+		case "라이오너":
+			return new Lioner();
+		case "루이넬":
+			return new Lucida();
+		case "엘리자":
+			return new Eliza();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -179,6 +189,23 @@ public class MonsterFactory {
 			} else if (isRange(percent, 6, 10)) {
 				ret = makeMonster("루나픽시");
 			}
+			break;
+		case "하늘계단1":
+			if (isRange(percent, 0, 4)) {
+				ret = makeMonster("샐리온");
+			} else if (isRange(percent, 4, 8)) {
+				ret = makeMonster("그류핀");
+			} else if (isRange(percent, 8, 12)) {
+				ret = makeMonster("라이오너");
+			}
+			break;
+		case "하늘계단2":
+			if (isRange(percent, 0, 10)) {
+				ret = makeMonster("루이넬");
+			}
+			break;
+		case "어둠의공원":
+			ret = makeMonster("엘리자");
 			break;
 		}
 		return ret;

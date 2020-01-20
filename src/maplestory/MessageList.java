@@ -11,7 +11,6 @@ public class MessageList {
 	private Queue<Message> messageQueue = new LinkedList<Message>();
 
 	public void pushMessage(Message message) {
-		System.out.println("push");
 		this.messageQueue.clear();
 		this.messageQueue.add(message);
 	}

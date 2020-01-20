@@ -8,12 +8,15 @@ import monsterAttack.DamageDownAttack;
 import monsterAttack.DamageUpAttack;
 import monsterAttack.DefenceDownAttack;
 import monsterAttack.DefenceUpAttack;
+import monsterAttack.DevilScytheAttack;
 import monsterAttack.DoubleSlashAttack;
 import monsterAttack.EvasionRateDownAttack;
 import monsterAttack.EvasionRateUpAttack;
 import monsterAttack.FlameShootAttack;
 import monsterAttack.FlashAttack;
 import monsterAttack.MonsterAttack;
+import monsterAttack.ShadowShellAttack;
+import monsterAttack.SkillLockAttack;
 import monsterAttack.SwordAttack;
 import monsterAttack.TackleAttack;
 import playerAttack.NormalAttack;
@@ -52,6 +55,12 @@ public class AttackFactory {
 			return new DoubleSlashAttack(hunt, attacker, opponents, new MonsterSkill("더블슬래쉬", Property.PROPERTY_DARK, skillPoint, AttackType.OPPONENT));
 		case "플레임샷":
 			return new FlameShootAttack(hunt, attacker, opponents, new MonsterSkill("플레임샷", Property.PROPERTY_FIRE, skillPoint, AttackType.OPPONENT));
+		case "안티매직쉘":
+			return new ShadowShellAttack(hunt, attacker, opponents, new MonsterSkill("안티매직쉘", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
+		case "데빌사이더":
+			return new DevilScytheAttack(hunt, attacker, opponents, new MonsterSkill("데빌사이더", Property.PROPERTY_DARK, skillPoint, AttackType.OPPONENT));
+		case "스킬잠금":
+			return new SkillLockAttack(hunt, attacker, opponents, new MonsterSkill("스킬잠금", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;
