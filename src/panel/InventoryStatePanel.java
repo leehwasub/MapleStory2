@@ -17,6 +17,7 @@ import component.MapleButton;
 import component.QuickItemButton;
 import item.ConsumableItem;
 import item.ItemButton;
+import maplestory.MainMapleInterface;
 import maplestory.Player;
 import utils.FontUtils;
 import utils.ResourceLoader;
@@ -40,15 +41,17 @@ public class InventoryStatePanel extends JPanel {
 	private QuickItemButton[] quickItemButton = new QuickItemButton[Adventurer.QUICK_ITEM_ARRAY_SIZE];
 	private MapleButton[] quickCancelButton = new MapleButton[Adventurer.QUICK_ITEM_ARRAY_SIZE];
 	private Player player;
+	private MainMapleInterface mainMapleInterface;
 	
 	private static final int LINE_X[] = {50, 300, 550};
 	
 	private ItemTooltipPanel toolTipPanel = new ItemTooltipPanel();
 
-	public InventoryStatePanel(Player player) {
+	public InventoryStatePanel(Player player, MainMapleInterface mainMapleInterface) {
 		setLayout(null);
 		setVisible(true);
 		this.player = player;
+		this.mainMapleInterface = mainMapleInterface;
 		toolTipPanel.setBounds(0, 0, InventoryMainPanel.INVENTORY_COMPONENT_WIDTH - 10, InventoryMainPanel.INVENTORY_COMPONENT_HEIGHT - 10);
 		add(toolTipPanel);
 		
@@ -252,7 +255,7 @@ public class InventoryStatePanel extends JPanel {
 		if (this.quickItemButton[index].getItem() == null) {
 			return;
 		}
-		this.player.usePortion(this.quickItemButton[index].getItem());
+		player.usePortion(mainMapleInterface, this.quickItemButton[index].getItem());
 		setQuickItemImage();
 		setEquipmentStateImage();
 	}

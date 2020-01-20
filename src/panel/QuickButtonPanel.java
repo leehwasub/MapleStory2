@@ -107,7 +107,7 @@ public class QuickButtonPanel extends JPanel{
 				case KeyEvent.VK_R:
 					index = 3;
 					break;
-				case KeyEvent.VK_V:
+				case KeyEvent.VK_T:
 					index = 4;
 					break;
 				}
@@ -162,7 +162,7 @@ public class QuickButtonPanel extends JPanel{
 		if(quickItemButton[index].getItem() instanceof BuffItem && !player.isHunt()) {
 			return;
 		}
-		player.getMainAdventurer().usePortion(this.quickItemButton[index].getItem());
+		player.getMainAdventurer().usePortion(player, mainMapleInterface, this.quickItemButton[index].getItem());
 		setQuickItemImage();
 		if(player.isHunt()) {
 			stateBox.updateStateBox();

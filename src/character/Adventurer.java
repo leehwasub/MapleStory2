@@ -10,6 +10,8 @@ import hunt.HuntEvent;
 import item.ConsumableItem;
 import item.EquipmentItem;
 import maplestory.Main;
+import maplestory.MainMapleInterface;
+import maplestory.Player;
 import skill.ActiveSkill;
 import skill.PassiveSkill;
 import skill.Skill;
@@ -132,8 +134,8 @@ public class Adventurer extends Character implements Serializable {
 		}
 	}
 
-	public void usePortion(ConsumableItem item) {
-		item.use(this);
+	public void usePortion(Player player, MainMapleInterface mainMapleInterface, ConsumableItem item) {
+		item.use(player, mainMapleInterface);
 	}
 
 	public void removeEmptyQuickItem() {

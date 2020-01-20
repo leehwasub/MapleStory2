@@ -6,9 +6,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import buff.StrengthBuff;
+import buff.StrengthBuff.StrengthBuffType;
 import character.Character;
 import character.Strength;
 import map.Point;
+import maplestory.MainMapleInterface;
+import maplestory.MapleInterface;
+import maplestory.Player;
 import utils.ColorUtils;
 import utils.FontUtils;
 import utils.MusicUtils;
@@ -24,11 +28,13 @@ public class BuffItem extends ConsumableItem implements Serializable {
 		this.lastTime = lastTime;
 	}
 
-	public void use(Character character) {
+	public void use(Player player, MainMapleInterface mainMapleInterface) {
 		if (getNum() >= 1) {
 			MusicUtils.startEffectSound("portionUse");
 			setNum(getNum() - 1);
-			character.addBuff(new StrengthBuff(imageUrl, name, lastTime, getInforForBuff(), strength));
+			player.getMainAdventurer().addBuff(new StrengthBuff(imageUrl, name, lastTime, getInforForBuff(), strength, StrengthBuffType.PORTION_BUFF));
+			player.removeEmptyItem();
+			mainMapleInterface.mainStateBarUpdate();
 		}
 	}
 	
@@ -88,6 +94,11 @@ public class BuffItem extends ConsumableItem implements Serializable {
 
 	public void setStrength(Strength strength) {
 		this.strength = strength;
+	}
+
+	@Override
+	public boolean isNeedQuickReigster() {
+		return true;
 	}
 	
 	

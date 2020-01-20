@@ -3,7 +3,9 @@ package character;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Resistance implements Serializable, Cloneable {
+import buff.Buffable;
+
+public class Resistance implements Serializable, Cloneable, Buffable {
 	private static final long serialVersionUID = 1L;
 	private int fire;
 	private int ice;
@@ -155,6 +157,17 @@ public class Resistance implements Serializable, Cloneable {
 		this.thunder = 100;
 		this.dark = 100;
 		this.holy = 100;
+	}
+	
+	public boolean isOverlapEffect(Buffable buffable) {
+		Resistance resistance = (Resistance)buffable;
+		if(this.fire > 0 && resistance.fire > 0) return true;
+		if(this.ice > 0 && resistance.ice > 0) return true;
+		if(this.posion > 0 && resistance.posion > 0) return true;
+		if(this.thunder > 0 && resistance.thunder > 0) return true;
+		if(this.dark > 0 && resistance.dark > 0) return true;
+		if(this.holy > 0 && resistance.holy > 0) return true;
+		return false;
 	}
 
 	@Override

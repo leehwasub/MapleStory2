@@ -87,16 +87,17 @@ public class InventoryConsumablePanel extends JPanel {
 			DialogUtils.showWarningDialog("래벨이 부족합니다.");
 			return;
 		}
-		int keyIndex = getKeySelectWithDialog();
-		if (keyIndex == -1) {
-			return;
+		if(item.isNeedQuickReigster()) {
+			int keyIndex = getKeySelectWithDialog();
+			if (keyIndex == -1) {
+				return;
+			}
+			this.player.registQuickItem(index, keyIndex);
+		} else {
+			player.usePortion(mainMapleInterface, item);
 		}
-		this.player.registQuickItem(index, keyIndex);
 		setConsumableItemImage();
 		mainMapleInterface.setQuickItemImage();
-		for (int i = 0; i < 50; i++) {
-			this.inventoryItemSpace[i].setVisible(true);
-		}
 	}
 
 	public int getKeySelectWithDialog() {

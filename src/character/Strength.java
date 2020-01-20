@@ -2,12 +2,16 @@ package character;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.RestoreAction;
+
+import buff.Buffable;
 /**
  * 
  * @author Leehwasub
  *
  */
-public class Strength implements Serializable, Cloneable {
+public class Strength implements Serializable, Cloneable, Buffable {
 	private static final long serialVersionUID = 1L;
 	private Resistance resistance;
 	private int level;
@@ -213,6 +217,22 @@ public class Strength implements Serializable, Cloneable {
 	}
 	
 	@Override
+	public boolean isOverlapEffect(Buffable buffable) {
+		Strength strength = (Strength)buffable;
+		if(level > 0 && strength.level > 0) return true;
+		if(maxHp > 0 && strength.maxHp > 0) return true;
+		if(maxMp > 0 && strength.maxMp > 0) return true;
+		if(physicalDamage > 0 && strength.physicalDamage > 0) return true;
+		if(magicDamage > 0 && strength.magicDamage > 0) return true;
+		if(physicalDefense > 0 && strength.physicalDefense > 0) return true;
+		if(magicDefense > 0 && strength.magicDefense > 0) return true;
+		if(accuracyRate > 0 && strength.accuracyRate > 0) return true;
+		if(evasionRate > 0 && strength.evasionRate > 0) return true;
+		if(criticalRate > 0 && strength.criticalRate > 0) return true;
+		return resistance.isOverlapEffect(resistance);
+	}
+	
+	@Override
 	public Object clone() throws CloneNotSupportedException {
 		Strength strength = (Strength)super.clone();
 		strength.setResistance((Resistance)resistance.clone());
@@ -226,5 +246,6 @@ public class Strength implements Serializable, Cloneable {
 				+ physicalDefense + ", magicDefense=" + magicDefense + ", accuracyRate=" + accuracyRate
 				+ ", evasionRate=" + evasionRate + ", criticalRate=" + criticalRate + "]";
 	}
+
 	
 }

@@ -17,6 +17,7 @@ import item.HealItem;
 import item.Item;
 import item.ItemPool;
 import item.MaterialItem;
+import item.WarpItem;
 import map.MapleMap;
 import map.MapleMapList;
 import map.Point;
@@ -65,7 +66,7 @@ public class Player implements Serializable {
 		mainAdventurer = AdventurerFactory.makeAdventurer(name, type);
 		inventory = new Inventory(mainAdventurer);
 	}
-
+	
 	public Inventory getInventory() {
 		return this.inventory;
 	}
@@ -459,13 +460,16 @@ public class Player implements Serializable {
 		if (!isCanAddItem(item)) {
 			return false;
 		}
-		if (((item instanceof HealItem)) || ((item instanceof BuffItem))) {
+		if ((item instanceof HealItem) || (item instanceof BuffItem) || (item instanceof WarpItem)) {
 			ConsumableItem newItem = null;
-			if ((item instanceof HealItem)) {
+			if (item instanceof HealItem) {
 				newItem = (HealItem) ItemPool.getItem(item.getName(), item.getNum());
 			}
-			if ((item instanceof BuffItem)) {
+			if (item instanceof BuffItem) {
 				newItem = (BuffItem) ItemPool.getItem(item.getName(), item.getNum());
+			}
+			if (item instanceof WarpItem) {
+				newItem = (WarpItem) ItemPool.getItem(item.getName(), item.getNum());
 			}
 			for (int i = 0; (i < consumableInventory.size()) && (newItem.getNum() >= 1); i++) {
 				String curItem = ((ConsumableItem) consumableInventory.get(i)).getName();
@@ -591,12 +595,12 @@ public class Player implements Serializable {
 		return mainAdventurer.getQuickSkill();
 	}
 
-	public void usePortion(ConsumableItem item) {
-		mainAdventurer.usePortion(item);
+	public void usePortion(MainMapleInterface mainMapleInterface, ConsumableItem item) {
+		mainAdventurer.usePortion(this, mainMapleInterface, item);
 		mainAdventurer.removeEmptyQuickItem();
 		removeEmptyItem();
 	}
-
+	
 	public String getSpoils(Monster monster) {
 		StringBuffer b = new StringBuffer();
 		StringBuffer tmp = new StringBuffer();
@@ -657,7 +661,14 @@ public class Player implements Serializable {
 		NpcList.getInstance().getNpcWithName(infor.getNpcName()).setPointMapName(infor.getPointMapName());
 		updatedNpcList.add(infor);
 	}
+	
+	public void playerWarp(String mapName, MainMapleInterface mainMapleInterface) {
+		get_curMap().warp(this, mapName, mainMapleInterface);
+	}
 
+	public void playerWarp(PointMapName pointMapName, MainMapleInterface mainMapleInterface) {
+		get_curMap().warp(this, pointMapName, mainMapleInterface);
+	}
 
 	public boolean isCanUsePortion() {
 		return isCanUsePortion;

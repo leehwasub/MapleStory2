@@ -15,5 +15,6 @@ public class LithHarborShop extends Shop {
 		consumableItemList.add(ItemPool.getItem("파란포션", 1));
 		consumableItemList.add(ItemPool.getItem("주황포션", 1));
 		consumableItemList.add(ItemPool.getItem("레몬", 1));
+		consumableItemList.add(ItemPool.getItem("마을귀환주문서", 1));
 	}
 }

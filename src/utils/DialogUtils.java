@@ -19,4 +19,14 @@ public class DialogUtils {
 		JOptionPane.showMessageDialog(null, message, "경고", JOptionPane.WARNING_MESSAGE);
 	}
 	
+	/**
+	 *  
+	 * @param message
+	 * @return 확인을 선택할 경우 JOptionPane.YES_OPTION 반환
+	 */
+	public static int showConfirmDialog(String message) {
+		dialogSetFont();
+		return JOptionPane.showConfirmDialog(null, message, "확인", JOptionPane.YES_NO_OPTION);
+	}
+	
 }

@@ -16,5 +16,6 @@ public class MapleIslandShop extends Shop {
 		this.equipmentItemList.add(ItemPool.getItem("빨간미니스커트(여)", 1));
 		this.consumableItemList.add(ItemPool.getItem("초보모험가의빨간포션", 1));
 		this.consumableItemList.add(ItemPool.getItem("초보모험가의파란포션", 1));
+		this.consumableItemList.add(ItemPool.getItem("마을귀환주문서", 1));
 	}
 }

@@ -224,14 +224,18 @@ public class ItemPool {
 		items.put("마나엘릭서", new HealItem("마나엘릭서", 150, "manaElixir", 1, new Heal(0, 300, 0, 0), 10));
 		items.put("주황포션", new HealItem("주황포션", 75, "orangePortion", 1, new Heal(300, 0, 0, 0), 10));
 		items.put("하얀포션", new HealItem("하얀포션", 125, "whitePortion", 1, new Heal(500, 0, 0, 0), 10));
+		items.put("맑은물", new HealItem("맑은물", 250, "manaElixir", 1, new Heal(0, 500, 0, 0), 10));
 		items.put("새우튀김", new HealItem("새우튀김", 190, "friedShrimp", 1, new Heal(750, 0, 0, 0), 15));
 		items.put("장어구이", new HealItem("장어구이", 250, "grilledEel", 1, new Heal(1000, 0, 0, 0), 20));
 		items.put("쭈쭈바", new HealItem("쭈쭈바", 500, "pencilBar", 1, new Heal(2000, 0, 0, 0), 25));
 		items.put("살살녹는치즈", new HealItem("살살녹는치즈", 1000, "goodCheese", 1, new Heal(4000, 0, 0, 0), 30));
 		
-		items.put("전사의물약", new BuffItem("전사의물약", 500, "warriorPower", 1, 10, new Strength(new Resistance(), 0, 0, 0, 5, 0, 0, 0, 0, 0, 0), 10));
-		items.put("명사수의물약", new BuffItem("명사수의물약", 500, "shooterPower", 1, 10, new Strength(new Resistance(), 0, 0, 0, 0, 0, 0, 0, 5, 0, 0), 10));
-		items.put("민첩함의물약", new BuffItem("민첩함의물약", 500, "agilityPower", 1, 10, new Strength(new Resistance(), 0, 0, 0, 0, 0, 0, 0, 0, 5, 0), 10));
+		items.put("전사의물약", new BuffItem("전사의물약", 250, "warriorPower", 1, 10, new Strength(new Resistance(), 0, 0, 0, 5, 0, 0, 0, 0, 0, 0), 5));
+		items.put("명사수의물약", new BuffItem("명사수의물약", 250, "shooterPower", 1, 10, new Strength(new Resistance(), 0, 0, 0, 0, 0, 0, 0, 5, 0, 0), 5));
+		items.put("민첩함의물약", new BuffItem("민첩함의물약", 250, "agilityPower", 1, 10, new Strength(new Resistance(), 0, 0, 0, 0, 0, 0, 0, 0, 5, 0), 5));
+		items.put("전사의알약", new BuffItem("전사의알약", 400, "warriorTablet", 1, 20, new Strength(new Resistance(), 0, 0, 0, 5, 0, 0, 0, 0, 0, 0), 7));
+		
+		items.put("마을귀환주문서", new WarpItem("마을귀환주문서", 200, "villegeReturn", 1, 1, "가까운 마을로 이동할 수 있는 주문서이다"));
 	}
 	
 	private static void initTitleItem() {
@@ -333,6 +337,11 @@ public class ItemPool {
 			HealItem item2 = (HealItem) item;
 			HealItem e = new HealItem(item2.getName(), item2.getCost(), item2.getImageUrl(), num, item2.getHeal(),
 					item2.getLevel());
+			return e;
+		}
+		if (item instanceof WarpItem) {
+			WarpItem item2 = (WarpItem) item;
+			WarpItem e = new WarpItem(item2.getName(), item2.getCost(), item2.getImageUrl(), num, item2.getLevel(), item2.getItemInfor());
 			return e;
 		}
 		if (item instanceof MaterialItem) {

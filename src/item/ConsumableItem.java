@@ -1,7 +1,13 @@
 package item;
 
 import java.io.Serializable;
+
+import buff.Buffable;
 import character.Character;
+import maplestory.Main;
+import maplestory.MainMapleInterface;
+import maplestory.MapleInterface;
+import maplestory.Player;
 
 public abstract class ConsumableItem extends Item implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -13,7 +19,8 @@ public abstract class ConsumableItem extends Item implements Serializable {
 		this.level = level;
 	}
 
-	public abstract void use(Character paramCharacter);
+	public abstract void use(Player player, MainMapleInterface mainMapleInterface);
+	public abstract boolean isNeedQuickReigster();
 
 	public int getLevel() {
 		return level;

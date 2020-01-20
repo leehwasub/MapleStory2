@@ -8,12 +8,18 @@ import character.Monster;
 import character.Strength;
 
 public final class StrengthBuff extends Buff{
-
+	
+	public enum StrengthBuffType{
+		SKILL_BUFF, PORTION_BUFF
+	}
+	
 	private Strength strength;
-
-	public StrengthBuff(String imageUri, String name, int last, String infor, Strength strength) {
+	private StrengthBuffType buffType;
+	
+	public StrengthBuff(String imageUri, String name, int last, String infor, Strength strength, StrengthBuffType buffType) {
 		super(imageUri, name, last, infor);
 		this.strength = strength;
+		this.buffType = buffType;
 	}
 	
 	@Override
@@ -47,5 +53,27 @@ public final class StrengthBuff extends Buff{
 				|| strength.getMagicDamage() < 0 || strength.getMagicDefense() < 0 || strength.getAccuracyRate() < 0 
 				|| strength.getEvasionRate() < 0 || strength.getCriticalRate() < 0);
 	}
+
+	public StrengthBuffType getBuffType() {
+		return buffType;
+	}
+
+	public void setBuffType(StrengthBuffType buffType) {
+		this.buffType = buffType;
+	}
+	
+	public Strength getStrength() {
+		return strength;
+	}
+
+	public void setStrength(Strength strength) {
+		this.strength = strength;
+	}
+
+	@Override
+	public boolean isOverlapEffect(Buffable buffable) {
+		return strength.isOverlapEffect(((StrengthBuff)buffable).getStrength());
+	}
+	
 
 }

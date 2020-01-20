@@ -13,6 +13,7 @@ import buff.AbnormalBuff;
 import buff.Buff;
 import buff.SpecialBuff;
 import buff.StrengthBuff;
+import buff.StrengthBuff.StrengthBuffType;
 import utils.ResourceLoader;
 
 public abstract class Character implements Serializable{
@@ -215,9 +216,23 @@ public abstract class Character implements Serializable{
 		if(buffList == null) {
 			newBuffList();
 		}
+		if(buff instanceof StrengthBuff && ((StrengthBuff)buff).getBuffType() == StrengthBuffType.PORTION_BUFF) {
+			removeOverlapStrengthBuff(buff);
+		}
 		buffList.add(buff);
 	}
 	
+	private void removeOverlapStrengthBuff(Buff buff) {
+		if(buffList == null || buffList.size() == 0) return;
+		for(int i = buffList.size() - 1; i >= 0; i--) {
+			if(buffList.get(i) instanceof StrengthBuff && ((StrengthBuff)buffList.get(i)).getBuffType() == ((StrengthBuff)buff).getBuffType()) {
+				if(buffList.get(i).isOverlapEffect(buff)) {
+					buffList.remove(i);
+				}
+			}
+		}
+	}
+
 	public void newBuffList() {
 		buffList = new ArrayList<Buff>();
 	}

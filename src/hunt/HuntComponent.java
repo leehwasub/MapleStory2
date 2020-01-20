@@ -443,12 +443,11 @@ public class HuntComponent {
 			if (!this.winFlag) {
 				adventurerState.getCharacter().setCurHp(1);
 				adventurerState.getCharacter().setCurMp(1);
+				player.playerWarp(player.get_curMap().getWarpMapName(), mainMapleInterface);
 			}
-			if(monster.isBoss()) {
+			if(monster.isBoss() && winFlag) {
 				this.player.get_curMap().warp(player, WarpMapBossRoom.warpFromMapBossRoom(monster.getName()), mainMapleInterface);
-				if(winFlag) {
-					WarpMapBossRoom.closeMapAfterClear(player, monster.getName());
-				}
+				WarpMapBossRoom.closeMapAfterClear(player, monster.getName());
 			}
 			adventurerState.barSetVisibleFalse();
 			monsterState.barSetVisibleFalse();

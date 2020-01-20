@@ -28,5 +28,10 @@ public class SpecialBuff extends Buff{
 		return isDebuff;
 	}
 
+	@Override
+	public boolean isOverlapEffect(Buffable buffable) {
+		return false;
+	}
+
 	
 }

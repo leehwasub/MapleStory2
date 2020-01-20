@@ -4,8 +4,13 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import character.Adventurer;
 import character.Character;
 import map.Point;
+import maplestory.MainMapleInterface;
+import maplestory.MapleInterface;
+import maplestory.Player;
 import utils.ColorUtils;
 import utils.FontUtils;
 import utils.MusicUtils;
@@ -35,22 +40,25 @@ public class HealItem extends ConsumableItem implements Serializable {
 		this.level = level;
 	}
 
-	public void use(Character character) {
+	public void use(Player player, MainMapleInterface mainMapleInterface) {
+		Adventurer adventurer = player.getMainAdventurer();
 		if (getNum() >= 1) {
 			MusicUtils.startEffectSound("portionUse");
 			setNum(getNum() - 1);
 			if (this.heal.getHealHp() != 0) {
-				character.healHp(this.heal.getHealHp());
+				adventurer.healHp(this.heal.getHealHp());
 			}
 			if (this.heal.getHealMp() != 0) {
-				character.healMp(this.heal.getHealMp());
+				adventurer.healMp(this.heal.getHealMp());
 			}
 			if (this.heal.getHealPercentHp() != 0) {
-				character.healHp(this.heal.getHealPercentHp() / 100 * character.getMaxHp());
+				adventurer.healHp(this.heal.getHealPercentHp() / 100 * adventurer.getMaxHp());
 			}
 			if (this.heal.getHealPercentMp() != 0) {
-				character.healMp(this.heal.getHealPercentMp() / 100 * character.getMaxMp());
+				adventurer.healMp(this.heal.getHealPercentMp() / 100 * adventurer.getMaxMp());
 			}
+			mainMapleInterface.mainStateBarUpdate();
+			player.removeEmptyItem();
 		}
 	}
 
@@ -78,4 +86,11 @@ public class HealItem extends ConsumableItem implements Serializable {
 		g.setFont(FontUtils.SMALL_FONT);
 		g.drawString(this.cost + " 메소", p.getX() + 20,  p.getY() + 160 + (arr.size()-1) * 20);
 	}
+
+	@Override
+	public boolean isNeedQuickReigster() {
+		return true;
+	}
+
+	
 }

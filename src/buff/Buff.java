@@ -6,7 +6,7 @@ import java.awt.Image;
 import character.Character;
 import utils.ResourceLoader;
 
-public abstract class Buff {
+public abstract class Buff implements Buffable {
 	
 	private Image image;
 	private String name;

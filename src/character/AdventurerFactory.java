@@ -94,15 +94,6 @@ public class AdventurerFactory {
 			adventurer.addSkill(2, SkillFactory.makeSkill("하이퍼바디"));
 			adventurer.setHuntEvent(new SpearManHuntEvent());
 			imageUrl.append("2");
-			//TEST
-			adventurer.setCareerLevel(3);
-			adventurer.addSkill(3, SkillFactory.makeSkill("로드오브다크니스"));
-			adventurer.addSkill(3, SkillFactory.makeSkill("라만차스피어"));
-			adventurer.addSkill(3, SkillFactory.makeSkill("비홀더스버프"));
-			adventurer.addSkill(3, SkillFactory.makeSkill("비홀더쇼크"));
-			adventurer.addSkill(3, SkillFactory.makeSkill("크로스오버체인"));
-			adventurer.addSkillPoint(100);
-			//
 			break;
 		case "버서커":
 			adventurer.setCareerLevel(3);

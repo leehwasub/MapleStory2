@@ -444,6 +444,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	}
 
 	public void mainStateBarUpdate() {
+		player.calState();
 		this.hpBar.progressUpdate();
 		this.mpBar.progressUpdate();
 		this.expBar.progressUpdate();

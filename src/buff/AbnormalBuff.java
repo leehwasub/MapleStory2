@@ -55,4 +55,9 @@ public final class AbnormalBuff extends Buff{
 		return true;
 	}
 
+	@Override
+	public boolean isOverlapEffect(Buffable buffable) {
+		return false;
+	}
+
 }
