@@ -12,7 +12,7 @@ public final class Lioner extends Monster {
 
 	public Lioner() {
 		super("라이오너", "lioner",
-				new Strength(new Resistance(100, 100, 100, 100, 50, 150), 28, 2630, 600, 0, 0, 100, 200, 35, 35, 0), 240, 245, 260, 271,
+				new Strength(new Resistance(100, 100, 100, 100, 50, 150), 28, 2630, 600, 0, 0, 100, 200, 27, 27, 0), 240, 245, 260, 271,
 				110 * Main.EXP_BONUS, 182 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

@@ -12,7 +12,7 @@ public final class Grupin extends Monster {
 
 	public Grupin() {
 		super("그류핀", "grupin",
-				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 28, 2630, 600, 0, 0, 100, 200, 35, 35, 0), 240, 245, 260, 271,
+				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 28, 2630, 600, 0, 0, 100, 200, 27, 27, 0), 240, 245, 260, 271,
 				110 * Main.EXP_BONUS, 182 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}
