@@ -25,7 +25,7 @@ public class MapleIsland {
 		case "빅토리아아일랜드":
 			this.islandMapImage = ResourceLoader.getImage("componentImage", "vitoriaIslandMapImage.png");
 			break;
-		case "오시리아대륙":
+		case "엘나스산맥":
 			this.islandMapImage = ResourceLoader.getImage("componentImage", "ossyriaMapImage.png");
 			break;
 		case "니할사막":

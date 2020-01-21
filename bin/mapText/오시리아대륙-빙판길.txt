@@ -1,4 +1,4 @@
-15 35 오시리아대륙 빙판길 elnathNear elnathNear 1 엘나스
+15 35 엘나스산맥 빙판길 elnathNear elnathNear 1 엘나스
 0 3 1
 0 12 1
 0 13 1

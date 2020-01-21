@@ -1,4 +1,4 @@
-15 35 오시리아대륙 얼음벌판 elnathNear elnathNear 1 엘나스
+15 35 엘나스산맥 얼음벌판 elnathNear elnathNear 1 엘나스
 0 11 1
 0 12 1
 0 20 1

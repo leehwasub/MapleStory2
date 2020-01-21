@@ -1,4 +1,4 @@
-45 13 오시리아대륙 위험한골짜기2 dangerousCliff dangerousCliff 1 엘나스
+45 13 엘나스산맥 위험한골짜기2 dangerousCliff dangerousCliff 1 엘나스
 0 3 3
 0 7 1
 1 8 1

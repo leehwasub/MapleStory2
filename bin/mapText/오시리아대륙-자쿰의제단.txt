@@ -1,4 +1,4 @@
-2 2 오시리아대륙 자쿰의제단 hellCave zakum 2 엘나스
+2 2 엘나스산맥 자쿰의제단 hellCave zakum 2 엘나스
 0 1 1
 1 0 1
 1 1 1

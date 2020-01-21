@@ -126,9 +126,9 @@ public class MapleMapList {
 		getMap("폐쇄구역").addPortal(new Portal(new PointMapName(0, 24, "폐쇄구역"), new PointMapName(7, 0, "샤레니안왕성1")));
 		getMap("샤레니안왕성1").addPortal(new Portal(new PointMapName(4, 34, "샤레니안왕성1"), new PointMapName(6, 0, "샤레니안왕성2")));
 		getMap("샤레니안왕성2").addPortal(new Portal(new PointMapName(0, 30, "샤레니안왕성2"), new PointMapName(0, 0, "에레고스왕좌")));
-		getMap("리스항구").addPortal(new Portal(new PointMapName(0, 0, "리스항구"), new PointMapName(3, 12, "빅토리아->오시리아승강장")));
-		getMap("빅토리아->오시리아승강장").addPortal(new Portal(new PointMapName(3, 12, "빅토리아->오시리아승강장"), new PointMapName(0, 0, "리스항구")));
-		getMap("빅토리아->오시리아승강장").addPortal(new Portal(new PointMapName(3, 0, "빅토리아->오시리아승강장"), new PointMapName(1, 1, "빅토리아->오시리아")));
+		getMap("리스항구").addPortal(new Portal(new PointMapName(0, 0, "리스항구"), new PointMapName(3, 12, "빅토리아->엘나스산맥승강장")));
+		getMap("빅토리아->엘나스산맥승강장").addPortal(new Portal(new PointMapName(3, 12, "빅토리아->엘나스산맥승강장"), new PointMapName(0, 0, "리스항구")));
+		getMap("빅토리아->엘나스산맥승강장").addPortal(new Portal(new PointMapName(3, 0, "빅토리아->엘나스산맥승강장"), new PointMapName(1, 1, "빅토리아->엘나스산맥")));
 		//오시리아 대륙
 		getMap("오르비스").addPortal(new Portal(new PointMapName(2, 0, "오르비스"), new PointMapName(12, 0, "구름공원1")));
 		getMap("구름공원1").addPortal(new Portal(new PointMapName(12, 0, "구름공원1"), new PointMapName(2, 0, "오르비스")));

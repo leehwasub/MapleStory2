@@ -1,4 +1,4 @@
-56 11 오시리아대륙 오르비스탑상층 orbisTower orbisTower 1 오르비스
+56 11 엘나스산맥 오르비스탑상층 orbisTower orbisTower 1 오르비스
 0 0 1
 0 1 1
 0 2 1
