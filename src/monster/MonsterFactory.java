@@ -69,6 +69,12 @@ public class MonsterFactory {
 			return new Lucida();
 		case "엘리자":
 			return new Eliza();
+		case "스톤볼":
+			return new Sentinel();
+		case "화이트팽":
+			return new WhiteFang();
+		case "헥터":
+			return new Hector();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -206,6 +212,23 @@ public class MonsterFactory {
 			break;
 		case "어둠의공원":
 			ret = makeMonster("엘리자");
+			break;
+		case "오르비스탑상층":
+			if (isRange(percent, 0, 10)) {
+				ret = makeMonster("스톤볼");
+			}
+			break;
+		case "오르비스탑하층":
+			if (isRange(percent, 0, 10)) {
+				ret = makeMonster("스톤볼");
+			}
+			break;
+		case "얼음벌판":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("화이트팽");
+			} else if(isRange(percent, 5, 10)) {
+				ret = makeMonster("헥터");
+			}
 			break;
 		}
 		return ret;

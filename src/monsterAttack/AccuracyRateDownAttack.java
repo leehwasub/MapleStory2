@@ -31,7 +31,7 @@ public class AccuracyRateDownAttack extends MonsterAttack {
 	}
 
 	public int calNeedMp() {
-		return 10 * monsterSkill.getSkillPoint();
+		return 10 + monsterSkill.getSkillPoint() * 3;
 	}
 
 	@Override

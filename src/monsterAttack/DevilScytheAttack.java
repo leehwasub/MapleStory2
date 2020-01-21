@@ -32,7 +32,7 @@ public class DevilScytheAttack extends MonsterAttack {
 		double percent = 0.8f + (double)monsterSkill.getSkillPoint() * 0.1f;
 		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
 		for(int i = 0; i < 2; i++) {
-			ret.add(new AttackInfor(this.attacker.getCharacter(), Property.PROPERTY_NOTHING, 0, this.attacker.getCharacter().calNormalDamge(percent), DamageType.DAMAGE_HP_TYPE));
+			ret.add(new AttackInfor(this.attacker.getCharacter(), Property.PROPERTY_NOTHING, 0, this.attacker.getCharacter().calMagicDamge(percent), DamageType.DAMAGE_HP_TYPE));
 		}
 		return ret;
 	}

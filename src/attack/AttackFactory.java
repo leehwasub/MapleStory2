@@ -14,8 +14,10 @@ import monsterAttack.EvasionRateDownAttack;
 import monsterAttack.EvasionRateUpAttack;
 import monsterAttack.FlameShootAttack;
 import monsterAttack.FlashAttack;
+import monsterAttack.HpHealAttack;
 import monsterAttack.MonsterAttack;
 import monsterAttack.ShadowShellAttack;
+import monsterAttack.ShiningBusterAttack;
 import monsterAttack.SkillLockAttack;
 import monsterAttack.SwordAttack;
 import monsterAttack.TackleAttack;
@@ -61,6 +63,10 @@ public class AttackFactory {
 			return new DevilScytheAttack(hunt, attacker, opponents, new MonsterSkill("데빌사이더", Property.PROPERTY_DARK, skillPoint, AttackType.OPPONENT));
 		case "스킬잠금":
 			return new SkillLockAttack(hunt, attacker, opponents, new MonsterSkill("스킬잠금", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
+		case "샤이닝버스터":
+			return new ShiningBusterAttack(hunt, attacker, opponents, new MonsterSkill("샤이닝버스터", Property.PROPARTY_HOLY, skillPoint, AttackType.OPPONENT));
+		case "체력회복":
+			return new HpHealAttack(hunt, attacker, opponents, new MonsterSkill("샤이닝버스터", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

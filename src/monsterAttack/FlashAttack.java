@@ -26,10 +26,10 @@ public class FlashAttack extends MonsterAttack {
 	
 	@Override
 	protected ArrayList<AttackInfor> makeAttackInfor() {
-		double percent = 0.9f + (double)monsterSkill.getSkillPoint() * 0.1f;
+		double percent = 0.7f + (double)monsterSkill.getSkillPoint() * 0.1f;
 		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
 		for(int i = 0; i < 1; i++) {
-			ret.add(new AttackInfor(this.attacker.getCharacter(), Property.PROPERTY_NOTHING, 0, this.attacker.getCharacter().calNormalDamge(percent), DamageType.DAMAGE_HP_TYPE));
+			ret.add(new AttackInfor(this.attacker.getCharacter(), Property.PROPERTY_NOTHING, 0, this.attacker.getCharacter().calMagicDamge(percent), DamageType.DAMAGE_HP_TYPE));
 		}
 		return ret;
 	}
