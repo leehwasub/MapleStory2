@@ -75,6 +75,18 @@ public class MonsterFactory {
 			return new WhiteFang();
 		case "헥터":
 			return new Hector();
+		case "페페":
+			return new Pepe();
+		case "다크페페":
+			return new DarkPepe();
+		case "예티":
+			return new Yeti();
+		case "다크예티":
+			return new DarkYeti();
+		case "웨어울프":
+			return new Werewolf();
+		case "라이칸스로프":
+			return new Lycanthrope();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -228,6 +240,34 @@ public class MonsterFactory {
 				ret = makeMonster("화이트팽");
 			} else if(isRange(percent, 5, 10)) {
 				ret = makeMonster("헥터");
+			}
+			break;
+		case "빙판길":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("페페");
+			} else if(isRange(percent, 5, 10)) {
+				ret = makeMonster("다크페페");
+			}
+			break;
+		case "위험한골짜기1":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("예티");
+			} else if(isRange(percent, 5, 10)) {
+				ret = makeMonster("다크페페");
+			}
+			break;
+		case "위험한골짜기2":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("예티");
+			} else if(isRange(percent, 5, 10)) {
+				ret = makeMonster("다크예티");
+			}
+			break;
+		case "늑대의영역":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("웨어울프");
+			} else if(isRange(percent, 5, 10)) {
+				ret = makeMonster("라이칸스로프");
 			}
 			break;
 		}

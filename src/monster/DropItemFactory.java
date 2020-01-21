@@ -52,6 +52,38 @@ public class DropItemFactory {
 				getItems.add(ItemPool.getItem("골반뼈", 1));
 			} else if (monster instanceof SkeletonCommander) {
 				getItems.add(ItemPool.getItem("말머리뼈", 1));
+			} else if (monster instanceof StarPixie) {
+				getItems.add(ItemPool.getItem("스타픽시의별조각", 1));
+			} else if (monster instanceof LunarPixie) {
+				getItems.add(ItemPool.getItem("루나픽시의달조각", 1));
+			} else if (monster instanceof LusterPixie) {
+				getItems.add(ItemPool.getItem("러스터픽시의태양조각", 1));
+			} else if (monster instanceof Lioner) {
+				getItems.add(ItemPool.getItem("라이오너의꼬리", 1));
+			} else if (monster instanceof Grupin) {
+				getItems.add(ItemPool.getItem("그류핀의꼬리", 1));
+			} else if (monster instanceof Cellion) {
+				getItems.add(ItemPool.getItem("샐리온의꼬리", 1));
+			} else if (monster instanceof Lucida) {
+				getItems.add(ItemPool.getItem("루이넬의꼬리", 1));
+			} else if (monster instanceof Sentinel) {
+				getItems.add(ItemPool.getItem("스톤볼의돌조각", 1));
+			} else if (monster instanceof WhiteFang) {
+				getItems.add(ItemPool.getItem("화이트팽의꼬리", 1));
+			} else if (monster instanceof Hector) {
+				getItems.add(ItemPool.getItem("헥터의꼬리", 1));
+			} else if (monster instanceof Pepe) {
+				getItems.add(ItemPool.getItem("페페의부리", 1));
+			} else if (monster instanceof DarkPepe) {
+				getItems.add(ItemPool.getItem("다크페페의부리", 1));
+			} else if (monster instanceof Yeti) {
+				getItems.add(ItemPool.getItem("예티의뿔", 1));
+			} else if (monster instanceof DarkYeti) {
+				getItems.add(ItemPool.getItem("다크예티의뿔", 1));
+			} else if (monster instanceof Werewolf) {
+				getItems.add(ItemPool.getItem("웨어울프의발톱", 1));
+			} else if (monster instanceof Lycanthrope) {
+				getItems.add(ItemPool.getItem("라이칸스로프의발톱", 1));
 			}
 		}
 		return getItems;
@@ -78,6 +110,36 @@ public class DropItemFactory {
 				getItems.add(ItemPool.getItem("주황포션", 1));
 			} else if (isRange(percent, 100, 200)) {
 				getItems.add(ItemPool.getItem("파란포션", 1));
+			}
+		} else if(isRange(lv, 15, 20)) {
+			if (isRange(percent, 0, 100)) {
+				getItems.add(ItemPool.getItem("하얀포션", 1));
+			} else if (isRange(percent, 100, 200)) {
+				getItems.add(ItemPool.getItem("파란포션", 1));
+			}
+		} else if(isRange(lv, 20, 25)) {
+			if (isRange(percent, 0, 100)) {
+				getItems.add(ItemPool.getItem("새우튀김", 1));
+			} else if (isRange(percent, 100, 200)) {
+				getItems.add(ItemPool.getItem("레몬", 1));
+			}
+		} else if(isRange(lv, 25, 30)) {
+			if (isRange(percent, 0, 100)) {
+				getItems.add(ItemPool.getItem("새우튀김", 1));
+			} else if (isRange(percent, 100, 200)) {
+				getItems.add(ItemPool.getItem("레몬", 1));
+			}
+		}  else if(isRange(lv, 30, 35)) {
+			if (isRange(percent, 0, 100)) {
+				getItems.add(ItemPool.getItem("장어구이", 1));
+			} else if (isRange(percent, 100, 200)) {
+				getItems.add(ItemPool.getItem("마나엘릭서", 1));
+			}
+		}  else if(isRange(lv, 35, 40)) {
+			if (isRange(percent, 0, 100)) {
+				getItems.add(ItemPool.getItem("장어구이", 1));
+			} else if (isRange(percent, 100, 200)) {
+				getItems.add(ItemPool.getItem("마나엘릭서", 1));
 			}
 		}
 		StringBuffer getItemInfor = new StringBuffer();

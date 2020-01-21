@@ -26,7 +26,7 @@ public class DoubleSlashAttack extends MonsterAttack {
 		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
 		double rate = 1.1f + (double)monsterSkill.getSkillPoint() * 0.1f;
 		for(int i = 0; i < 2; i++) {
-			ret.add(new AttackInfor(this.attacker.getCharacter(), Property.PROPERTY_NOTHING, 0, this.attacker.getCharacter().calMagicDamge(rate), DamageType.DAMAGE_HP_TYPE));
+			ret.add(new AttackInfor(this.attacker.getCharacter(), monsterSkill.getProperty(), 0, this.attacker.getCharacter().calMagicDamge(rate), DamageType.DAMAGE_HP_TYPE));
 		}
 		return ret;
 	}

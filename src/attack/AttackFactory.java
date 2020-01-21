@@ -4,6 +4,8 @@ import component.StateBox;
 import hunt.HuntComponent.Hunt;
 import monsterAttack.AccuracyRateDownAttack;
 import monsterAttack.AccuracyRateUpAttack;
+import monsterAttack.BlowBeastAttack;
+import monsterAttack.ColdBeamAttack;
 import monsterAttack.DamageDownAttack;
 import monsterAttack.DamageUpAttack;
 import monsterAttack.DefenceDownAttack;
@@ -67,6 +69,10 @@ public class AttackFactory {
 			return new ShiningBusterAttack(hunt, attacker, opponents, new MonsterSkill("샤이닝버스터", Property.PROPARTY_HOLY, skillPoint, AttackType.OPPONENT));
 		case "체력회복":
 			return new HpHealAttack(hunt, attacker, opponents, new MonsterSkill("샤이닝버스터", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
+		case "콜드빔":
+			return new ColdBeamAttack(hunt, attacker, opponents, new MonsterSkill("콜드빔", Property.PROPERTY_ICE, skillPoint, AttackType.OPPONENT));
+		case "맹수의일격":
+			return new BlowBeastAttack(hunt, attacker, opponents, new MonsterSkill("맹수의일격", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

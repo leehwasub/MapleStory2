@@ -30,7 +30,7 @@ public class ShiningBusterAttack extends MonsterAttack {
 		double percent = 0.8f + (double)monsterSkill.getSkillPoint() * 0.1f;
 		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
 		for(int i = 0; i < 3; i++) {
-			ret.add(new AttackInfor(this.attacker.getCharacter(), Property.PROPERTY_NOTHING, attacker.getCharacter().calNormalDamge(percent), 0, DamageType.DAMAGE_HP_TYPE));
+			ret.add(new AttackInfor(this.attacker.getCharacter(), monsterSkill.getProperty(), attacker.getCharacter().calNormalDamge(percent), 0, DamageType.DAMAGE_HP_TYPE));
 		}
 		return ret;
 	}
