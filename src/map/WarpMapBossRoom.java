@@ -32,7 +32,7 @@ public class WarpMapBossRoom {
 			break;
 		case "엘리자":
 			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(8, 39, "하늘계단2"), MapleMap.MAP_EMPTY_STATE));
-			break;
+			break; 
 		case "자쿰":
 			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(3, 13, "자쿰의제단입구"), MapleMap.MAP_EMPTY_STATE));
 			break;
