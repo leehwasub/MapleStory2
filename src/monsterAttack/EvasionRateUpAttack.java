@@ -21,9 +21,7 @@ public class EvasionRateUpAttack extends MonsterAttack {
 		MusicUtils.startEffectSound("monsterBuff");
 		attacker.getCharacter().addBuff(BuffFactory.makeMonsterBuff("회피율강화", monsterSkill.getSkillPoint()));
 		this.opponent.updateStateBox(); 
-		this.attacker.attackBackMotion();
-		afterAttackDelay();
-		wakeUpThread();
+		afterAttack();
 	}
 
 	public String attackInfor() {

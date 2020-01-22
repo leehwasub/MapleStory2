@@ -21,9 +21,7 @@ public class EvasionRateDownAttack extends MonsterAttack {
 		MusicUtils.startEffectSound("monsterBuff");
 		opponent.getCharacter().addBuff(BuffFactory.makeMonsterBuff("회피율약화", monsterSkill.getSkillPoint()));
 		this.opponent.updateStateBox(); 
-		this.attacker.attackBackMotion();
-		afterAttackDelay();
-		wakeUpThread();
+		afterAttack();
 	}
 
 	public String attackInfor() {

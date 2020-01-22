@@ -21,9 +21,7 @@ public class DamageDownAttack extends MonsterAttack {
 		MusicUtils.startEffectSound("monsterBuff");
 		opponent.getCharacter().addBuff(BuffFactory.makeMonsterBuff("공격력약화", monsterSkill.getSkillPoint()));
 		this.opponent.updateStateBox(); 
-		this.attacker.attackBackMotion();
-		afterAttackDelay();
-		wakeUpThread();
+		afterAttack();
 	}
 
 	public String attackInfor() {

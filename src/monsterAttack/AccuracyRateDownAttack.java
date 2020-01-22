@@ -21,9 +21,7 @@ public class AccuracyRateDownAttack extends MonsterAttack {
 		MusicUtils.startEffectSound("monsterBuff");
 		opponent.getCharacter().addBuff(BuffFactory.makeMonsterBuff("적중률약화", monsterSkill.getSkillPoint()));
 		this.attacker.updateStateBox();
-		this.attacker.attackBackMotion();
-		afterAttackDelay();
-		wakeUpThread();
+		afterAttack();
 	}
 
 	public String attackInfor() {
