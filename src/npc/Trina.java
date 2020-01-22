@@ -35,7 +35,8 @@ public class Trina extends Npc{
 		} if(questNum == 2) {
 			quest = Quest.makeQuest(2, 6, "오르비스탑 보수작업").addMessage("엘리자를 쓰러트린 이후로 오르비스 곳곳에서 보수작업이 진행중이라고 한다.")
 					.addMessage("특히 오르비스탑이 많은 손상을 입었다고한다. 오르비스탑을 보수하기 위해서 많은 재료가 필요하다고 하는데. 오르비스탑에서 출몰하는 스톤볼의 단단한 돌조각을 이용해서 보수작업을 진행할 예정이라고 한다.")
-					.addMessage("이를 돕기 위해 스톤볼에게서 돌조각을 15개 구해서 티나에게 가져가도록 하자.").addQuestMaterial("스톤볼의돌조각", 15).setRewardExp(500).setRewardMoney(30000)
+					.addMessage("이를 돕기 위해 스톤볼에게서 돌조각을 15개 구해서 티나에게 가져가도록 하자.").addQuestMaterial("스톤볼의돌조각", 15)
+					.setRewardExp(500).setRewardMoney(30000).addRewardNpcQuestProceed("스카두르", 1)
 					.setPlayerQuestProceed(QuestProceed.TRINA_QUEST_3);
 			player.setQuest(quest);
 		} if(questNum == 3) {

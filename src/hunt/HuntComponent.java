@@ -34,6 +34,7 @@ import playerAttack.PlayerAttack;
 import skill.ActiveSkill;
 import skill.SkillFactory;
 import skill.SkillValid;
+import utils.CalUtils;
 import utils.ResourceLoader;
 
 public class HuntComponent {
@@ -76,6 +77,10 @@ public class HuntComponent {
 		hunt.playerSetAttack(skillName);
 	}
 	
+	public void runEvent() {
+		hunt.runEvent();
+	}
+	
 	public void setMouseListener() {
 		if(!isbuttonAdapterSeted) {
 			isbuttonAdapterSeted = true;
@@ -89,7 +94,7 @@ public class HuntComponent {
 			runButton.addMouseListener(new MouseAdapter() {
 				public void mousePressed(MouseEvent e) {
 					if(runButton.isVisible()) {
-						
+						runEvent();
 					}
 				}
 			});
@@ -115,7 +120,7 @@ public class HuntComponent {
 						break;
 					case KeyEvent.VK_S:
 						if(runButton.isVisible()) {
-							
+							runEvent();
 						}
 						break;
 					}
@@ -156,6 +161,8 @@ public class HuntComponent {
 		private ArrayList<SkillImage> skillImageList = new ArrayList<SkillImage>();
 		
 		private HuntEvent playerHuntEvent;
+		private boolean isRun;
+		private boolean isRunFailed;
 
 		public Hunt(Player player, Adventurer adventurer, Monster monster) {
 			this.isEnd = true;
@@ -177,6 +184,29 @@ public class HuntComponent {
 
 			if(playerHuntEvent != null) {
 				playerHuntEvent.startHunt(this);
+			}
+		}
+
+		public void runEvent() {
+			int percent = ((adventurer.getAdventurerLevel() - monster.getStrength().getLevel()) * 5) + 50;
+			if(CalUtils.calPercent(percent)) {
+				mainMapleInterface.pushMessage(new Message(nowStateBox.getCharacter().getName() + "는 도망에 성공했습니다!", Color.CYAN, true));
+				isRun = true;
+				wakeUp();
+			} else {
+				mainMapleInterface.pushMessage(new Message(nowStateBox.getCharacter().getName() + "는 도망에 실패했습니다!", Color.CYAN, true));
+				isRunFailed = true;
+				try {
+					sleep(500);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				player.setCanUseSkill(false);
+				player.setCanUsePortion(false);
+				attackButton.setVisible(false);
+				runButton.setVisible(false);
+				player.calState();
+				wakeUp();
 			}
 		}
 
@@ -314,9 +344,17 @@ public class HuntComponent {
 					player.setCanUseSkill(true);
 
 					attackButton.setVisible(true);
-					runButton.setVisible(true);
+					if(!monster.isBoss() && !isRunFailed) {
+						runButton.setVisible(true);
+					}
 					
 					waitForAttack();
+					
+					if(isRun) {
+						break;
+					}
+					
+					
 					if(playerAttack != null) {
 						this.playerAttack.start();
 						waitForAttack();
@@ -349,11 +387,13 @@ public class HuntComponent {
 			player.getMainAdventurer().removeAllBuff();
 			this.isEnd = true;
 			String getItemInfor = null;
-			if (this.winFlag) {
-				getItemInfor = this.player.getSpoils(this.monster);
-				mainMapleInterface.pushMessage(new Message("승리하였습니다!", Color.CYAN, false));
-			} else {
-				mainMapleInterface.pushMessage(new Message("패배하였습니다!", Color.CYAN, false));
+			if(!isRun) {
+				if (winFlag) {
+					getItemInfor = this.player.getSpoils(this.monster);
+					mainMapleInterface.pushMessage(new Message("승리하였습니다!", Color.CYAN, false));
+				} else {
+					mainMapleInterface.pushMessage(new Message("패배하였습니다!", Color.CYAN, false));
+				}
 			}
 			dispose();
 			try {
@@ -436,21 +476,27 @@ public class HuntComponent {
 			monsterState.barSetVisibleTrue();
 			this.isEnd = false;
 			attackButton.setVisible(true);
-			runButton.setVisible(true);
+			if(monster.isBoss()) {
+				runButton.setVisible(true);
+			}
 		}
 
 		public void dispose() {
-			if (!this.winFlag) {
-				adventurerState.getCharacter().setCurHp(1);
-				adventurerState.getCharacter().setCurMp(1);
-				player.playerWarp(player.get_curMap().getWarpMapName(), mainMapleInterface);
-			}
-			if(monster.isBoss() && winFlag) {
-				this.player.get_curMap().warp(player, WarpMapBossRoom.warpFromMapBossRoom(monster.getName()), mainMapleInterface);
-				WarpMapBossRoom.closeMapAfterClear(player, monster.getName());
+			if(!isRun) {
+				if (!this.winFlag) {
+					adventurerState.getCharacter().setCurHp(1);
+					adventurerState.getCharacter().setCurMp(1);
+					player.playerWarp(player.get_curMap().getWarpMapName(), mainMapleInterface);
+				}
+				if(monster.isBoss() && winFlag) {
+					this.player.get_curMap().warp(player, WarpMapBossRoom.warpFromMapBossRoom(monster.getName()), mainMapleInterface);
+					WarpMapBossRoom.closeMapAfterClear(player, monster.getName());
+				}
 			}
 			adventurerState.barSetVisibleFalse();
 			monsterState.barSetVisibleFalse();
+			attackButton.setVisible(false);
+			runButton.setVisible(false);
 			this.turnQueue.clear();
 			this.monster = null;
 		}

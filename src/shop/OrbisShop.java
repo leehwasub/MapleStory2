@@ -26,6 +26,7 @@ public class OrbisShop extends Shop {
 		consumableItemList.add(ItemPool.getItem("레몬", 1));
 		consumableItemList.add(ItemPool.getItem("새우튀김", 1));
 		consumableItemList.add(ItemPool.getItem("장어구이", 1));
+		consumableItemList.add(ItemPool.getItem("쭈쭈바", 1));
 		consumableItemList.add(ItemPool.getItem("마나엘릭서", 1));
 		consumableItemList.add(ItemPool.getItem("전사의물약", 1));
 		consumableItemList.add(ItemPool.getItem("명사수의물약", 1));

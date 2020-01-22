@@ -160,6 +160,15 @@ public class Player implements Serializable {
 		return getNum >= num;
 	}
 	
+	public boolean isVisited(String npcName) {
+		for(int i = 0; i < visitList.size(); i++) {
+			if(visitList.get(i).equals(npcName)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public int getMaterialItemNum(String itemName) {
 		int retNum = 0;
 		ArrayList<MaterialItem> materialItemInventory = inventory.getMaterialInventory();
@@ -202,6 +211,9 @@ public class Player implements Serializable {
 
 	public void initCurNpc(PointMapName pointMapName) {
 		this.curNpc = NpcList.getInstance().getNpc(pointMapName);
+		if(curNpc != null) {
+			addVisitList(curNpc.getName());
+		}
 	}
 
 	public Npc getCurNpc() {

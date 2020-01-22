@@ -99,27 +99,28 @@ public abstract class Character implements Serializable{
 		Resistance resistance = this.strength.getResistance();
 		int resist = 100;
 		switch (property) {
-		case PROPERTY_DARK:
+		case PROPERTY_FIRE:
 			resist = resistance.getFire();
 			break;
-		case PROPERTY_FIRE:
+		case PROPERTY_ICE:
 			resist = resistance.getIce();
 			break;
-		case PROPERTY_ICE:
+		case PROPERTY_POSION:
 			resist = resistance.getPosion();
 			break;
-		case PROPERTY_NOTHING:
+		case PROPERTY_THUNDER:
 			resist = resistance.getThunder();
 			break;
-		case PROPERTY_POSION:
+		case PROPERTY_DARK:
 			resist = resistance.getDark();
 			break;
-		case PROPERTY_THUNDER:
+		case PROPARTY_HOLY:
 			resist = resistance.getHoly();
 			break;
 		default:
 			break;
 		}
+		System.out.println("속성 변환전 : " + d);
 		resist = Math.min(200, resist);
 		resist = Math.max(0, resist);
 		if (resist < 100) {
@@ -131,6 +132,7 @@ public abstract class Character implements Serializable{
 			double tmp = d - d * minus;
 			d = (int) tmp;
 		}
+		System.out.println("속성 변환후 : " + d);
 		return d;
 	}
 

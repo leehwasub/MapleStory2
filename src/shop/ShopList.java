@@ -12,6 +12,7 @@ public class ShopList {
 		shopList.add(new PellionShop());
 		shopList.add(new LithHarborShop());
 		shopList.add(new OrbisShop());
+		shopList.add(new ElnathShop());
 	}
 
 	public static Shop getShop(PointMapName m) {

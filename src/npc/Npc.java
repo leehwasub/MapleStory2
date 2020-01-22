@@ -100,6 +100,8 @@ public abstract class Npc implements Serializable {
 			player.questClear();
 			clearEvent(player);
 			this.clearNum += 1;
+		} else if(talk.getType() == Talk.WHISPER_TALK_TYPE) {
+			color = Color.CYAN;
 		}
 		m.pushMessage(new Message(talk.getMessage(), color, !talk.isCanTalkMore()));
 	}

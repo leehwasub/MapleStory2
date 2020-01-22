@@ -6,18 +6,18 @@ public class QuestVisit extends QuestCondition {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private String name;
-	private boolean isVisited;
+	private String npcName;
 
-	public QuestVisit(String name) {
-		this.name = name;
+	public QuestVisit(String npcName) {
+		this.npcName = npcName;
 	}
 
 	public boolean checkClear(Player player) {
-		return this.isVisited;
+		return player.isVisited(npcName);
 	}
 
 	public String checkState(Player player) {
-		return null;
+		return npcName + " : " + (player.isVisited(npcName) ? "방문" : "미방문");
 	}
+	
 }

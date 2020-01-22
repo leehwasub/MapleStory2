@@ -79,9 +79,9 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 	public void startTurn(Hunt hunt) {
 		Adventurer adventurer = hunt.getAdventurer();
 		ElementalChargeSkill skill = (ElementalChargeSkill)adventurer.getSkillWithName("엘리멘탈차지");
-		if(skill != null && skill.getPoint() >= 1) {
+		if(skill != null && skill.getPoint() >= 1 && skill.getChargeNum() >= 1) {
 			double hpRate = (double)skill.recoveryEffect(skill.getPoint()) / 100.0;
-			adventurer.healHp((int)(hpRate * (double)adventurer.getMaxHp()));
+			adventurer.healHp((int)(hpRate * (double)adventurer.getMaxHp()) * skill.getChargeNum());
 		}
 		
  		CombatOrdersSkill combatOrdersSkill = (CombatOrdersSkill)adventurer.getSkillWithName("컴뱃오더스");
