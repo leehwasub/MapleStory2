@@ -34,7 +34,7 @@ public abstract class Attack extends Thread {
 
 	public void afterAttackDelay() {
 		try {
-			Thread.sleep(1000L);
+			Thread.sleep(500L);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

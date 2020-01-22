@@ -397,7 +397,7 @@ public class HuntComponent {
 			}
 			dispose();
 			try {
-				sleep(1000L);
+				sleep(500L);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
