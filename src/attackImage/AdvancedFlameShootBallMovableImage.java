@@ -8,7 +8,7 @@ import hunt.HuntComponent.Hunt;
 
 public class AdvancedFlameShootBallMovableImage extends MovableSkillImage {
 	public AdvancedFlameShootBallMovableImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/advancedFlameShootBall", hunt, attacker, opponent, attackInfor, 120, 1000);
+		super("monsterSkillImage/advancedFlameShootBall", hunt, attacker, opponent, attackInfor, 120, 700);
 	}
 
 	public void run() {

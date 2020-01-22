@@ -36,7 +36,7 @@ public class ColdBeamAttack extends MonsterAttack {
 		int frostRate = 20 + monsterSkill.getSkillPoint() * 2;
 		int frostLast = 4 + (monsterSkill.getSkillPoint() / 4);
 		if(CalUtils.calPercent(frostRate)) {
-			double frostDamageRate = 0.2 + (monsterSkill.getSkillPoint() * 0.05);
+			double frostDamageRate = 0.1 + (monsterSkill.getSkillPoint() * 0.05);
 			opponent.getCharacter().addBuff(BuffFactory.makeAbnormalBuff("동상", frostLast, attacker.getCharacter().calMagicDamge(frostDamageRate)));
 		}
 	}

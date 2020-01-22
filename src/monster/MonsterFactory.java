@@ -91,6 +91,8 @@ public class MonsterFactory {
 			return new Cerebes();
 		case "파이어독":
 			return new Bain();
+		case "자쿰":
+			return new Zakum();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -280,6 +282,9 @@ public class MonsterFactory {
 			} else if(isRange(percent, 5, 10)) {
 				ret = makeMonster("파이어독");
 			}
+			break;
+		case "자쿰의제단":
+			ret = makeMonster("자쿰");
 			break;
 		}
 		return ret;

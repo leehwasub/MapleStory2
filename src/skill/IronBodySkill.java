@@ -37,7 +37,7 @@ public class IronBodySkill extends ActiveSkill{
 
 	@Override
 	public String getEffectDetail(int point) {
-		return "MP " + getNeedMp(point) + " 소비, " + getLast(point) + "턴간 물리방어력 " + getEffect(point) + " 증가";
+		return "MP " + getNeedMp(point) + " 소비, " + getLast(point) + "턴간 물리, 마법방어력 " + getEffect(point) + " 증가";
 	}
 
 }

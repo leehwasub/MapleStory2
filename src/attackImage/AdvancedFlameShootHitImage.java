@@ -14,7 +14,6 @@ public class AdvancedFlameShootHitImage extends SkillImage {
 
 	public void run() {
 		MusicUtils.startEffectSound("advancedFlameShootHit");
-		hit();
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
 			System.out.println(this.index);
