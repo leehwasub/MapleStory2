@@ -366,18 +366,18 @@ public class HuntComponent {
 						if(playerHuntEvent != null) {
 							playerHuntEvent.afterAttack(this);
 						}
-						player.calState();
 					} else {
 						attackButton.setVisible(false);
 						runButton.setVisible(false);
-						player.calState();
-						//this.mInterface.pushMessage(new Message(this.playerAttack.attackInfor(), Color.CYAN, true));
+						//mainMapleInterface.pushMessage(new Message(adventurer.getName() + "는 소모품 아이템을 사용하였다.", Color.CYAN, true));
 						try {
 							sleep(1000);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
 					}
+					player.calState();
+					adventurerState.updateStateBox();
 				}
 				
 				

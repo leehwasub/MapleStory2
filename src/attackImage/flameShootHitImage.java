@@ -14,7 +14,6 @@ public class flameShootHitImage extends SkillImage {
 
 	public void run() {
 		MusicUtils.startEffectSound("flameShootHit");
-		hit();
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
 			System.out.println(this.index);

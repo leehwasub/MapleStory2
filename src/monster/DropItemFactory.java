@@ -15,7 +15,7 @@ public class DropItemFactory {
 	public static ArrayList<Item> dropItemWithMonster(Monster monster, Player player) {
 		ArrayList<Item> getItems = new ArrayList<Item>();
 		int percent = (int) (Math.random() * 100.0D);
-		if (isRange(percent, 0, 40)) {
+		if (isRange(percent, 0, 50)) {
 			if (monster instanceof BlueSnail) {
 				getItems.add(ItemPool.getItem("파란달팽이의껍질", 1));
 			} else if (monster instanceof RedSnail) {
@@ -84,6 +84,10 @@ public class DropItemFactory {
 				getItems.add(ItemPool.getItem("웨어울프의발톱", 1));
 			} else if (monster instanceof Lycanthrope) {
 				getItems.add(ItemPool.getItem("라이칸스로프의발톱", 1));
+			} else if (monster instanceof Cerebes) {
+				getItems.add(ItemPool.getItem("불독의송곳니", 1));
+			} else if (monster instanceof Bain) {
+				getItems.add(ItemPool.getItem("파이어독의목걸이", 1));
 			}
 		}
 		return getItems;

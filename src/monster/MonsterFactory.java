@@ -87,6 +87,10 @@ public class MonsterFactory {
 			return new Werewolf();
 		case "라이칸스로프":
 			return new Lycanthrope();
+		case "불독":
+			return new Cerebes();
+		case "파이어독":
+			return new Bain();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -268,6 +272,13 @@ public class MonsterFactory {
 				ret = makeMonster("웨어울프");
 			} else if(isRange(percent, 5, 10)) {
 				ret = makeMonster("라이칸스로프");
+			}
+			break;
+		case "시련의동굴":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("불독");
+			} else if(isRange(percent, 5, 10)) {
+				ret = makeMonster("파이어독");
 			}
 			break;
 		}
