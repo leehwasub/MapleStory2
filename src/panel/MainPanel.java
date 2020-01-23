@@ -399,6 +399,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			mainStateBarSetVisibleTrue();
 			this.inventoryButton.setVisible(true);
 		} else {
+			mapleIsland.setImage(player);
 			this.player.setIsCanMove(false);
 			setMenuDownSideButtonVisibleFalse();
 			mainStateBarSetVisibleFalse();
@@ -645,6 +646,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	public void setQuickSkillEnabled() {
 		quickButtonPanel.setQuickSkillEnabled();
 	}
+
 	
 
 }

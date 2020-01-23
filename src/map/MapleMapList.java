@@ -160,6 +160,14 @@ public class MapleMapList {
 		getMap("시련의동굴").addPortal(new Portal(new PointMapName(24, 39, "시련의동굴"), new PointMapName(3, 0, "자쿰의제단입구")));
 		getMap("자쿰의제단입구").addPortal(new Portal(new PointMapName(3, 0, "자쿰의제단입구"), new PointMapName(24, 39, "시련의동굴")));
 		getMap("자쿰의제단입구").addPortal(new Portal(new PointMapName(3, 13, "자쿰의제단입구"), new PointMapName(0, 0, "자쿰의제단")));
+		getMap("오르비스").addPortal(new Portal(new PointMapName(0, 17, "오르비스"), new PointMapName(5, 21, "오르비스승강장")));
+		getMap("오르비스승강장").addPortal(new Portal(new PointMapName(5, 21, "오르비스승강장"), new PointMapName(0, 17, "오르비스")));
+		getMap("오르비스승강장").addPortal(new Portal(new PointMapName(3, 0, "오르비스승강장"), new PointMapName(4, 18, "엘나스산맥->빅토리아승강장")));
+		getMap("엘나스산맥->빅토리아승강장").addPortal(new Portal(new PointMapName(4, 18, "엘나스산맥->빅토리아승강장"), new PointMapName(3, 0, "오르비스승강장")));
+		getMap("엘나스산맥->빅토리아승강장").addPortal(new Portal(new PointMapName(4, 0, "엘나스산맥->빅토리아승강장"), new PointMapName(1, 1, "엘나스산맥->빅토리아")));
+		getMap("오르비스승강장").addPortal(new Portal(new PointMapName(7, 0, "오르비스승강장"), new PointMapName(4, 18, "엘나스산맥->니할사막승강장")));
+		getMap("엘나스산맥->니할사막승강장").addPortal(new Portal(new PointMapName(4, 18, "엘나스산맥->니할사막승강장"), new PointMapName(7, 0, "오르비스승강장")));
+		getMap("엘나스산맥->니할사막승강장").addPortal(new Portal(new PointMapName(4, 0, "엘나스산맥->니할사막승강장"), new PointMapName(1, 1, "엘나스산맥->니할사막")));
 		//니할사막
 		
 		
