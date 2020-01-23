@@ -30,7 +30,7 @@ public class FlameChargeSkill extends ActiveSkill{
 	}
 	
 	public int burnEffect(int point) {
-		return 55 + point;
+		return 45 + point;
 	}
 
 	@Override
