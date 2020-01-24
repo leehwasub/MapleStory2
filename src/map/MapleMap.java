@@ -252,7 +252,7 @@ public class MapleMap implements Serializable {
 		MapleMap map = MapleMapList.getInstance().getMap(mapName);
 		int X = map.getMaxX() / 2;
 		int Y = map.getMaxY() / 2;
-		for(int i = map.getMaxY() / 2, j = map.getMaxY() / 2; (i < map.getMaxX() && j >= 0); i++, j--) {
+		for(int i = map.getMaxY() / 2, j = map.getMaxY() / 2; (i < map.getMaxY() && j >= 0); i++, j--) {
 			if(map.getMap(X, i) == MapleMap.MAP_EMPTY_STATE) {
 				Y = i;
 				break;
@@ -262,20 +262,6 @@ public class MapleMap implements Serializable {
 			}
 		}
 		return new Point(X, Y);
-	}
-	
-	public int getNextMapType(Player player) {
-		for (int i = 0; i < this.portalList.size(); i++) {
-			Portal portal = (Portal) this.portalList.get(i);
-			PointMapName currentMapInfor = portal.getNowMapInfor();
-			PointMapName nextMapInfor = portal.getNextMapInfor();
-			PointMapName playerMapInfor = player.getPlayerPointMapName();
-			if (currentMapInfor.equals(playerMapInfor)) {
-				MapleMap nextMap = MapleMapList.getInstance().getMap(nextMapInfor.getMapName());
-				return nextMap.getMapType();
-			}
-		}
-		return -1;
 	}
 
 	/**

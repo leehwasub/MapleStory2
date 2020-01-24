@@ -1,5 +1,6 @@
 package npc;
 
+import map.MapleMap;
 import map.PointMapName;
 import maplestory.Player;
 import quest.Quest;
@@ -30,7 +31,8 @@ public class Adobis extends Npc{
 			player.setQuest(quest);
 		} else if(questNum == 1) {
 			quest = Quest.makeQuest(2, 17, "자쿰 퇴치후 보고").addMessage("아도비스는 엘나스를 구해준것에 대해 감사를 표하며 이제 알케스터에게 가보라고 한다. 엘나스로 돌아가도록 하자.")
-					.setRewardExp(500).setPlayerQuestProceed(QuestProceed.ADOBIS_QUEST_2);
+					.addRewardItem("엘나스를구한자", 1).addRewardItem("너클", 1).setRewardExp(7000).setRewardMoney(20000)
+					.setPlayerQuestProceed(QuestProceed.ADOBIS_QUEST_2).addRewardUpdateMap("오르비스승강장", 7, 0, MapleMap.MAP_PORTAL_STATE);
 			player.setQuest(quest);
 		}
 	}

@@ -76,14 +76,16 @@ public class Adventurer extends Character implements Serializable {
 		
 		for (int i = 0; i < 8; i++) {
 			if (wearEquipment[i] != null) {
-				strength.addMaxHp(this.wearEquipment[i].getStrength().getMaxHp());
-				strength.addMaxMp(this.wearEquipment[i].getStrength().getMaxMp());
-				strength.addPhysicalDamage(this.wearEquipment[i].getStrength().getPhysicalDamage());
-				strength.addMagicDamage(this.wearEquipment[i].getStrength().getMagicDamage());
-				strength.addPhysicalDefense(this.wearEquipment[i].getStrength().getPhysicalDefense());
-				strength.addMagicDefense(this.wearEquipment[i].getStrength().getMagicDefense());
-				strength.addAccuracyRate(this.wearEquipment[i].getStrength().getAccuracyRate());
-				strength.addEvasionRate(this.wearEquipment[i].getStrength().getEvasionRate());
+				strength.addMaxHp(wearEquipment[i].getStrength().getMaxHp());
+				strength.addMaxMp(wearEquipment[i].getStrength().getMaxMp());
+				strength.addPhysicalDamage(wearEquipment[i].getStrength().getPhysicalDamage());
+				strength.addMagicDamage(wearEquipment[i].getStrength().getMagicDamage());
+				strength.addPhysicalDefense(wearEquipment[i].getStrength().getPhysicalDefense());
+				strength.addMagicDefense(wearEquipment[i].getStrength().getMagicDefense());
+				strength.addAccuracyRate(wearEquipment[i].getStrength().getAccuracyRate());
+				strength.addEvasionRate(wearEquipment[i].getStrength().getEvasionRate());
+				strength.addCriticalRate(wearEquipment[i].getStrength().getCriticalRate());
+				strength.getResistance().addAllResistance(wearEquipment[i].getStrength().getResistance());
 			}
 		}
 		

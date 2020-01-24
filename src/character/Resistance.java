@@ -55,7 +55,7 @@ public class Resistance implements Serializable, Cloneable, Buffable {
 		if (this.fire != 0) {
 			ret.add("불 저항 +" + this.fire);
 		} if (this.ice != 0) {
-			ret.add("암흑 저항 +" + this.ice);
+			ret.add("얼음 저항 +" + this.ice);
 		} if (this.posion != 0) {
 			ret.add("독 저항 +" + this.posion);
 		} if (this.thunder != 0) {
@@ -140,6 +140,14 @@ public class Resistance implements Serializable, Cloneable, Buffable {
 		this.holy += holy;
 	}
 	
+	public void addAllResistance(Resistance resistance) {
+		this.fire += resistance.getFire();
+		this.ice += resistance.getIce();
+		this.posion += resistance.getPosion();
+		this.thunder += resistance.getThunder();
+		this.dark += resistance.getDark();
+		this.holy += resistance.getHoly();
+	}
 	
 	public void addAllResistance(int resistance) {
 		this.fire += resistance;

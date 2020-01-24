@@ -3,6 +3,7 @@ package character;
 import java.util.ArrayList;
 
 import attack.AttackFactory;
+import attack.AttackInfor;
 import attack.AttackType;
 import component.StateBox;
 import hunt.HuntComponent.Hunt;
@@ -46,6 +47,11 @@ public abstract class Monster extends Character {
 		this.oriMaxPhysicalDamage = maxPhysicalDamage;
 		this.oriMinMagicDamage = minMagicDamage;
 		this.oriMaxMagicDamage = maxMagicDamage;
+	}
+	
+	@Override
+	public void hitEvent(Character character, AttackInfor attackInfor) {
+		
 	}
 	
 	@Override

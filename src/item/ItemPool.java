@@ -2,6 +2,8 @@ package item;
 
 import java.util.HashMap;
 
+import com.sun.javafx.runtime.eula.Eula;
+
 import character.Resistance;
 import character.SexType;
 import character.Strength;
@@ -239,7 +241,10 @@ public class ItemPool {
 	}
 	
 	private static void initTitleItem() {
-		
+		items.put("페리온을구한자", new EquipmentItem("페리온을구한자", 50000, "savePellion", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 25, 100, 0, 2, 0, 0, 0, 1, 0, 0), EquipmentItem.EQUIPMENT_TYPE_TITLE, SexType.ALL, false));
+		items.put("엘나스를구한자", new EquipmentItem("엘나스를구한자", 50000, "saveElnath", 1,
+				new Strength(new Resistance(0, 10, 0, 0, 0, 0), 25, 0, 0, 0, 0, 50, 50, 0, 0, 2), EquipmentItem.EQUIPMENT_TYPE_TITLE, SexType.ALL, false));
 	}
 
 	private static void initGloveItem() {

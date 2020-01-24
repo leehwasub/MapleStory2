@@ -22,6 +22,7 @@ import map.MapleMap;
 import map.MapleMapList;
 import map.Point;
 import map.PointMapName;
+import map.Portal;
 import map.UpdatedMapInfor;
 import npc.Npc;
 import npc.NpcList;
@@ -582,6 +583,36 @@ public class Player implements Serializable {
 			}
 		}
 	}
+	
+	
+	public int getNextMapType() {
+		for (int i = 0; i < _curMap.getPortalList().size(); i++) {
+			Portal portal = (Portal) _curMap.getPortalList().get(i);
+			PointMapName currentMapInfor = portal.getNowMapInfor();
+			PointMapName nextMapInfor = portal.getNextMapInfor();
+			PointMapName playerMapInfor = getPlayerPointMapName();
+			if (currentMapInfor.equals(playerMapInfor)) {
+				MapleMap nextMap = MapleMapList.getInstance().getMap(nextMapInfor.getMapName());
+				return nextMap.getMapType();
+			}
+		}
+		return -1;
+	}
+	
+	public String getNextMapName() {
+		for (int i = 0; i < _curMap.getPortalList().size(); i++) {
+			Portal portal = (Portal)_curMap.getPortalList().get(i);
+			PointMapName currentMapInfor = portal.getNowMapInfor();
+			PointMapName nextMapInfor = portal.getNextMapInfor();
+			PointMapName playerMapInfor = getPlayerPointMapName();
+			if (currentMapInfor.equals(playerMapInfor)) {
+				MapleMap nextMap = MapleMapList.getInstance().getMap(nextMapInfor.getMapName());
+				return nextMap.getName();
+			}
+		}
+		return "";
+	}
+
 
 	public EquipmentItem getPlayerEquipmentByIndex(int i) {
 		return mainAdventurer.getWearEquipmentByIndex(i);
@@ -696,6 +727,11 @@ public class Player implements Serializable {
 
 	public void setCanUseSkill(boolean isCanUseSkill) {
 		this.isCanUseSkill = isCanUseSkill;
+	}
+
+	public String getWillMeetNpcName() {
+		Npc npc = NpcList.getInstance().getNpc(new PointMapName(_curX, _curY, get_curMap().getName()));
+		return (npc == null ? "" : npc.getName());
 	}
 
 }

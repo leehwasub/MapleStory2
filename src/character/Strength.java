@@ -77,7 +77,7 @@ public class Strength implements Serializable, Cloneable, Buffable {
 		} if (this.evasionRate != 0) {
 			ret.add("회피율 +" + this.evasionRate);
 		} if(this.criticalRate != 0) {
-			ret.add("크리티컬 확률 +" + this.evasionRate+"%");
+			ret.add("크리티컬 확률 +" + this.criticalRate+"%");
 		}
 		return ret;
 	}

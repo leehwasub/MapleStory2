@@ -1,5 +1,6 @@
 package panel;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -22,6 +23,8 @@ import component.MapleExpBar;
 import component.MapleHpBar;
 import component.MapleIsland;
 import component.MapleMpBar;
+import component.MessageBox;
+import component.MessageBoxComponent;
 import component.StateBox;
 import dialog.JobSelectDialog;
 import hunt.HuntComponent;
@@ -38,6 +41,7 @@ import sailing.SailingFactory;
 import shop.MapleIslandShop;
 import shop.Shop;
 import shop.ShopList;
+import utils.DrawUtils;
 import utils.MusicUtils;
 import utils.ResourceLoader;
 
@@ -107,6 +111,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	private HuntComponent huntComponent;
 	private StoreInventoryPanel storeInventory;
 	private StorePanel store;
+	private MessageBox mainMessageBox = new MessageBox(1010, 130, 2, Color.CYAN);
 	
 	private QuickButtonPanel quickButtonPanel;
 
@@ -307,25 +312,30 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			this.meetNpcButton.setVisible(false);
 			this.moveOtherMapButton.setVisible(false);
 			this.buyItemButton.setVisible(false);
+			mainMessageBox.clearMessageBox();
 			meetMonsterEvent();
 			break;
 		case MapleMap.MAP_NPC_STATE:
 			this.moveOtherMapButton.setVisible(false);
 			this.meetNpcButton.setVisible(true);
 			this.buyItemButton.setVisible(false);
+			mainMessageBox.reloadMessageBox(new MessageBoxComponent("Npc", Color.YELLOW, player.getWillMeetNpcName(), Color.WHITE));
 			break;
 		case MapleMap.MAP_PORTAL_STATE:
 			this.meetNpcButton.setVisible(false);
 			this.moveOtherMapButton.setVisible(true);
 			this.buyItemButton.setVisible(false);
+			mainMessageBox.reloadMessageBox(new MessageBoxComponent("다음 맵", Color.YELLOW, player.getNextMapName(), Color.WHITE));
 			break;
 		case MapleMap.MAP_STORE_STATE:
 			this.buyItemButton.setVisible(true);
 			this.moveOtherMapButton.setVisible(false);
 			this.meetNpcButton.setVisible(false);
+			mainMessageBox.clearMessageBox();
 			break;
 		case MapleMap.MAP_HEAL_STATE:
 			this.player.allAdventuerFullHeal();
+			mainMessageBox.clearMessageBox();
 			break;
 		}
 		updateMainStateBar();
@@ -373,6 +383,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			return;
 		}
 		conversationEvent();
+		mainMessageBox.clearMessageBox();
 		this.player.setIsCanMove(false);
 		this.nextButton.setVisible(true);
 		this.player.setConversation(true);
@@ -383,6 +394,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	}
 
 	public void converstionEndEvent() {
+		mainMessageBox.reloadMessageBox(new MessageBoxComponent("Npc", Color.YELLOW, player.getWillMeetNpcName(), Color.WHITE));
 		this.player.setIsCanMove(true);
 		this.nextButton.setVisible(false);
 		this.player.setConversation(false);
@@ -452,7 +464,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	}
 
 	private void moveOtherMapEvent() {
-		int type = this.player.get_curMap().getNextMapType(player);
+		int type = player.getNextMapType();
 		switch(type) {
 		case MapleMap.MAP_SAILING_TYPE:
 			int ans = JOptionPane.showConfirmDialog(null, "배에 탑승하면 도중에 내릴 수 없습니다. 탑승하시겠습니까?", "확인", JOptionPane.YES_NO_OPTION);
@@ -484,6 +496,9 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			break;
 		}
 		this.player.get_curMap().moveOtherMap(this.player, this);
+		
+		mainMessageBox.reloadMessageBox(new MessageBoxComponent("다음 맵", Color.YELLOW, player.getNextMapName(), Color.WHITE));
+		
 		if (this.player.get_curMap().getMapType() == MapleMap.MAP_BOSS_TYPE) {
 			meetMonsterEvent();
 		}
@@ -495,9 +510,9 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	}
 
 	public void setButtonWithPlayerLoc() {
-		int mapState = this.player.get_curMap().getMap(this.player.getCurX(), this.player.getCurY());
+		int mapState = player.get_curMap().getMap(player.getCurX(), player.getCurY());
 		switch (mapState) {
-		case 0:
+		case MapleMap.MAP_EMPTY_STATE:
 			break;
 		case MapleMap.MAP_NPC_STATE:
 			this.meetNpcButton.setVisible(true);
@@ -560,6 +575,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 				}
 			}
 		}
+		mainMessageBox.drawMessageBox(g);
 	}
 
 	private void rendering(Graphics2D g) {

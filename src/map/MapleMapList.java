@@ -169,8 +169,34 @@ public class MapleMapList {
 		getMap("엘나스산맥->니할사막승강장").addPortal(new Portal(new PointMapName(4, 18, "엘나스산맥->니할사막승강장"), new PointMapName(7, 0, "오르비스승강장")));
 		getMap("엘나스산맥->니할사막승강장").addPortal(new Portal(new PointMapName(4, 0, "엘나스산맥->니할사막승강장"), new PointMapName(1, 1, "엘나스산맥->니할사막")));
 		//니할사막
-		
-		
+		getMap("아리안트").addPortal(new Portal(new PointMapName(7, 0, "아리안트"), new PointMapName(17, 44, "선인장사막")));
+		getMap("선인장사막").addPortal(new Portal(new PointMapName(17, 44, "선인장사막"), new PointMapName(7, 0, "아리안트")));
+		getMap("선인장사막").addPortal(new Portal(new PointMapName(44, 20, "선인장사막"), new PointMapName(16, 0, "작열하는사막")));
+		getMap("작열하는사막").addPortal(new Portal(new PointMapName(16, 0, "작열하는사막"), new PointMapName(44, 20, "선인장사막")));
+		getMap("작열하는사막").addPortal(new Portal(new PointMapName(16, 44, "작열하는사막"), new PointMapName(44, 22, "마른사막")));
+		getMap("마른사막").addPortal(new Portal(new PointMapName(44, 22, "마른사막"), new PointMapName(16, 44, "작열하는사막")));
+		getMap("마른사막").addPortal(new Portal(new PointMapName(16, 0, "마른사막"), new PointMapName(7, 39, "아리안트")));
+		getMap("아리안트").addPortal(new Portal(new PointMapName(7, 39, "아리안트"), new PointMapName(16, 0, "마른사막")));
+		getMap("아리안트").addPortal(new Portal(new PointMapName(0, 19, "아리안트"), new PointMapName(24, 0, "북쪽사막길1")));
+		getMap("북쪽사막길1").addPortal(new Portal(new PointMapName(24, 0, "북쪽사막길1"), new PointMapName(0, 19, "아리안트")));
+		getMap("북쪽사막길1").addPortal(new Portal(new PointMapName(18, 69, "북쪽사막길1"), new PointMapName(16, 0, "북쪽사막길2")));
+		getMap("북쪽사막길2").addPortal(new Portal(new PointMapName(16, 0, "북쪽사막길2"), new PointMapName(18, 69, "북쪽사막길1")));
+		getMap("북쪽사막길2").addPortal(new Portal(new PointMapName(25, 69, "북쪽사막길2"), new PointMapName(13, 0, "사헬지대")));
+		getMap("사헬지대").addPortal(new Portal(new PointMapName(13, 0, "사헬지대"), new PointMapName(25, 69, "북쪽사막길2")));
+		getMap("아리안트").addPortal(new Portal(new PointMapName(14, 22, "아리안트"), new PointMapName(5, 0, "아리안트마을")));
+		getMap("아리안트마을").addPortal(new Portal(new PointMapName(5, 0, "아리안트마을"), new PointMapName(14, 22, "아리안트")));
+		getMap("아리안트마을").addPortal(new Portal(new PointMapName(0, 9, "아리안트마을"), new PointMapName(3, 3, "빈집1")));
+		getMap("빈집1").addPortal(new Portal(new PointMapName(3, 3, "빈집1"), new PointMapName(0, 9, "아리안트마을")));
+		getMap("아리안트마을").addPortal(new Portal(new PointMapName(0, 17, "아리안트마을"), new PointMapName(3, 3, "빈집2")));
+		getMap("빈집2").addPortal(new Portal(new PointMapName(3, 3, "빈집2"), new PointMapName(0, 17, "아리안트마을")));
+		getMap("아리안트마을").addPortal(new Portal(new PointMapName(0, 25, "아리안트마을"), new PointMapName(3, 3, "빈집3")));
+		getMap("빈집3").addPortal(new Portal(new PointMapName(3, 3, "빈집3"), new PointMapName(0, 25, "아리안트마을")));
+		getMap("아리안트마을").addPortal(new Portal(new PointMapName(9, 9, "아리안트마을"), new PointMapName(0, 0, "빈집4")));
+		getMap("빈집4").addPortal(new Portal(new PointMapName(0, 0, "빈집4"), new PointMapName(9, 9, "아리안트마을")));
+		getMap("아리안트마을").addPortal(new Portal(new PointMapName(9, 17, "아리안트마을"), new PointMapName(0, 0, "빈집5")));
+		getMap("빈집5").addPortal(new Portal(new PointMapName(0, 0, "빈집5"), new PointMapName(9, 17, "아리안트마을")));
+		getMap("아리안트마을").addPortal(new Portal(new PointMapName(9, 25, "아리안트마을"), new PointMapName(0, 0, "빈집6")));
+		getMap("빈집6").addPortal(new Portal(new PointMapName(0, 0, "빈집6"), new PointMapName(9, 25, "아리안트마을")));
 		//리프레숲
 		
 		
