@@ -647,11 +647,21 @@ public class Player implements Serializable {
 	public String getSpoils(Monster monster) {
 		StringBuffer b = new StringBuffer();
 		StringBuffer tmp = new StringBuffer();
-		getInventory().addMoney(monster.getMoney());
-		mainAdventurer.addExp(monster.getExp());
+		int levelDiff = getMainAdventurer().getAdventurerLevel() - monster.getStrength().getLevel();
+		int getMoney = monster.getMoney();
+		int getExp = monster.getExp();
+		if(levelDiff >= 0) {
+			while(levelDiff >= 5) {
+				levelDiff -= 5;
+				getExp /= 2;
+				getMoney /= 2;
+			}
+		}
+		getInventory().addMoney(getMoney);
+		mainAdventurer.addExp(getExp);
 		addKillList(monster.getName());
 		tmp.append(monster.dropItem(this));
-		b.append("경험치 " + monster.getExp() + " 획득! 메소 " + monster.getMoney() + " 획득! ");
+		b.append("경험치 " + getExp + " 획득! 메소 " + getMoney + " 획득! ");
 		b.append(tmp);
 		return b.toString();
 	}

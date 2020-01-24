@@ -1,6 +1,7 @@
 package monster;
 
 import character.Monster;
+import javafx.scene.chart.CategoryAxis;
 import maplestory.Main;
 import utils.DialogUtils;
 
@@ -93,6 +94,18 @@ public class MonsterFactory {
 			return new Bain();
 		case "자쿰":
 			return new Zakum();
+		case "노란모래토끼":
+			return new YellowDesertRabbit();
+		case "검은모래토끼":
+			return new DarkDesertRabbit();
+		case "카투스":
+			return new Cactus();
+		case "로얄카투스":
+			return new LoyalCactus();
+		case "벨라모아":
+			return new Bellamoa();
+		case "귀마개프릴드":
+			return new EarPlugPlead();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -285,6 +298,27 @@ public class MonsterFactory {
 			break;
 		case "자쿰의제단":
 			ret = makeMonster("자쿰");
+			break;
+		case "마른사막":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("노란모래토끼");
+			} else if(isRange(percent, 5, 10)) {
+				ret = makeMonster("검은모래토끼");
+			}
+			break;
+		case "선인장사막":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("카투스");
+			} else if(isRange(percent, 5, 10)) {
+				ret = makeMonster("로얄카투스");
+			}
+			break;
+		case "작열하는사막":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("벨라모아");
+			} else if(isRange(percent, 5, 10)) {
+				ret = makeMonster("귀마개프릴드");
+			}
 			break;
 		}
 		return ret;

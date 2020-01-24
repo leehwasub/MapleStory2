@@ -2,6 +2,7 @@ package utils;
 
 public class InputValidUtils {
 	public static boolean isValidIntString(String s) {
+		if(s == null || s.length() == 0) return false;
 		for (int i = 0; i < s.length(); i++) {
 			if (('0' > s.charAt(i)) || (s.charAt(i) > '9')) {
 				return false;

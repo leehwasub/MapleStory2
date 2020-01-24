@@ -12,7 +12,7 @@ public final class DarkYeti extends Monster {
 
 	public DarkYeti() {
 		super("다크예티", "darkYeti",
-				new Strength(new Resistance(50, 150, 100, 100, 150, 50), 36, 6400, 200, 0, 0, 200, 200, 25, 25, 0), 370, 392, 0, 0,
+				new Strength(new Resistance(50, 150, 100, 100, 150, 50), 36, 6400, 200, 0, 0, 250, 250, 25, 25, 0), 370, 392, 0, 0,
 				182 * Main.EXP_BONUS, 370 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

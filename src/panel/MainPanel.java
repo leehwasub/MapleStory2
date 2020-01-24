@@ -495,9 +495,18 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			moveOtherMapButton.setVisible(false);
 			break;
 		}
+		
 		this.player.get_curMap().moveOtherMap(this.player, this);
 		
-		mainMessageBox.reloadMessageBox(new MessageBoxComponent("다음 맵", Color.YELLOW, player.getNextMapName(), Color.WHITE));
+		int mapState = player.get_curMap().getMap(player.getCurX(), player.getCurY());
+		switch(mapState) {
+		case MapleMap.MAP_PORTAL_STATE:
+			mainMessageBox.reloadMessageBox(new MessageBoxComponent("다음 맵", Color.YELLOW, player.getNextMapName(), Color.WHITE));
+			break;
+		default:
+			mainMessageBox.clearMessageBox();
+			break;
+		}
 		
 		if (this.player.get_curMap().getMapType() == MapleMap.MAP_BOSS_TYPE) {
 			meetMonsterEvent();

@@ -8,6 +8,8 @@ public class MonsterSkillInfor {
 	private int underHpCondition;
 	private int skillPoint;
 	
+	private boolean isNeedToExistBuff;
+	
 	/**
 	 * 
 	 * @param percentSt 퍼센트 최소
@@ -24,6 +26,26 @@ public class MonsterSkillInfor {
 		this.skillPoint = skillPoint;
 	}
 	
+	/**
+	 * 
+	 * @param percentSt 퍼센트 최소
+	 * @param percentEd 퍼센트 최대
+	 * @param skillName 스킬 이름
+	 * @param underHpCondition 체력 조건(이보다 낮을시 발동)
+	 * @param skillPoint 스킬포인트
+	 * @param isNeedToExistBuff 상대방 버프가 존재할때만 발동
+	 */
+	public MonsterSkillInfor(int percentSt, int percentEd, String skillName, int underHpCondition, int skillPoint,
+			boolean isNeedToExistBuff) {
+		this.percentSt = percentSt;
+		this.percentEd = percentEd;
+		this.skillName = skillName;
+		this.underHpCondition = underHpCondition;
+		this.skillPoint = skillPoint;
+		this.isNeedToExistBuff = isNeedToExistBuff;
+	}
+
+
 	public int getPercentSt() {
 		return percentSt;
 	}
@@ -54,5 +76,12 @@ public class MonsterSkillInfor {
 	public void setSkillPoint(int skillPoint) {
 		this.skillPoint = skillPoint;
 	}
+	public boolean isNeedToExistBuff() {
+		return isNeedToExistBuff;
+	}
+	public void setNeedToExistBuff(boolean isNeedToExistBuff) {
+		this.isNeedToExistBuff = isNeedToExistBuff;
+	}
+	
 	
 }

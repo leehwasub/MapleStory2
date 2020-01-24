@@ -241,6 +241,26 @@ public abstract class Character implements Serializable{
 		buffList = new ArrayList<Buff>();
 	}
 	
+	public void removeOneEffectBuff() {
+		if(buffList == null || buffList.size() == 0) return;
+		for(int i = buffList.size() - 1; i >= 0; i--) {
+			if(!buffList.get(i).isDebuff()) {
+				buffList.remove(i);
+				return;
+			}
+		}
+	}
+	
+	public boolean isExistEffectBuff() {
+		if(buffList == null || buffList.size() == 0) return false;
+		for(int i = 0; i < buffList.size(); i++) {
+			if(!buffList.get(i).isDebuff()) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public void removeAllBuff() {
 		if(buffList == null || buffList.size() == 0) return;
 		for(int i = buffList.size() - 1; i >= 0; i--) {
