@@ -30,6 +30,7 @@ import map.Point;
 import maplestory.Player;
 import renderer.PlayerItemRenderer;
 import utils.ColorUtils;
+import utils.DialogUtils;
 import utils.FontUtils;
 import utils.InputValidUtils;
 import utils.ResourceLoader;
@@ -120,6 +121,10 @@ public class StoreInventoryPanel extends JPanel {
 				Item item = StoreInventoryPanel.this.jList.getSelectedValue();
 				if (item != null) {
 					UIManager.put("OptionPane.messageFont", FontUtils.SMALL_FONT);
+					if(!item.isSellable()) {
+						DialogUtils.showWarningDialog("팔 수 없는 아이템입니다.");
+						return;
+					}
 					String input = JOptionPane.showInputDialog(null, item.getName() + "을(를) 몇개 판매 하시겠습니까?");
 					if (input == null) {
 						return;

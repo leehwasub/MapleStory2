@@ -381,6 +381,11 @@ public class ItemPool {
 		items.put("나이트의가면", new MaterialItem("나이트의가면", 840, "knightMask", 1, "아이스 나이트, 릴리노흐가 쓰고 있던 가면이다."));
 		items.put("수호수의뿔", new MaterialItem("수호수의뿔", 850, "guardianHorn", 1, "수호수, 라이카의 머리에 달려 있던 뿔이다."));
 		items.put("검은갑옷조각", new MaterialItem("검은갑옷조각", 900, "blackArmorPiece", 1, "수호병사의 어깨를 감싸고 있던 갑옷의 조각이다."));
+		
+		//퀘스트 아이템
+		items.put("스카이롬", new MaterialItem("스카이롬", 150, "skyrom", 1, "하늘의 힘을 가졌다고 알려진 보석이다. 정확히 어떤 힘이 있는지는 아무도 모른다.", false));
+		items.put("가짜스카이롬", new MaterialItem("가짜스카이롬", 150, "skyrom", 1, "가짜 스카이롬이다.", false));
+		items.put("궁전출입자격증", new MaterialItem("궁전출입자격증", 100, "palaceCertificateOfEntry", 1, "궁전에 출입할 자격이 있음을 알리는 종이조각이다.", false));
 	}
 
 	
