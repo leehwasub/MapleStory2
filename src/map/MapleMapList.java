@@ -197,6 +197,16 @@ public class MapleMapList {
 		getMap("빈집5").addPortal(new Portal(new PointMapName(0, 0, "빈집5"), new PointMapName(9, 17, "아리안트마을")));
 		getMap("아리안트마을").addPortal(new Portal(new PointMapName(9, 25, "아리안트마을"), new PointMapName(0, 0, "빈집6")));
 		getMap("빈집6").addPortal(new Portal(new PointMapName(0, 0, "빈집6"), new PointMapName(9, 25, "아리안트마을")));
+		getMap("아리안트").addPortal(new Portal(new PointMapName(0, 32, "아리안트"), new PointMapName(6, 3, "아리안트궁전입구")));
+		getMap("아리안트궁전입구").addPortal(new Portal(new PointMapName(6, 3, "아리안트궁전입구"), new PointMapName(0, 32, "아리안트")));
+		getMap("아리안트궁전입구").addPortal(new Portal(new PointMapName(0, 3, "아리안트궁전입구"), new PointMapName(3, 0, "아리안트궁전복도")));
+		getMap("아리안트궁전복도").addPortal(new Portal(new PointMapName(3, 0, "아리안트궁전복도"), new PointMapName(0, 3, "아리안트궁전입구")));
+		getMap("아리안트궁전복도").addPortal(new Portal(new PointMapName(3, 20, "아리안트궁전복도"), new PointMapName(3, 0, "아리안트궁전")));
+		getMap("아리안트궁전").addPortal(new Portal(new PointMapName(3, 0, "아리안트궁전"), new PointMapName(3, 20, "아리안트궁전복도")));
+		getMap("아리안트궁전복도").addPortal(new Portal(new PointMapName(5, 18, "아리안트궁전복도"), new PointMapName(0, 0, "아리안트궁전지하1층")));
+		getMap("아리안트궁전지하1층").addPortal(new Portal(new PointMapName(0, 0, "아리안트궁전지하1층"), new PointMapName(5, 18, "아리안트궁전복도")));
+		getMap("아리안트궁전지하1층").addPortal(new Portal(new PointMapName(29, 11, "아리안트궁전지하1층"), new PointMapName(0, 5, "아리안트궁전지하2층")));
+		getMap("아리안트궁전지하2층").addPortal(new Portal(new PointMapName(0, 5, "아리안트궁전지하2층"), new PointMapName(29, 11, "아리안트궁전지하1층")));
 		//리프레숲
 		
 		
