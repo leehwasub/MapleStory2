@@ -206,7 +206,23 @@ public class MapleMapList {
 		getMap("아리안트궁전복도").addPortal(new Portal(new PointMapName(5, 18, "아리안트궁전복도"), new PointMapName(0, 0, "아리안트궁전지하1층")));
 		getMap("아리안트궁전지하1층").addPortal(new Portal(new PointMapName(0, 0, "아리안트궁전지하1층"), new PointMapName(5, 18, "아리안트궁전복도")));
 		getMap("아리안트궁전지하1층").addPortal(new Portal(new PointMapName(29, 11, "아리안트궁전지하1층"), new PointMapName(0, 5, "아리안트궁전지하2층")));
-		getMap("아리안트궁전지하2층").addPortal(new Portal(new PointMapName(0, 5, "아리안트궁전지하2층"), new PointMapName(29, 11, "아리안트궁전지하1층"))); 
+		getMap("아리안트궁전지하2층").addPortal(new Portal(new PointMapName(0, 5, "아리안트궁전지하2층"), new PointMapName(29, 11, "아리안트궁전지하1층")));
+		getMap("사헬지대").addPortal(new Portal(new PointMapName(12, 49, "사헬지대"), new PointMapName(9, 0, "마가티아")));
+		getMap("마가티아").addPortal(new Portal(new PointMapName(9, 0, "마가티아"), new PointMapName(12, 49, "사헬지대")));
+		getMap("마가티아").addPortal(new Portal(new PointMapName(0, 10, "마가티아"), new PointMapName(4, 9, "제뉴미스트연구소")));
+		getMap("제뉴미스트연구소").addPortal(new Portal(new PointMapName(4, 9, "제뉴미스트연구소"), new PointMapName(0, 10, "마가티아")));
+		getMap("제뉴미스트연구소").addPortal(new Portal(new PointMapName(0, 0, "제뉴미스트연구소"), new PointMapName(0, 10, "연구소1층복도")));
+		getMap("연구소1층복도").addPortal(new Portal(new PointMapName(0, 10, "연구소1층복도"), new PointMapName(0, 0, "제뉴미스트연구소")));
+		getMap("연구소1층복도").addPortal(new Portal(new PointMapName(0, 3, "연구소1층복도"), new PointMapName(1, 19, "연구소101호")));
+		getMap("연구소101호").addPortal(new Portal(new PointMapName(1, 19, "연구소101호"), new PointMapName(0, 3, "연구소1층복도")));
+		getMap("연구소1층복도").addPortal(new Portal(new PointMapName(0, 17, "연구소1층복도"), new PointMapName(1, 0, "연구소102호")));
+		getMap("연구소102호").addPortal(new Portal(new PointMapName(1, 0, "연구소102호"), new PointMapName(0, 17, "연구소1층복도")));
+		getMap("연구소1층복도").addPortal(new Portal(new PointMapName(4, 10, "연구소1층복도"), new PointMapName(0, 10, "연구소2층복도")));
+		getMap("연구소2층복도").addPortal(new Portal(new PointMapName(0, 10, "연구소2층복도"), new PointMapName(4, 10, "연구소1층복도")));
+		getMap("연구소2층복도").addPortal(new Portal(new PointMapName(0, 3, "연구소2층복도"), new PointMapName(3, 19, "연구소201호")));
+		getMap("연구소201호").addPortal(new Portal(new PointMapName(3, 19, "연구소201호"), new PointMapName(0, 3, "연구소2층복도")));
+		getMap("연구소2층복도").addPortal(new Portal(new PointMapName(0, 17, "연구소2층복도"), new PointMapName(3, 0, "연구소202호")));
+		getMap("연구소202호").addPortal(new Portal(new PointMapName(3, 0, "연구소202호"), new PointMapName(0, 17, "연구소2층복도")));
 		//리프레숲
 		
 		
