@@ -382,10 +382,9 @@ public class HuntComponent {
 				
 				
 			}
-			
+			isEnd = true;
 			((Adventurer)adventurerState.getCharacter()).resetAllSkillCoolTime();
 			player.getMainAdventurer().removeAllBuff();
-			this.isEnd = true;
 			String getItemInfor = null;
 			if(!isRun) {
 				if (winFlag) {

@@ -88,7 +88,7 @@ public class StateBox extends Thread {
 		
 		g.setFont(FontUtils.SMALL_FONT);
 		if(buffList != null && buffList.size() != 0) {
-			for(int i = 0; i < buffList.size(); i++) {
+			for(int i = buffList.size() - 1; i >= 0; i--) {
 				if(buffList.get(i).isDebuff()) {
 					g.setColor(Color.RED);
 				} else {
