@@ -206,7 +206,7 @@ public class MapleMapList {
 		getMap("아리안트궁전복도").addPortal(new Portal(new PointMapName(5, 18, "아리안트궁전복도"), new PointMapName(0, 0, "아리안트궁전지하1층")));
 		getMap("아리안트궁전지하1층").addPortal(new Portal(new PointMapName(0, 0, "아리안트궁전지하1층"), new PointMapName(5, 18, "아리안트궁전복도")));
 		getMap("아리안트궁전지하1층").addPortal(new Portal(new PointMapName(29, 11, "아리안트궁전지하1층"), new PointMapName(0, 5, "아리안트궁전지하2층")));
-		getMap("아리안트궁전지하2층").addPortal(new Portal(new PointMapName(0, 5, "아리안트궁전지하2층"), new PointMapName(29, 11, "아리안트궁전지하1층")));
+		getMap("아리안트궁전지하2층").addPortal(new Portal(new PointMapName(0, 5, "아리안트궁전지하2층"), new PointMapName(29, 11, "아리안트궁전지하1층"))); 
 		//리프레숲
 		
 		
