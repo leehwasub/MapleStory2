@@ -100,6 +100,11 @@ public class BuffItem extends ConsumableItem implements Serializable {
 	public boolean isNeedQuickReigster() {
 		return true;
 	}
+
+	@Override
+	public boolean isSellable() {
+		return true;
+	}
 	
 	
 }

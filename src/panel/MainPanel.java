@@ -28,6 +28,7 @@ import component.MessageBoxComponent;
 import component.StateBox;
 import dialog.JobSelectDialog;
 import hunt.HuntComponent;
+import map.MapMoveCondition;
 import map.MapleMap;
 import map.PointMapName;
 import maplestory.MainMapleInterface;
@@ -495,6 +496,8 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			moveOtherMapButton.setVisible(false);
 			break;
 		}
+		
+		if(!MapMoveCondition.checkCanMove(player)) return;
 		
 		this.player.get_curMap().moveOtherMap(this.player, this);
 		

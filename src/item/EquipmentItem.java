@@ -151,4 +151,9 @@ public class EquipmentItem extends Item implements Serializable {
 		return "EquipmentItem [strength=" + this.strength + ", type=" + this.type + ", sex=" + this.sex + "] "
 				+ super.toString();
 	}
+
+	@Override
+	public boolean isSellable() {
+		return true;
+	}
 }

@@ -12,10 +12,18 @@ import utils.FontUtils;
 public class MaterialItem extends Item implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String infor;
+	private boolean isSellable;
 
 	public MaterialItem(String name, int cost, String imageUrl, int num, String infor) {
 		super(name, cost, imageUrl, num);
 		this.infor = infor;
+		this.isSellable = true;
+	}
+	
+	public MaterialItem(String name, int cost, String imageUrl, int num, String infor, boolean isSellable) {
+		super(name, cost, imageUrl, num);
+		this.infor = infor;
+		this.isSellable = isSellable;
 	}
 
 	public void drawInfor(Graphics2D g, Point p) {
@@ -49,7 +57,9 @@ public class MaterialItem extends Item implements Serializable {
 		g.drawString(this.infor.substring(preIndex), p.getX() + (200 - width2) / 2, p.getY() + 120 + line * 20);
 		g.setColor(ColorUtils.SEA);
 		g.setFont(FontUtils.SMALL_FONT);
-		g.drawString(this.cost + " 메소", p.getX() + 20, p.getY() + 160 + (totalLine-1) * 20);
+		if(isSellable) {
+			g.drawString(this.cost + " 메소", p.getX() + 20, p.getY() + 160 + (totalLine-1) * 20);
+		}
 	}
 	
 	private int getLine(Graphics2D g) {
@@ -73,5 +83,10 @@ public class MaterialItem extends Item implements Serializable {
 
 	public void setInfor(String infor) {
 		this.infor = infor;
+	}
+
+	@Override
+	public boolean isSellable() {
+		return isSellable;
 	}
 }

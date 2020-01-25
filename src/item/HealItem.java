@@ -92,5 +92,10 @@ public class HealItem extends ConsumableItem implements Serializable {
 		return true;
 	}
 
+	@Override
+	public boolean isSellable() {
+		return true;
+	}
+
 	
 }

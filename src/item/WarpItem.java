@@ -110,4 +110,9 @@ public class WarpItem extends ConsumableItem implements Serializable {
 		this.itemInfor = itemInfor;
 	}
 
+	@Override
+	public boolean isSellable() {
+		return true;
+	}
+
 }

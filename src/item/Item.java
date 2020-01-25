@@ -36,6 +36,7 @@ public abstract class Item implements Serializable {
 	}
 
 	public abstract void drawInfor(Graphics2D paramGraphics2D, Point paramPoint);
+	public abstract boolean isSellable();
 
 	public String getName() {
 		return this.name;

@@ -58,6 +58,7 @@ public class NpcList implements Serializable {
 		npcList.add(new Jiyur("jiyur", "지유르", new PointMapName(9, 14, "아리안트")));
 		npcList.add(new Tigun("tigun", "티건", new PointMapName(2, 3, "아리안트궁전입구")));
 		npcList.add(new Sejan("sejan", "세잔", new PointMapName(4, 13, "아리안트마을")));
+		npcList.add(new Ardin("ardin", "아딘", new PointMapName(8, 21, "선인장사막")));
 	}
 
 	public ArrayList<Npc> getNpcListArray() {
