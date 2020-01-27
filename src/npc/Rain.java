@@ -23,4 +23,10 @@ public class Rain extends Npc {
 
 	}
 
+	@Override
+	public void normalEvent(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

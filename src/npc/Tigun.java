@@ -29,4 +29,10 @@ public class Tigun extends Npc{
 		}
 	}
 
+	@Override
+	public void normalEvent(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

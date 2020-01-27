@@ -24,8 +24,8 @@ public abstract class Npc implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private transient Image image;
 	private String imageUrl;
-	private String name;
-	private int process;
+	protected String name;
+	protected int process;
 	private ArrayList<Talk> talkList = new ArrayList<Talk>();
 	private PointMapName pointMapName;
 	protected int questNum;
@@ -157,8 +157,10 @@ public abstract class Npc implements Serializable {
 			requestQuest(player);
 			this.questNum += 1;
 		}
+		normalEvent(player);
 	}
 
+	public abstract void normalEvent(Player player);
 	public abstract void clearEvent(Player player);
 	public abstract void requestQuest(Player player);
 

@@ -1,6 +1,6 @@
 스카이롬을 발견했다. 서둘러 가짜와 바꿔치기 해서 가져가도록 하자.
 6 true true
 돌아가는 길도 조심하는게 좋을 것 같다.
-6 true true
+6 false true
 .....
 6 false false

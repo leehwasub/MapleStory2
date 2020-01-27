@@ -30,6 +30,7 @@ import dialog.JobSelectDialog;
 import hunt.HuntComponent;
 import map.MapMoveCondition;
 import map.MapleMap;
+import map.MapleMapList;
 import map.PointMapName;
 import maplestory.MainMapleInterface;
 import maplestory.MapleInterface;
@@ -304,6 +305,8 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		
 		player.setCanUsePortion(true);
 		player.setCanUseSkill(false);
+		
+		MapleMapList.getInstance().makeGuard(player, this);
 	}
 
 	public void moveEvent() {

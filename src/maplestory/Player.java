@@ -26,8 +26,10 @@ import map.Portal;
 import map.UpdatedMapInfor;
 import npc.Npc;
 import npc.NpcList;
+import npc.Sirin;
 import npc.UpdatedNpcInfor;
 import quest.Quest;
+import quest.QuestMaterial;
 import quest.QuestProceed;
 import skill.Skill;
 import utils.FontUtils;
@@ -272,10 +274,20 @@ public class Player implements Serializable {
 
 	public void questClear() {
 		this.quest.getReward(this);
+		removeQuestItem(quest.getQuestMaterial());
 		this.quest = null;
 		initKillList();
 		initVisitList();
 		MusicUtils.startEffectSound("questClear");
+	}
+	
+	private void removeQuestItem(ArrayList<QuestMaterial> materialQuestList) {
+		if(materialQuestList != null && materialQuestList.size() != 0) {
+			for(int i = 0; i < materialQuestList.size(); i++) {
+				QuestMaterial item = materialQuestList.get(i);
+				removeItem(item.getMaterialName(), item.getNum());
+			}
+		}
 	}
 
 	public void drawMainStatus(Graphics2D g) {

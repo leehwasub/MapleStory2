@@ -17,4 +17,10 @@ public class Sugar extends Npc implements Serializable {
 
 	public void requestQuest(Player player) {
 	}
+
+	@Override
+	public void normalEvent(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
 }

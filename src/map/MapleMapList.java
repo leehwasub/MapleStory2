@@ -5,6 +5,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import maplestory.Main;
+import maplestory.MainMapleInterface;
 import maplestory.Player;
 import utils.FileLoader;
 
@@ -71,6 +73,19 @@ public class MapleMapList {
 		makeEdge();
 	}
 	
+	private void removeGuard() {
+		for(int i = 0; i < maps.size(); i++) {
+			maps.get(i).removeGuard();
+		}
+	}
+	
+	public void makeGuard(Player player, MainMapleInterface mainMapleInterface) {
+		removeGuard();
+		for(int i = 0; i < maps.size(); i++) {
+			maps.get(i).makeGuard(player, mainMapleInterface);
+		}
+	}
+
 	private void updateMap(UpdatedMapInfor infor) {
 		PointMapName p = infor.getPointMapName();
 		getMap(p.getMapName()).setMap(p.getX(), p.getY(), infor.getAfterState());
@@ -172,6 +187,7 @@ public class MapleMapList {
 		getMap("아리안트").addPortal(new Portal(new PointMapName(7, 0, "아리안트"), new PointMapName(17, 44, "선인장사막")));
 		getMap("선인장사막").addPortal(new Portal(new PointMapName(17, 44, "선인장사막"), new PointMapName(7, 0, "아리안트")));
 		getMap("선인장사막").addPortal(new Portal(new PointMapName(44, 20, "선인장사막"), new PointMapName(16, 0, "작열하는사막")));
+		getMap("선인장사막").addPortal(new Portal(new PointMapName(0, 20, "선인장사막"), new PointMapName(0, 0, "선인장사막북쪽")));
 		getMap("작열하는사막").addPortal(new Portal(new PointMapName(16, 0, "작열하는사막"), new PointMapName(44, 20, "선인장사막")));
 		getMap("작열하는사막").addPortal(new Portal(new PointMapName(16, 44, "작열하는사막"), new PointMapName(44, 22, "마른사막")));
 		getMap("마른사막").addPortal(new Portal(new PointMapName(44, 22, "마른사막"), new PointMapName(16, 44, "작열하는사막")));

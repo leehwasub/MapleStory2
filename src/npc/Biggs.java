@@ -20,6 +20,12 @@ public class Biggs extends Npc{
 	public void requestQuest(Player paramPlayer) {
 		
 	}
+
+	@Override
+	public void normalEvent(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }

@@ -382,7 +382,7 @@ public class ItemPool {
 		items.put("수호수의뿔", new MaterialItem("수호수의뿔", 850, "guardianHorn", 1, "수호수, 라이카의 머리에 달려 있던 뿔이다."));
 		items.put("검은갑옷조각", new MaterialItem("검은갑옷조각", 900, "blackArmorPiece", 1, "수호병사의 어깨를 감싸고 있던 갑옷의 조각이다."));
 		
-		//퀘스트 아이템
+		//퀘스트 아이템s
 		items.put("스카이롬", new MaterialItem("스카이롬", 150, "skyrom", 1, "하늘의 힘을 가졌다고 알려진 보석이다. 정확히 어떤 힘이 있는지는 아무도 모른다.", false));
 		items.put("가짜스카이롬", new MaterialItem("가짜스카이롬", 150, "skyrom", 1, "가짜 스카이롬이다.", false));
 		items.put("궁전출입자격증", new MaterialItem("궁전출입자격증", 100, "palaceCertificateOfEntry", 1, "궁전에 출입할 자격이 있음을 알리는 종이조각이다.", false));
@@ -424,7 +424,7 @@ public class ItemPool {
 		if (item instanceof MaterialItem) {
 			MaterialItem item2 = (MaterialItem) item;
 			MaterialItem e = new MaterialItem(item2.getName(), item2.getCost(), item2.getImageUrl(), num,
-					item2.getInfor());
+					item2.getInfor(), item2.isSellable());
 			return e;
 		}
 		DialogUtils.showErrorDialog("ItemPool.getItem("+itemName+")을 찾지못함! 아이템 이름이 잘못되었거나 해당하는 아이템이 존재하지 않음.");

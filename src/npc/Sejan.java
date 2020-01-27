@@ -25,7 +25,7 @@ public class Sejan extends Npc{
 			quest = Quest.makeQuest(3, 4, "모래토끼 사냥").addMessage("여러 사람에서 말을 걸어 보았으나 별다른 대답을 들을 수 없었다. 그런 와중에 '세잔'이라는 사람과 대화를 하였다.")
 					.addMessage("그는 아리안트 마을을 위해 모래토끼를 처리해온다면 출입증을 구하는데에 협력하겠다고 한다.")
 					.addMessage("모래토끼는 아리안트 마을 동쪽 부근에서 볼 수 있다고 하는데. 한번 가보도록 하자.")
-					.addQuestKill("노란모래토끼", 10).addQuestKill("갈색모래토끼", 10)
+					.addQuestKill("노란모래토끼", 10).addQuestKill("검은모래토끼", 10)
 					.setRewardExp(7500).setRewardMoney(16000).addRewardNpcQuestProceed("아딘", 1)
 					.setPlayerQuestProceed(QuestProceed.SEJAN_QUEST_1);
 			player.setQuest(quest);
@@ -38,6 +38,12 @@ public class Sejan extends Npc{
 					.setRewardExp(400).setPlayerQuestProceed(QuestProceed.SEJAN_QUEST_2);
 			player.setQuest(quest);
 		}
+	}
+
+	@Override
+	public void normalEvent(Player player) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -20,6 +20,7 @@ import monsterAttack.EvasionRateUpAttack;
 import monsterAttack.FlameShootAttack;
 import monsterAttack.FlashAttack;
 import monsterAttack.HpHealAttack;
+import monsterAttack.HumanityInAttack;
 import monsterAttack.MonsterAttack;
 import monsterAttack.MoonlightSpearAttack;
 import monsterAttack.ShadowShellAttack;
@@ -85,6 +86,8 @@ public class AttackFactory {
 			return new MoonlightSpearAttack(hunt, attacker, opponents, new MonsterSkill("녹스피어", Property.PROPERTY_DARK, skillPoint, AttackType.OPPONENT));
 		case "버프해제":
 			return new BuffRemoveAttack(hunt, attacker, opponents, new MonsterSkill("버프해제", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
+		case "여의선인":
+			return new HumanityInAttack(hunt, attacker, opponents, new MonsterSkill("여의선인", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

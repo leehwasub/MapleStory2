@@ -116,6 +116,17 @@ public class Quest implements Serializable {
 	public String getRewardString() {
 		return this.questReward.getRewardString();
 	}
+	
+
+	public ArrayList<QuestMaterial> getQuestMaterial() {
+		ArrayList<QuestMaterial> ret = new ArrayList<QuestMaterial>();
+		for(int i = 0; i < questCondition.size(); i++) {
+			if(questCondition.get(i) instanceof QuestMaterial) {
+				ret.add((QuestMaterial)questCondition.get(i));
+			}
+		}
+		return ret;
+	}
 
 	public void questDraw(Graphics2D g, Player player) {
 		g.setFont(FontUtils.BIG_FONT);

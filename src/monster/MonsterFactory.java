@@ -106,6 +106,8 @@ public class MonsterFactory {
 			return new Bellamoa();
 		case "귀마개프릴드":
 			return new EarPlugPlead();
+		case "데우":
+			return new Deo();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -319,6 +321,9 @@ public class MonsterFactory {
 			} else if(isRange(percent, 5, 10)) {
 				ret = makeMonster("귀마개프릴드");
 			}
+			break;
+		case "선인장사막북쪽":
+			ret = makeMonster("데우");
 			break;
 		}
 		return ret;

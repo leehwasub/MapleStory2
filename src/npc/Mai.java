@@ -64,4 +64,10 @@ public class Mai extends Npc implements Serializable {
 			//player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(5, 14, "달팽이의숲"), MapleMap.MAP_PORTAL_STATE));
 		}
 	}
+
+	@Override
+	public void normalEvent(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
 }

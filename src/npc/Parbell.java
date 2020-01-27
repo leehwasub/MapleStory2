@@ -34,4 +34,10 @@ public class Parbell extends Npc{
 		}
 	}
 
+	@Override
+	public void normalEvent(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

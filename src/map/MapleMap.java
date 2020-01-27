@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import character.Guard;
 import maplestory.MainMapleInterface;
 import maplestory.Player;
 import utils.ColorUtils;
@@ -27,6 +28,8 @@ public class MapleMap implements Serializable {
 	private ArrayList<Portal> portalList = new ArrayList<Portal>();
 	private Point basePoint = new Point(0, 0);
 	private String warpMapName;
+	
+	private ArrayList<Guard> guardList = new ArrayList<Guard>();
 	
 	public static final int MAP_EMPTY_STATE = 0;
 	public static final int MAP_WALL_STATE = 1;
@@ -336,6 +339,26 @@ public class MapleMap implements Serializable {
 
 	public void initMap(int maxX, int maxY) {
 		this.map = new int[maxX][maxY];
+	}
+	
+	public void removeGuard() {
+		for(int i = 0; i < guardList.size(); i++) {
+			guardList.get(i).setEnd(true);
+			guardList.remove(i);
+		}
+		guardList.clear();
+	}
+
+	public void makeGuard(Player player, MainMapleInterface mainMapleInterface) {
+		for(int i = 0; i < map.length; i++) {
+			for(int j = 0; j < map[i].length; j++) {
+				if(map[i][j] == MapleMap.MAP_GUARD_STATE) {
+					Guard guard = new Guard(player, new PointMapName(i, j, name), mainMapleInterface);
+					guard.start();
+					guardList.add(guard);
+				}
+			}
+		}
 	}
 
 	public String getName() {

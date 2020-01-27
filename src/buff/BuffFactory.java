@@ -56,6 +56,8 @@ public class BuffFactory {
 			return new AbnormalBuff("frostBite", "동상", last, "일정 시간동안 동상 상태가 되어 얼음속성 데미지를 입는다", Property.PROPERTY_ICE, damage, DamageType.DAMAGE_HP_TYPE);
 		case "감전":
 			return new AbnormalBuff("shock", "감전", last, "일정 시간동안 감전 상태가 되어 전기속성 데미지를 입는다", Property.PROPERTY_THUNDER, damage, DamageType.DAMAGE_HP_TYPE);
+		case "갈증":
+			return new AbnormalBuff("thirsty", "갈증", last, "일정 시간동안 갈증 상태가 되어 마법력 데미지를 입는다", Property.PROPERTY_NOTHING, damage, DamageType.DAMAGE_MP_TYPE);
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeAbnormalBuff("+buffName+") 버프 생성 실패!");
 		return null;
