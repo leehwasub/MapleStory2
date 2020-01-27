@@ -34,7 +34,7 @@ public class Sirin extends Npc{
 			player.setQuest(quest);
 		} else if(questNum == 1) {
 			quest = Quest.makeQuest(3, 13, "스카이롬 임무 완료").addMessage("스카이롬을 '시린'에게 무사히 건넨이후 자노에게 다시 가보라고한다.")
-					.addMessage("빈집에 있는 자노에게 가보도록하자.").addQuestVisit("자노")
+					.addMessage("빈집에 있는 자노에게 가보도록하자.").addQuestVisit("자노").addRewardNpcQuestProceed("바이런", NpcList.getInstance().getNpcProcess("바이런") + 1)
 					.setRewardExp(20000).setRewardMoney(1000000).setPlayerQuestProceed(QuestProceed.SIRIN_QUEST_2);
 			player.setQuest(quest);
 		}

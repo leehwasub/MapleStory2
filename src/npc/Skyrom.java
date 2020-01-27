@@ -26,7 +26,7 @@ public class Skyrom extends Npc{
 
 	@Override
 	public void normalEvent(Player player) {
-		if(process == 2) {
+		if(process == 1) {
 			player.removeItem("가짜스카이롬", 1);
 			player.addItem(ItemPool.getItem("스카이롬", 1));
 		}
