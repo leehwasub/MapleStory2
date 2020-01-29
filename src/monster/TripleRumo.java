@@ -6,14 +6,14 @@ import character.Resistance;
 import character.Strength;
 import maplestory.Main;
 
-public final class CubeSlime extends Monster {
+public final class TripleRumo extends Monster {
 
 	private static final long serialVersionUID = 1L;
 
-	public CubeSlime() {
-		super("큐브슬라임", "cubeSlime",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 49, 18000, 1500, 0, 0, 500, 500, 37, 37, 0), 583, 590, 583, 590,
-				396 * Main.EXP_BONUS, 836 * Main.MONEY_BONUS, false);
+	public TripleRumo() {
+		super("트리플루모", "tripleRumo",
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 51, 25000, 1700, 0, 0, 600, 600, 40, 40, 0), 591, 607, 601, 617,
+				483 * Main.EXP_BONUS, 1035 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}
 	
@@ -21,7 +21,7 @@ public final class CubeSlime extends Monster {
 	public void initSkillList() {
 		skillList.add(new MonsterSkillInfor(0, 300, "공격력강화", strength.getMaxHp(), 7));
 		skillList.add(new MonsterSkillInfor(200, 400, "안티매직쉘", strength.getMaxHp(), 7));
-		skillList.add(new MonsterSkillInfor(800, 1000, "체력회복", strength.getMaxHp() - 5000, 5));
+		skillList.add(new MonsterSkillInfor(700, 1000, "서클오브마나", strength.getMaxHp(), 2));
 		skillList.add(new MonsterSkillInfor(0, 1000, "몸통박치기", strength.getMaxHp(), 0));
 	}
 

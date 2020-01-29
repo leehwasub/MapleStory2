@@ -39,7 +39,7 @@ public class FlashAttack extends MonsterAttack {
 	}
 
 	public int calNeedMp() {
-		return 10 + monsterSkill.getSkillPoint() * 4;
+		return 10 + monsterSkill.getSkillPoint() * 2;
 	}
 	
 }

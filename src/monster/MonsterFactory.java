@@ -116,6 +116,10 @@ public class MonsterFactory {
 			return new Scorpion();
 		case "큐브슬라임":
 			return new CubeSlime();
+		case "루모":
+			return new Rumo();
+		case "트리플루모":
+			return new TripleRumo();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -355,6 +359,15 @@ public class MonsterFactory {
 		case "연구소101호":
 			if (isRange(percent, 0, 7)) {
 				ret = makeMonster("큐브슬라임");
+			} else if (isRange(percent, 7, 14)) {
+				ret = makeMonster("루모");
+			}
+			break;
+		case "연구소102호":
+			if (isRange(percent, 0, 7)) {
+				ret = makeMonster("트리플루모");
+			} else if (isRange(percent, 7, 14)) {
+				ret = makeMonster("루모");
 			}
 			break;
 		}

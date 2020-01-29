@@ -102,6 +102,8 @@ public class DropItemFactory {
 				getItems.add(ItemPool.getItem("금모래가루", 1));
 			} else if (monster instanceof CubeSlime) {
 				getItems.add(ItemPool.getItem("젤라틴", 1));
+			} else if (monster instanceof Rumo) {
+				getItems.add(ItemPool.getItem("플라스크", 1));
 			}
 		}
 		return getItems;

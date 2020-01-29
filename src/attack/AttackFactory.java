@@ -22,6 +22,7 @@ import monsterAttack.FlameShootAttack;
 import monsterAttack.FlashAttack;
 import monsterAttack.HpHealAttack;
 import monsterAttack.HumanityInAttack;
+import monsterAttack.ManaBurstAttack;
 import monsterAttack.MonsterAttack;
 import monsterAttack.MoonlightSpearAttack;
 import monsterAttack.ShadowShellAttack;
@@ -91,6 +92,8 @@ public class AttackFactory {
 			return new HumanityInAttack(hunt, attacker, opponents, new MonsterSkill("여의선인", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		case "더블피어싱":
 			return new DoublePiercingAttack(hunt, attacker, opponents, new MonsterSkill("더블피어싱", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
+		case "서클오브마나":
+			return new ManaBurstAttack(hunt, attacker, opponents, new MonsterSkill("서클오브마나", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

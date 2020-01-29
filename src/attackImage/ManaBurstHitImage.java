@@ -7,13 +7,13 @@ import component.StateBox;
 import hunt.HuntComponent.Hunt;
 import utils.MusicUtils;
 
-public class HumanityInHitImage extends SkillImage {
-	public HumanityInHitImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
+public class ManaBurstHitImage extends SkillImage {
+	public ManaBurstHitImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
 		super("monsterSkillImage/manaBurstHit", hunt, attacker, opponent, attackInfor, 90, 0, 0);
 	}
 
 	public void run() {
-		MusicUtils.startEffectSound("manaBurstHit");
+		//MusicUtils.startEffectSound("manaBurstHit");
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
 			System.out.println(this.index);
