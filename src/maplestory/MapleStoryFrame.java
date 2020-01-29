@@ -10,6 +10,7 @@ import panel.MainPanel;
 import panel.PrologPanel;
 import panel.StartPanel;
 import utils.MusicUtils;
+import utils.ResourceLoader;
 
 public class MapleStoryFrame extends JFrame implements MapleInterface {
 	private static final long serialVersionUID = 1L;
@@ -19,6 +20,7 @@ public class MapleStoryFrame extends JFrame implements MapleInterface {
 	private JPanel mainPanel;
 
 	MapleStoryFrame() {
+		setIconImage(ResourceLoader.getImage("componentImage", "logoImage.png"));
 		setTitle("MapleStory");
 		setSize(1280, 720);
 		setResizable(false);

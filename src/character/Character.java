@@ -120,7 +120,6 @@ public abstract class Character implements Serializable{
 		default:
 			break;
 		}
-		System.out.println("속성 변환전 : " + d);
 		resist = Math.min(200, resist);
 		resist = Math.max(0, resist);
 		if (resist < 100) {
@@ -132,7 +131,6 @@ public abstract class Character implements Serializable{
 			double tmp = d - d * minus;
 			d = (int) tmp;
 		}
-		System.out.println("속성 변환후 : " + d);
 		return d;
 	}
 

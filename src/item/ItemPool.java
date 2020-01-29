@@ -2,11 +2,10 @@ package item;
 
 import java.util.HashMap;
 
-import com.sun.javafx.runtime.eula.Eula;
-
 import character.Resistance;
 import character.SexType;
 import character.Strength;
+import skill.Skill;
 import utils.DialogUtils;
 
 public class ItemPool {
@@ -197,7 +196,7 @@ public class ItemPool {
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 25, 0, 0, 0, 0, 24, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.MAN, false));
 		items.put("샤크치마(여)", new EquipmentItem("샤크치마(여)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 25), "sharkSkirtWoman", 1,
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 25, 0, 0, 0, 0, 24, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.WOMAN, false));
-		items.put("홍무바지", new EquipmentItem("홍무바지", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 30), "corporalPants", 1,
+		items.put("홍무바지", new EquipmentItem("홍무바지", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 30), "honguPants", 1,
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 30, 0, 0, 0, 0, 28, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.ALL, false));
 		items.put("백진일갑주바지(남)", new EquipmentItem("백진일갑주바지(남)", getPrice(EquipmentItem.EQUIPMENT_TYPE_PANTS, 40), "baeJinilArmorMan", 1,
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 40, 0, 0, 0, 0, 36, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_PANTS, SexType.MAN, false));
@@ -226,7 +225,7 @@ public class ItemPool {
 		items.put("마나엘릭서", new HealItem("마나엘릭서", 150, "manaElixir", 1, new Heal(0, 300, 0, 0), 10));
 		items.put("주황포션", new HealItem("주황포션", 75, "orangePortion", 1, new Heal(300, 0, 0, 0), 10));
 		items.put("하얀포션", new HealItem("하얀포션", 125, "whitePortion", 1, new Heal(500, 0, 0, 0), 10));
-		items.put("맑은물", new HealItem("맑은물", 250, "manaElixir", 1, new Heal(0, 500, 0, 0), 10));
+		items.put("맑은물", new HealItem("맑은물", 250, "freshWater", 1, new Heal(0, 500, 0, 0), 10));
 		items.put("새우튀김", new HealItem("새우튀김", 190, "friedShrimp", 1, new Heal(750, 0, 0, 0), 15));
 		items.put("장어구이", new HealItem("장어구이", 250, "grilledEel", 1, new Heal(1000, 0, 0, 0), 20));
 		items.put("쭈쭈바", new HealItem("쭈쭈바", 500, "pencilBar", 1, new Heal(2000, 0, 0, 0), 25));
@@ -238,6 +237,9 @@ public class ItemPool {
 		items.put("전사의알약", new BuffItem("전사의알약", 400, "warriorTablet", 1, 20, new Strength(new Resistance(), 0, 0, 0, 5, 0, 0, 0, 0, 0, 0), 7));
 		
 		items.put("마을귀환주문서", new WarpItem("마을귀환주문서", 200, "villegeReturn", 1, 1, "가까운 마을로 이동할 수 있는 주문서이다"));
+		
+		//스킬북
+		items.put("3차스킬북", new SkillBookItem("3차스킬북", 100, "skillBook", 1, 50, "3차 전직을 할 수 있는 스킬북이다."));
 	}
 	
 	private static void initTitleItem() {
@@ -386,6 +388,7 @@ public class ItemPool {
 		items.put("스카이롬", new MaterialItem("스카이롬", 150, "skyrom", 1, "하늘의 힘을 가졌다고 알려진 보석이다. 정확히 어떤 힘이 있는지는 아무도 모른다.", false));
 		items.put("가짜스카이롬", new MaterialItem("가짜스카이롬", 150, "skyrom", 1, "가짜 스카이롬이다.", false));
 		items.put("궁전출입자격증", new MaterialItem("궁전출입자격증", 100, "palaceCertificateOfEntry", 1, "궁전에 출입할 자격이 있음을 알리는 종이조각이다.", false));
+		
 	}
 
 	
@@ -419,6 +422,16 @@ public class ItemPool {
 		if (item instanceof WarpItem) {
 			WarpItem item2 = (WarpItem) item;
 			WarpItem e = new WarpItem(item2.getName(), item2.getCost(), item2.getImageUrl(), num, item2.getLevel(), item2.getItemInfor());
+			return e;
+		}
+		if (item instanceof SkillBookItem) {
+			SkillBookItem item2 = (SkillBookItem) item;
+			SkillBookItem e = new SkillBookItem(item2.getName(), item2.getCost(), item2.getImageUrl(), num, item2.getLevel(), item2.getItemInfor());
+			return e;
+		}
+		if (item instanceof MasteryBookItem) {
+			MasteryBookItem item2 = (MasteryBookItem) item;
+			MasteryBookItem e = new MasteryBookItem(item2.getName(), item2.getCost(), item2.getImageUrl(), num, item2.getLevel(), item2.getSkillName(), item2.getSkillLevel());
 			return e;
 		}
 		if (item instanceof MaterialItem) {

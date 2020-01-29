@@ -51,7 +51,7 @@ public abstract class Monster extends Character {
 	
 	@Override
 	public void hitEvent(Character character, AttackInfor attackInfor) {
-		
+		System.out.println(this.toString());
 	}
 	
 	@Override
@@ -66,6 +66,7 @@ public abstract class Monster extends Character {
 			e.printStackTrace();
 		}
 		strengthBuffEffect();
+		System.out.println("버프 후 : " + this.toString());
 	}
 	
 	public abstract void initSkillList();
@@ -157,6 +158,14 @@ public abstract class Monster extends Character {
 
 	public void setOriStrength(Strength oriStrength) {
 		this.oriStrength = oriStrength;
+	}
+
+	@Override
+	public String toString() {
+		return "Monster [skillList=" + skillList + ", exp=" + exp + ", money=" + money + ", isBoss=" + isBoss
+				+ ", oriStrength=" + oriStrength + ", oriMinPhysicalDamage=" + oriMinPhysicalDamage
+				+ ", oriMaxPhysicalDamage=" + oriMaxPhysicalDamage + ", oriMinMagicDamage=" + oriMinMagicDamage
+				+ ", oriMaxMagicDamage=" + oriMaxMagicDamage + "]" + super.toString();
 	}
 	
 }

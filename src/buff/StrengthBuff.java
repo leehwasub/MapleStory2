@@ -45,6 +45,7 @@ public final class StrengthBuff extends Buff{
 		str.addAccuracyRate(this.strength.getAccuracyRate());
 		str.addEvasionRate(this.strength.getEvasionRate());
 		str.addCriticalRate(this.strength.getCriticalRate());
+		str.getResistance().addAllResistance(strength.getResistance());
 	}
 	
 	@Override

@@ -236,7 +236,7 @@ public class Strength implements Serializable, Cloneable, Buffable {
 	public Object clone() throws CloneNotSupportedException {
 		Strength strength = (Strength)super.clone();
 		strength.setResistance((Resistance)resistance.clone());
-		return super.clone();
+		return strength;
 	}
 
 	@Override

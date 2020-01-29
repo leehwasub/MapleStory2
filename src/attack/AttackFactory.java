@@ -14,6 +14,7 @@ import monsterAttack.DamageUpAttack;
 import monsterAttack.DefenceDownAttack;
 import monsterAttack.DefenceUpAttack;
 import monsterAttack.DevilScytheAttack;
+import monsterAttack.DoublePiercingAttack;
 import monsterAttack.DoubleSlashAttack;
 import monsterAttack.EvasionRateDownAttack;
 import monsterAttack.EvasionRateUpAttack;
@@ -88,6 +89,8 @@ public class AttackFactory {
 			return new BuffRemoveAttack(hunt, attacker, opponents, new MonsterSkill("버프해제", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		case "여의선인":
 			return new HumanityInAttack(hunt, attacker, opponents, new MonsterSkill("여의선인", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
+		case "더블피어싱":
+			return new DoublePiercingAttack(hunt, attacker, opponents, new MonsterSkill("더블피어싱", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

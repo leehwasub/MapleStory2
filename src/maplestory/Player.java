@@ -485,17 +485,8 @@ public class Player implements Serializable {
 		if (!isCanAddItem(item)) {
 			return false;
 		}
-		if ((item instanceof HealItem) || (item instanceof BuffItem) || (item instanceof WarpItem)) {
-			ConsumableItem newItem = null;
-			if (item instanceof HealItem) {
-				newItem = (HealItem) ItemPool.getItem(item.getName(), item.getNum());
-			}
-			if (item instanceof BuffItem) {
-				newItem = (BuffItem) ItemPool.getItem(item.getName(), item.getNum());
-			}
-			if (item instanceof WarpItem) {
-				newItem = (WarpItem) ItemPool.getItem(item.getName(), item.getNum());
-			}
+		if (item instanceof ConsumableItem) {
+			ConsumableItem newItem = (ConsumableItem)ItemPool.getItem(item.getName(), item.getNum());
 			for (int i = 0; (i < consumableInventory.size()) && (newItem.getNum() >= 1); i++) {
 				String curItem = ((ConsumableItem) consumableInventory.get(i)).getName();
 				if (item.getName().equals(curItem)) {

@@ -64,6 +64,8 @@ public class NpcList implements Serializable {
 		npcList.add(new Sheherazard("sheherazard", "세헤라자드", new PointMapName(1, 5, "아리안트궁전")));
 		npcList.add(new Areda("areda", "아레다", new PointMapName(2, 14, "아리안트궁전")));
 		npcList.add(new Skyrom("skyrom", "스카이롬", new PointMapName(26, 11, "아리안트궁전지하2층")));
+		npcList.add(new HanBroker("hanBroker", "한브로커", new PointMapName(7, 10, "마가티아")));
+		npcList.add(new Keeny("keeny", "키니", new PointMapName(6, 22, "마가티아")));
 	}
 
 	public ArrayList<Npc> getNpcListArray() {

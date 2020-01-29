@@ -88,6 +88,18 @@ public class DropItemFactory {
 				getItems.add(ItemPool.getItem("불독의송곳니", 1));
 			} else if (monster instanceof Bain) {
 				getItems.add(ItemPool.getItem("파이어독의목걸이", 1));
+			} else if (monster instanceof Cactus) {
+				getItems.add(ItemPool.getItem("선인장의가시", 1));
+			} else if (monster instanceof LoyalCactus) {
+				getItems.add(ItemPool.getItem("카투스의꽃", 1));
+			} else if (monster instanceof Bellamoa) {
+				getItems.add(ItemPool.getItem("뱀방울", 1));
+			} else if (monster instanceof EarPlugPlead) {
+				getItems.add(ItemPool.getItem("귀마개", 1));
+			} else if (monster instanceof Kiyo) {
+				getItems.add(ItemPool.getItem("키요의부리", 1));
+			} else if (monster instanceof DesertGiant) {
+				getItems.add(ItemPool.getItem("금모래가루", 1));
 			}
 		}
 		return getItems;

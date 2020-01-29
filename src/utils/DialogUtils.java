@@ -19,6 +19,11 @@ public class DialogUtils {
 		JOptionPane.showMessageDialog(null, message, "경고", JOptionPane.WARNING_MESSAGE);
 	}
 	
+	public static void showInfoDialog(String message) {
+		dialogSetFont();
+		JOptionPane.showMessageDialog(null, message, "알림", JOptionPane.INFORMATION_MESSAGE);
+	}
+	
 	/**
 	 *  
 	 * @param message

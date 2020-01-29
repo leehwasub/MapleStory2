@@ -17,7 +17,7 @@ import utils.ColorUtils;
 import utils.FontUtils;
 import utils.MusicUtils;
 
-public class BuffItem extends ConsumableItem implements Serializable {
+public class BuffItem extends ConsumableItem implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Strength strength;
 	private int lastTime;
@@ -105,6 +105,5 @@ public class BuffItem extends ConsumableItem implements Serializable {
 	public boolean isSellable() {
 		return true;
 	}
-	
-	
+
 }

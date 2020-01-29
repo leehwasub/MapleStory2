@@ -108,6 +108,12 @@ public class MonsterFactory {
 			return new EarPlugPlead();
 		case "데우":
 			return new Deo();
+		case "키요":
+			return new Kiyo();
+		case "모래거인":
+			return new DesertGiant();
+		case "스콜피온":
+			return new Scorpion();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -324,6 +330,25 @@ public class MonsterFactory {
 			break;
 		case "선인장사막북쪽":
 			ret = makeMonster("데우");
+			break;
+		case "북쪽사막길1":
+			if (isRange(percent, 0, 7)) {
+				ret = makeMonster("키요");
+			} else if(isRange(percent, 7, 10)) {
+				ret = makeMonster("모래거인");
+			}
+			break;
+		case "북쪽사막길2":
+			if (isRange(percent, 0, 7)) {
+				ret = makeMonster("키요");
+			} else if(isRange(percent, 7, 10)) {
+				ret = makeMonster("모래거인");
+			}
+			break;
+		case "사헬지대":
+			if (isRange(percent, 0, 10)) {
+				ret = makeMonster("스콜피온");
+			}
 			break;
 		}
 		return ret;
