@@ -12,7 +12,7 @@ public final class DesertGiant extends Monster {
 
 	public DesertGiant() {
 		super("모래거인", "desertGiant",
-				new Strength(new Resistance(160, 40, 100, 100, 100, 100), 48, 20000, 600, 0, 0, 700, 700, 37, 37, 0), 601, 654, 615, 660,
+				new Strength(new Resistance(160, 40, 100, 100, 100, 100), 48, 24000, 600, 0, 0, 700, 700, 37, 37, 0), 601, 654, 615, 660,
 				500 * Main.EXP_BONUS, 1050 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

@@ -114,6 +114,8 @@ public class MonsterFactory {
 			return new DesertGiant();
 		case "스콜피온":
 			return new Scorpion();
+		case "큐브슬라임":
+			return new CubeSlime();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -348,6 +350,11 @@ public class MonsterFactory {
 		case "사헬지대":
 			if (isRange(percent, 0, 10)) {
 				ret = makeMonster("스콜피온");
+			}
+			break;
+		case "연구소101호":
+			if (isRange(percent, 0, 7)) {
+				ret = makeMonster("큐브슬라임");
 			}
 			break;
 		}
