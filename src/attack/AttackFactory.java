@@ -8,7 +8,9 @@ import monsterAttack.AdvancedFlameShootAttack;
 import monsterAttack.BatSweamAttack;
 import monsterAttack.BlowBeastAttack;
 import monsterAttack.BuffRemoveAttack;
+import monsterAttack.ChainLightningAttack;
 import monsterAttack.ColdBeamAttack;
+import monsterAttack.CombatSwitchingAttack;
 import monsterAttack.DamageDownAttack;
 import monsterAttack.DamageUpAttack;
 import monsterAttack.DefenceDownAttack;
@@ -24,6 +26,7 @@ import monsterAttack.FlashAttack;
 import monsterAttack.HpHealAttack;
 import monsterAttack.HumanityInAttack;
 import monsterAttack.ManaBurstAttack;
+import monsterAttack.MassiveFireAttack;
 import monsterAttack.MonsterAttack;
 import monsterAttack.MoonlightSpearAttack;
 import monsterAttack.PowerTransferAttack;
@@ -100,6 +103,12 @@ public class AttackFactory {
 			return new DoubleShootAttack(hunt, attacker, opponents, new MonsterSkill("더블샷", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		case "파워트랜스퍼":
 			return new PowerTransferAttack(hunt, attacker, opponents, new MonsterSkill("파워트랜스퍼", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
+		case "체인라이트닝":
+			return new ChainLightningAttack(hunt, attacker, opponents, new MonsterSkill("체인라이트닝", Property.PROPERTY_THUNDER, skillPoint, AttackType.OPPONENT));
+		case "컴뱃스위칭":
+			return new CombatSwitchingAttack(hunt, attacker, opponents, new MonsterSkill("컴뱃스위칭", Property.PROPERTY_THUNDER, skillPoint, AttackType.OPPONENT));
+		case "매시브파이어":
+			return new MassiveFireAttack(hunt, attacker, opponents, new MonsterSkill("매시브파이어", Property.PROPERTY_FIRE, skillPoint, AttackType.OPPONENT));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

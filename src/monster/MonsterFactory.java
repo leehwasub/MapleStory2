@@ -128,6 +128,10 @@ public class MonsterFactory {
 			return new MithrilMutae();
 		case "강화된미스릴뮤테":
 			return new ReinforcedMithrilMutae();
+		case "로이드":
+			return new Roid();
+		case "네오휴로이드":
+			return new NeoHuroid();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -396,6 +400,16 @@ public class MonsterFactory {
 		case "B-2구역":
 			if (isRange(percent, 0, 14)) {
 				ret = makeMonster("강화된미스릴뮤테");
+			}
+			break;
+		case "C-1구역":
+			if (isRange(percent, 0, 14)) {
+				ret = makeMonster("로이드");
+			}
+			break;
+		case "C-2구역":
+			if (isRange(percent, 0, 14)) {
+				ret = makeMonster("네오휴로이드");
 			}
 			break;
 		}

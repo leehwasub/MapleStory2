@@ -27,7 +27,7 @@ public class BatSweamAttack extends MonsterAttack {
 	protected ArrayList<AttackInfor> makeAttackInfor() {
 		double percent = 0.2f + (double)monsterSkill.getSkillPoint() * 0.05f;
 		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
-		for(int i = 0; i < 2; i++) {
+		for(int i = 0; i < 4; i++) {
 			ret.add(new AttackInfor(this.attacker.getCharacter(), monsterSkill.getProperty(), 0, this.attacker.getCharacter().calMagicDamge(percent), DamageType.DAMAGE_HP_TYPE));
 		}
 		return ret;
