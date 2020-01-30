@@ -15,6 +15,7 @@ import monsterAttack.DefenceDownAttack;
 import monsterAttack.DefenceUpAttack;
 import monsterAttack.DevilScytheAttack;
 import monsterAttack.DoublePiercingAttack;
+import monsterAttack.DoubleShootAttack;
 import monsterAttack.DoubleSlashAttack;
 import monsterAttack.EvasionRateDownAttack;
 import monsterAttack.EvasionRateUpAttack;
@@ -94,6 +95,8 @@ public class AttackFactory {
 			return new DoublePiercingAttack(hunt, attacker, opponents, new MonsterSkill("더블피어싱", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		case "서클오브마나":
 			return new ManaBurstAttack(hunt, attacker, opponents, new MonsterSkill("서클오브마나", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
+		case "더블샷":
+			return new DoubleShootAttack(hunt, attacker, opponents, new MonsterSkill("더블샷", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

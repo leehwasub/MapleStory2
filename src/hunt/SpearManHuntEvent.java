@@ -3,6 +3,7 @@ package hunt;
 import java.awt.Graphics2D;
 import java.io.Serializable;
 
+import attack.Attack;
 import attack.AttackInfor;
 import attack.DamageType;
 import attackImage.EvilEyeBuffUseImage;
@@ -15,6 +16,9 @@ import playerAttack.PlayerAttack;
 import skill.CrossSurgeSkill;
 import skill.EvilEyeBuffSkill;
 import skill.EvilEyeShockSkill;
+import skill.IronBodySkill;
+import skill.IronWillSkill;
+import skill.Skill;
 
 public class SpearManHuntEvent implements HuntEvent, Serializable{
 
@@ -63,7 +67,13 @@ public class SpearManHuntEvent implements HuntEvent, Serializable{
 
 	@Override
 	public void afterAttack(Hunt hunt) {
-		
+		Skill skill = hunt.getPlayerAttack().getActiveSkill();
+		Adventurer adventurer = hunt.getAdventurer();
+		if(skill instanceof IronWillSkill && adventurer.isAlreadyBuffed("아이언바디")) {
+			adventurer.removeBuff("아이언바디");
+		} else if(skill instanceof IronBodySkill && adventurer.isAlreadyBuffed("아이언월")) {
+			adventurer.removeBuff("아이언월");
+		}
 	}
 
 	@Override

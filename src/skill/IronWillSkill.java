@@ -32,7 +32,7 @@ public class IronWillSkill extends ActiveSkill{
 
 	@Override
 	public int getEffect(int point) {
-		return point * 15;
+		return point * 20;
 	}
 	
 

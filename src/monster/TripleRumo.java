@@ -12,7 +12,7 @@ public final class TripleRumo extends Monster {
 
 	public TripleRumo() {
 		super("트리플루모", "tripleRumo",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 51, 25000, 1700, 0, 0, 600, 600, 40, 40, 0), 591, 607, 601, 617,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 51, 26000, 1700, 0, 0, 500, 500, 40, 40, 0), 591, 607, 601, 617,
 				483 * Main.EXP_BONUS, 1035 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

@@ -120,6 +120,10 @@ public class MonsterFactory {
 			return new Rumo();
 		case "트리플루모":
 			return new TripleRumo();
+		case "아이언뮤테":
+			return new IronMutae();
+		case "강화된아이언뮤테":
+			return new ReinforcedIronMutae();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -368,6 +372,16 @@ public class MonsterFactory {
 				ret = makeMonster("트리플루모");
 			} else if (isRange(percent, 7, 14)) {
 				ret = makeMonster("루모");
+			}
+			break;
+		case "A-1구역":
+			if (isRange(percent, 0, 14)) {
+				ret = makeMonster("아이언뮤테");
+			}
+			break;
+		case "A-2구역":
+			if (isRange(percent, 0, 14)) {
+				ret = makeMonster("강화된아이언뮤테");
 			}
 			break;
 		}

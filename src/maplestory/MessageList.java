@@ -26,14 +26,15 @@ public class MessageList {
 		}
 		if (!this.messageQueue.isEmpty()) {
 			g.setFont(FontUtils.generalFont);
-			if(messageQueue.peek() != null) {
-				g.setColor(((Message) this.messageQueue.peek()).getColor());
+			Message messagePeek = messageQueue.peek();
+			if(messagePeek != null) {
+				g.setColor(messagePeek.getColor());
 			}
 			int preIndex = 0;
 			int line = 0;
 			String message = "";
-			if(messageQueue.peek() != null) {
-				 ((Message) this.messageQueue.peek()).getMessage();
+			if(messagePeek != null) {
+				message = messagePeek.getMessage();
 			}
 			for (int i = 0; i < message.length(); i++) {
 				FontMetrics fm = g.getFontMetrics();

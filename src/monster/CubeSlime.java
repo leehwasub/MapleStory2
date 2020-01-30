@@ -12,7 +12,7 @@ public final class CubeSlime extends Monster {
 
 	public CubeSlime() {
 		super("큐브슬라임", "cubeSlime",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 49, 18000, 1500, 0, 0, 500, 500, 37, 37, 0), 583, 590, 583, 590,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 49, 19000, 1500, 0, 0, 400, 400, 37, 37, 0), 583, 590, 583, 590,
 				396 * Main.EXP_BONUS, 836 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

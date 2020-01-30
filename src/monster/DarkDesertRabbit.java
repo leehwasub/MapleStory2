@@ -12,7 +12,7 @@ public final class DarkDesertRabbit extends Monster {
 
 	public DarkDesertRabbit() {
 		super("검은모래토끼", "darkDesertRabbit",
-				new Strength(new Resistance(150, 50, 100, 100, 150, 50), 41, 9000, 350, 0, 0, 300, 300, 37, 37, 0), 450, 464, 450, 470,
+				new Strength(new Resistance(150, 50, 100, 100, 150, 50), 41, 10000, 350, 0, 0, 250, 250, 37, 37, 0), 450, 464, 450, 470,
 				235 * Main.EXP_BONUS, 520 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}
