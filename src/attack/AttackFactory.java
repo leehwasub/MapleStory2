@@ -26,6 +26,7 @@ import monsterAttack.HumanityInAttack;
 import monsterAttack.ManaBurstAttack;
 import monsterAttack.MonsterAttack;
 import monsterAttack.MoonlightSpearAttack;
+import monsterAttack.PowerTransferAttack;
 import monsterAttack.ShadowShellAttack;
 import monsterAttack.ShiningBusterAttack;
 import monsterAttack.SkillLockAttack;
@@ -97,6 +98,8 @@ public class AttackFactory {
 			return new ManaBurstAttack(hunt, attacker, opponents, new MonsterSkill("서클오브마나", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		case "더블샷":
 			return new DoubleShootAttack(hunt, attacker, opponents, new MonsterSkill("더블샷", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
+		case "파워트랜스퍼":
+			return new PowerTransferAttack(hunt, attacker, opponents, new MonsterSkill("파워트랜스퍼", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

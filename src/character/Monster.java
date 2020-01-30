@@ -51,7 +51,12 @@ public abstract class Monster extends Character {
 	
 	@Override
 	public void hitEvent(Character character, AttackInfor attackInfor) {
-		System.out.println(this.toString());
+		if(isAlreadyBuffed("파워트랜스퍼")) {
+			int skillPoint = getMonsterSkillInforWithName("파워트랜스퍼").getSkillPoint();
+			double percent = (8.0 + ((double)skillPoint * 2.0)) / 100.0;
+			attackInfor.subPhysicalDamage((int)(attackInfor.getPhysicalDamage() * percent));
+			attackInfor.subMagicDamage((int)(attackInfor.getMagicDamage() * percent));
+		}
 	}
 	
 	@Override
@@ -70,6 +75,17 @@ public abstract class Monster extends Character {
 	}
 	
 	public abstract void initSkillList();
+	
+	public MonsterSkillInfor getMonsterSkillInforWithName(String skillName) {
+		for(int i = 0; i < skillList.size(); i++) {
+			MonsterSkillInfor infor = skillList.get(i);
+			if(infor.getSkillName().equals(skillName)) {
+				return infor;
+			}
+		}
+		DialogUtils.showErrorDialog("Monster.getMonsterSkillInforWithName("+skillName+")몬스터 스킬 가져오기 실패!");
+		return null;
+	}
 
 	public final MonsterAttack attack(Hunt hunt, StateBox attacker, StateBox opponent) {
 		int percent = (int)(Math.random() * 1000);

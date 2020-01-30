@@ -17,31 +17,31 @@ public class BuffFactory {
 	public static Buff makeMonsterBuff(String buffName, int skillPoint) {
 		switch(buffName) {
 		case "공격력강화":
-			return new StrengthBuff("damageIncreasing", "공격력강화", 6 + skillPoint / 4, "물리 공격력과 마법 공격력을 일정시간 동안 강화한다.", 
+			return new StrengthBuff("damageIncreasing", "공격력강화", 6 + skillPoint / 3, "물리 공격력과 마법 공격력을 일정시간 동안 강화한다.", 
 					new Strength(new Resistance(), 0, 0, 0, skillPoint * 20, skillPoint * 20, 0, 0, 0, 0, 0), StrengthBuffType.SKILL_BUFF);
 		case "방어력강화":
-			return new StrengthBuff("guardIncreasing", "방어력강화", 6 + skillPoint / 4, "마법 방어력과 마법 방어력을 일정시간 동안 강화한다", 
+			return new StrengthBuff("guardIncreasing", "방어력강화", 6 + skillPoint / 3, "마법 방어력과 마법 방어력을 일정시간 동안 강화한다", 
 					new Strength(new Resistance(), 0, 0, 0, 0, 0, skillPoint * 20, skillPoint * 20, 0, 0, 0), StrengthBuffType.SKILL_BUFF);
 		case "적중률강화":
-			return new StrengthBuff("accuracyRateIncreasing", "적중률강화", 6 + skillPoint / 4, "적중률을 일정시간 동안 강화한다", 
+			return new StrengthBuff("accuracyRateIncreasing", "적중률강화", 6 + skillPoint / 3, "적중률을 일정시간 동안 강화한다", 
 					new Strength(new Resistance(), 0, 0, 0, 0, 0, 0, 0, 4 + skillPoint, 0, 0), StrengthBuffType.SKILL_BUFF);
 		case "회피율강화":
-			return new StrengthBuff("evasionRateIncreasing", "회피율강화", 6 + skillPoint / 4, "회피율을 일정시간 동안 강화한다", 
+			return new StrengthBuff("evasionRateIncreasing", "회피율강화", 6 + skillPoint / 3, "회피율을 일정시간 동안 강화한다", 
 					new Strength(new Resistance(), 0, 0, 0, 0, 0, 0, 0, 0, 4 + skillPoint, 0), StrengthBuffType.SKILL_BUFF);
 		case "공격력약화":
-			return new StrengthBuff("damageDecreasing", "공격력약화", 6 + skillPoint / 4, "물리 공격력과 마법 공격력을 일정시간 동안 약화한다.", 
+			return new StrengthBuff("damageDecreasing", "공격력약화", 6 + skillPoint / 3, "물리 공격력과 마법 공격력을 일정시간 동안 약화한다.", 
 					new Strength(new Resistance(), 0, 0, 0, -(4 + skillPoint), -(4 + skillPoint), 0, 0, 0, 0, 0), StrengthBuffType.SKILL_BUFF);
 		case "방어력약화":
-			return new StrengthBuff("guardDecreasing", "방어력약화", 6 + skillPoint / 4, "마법 방어력과 마법 방어력을 일정시간 동안 약화한다", 
+			return new StrengthBuff("guardDecreasing", "방어력약화", 6 + skillPoint / 3, "마법 방어력과 마법 방어력을 일정시간 동안 약화한다", 
 					new Strength(new Resistance(), 0, 0, 0, 0, 0, -(skillPoint * 10), -(skillPoint * 10), 0, 0, 0), StrengthBuffType.SKILL_BUFF);
 		case "적중률약화":
-			return new StrengthBuff("accuracyRateDecreasing", "적중률약화", 6 + skillPoint / 4, "적중률을 일정시간 동안 약화한다", 
+			return new StrengthBuff("accuracyRateDecreasing", "적중률약화", 6 + skillPoint / 3, "적중률을 일정시간 동안 약화한다", 
 					new Strength(new Resistance(), 0, 0, 0, 0, 0, 0, 0, -(4 + skillPoint), 0, 0), StrengthBuffType.SKILL_BUFF);
 		case "회피율약화":
-			return new StrengthBuff("evasionRateDecreasing", "회피율약화", 6 + skillPoint / 4, "회피율을 일정시간 동안 약화한다", 
+			return new StrengthBuff("evasionRateDecreasing", "회피율약화", 6 + skillPoint / 3, "회피율을 일정시간 동안 약화한다", 
 					new Strength(new Resistance(), 0, 0, 0, 0, 0, 0, 0, 0, -(4 + skillPoint), 0), StrengthBuffType.SKILL_BUFF);
 		case "안티매직쉘":
-			return new StrengthBuff("shadowShell", "안티매직쉘", 8 + skillPoint / 4, "일정시간동안 모든 속성저항이 증가한다", 
+			return new StrengthBuff("shadowShell", "안티매직쉘", 7 + skillPoint / 3, "일정시간동안 모든 속성저항이 증가한다", 
 					new Strength(new Resistance(10 + skillPoint * 2), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), StrengthBuffType.SKILL_BUFF);
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeMonsterBuff("+buffName+") 버프 생성 실패!");
@@ -77,6 +77,8 @@ public class BuffFactory {
 			return new SpecialBuff("skillLock", "스킬잠금", last, "일정 시간 동안 스킬 사용이 금지된다", true);
 		case "포션잠금":
 			return new SpecialBuff("portionLock", "포션잠금", last, "일정 시간 동안 포션 사용이 금지된다", true);
+		case "파워트랜스퍼":
+			return new SpecialBuff("powerTransfer", "파워트랜스퍼", last, "일정 시간 동안 방어막을 생성해 일정 퍼센트 데미지를 무시한다", false);
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeSpecialBuff("+buffName+") 버프 생성 실패!");
 		return null;

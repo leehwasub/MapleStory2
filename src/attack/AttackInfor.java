@@ -45,9 +45,17 @@ public class AttackInfor {
 	public void setPhysicalDamage(int physicalDamage) {
 		this.physicalDamage = physicalDamage;
 	}
+	
+	public void subPhysicalDamage(int physicalDamage) {
+		this.physicalDamage = Math.max(this.physicalDamage - physicalDamage, 0);
+	}
 
 	public void setMagicDamage(int magicDamage) {
 		this.magicDamage = magicDamage;
+	}
+	
+	public void subMagicDamage(int magicDamage) {
+		this.magicDamage = Math.max(this.magicDamage - magicDamage, 0);
 	}
 
 	public DamageType getDamageType() {

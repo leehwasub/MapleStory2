@@ -19,9 +19,9 @@ public final class ReinforcedIronMutae extends Monster {
 	
 	@Override
 	public void initSkillList() {
-		skillList.add(new MonsterSkillInfor(0, 300, "방어력강화", strength.getMaxHp(), 10));
-		skillList.add(new MonsterSkillInfor(200, 400, "안티매직쉘", strength.getMaxHp(), 7));
-		skillList.add(new MonsterSkillInfor(300, 500, "샤이닝버스터", strength.getMaxHp(), 2));
+		skillList.add(new MonsterSkillInfor(0, 200, "방어력강화", strength.getMaxHp(), 10));
+		skillList.add(new MonsterSkillInfor(200, 400, "파워트랜스퍼", strength.getMaxHp(), 2));
+		skillList.add(new MonsterSkillInfor(100, 300, "안티매직쉘", strength.getMaxHp(), 7));
 		skillList.add(new MonsterSkillInfor(500, 900, "더블샷", strength.getMaxHp(), 2));
 		skillList.add(new MonsterSkillInfor(0, 1000, "몸통박치기", strength.getMaxHp(), 0));
 	}
