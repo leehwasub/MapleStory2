@@ -132,6 +132,14 @@ public class MonsterFactory {
 			return new Roid();
 		case "네오휴로이드":
 			return new NeoHuroid();
+		case "루루모":
+			return new Rurumo();
+		case "샤이티":
+			return new Saitie();
+		case "호문쿨루":
+			return new Homunculus();
+		case "호문스큘러":
+			return new Homunscullo();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -410,6 +418,21 @@ public class MonsterFactory {
 		case "C-2구역":
 			if (isRange(percent, 0, 14)) {
 				ret = makeMonster("네오휴로이드");
+			}
+			break;
+		case "연구소102호돌연변이":
+			ret = makeMonster("루루모");
+			break;
+		case "연구소201호":
+			if (isRange(percent, 0, 14)) {
+				ret = makeMonster("샤이티");
+			}
+			break;
+		case "연구소202호":
+			if (isRange(percent, 0, 7)) {
+				ret = makeMonster("호문쿨루");
+			} else if (isRange(percent, 7, 14)) {
+				ret = makeMonster("호문스큘러");
 			}
 			break;
 		}

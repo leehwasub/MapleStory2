@@ -7,6 +7,8 @@ import attack.AttackInfor;
 import attack.AttackType;
 import component.StateBox;
 import hunt.HuntComponent.Hunt;
+import hunt.HuntEvent;
+import hunt.MonsterHuntEvent;
 import maplestory.Player;
 import monster.DropItemFactory;
 import monsterAttack.MonsterAttack;
@@ -26,6 +28,8 @@ public abstract class Monster extends Character {
 	private int oriMaxPhysicalDamage;
 	private int oriMinMagicDamage;
 	private int oriMaxMagicDamage;
+	
+	private HuntEvent huntEvent;
 
 	public Monster(String name, String imageUrl, Strength strength, int minPhysicalDamage, int maxPhysicalDamage,
 			int minMagicDamage, int maxMagicDamage, int exp, int money, boolean isBoss) {
@@ -47,6 +51,8 @@ public abstract class Monster extends Character {
 		this.oriMaxPhysicalDamage = maxPhysicalDamage;
 		this.oriMinMagicDamage = minMagicDamage;
 		this.oriMaxMagicDamage = maxMagicDamage;
+		
+		this.huntEvent = new MonsterHuntEvent();
 	}
 	
 	@Override
@@ -174,6 +180,14 @@ public abstract class Monster extends Character {
 
 	public void setOriStrength(Strength oriStrength) {
 		this.oriStrength = oriStrength;
+	}
+
+	public HuntEvent getHuntEvent() {
+		return huntEvent;
+	}
+
+	public void setHuntEvent(HuntEvent huntEvent) {
+		this.huntEvent = huntEvent;
 	}
 
 	@Override

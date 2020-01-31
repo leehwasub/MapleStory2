@@ -104,6 +104,24 @@ public class DropItemFactory {
 				getItems.add(ItemPool.getItem("젤라틴", 1));
 			} else if (monster instanceof Rumo) {
 				getItems.add(ItemPool.getItem("플라스크", 1));
+			} else if (monster instanceof IronMutae) {
+				getItems.add(ItemPool.getItem("강철파편", 1));
+			} else if (monster instanceof ReinforcedIronMutae) {
+				getItems.add(ItemPool.getItem("강철파편강화형", 1));
+			} else if (monster instanceof MithrilMutae) {
+				getItems.add(ItemPool.getItem("미스릴파편", 1));
+			} else if (monster instanceof ReinforcedMithrilMutae) {
+				getItems.add(ItemPool.getItem("미스릴파편강화형", 1));
+			} else if (monster instanceof Roid) {
+				getItems.add(ItemPool.getItem("전선다발", 1));
+			} else if (monster instanceof NeoHuroid) {
+				getItems.add(ItemPool.getItem("콘센트", 1));
+			} else if (monster instanceof Saitie) {
+				getItems.add(ItemPool.getItem("출입증", 1));
+			} else if (monster instanceof Homunculus) {
+				getItems.add(ItemPool.getItem("5월의이슬", 1));
+			} else if (monster instanceof Homunscullo) {
+				getItems.add(ItemPool.getItem("호문스큘러의흙", 1));
 			}
 		}
 		return getItems;
@@ -160,6 +178,30 @@ public class DropItemFactory {
 				getItems.add(ItemPool.getItem("장어구이", 1));
 			} else if (isRange(percent, 100, 200)) {
 				getItems.add(ItemPool.getItem("마나엘릭서", 1));
+			}
+		} else if(isRange(lv, 40, 45)) {
+			if (isRange(percent, 0, 100)) {
+				getItems.add(ItemPool.getItem("쭈쭈바", 1));
+			} else if (isRange(percent, 100, 200)) {
+				getItems.add(ItemPool.getItem("맑은물", 1));
+			}
+		} else if(isRange(lv, 45, 50)) {
+			if (isRange(percent, 0, 100)) {
+				getItems.add(ItemPool.getItem("쭈쭈바", 1));
+			} else if (isRange(percent, 100, 200)) {
+				getItems.add(ItemPool.getItem("맑은물", 1));
+			} 
+		} else if(isRange(lv, 50, 55)) {
+			if (isRange(percent, 0, 100)) {
+				getItems.add(ItemPool.getItem("살살녹는치즈", 1));
+			} else if (isRange(percent, 100, 200)) {
+				getItems.add(ItemPool.getItem("맑은물", 1));
+			}
+		} else if(isRange(lv, 55, 60)) {
+			if (isRange(percent, 0, 100)) {
+				getItems.add(ItemPool.getItem("살살녹는치즈", 1));
+			} else if (isRange(percent, 100, 200)) {
+				getItems.add(ItemPool.getItem("맑은물", 1));
 			}
 		}
 		StringBuffer getItemInfor = new StringBuffer();

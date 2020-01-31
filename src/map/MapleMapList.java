@@ -233,6 +233,7 @@ public class MapleMapList {
 		getMap("연구소101호").addPortal(new Portal(new PointMapName(1, 19, "연구소101호"), new PointMapName(0, 3, "연구소1층복도")));
 		getMap("연구소1층복도").addPortal(new Portal(new PointMapName(0, 17, "연구소1층복도"), new PointMapName(1, 0, "연구소102호")));
 		getMap("연구소102호").addPortal(new Portal(new PointMapName(1, 0, "연구소102호"), new PointMapName(0, 17, "연구소1층복도")));
+		getMap("연구소102호").addPortal(new Portal(new PointMapName(4, 29, "연구소102호"), new PointMapName(0, 0, "연구소102호돌연변이")));
 		getMap("연구소1층복도").addPortal(new Portal(new PointMapName(4, 10, "연구소1층복도"), new PointMapName(0, 10, "연구소2층복도")));
 		getMap("연구소2층복도").addPortal(new Portal(new PointMapName(0, 10, "연구소2층복도"), new PointMapName(4, 10, "연구소1층복도")));
 		getMap("연구소2층복도").addPortal(new Portal(new PointMapName(0, 3, "연구소2층복도"), new PointMapName(3, 19, "연구소201호")));

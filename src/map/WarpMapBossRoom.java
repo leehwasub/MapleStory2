@@ -17,6 +17,8 @@ public class WarpMapBossRoom {
 			return new PointMapName(3, 13, "자쿰의제단입구");
 		case "데우":
 			return new PointMapName(0, 20, "선인장사막");
+		case "루루모":
+			return new PointMapName(4, 29, "연구소102호");
 		default:
 			JOptionPane.showMessageDialog(null, "보스 종료후 워프 실패!!", "오류", JOptionPane.ERROR_MESSAGE);
 			break;
@@ -40,6 +42,9 @@ public class WarpMapBossRoom {
 			break;
 		case "데우":
 			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(0, 20, "선인장사막"), MapleMap.MAP_EMPTY_STATE));
+			break;
+		case "루루모":
+			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(4, 29, "연구소102호"), MapleMap.MAP_EMPTY_STATE));
 			break;
 		default:
 			JOptionPane.showMessageDialog(null, "보스 종료후 보스 워프 닫기 실패!!", "오류", JOptionPane.ERROR_MESSAGE);

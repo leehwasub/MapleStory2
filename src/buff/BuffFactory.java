@@ -43,6 +43,9 @@ public class BuffFactory {
 		case "안티매직쉘":
 			return new StrengthBuff("shadowShell", "안티매직쉘", 7 + skillPoint / 3, "일정시간동안 모든 속성저항이 증가한다", 
 					new Strength(new Resistance(10 + skillPoint * 2), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), StrengthBuffType.SKILL_BUFF);
+		case "혼란":
+			return new StrengthBuff("confusion", "혼란", 7 + skillPoint / 3, "물리,마법 공격력과 적중률을 일정시간 동안 약화한다", 
+					new Strength(new Resistance(), 0, 0, 0, -(6 + skillPoint), -(6 + skillPoint), 0, 0, -(6 + skillPoint), 0, 0), StrengthBuffType.SKILL_BUFF);
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeMonsterBuff("+buffName+") 버프 생성 실패!");
 		return null;

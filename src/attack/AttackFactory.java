@@ -29,12 +29,14 @@ import monsterAttack.ManaBurstAttack;
 import monsterAttack.MassiveFireAttack;
 import monsterAttack.MonsterAttack;
 import monsterAttack.MoonlightSpearAttack;
+import monsterAttack.PoisonMistAttack;
 import monsterAttack.PowerTransferAttack;
 import monsterAttack.ShadowShellAttack;
 import monsterAttack.ShiningBusterAttack;
 import monsterAttack.SkillLockAttack;
 import monsterAttack.SwordAttack;
 import monsterAttack.TackleAttack;
+import monsterAttack.WindCircleAttack;
 import playerAttack.NormalAttack;
 import playerAttack.PlayerAttack;
 import skill.MonsterSkill;
@@ -109,6 +111,10 @@ public class AttackFactory {
 			return new CombatSwitchingAttack(hunt, attacker, opponents, new MonsterSkill("컴뱃스위칭", Property.PROPERTY_THUNDER, skillPoint, AttackType.OPPONENT));
 		case "매시브파이어":
 			return new MassiveFireAttack(hunt, attacker, opponents, new MonsterSkill("매시브파이어", Property.PROPERTY_FIRE, skillPoint, AttackType.OPPONENT));
+		case "포이즌미스트":
+			return new PoisonMistAttack(hunt, attacker, opponents, new MonsterSkill("포이즌미스트", Property.PROPERTY_POSION, skillPoint, AttackType.OPPONENT));
+		case "윈드서클":
+			return new WindCircleAttack(hunt, attacker, opponents, new MonsterSkill("윈드서클", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

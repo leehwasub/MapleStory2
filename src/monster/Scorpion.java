@@ -22,6 +22,7 @@ public final class Scorpion extends Monster {
 		skillList.add(new MonsterSkillInfor(0, 300, "공격력강화", strength.getMaxHp(), 6));
 		skillList.add(new MonsterSkillInfor(200, 400, "안티매직쉘", strength.getMaxHp(), 6));
 		skillList.add(new MonsterSkillInfor(300, 700, "더블피어싱", strength.getMaxHp(), 1));
+		//skillList.add(new MonsterSkillInfor(300, 700, "윈드서클", strength.getMaxHp(), 1));
 		skillList.add(new MonsterSkillInfor(700, 1000, "플레임샷", strength.getMaxHp(), 1));
 		skillList.add(new MonsterSkillInfor(0, 1000, "몸통박치기", strength.getMaxHp(), 0));
 	}
