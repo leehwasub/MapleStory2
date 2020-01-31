@@ -195,13 +195,57 @@ public class DropItemFactory {
 			if (isRange(percent, 0, 100)) {
 				getItems.add(ItemPool.getItem("살살녹는치즈", 1));
 			} else if (isRange(percent, 100, 200)) {
-				getItems.add(ItemPool.getItem("맑은물", 1));
+				getItems.add(ItemPool.getItem("팥빙수", 1));
 			}
 		} else if(isRange(lv, 55, 60)) {
 			if (isRange(percent, 0, 100)) {
 				getItems.add(ItemPool.getItem("살살녹는치즈", 1));
 			} else if (isRange(percent, 100, 200)) {
-				getItems.add(ItemPool.getItem("맑은물", 1));
+				getItems.add(ItemPool.getItem("팥빙수", 1));
+			}
+		} else if(isRange(lv, 60, 65)) {
+			if (isRange(percent, 0, 100)) {
+				getItems.add(ItemPool.getItem("살살녹는치즈", 1));
+			} else if (isRange(percent, 100, 200)) {
+				getItems.add(ItemPool.getItem("팥빙수", 1));
+			} else if (isRange(percent, 200, 300)) {
+				getItems.add(ItemPool.getItem("엘릭서", 1));
+			}
+		} else if(isRange(lv, 65, 70)) {
+			if (isRange(percent, 0, 100)) {
+				getItems.add(ItemPool.getItem("살살녹는치즈", 1));
+			} else if (isRange(percent, 100, 200)) {
+				getItems.add(ItemPool.getItem("팥빙수", 1));
+			} else if (isRange(percent, 200, 300)) {
+				getItems.add(ItemPool.getItem("엘릭서", 1));
+			}
+		} else if(isRange(lv, 70, 75)) {
+			if (isRange(percent, 0, 100)) {
+				getItems.add(ItemPool.getItem("살살녹는치즈", 1));
+			} else if (isRange(percent, 100, 200)) {
+				getItems.add(ItemPool.getItem("팥빙수", 1));
+			} else if (isRange(percent, 200, 300)) {
+				getItems.add(ItemPool.getItem("파워엘릭서", 1));
+			}
+		} else if(isRange(lv, 75, 80)) {
+			if (isRange(percent, 0, 100)) {
+				getItems.add(ItemPool.getItem("살살녹는치즈", 1));
+			} else if (isRange(percent, 100, 200)) {
+				getItems.add(ItemPool.getItem("팥빙수", 1));
+			} else if (isRange(percent, 200, 300)) {
+				getItems.add(ItemPool.getItem("파워엘릭서", 1));
+			}
+		} else if(isRange(lv, 80, 85)) {
+			if (isRange(percent, 100, 200)) {
+				getItems.add(ItemPool.getItem("엘릭서", 1));
+			} else if (isRange(percent, 200, 300)) {
+				getItems.add(ItemPool.getItem("파워엘릭서", 1));
+			}
+		} else if(isRange(lv, 85, 90)) {
+			if (isRange(percent, 100, 200)) {
+				getItems.add(ItemPool.getItem("엘릭서", 1));
+			} else if (isRange(percent, 200, 300)) {
+				getItems.add(ItemPool.getItem("파워엘릭서", 1));
 			}
 		}
 		StringBuffer getItemInfor = new StringBuffer();

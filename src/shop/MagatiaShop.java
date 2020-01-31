@@ -4,29 +4,29 @@ import item.ItemPool;
 import map.PointMapName;
 import utils.ResourceLoader;
 
-public class AriantShop extends Shop {
-	public AriantShop() {
-		this.pointMapName = new PointMapName(11, 4, "아리안트");
-		this.npcImage = ResourceLoader.getImage("npcImage", "muhamadNpcImage.png");
-		weaponItemList.add(ItemPool.getItem("커틀러스", 1));
-		weaponItemList.add(ItemPool.getItem("트라우스", 1));
+public class MagatiaShop extends Shop {
+	public MagatiaShop() {
+		this.pointMapName = new PointMapName(10, 28, "마가티아");
+		this.npcImage = ResourceLoader.getImage("npcImage", "jerryNpcImage.png");
 		weaponItemList.add(ItemPool.getItem("네오코라", 1));
 		weaponItemList.add(ItemPool.getItem("쥬얼쿠아다라", 1));
-		weaponItemList.add(ItemPool.getItem("장팔사모", 1));
-		weaponItemList.add(ItemPool.getItem("나카마키", 1));
+		weaponItemList.add(ItemPool.getItem("스파타", 1));
+		weaponItemList.add(ItemPool.getItem("레드카타나", 1));
 		weaponItemList.add(ItemPool.getItem("십자창", 1));
 		weaponItemList.add(ItemPool.getItem("스페판", 1));
-		equipmentItemList.add(ItemPool.getItem("자진일갑주(남)", 1));
-		equipmentItemList.add(ItemPool.getItem("흑진월갑주(여)", 1));
+		weaponItemList.add(ItemPool.getItem("호진공창", 1));
+		weaponItemList.add(ItemPool.getItem("페어프로즌", 1));
 		equipmentItemList.add(ItemPool.getItem("숄더메일(남)", 1));
 		equipmentItemList.add(ItemPool.getItem("숄더메일(여)", 1));
-		equipmentItemList.add(ItemPool.getItem("백진일갑주바지(남)", 1));
-		equipmentItemList.add(ItemPool.getItem("황진월갑주바지(여)", 1));
+		equipmentItemList.add(ItemPool.getItem("오리엔타이칸(남)", 1));
+		equipmentItemList.add(ItemPool.getItem("트란도트(여)", 1));
 		equipmentItemList.add(ItemPool.getItem("숄더메일바지(남)", 1));
 		equipmentItemList.add(ItemPool.getItem("숄더메일바지(여)", 1));
-		equipmentItemList.add(ItemPool.getItem("노르만헬름", 1));
-		equipmentItemList.add(ItemPool.getItem("타워실드", 1));
+		equipmentItemList.add(ItemPool.getItem("오리엔타이칸바지(남)", 1));
+		equipmentItemList.add(ItemPool.getItem("트란도트치마(여)", 1));
+		equipmentItemList.add(ItemPool.getItem("돔", 1));
 		equipmentItemList.add(ItemPool.getItem("레전드실드", 1));
+		equipmentItemList.add(ItemPool.getItem("에이전트실드", 1));
 		consumableItemList.add(ItemPool.getItem("레몬", 1));
 		consumableItemList.add(ItemPool.getItem("새우튀김", 1));
 		consumableItemList.add(ItemPool.getItem("장어구이", 1));

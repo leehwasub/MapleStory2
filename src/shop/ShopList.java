@@ -14,6 +14,7 @@ public class ShopList {
 		shopList.add(new OrbisShop());
 		shopList.add(new ElnathShop());
 		shopList.add(new AriantShop());
+		shopList.add(new MagatiaShop());
 	}
 
 	public static Shop getShop(PointMapName m) {

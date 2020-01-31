@@ -1,5 +1,6 @@
 package item;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import character.Resistance;
@@ -226,10 +227,14 @@ public class ItemPool {
 		items.put("주황포션", new HealItem("주황포션", 75, "orangePortion", 1, new Heal(300, 0, 0, 0), 10));
 		items.put("하얀포션", new HealItem("하얀포션", 125, "whitePortion", 1, new Heal(500, 0, 0, 0), 10));
 		items.put("맑은물", new HealItem("맑은물", 250, "freshWater", 1, new Heal(0, 500, 0, 0), 10));
+		items.put("팥빙수", new HealItem("팥빙수", 1000, "shavedIce", 1, new Heal(0, 2000, 0, 0), 10));
 		items.put("새우튀김", new HealItem("새우튀김", 190, "friedShrimp", 1, new Heal(750, 0, 0, 0), 15));
 		items.put("장어구이", new HealItem("장어구이", 250, "grilledEel", 1, new Heal(1000, 0, 0, 0), 20));
 		items.put("쭈쭈바", new HealItem("쭈쭈바", 500, "pencilBar", 1, new Heal(2000, 0, 0, 0), 25));
 		items.put("살살녹는치즈", new HealItem("살살녹는치즈", 1000, "goodCheese", 1, new Heal(4000, 0, 0, 0), 30));
+		
+		items.put("엘릭서",new HealItem("엘릭서", 2500, "elixir", 1, new Heal(0, 0, 50, 50), 50));
+		items.put("파워엘릭서", new HealItem("파워엘릭서", 5000, "powerElixir", 1, new Heal(0, 0, 100, 100), 60));
 		
 		items.put("전사의물약", new BuffItem("전사의물약", 250, "warriorPower", 1, 10, new Strength(new Resistance(), 0, 0, 0, 5, 0, 0, 0, 0, 0, 0), 5));
 		items.put("명사수의물약", new BuffItem("명사수의물약", 250, "shooterPower", 1, 10, new Strength(new Resistance(), 0, 0, 0, 0, 0, 0, 0, 5, 0, 0), 5));
@@ -237,6 +242,8 @@ public class ItemPool {
 		items.put("전사의알약", new BuffItem("전사의알약", 400, "warriorTablet", 1, 20, new Strength(new Resistance(), 0, 0, 0, 5, 0, 0, 0, 0, 0, 0), 7));
 		
 		items.put("마을귀환주문서", new WarpItem("마을귀환주문서", 200, "villegeReturn", 1, 1, "가까운 마을로 이동할 수 있는 주문서이다"));
+		
+		items.put("만병통치약", new AbnormalRecoveryItem("만병통치약", 1000, "panacea", 1, 30, "전체"));
 		
 		//스킬북
 		items.put("3차스킬북", new SkillBookItem("3차스킬북", 100, "skillBook", 1, 50, "3차 전직을 할 수 있는 스킬북이다."));
@@ -417,6 +424,12 @@ public class ItemPool {
 			HealItem item2 = (HealItem) item;
 			HealItem e = new HealItem(item2.getName(), item2.getCost(), item2.getImageUrl(), num, item2.getHeal(),
 					item2.getLevel());
+			return e;
+		}
+		if (item instanceof AbnormalRecoveryItem) {
+			AbnormalRecoveryItem item2 = (AbnormalRecoveryItem) item;
+			AbnormalRecoveryItem e = new AbnormalRecoveryItem(item2.getName(), item2.getCost(), item2.getImageUrl(), num, item2.getLevel(),
+					item2.getAbormalRecoveryList());
 			return e;
 		}
 		if (item instanceof WarpItem) {
