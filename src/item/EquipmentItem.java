@@ -66,9 +66,14 @@ public class EquipmentItem extends Item implements Serializable {
 		g.fillRect(p.getX(), p.getY(), 200, 160 + arr.size() * 20);
 		g.setFont(FontUtils.SMALL_FONT);
 		this.fm = g.getFontMetrics(FontUtils.SMALL_FONT);
-		g.setColor(Color.WHITE);
 		int width = this.fm.stringWidth(name);
+		if(isRare) {
+			g.setColor(ColorUtils.PURPLE);
+		} else {
+			g.setColor(Color.WHITE);
+		}
 		g.drawString(getName(), p.getX() + (200 - width) / 2, p.getY() + 25);
+		g.setColor(Color.WHITE);
 		g.drawImage(getImage(), p.getX() + 20, p.getY() + 45, null);
 		g.setColor(Color.YELLOW);
 		g.drawString("분류", p.getX() + 80, p.getY() + 57);

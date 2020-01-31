@@ -22,15 +22,18 @@ public class Keeny extends Npc{
 	public void requestQuest(Player player) {
 		Quest quest = null;
 		if(questNum == 0) {
-			quest = Quest.makeQuest(3, 17, "sdffsd").addMessage("마가티아에서 '한'이라는 자와 대화를 나누었다. 그는 마가티아에서 브로커로서 활동하고 있다고 한다.")
-					.addMessage("그는 마가티아 주변 사막에서 출몰하는 스콜피온때문에 많은 사람들이 피해를 입고 있다며 스콜피온을 처리해 준다면")
-					.addMessage("마가티아에 대한 정보를 알려주겠다고 한다. 그리고 금모래 가루를 가져와 주면 좋은 아이템도 줄거라고 하는데. 세상에 공짜는 없는법. 스콜피온을 20마리 처리하고")
-					.addMessage("금모래가루를 5개 구해가도록 하자. 금모래가루는 모래거인에게서 얻을 수 있다.").setRewardExp(10000).setRewardMoney(20000)
-					.addRewardNpcQuestProceed("키니", 2).addQuestKill("스콜피온", 20).addQuestMaterial("금모래가루", 5).addRewardItem("3차스킬북", 1)
-					.setPlayerQuestProceed(QuestProceed.HANBROKER_QUEST_1);
+			quest = Quest.makeQuest(3, 17, "기초 재료 수집").addMessage("마가티아에서 '키니'와 대화를 나누었다. 그녀는 내가 협회와 이야기를 하기위해 재료를 만들어 줄 수 있다고 한다.")
+					.addMessage("플라스크 10개 젤라틴 10개만 있으면 만들 수 있다고 하는데. 모아서 키니에서 가져다 주도록 하자. 플라스크와 젤라틴은 제뉴미스트 연구소 101호에서 출몰하는")
+					.addMessage("몬스터에게서 얻을 수 있다.").setRewardExp(20000).setRewardMoney(40000).addRewardItem("연금술사의돌", 1)
+					.addRewardNpcQuestProceed("매드", 1).addQuestMaterial("플라스크", 10).addQuestMaterial("젤라틴", 10)
+					.setPlayerQuestProceed(QuestProceed.KEENY_QUEST_1);
 			player.setQuest(quest);
 		} else if(questNum == 1) {
-			
+			quest = Quest.makeQuest(3, 18, "알카드노 협회로").addMessage("'키니'에게 재료를 가져간후 얼마뒤에 연금술사의 돌이 완성되었다. 이는 장비를 만드는데 중요한 물품이라고 하는데.")
+					.addMessage("이것을 알카드노 협회에 가져가 보도록 하자.").addQuestVisit("매드").setRewardExp(1000).addQuestMaterial("연금술사의돌", 1)
+					.addRewardNpcQuestProceed("러셀론", 1)
+					.setPlayerQuestProceed(QuestProceed.KEENY_QUEST_2);
+			player.setQuest(quest);
 		}
 	}
 

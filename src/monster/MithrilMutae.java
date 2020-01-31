@@ -19,10 +19,10 @@ public final class MithrilMutae extends Monster {
 	
 	@Override
 	public void initSkillList() {
-		skillList.add(new MonsterSkillInfor(0, 300, "공격력강화", strength.getMaxHp(), 7));
-		skillList.add(new MonsterSkillInfor(200, 400, "안티매직쉘", strength.getMaxHp(), 7));
+		skillList.add(new MonsterSkillInfor(0, 200, "공격력강화", strength.getMaxHp(), 7));
+		skillList.add(new MonsterSkillInfor(100, 300, "안티매직쉘", strength.getMaxHp(), 7));
 		skillList.add(new MonsterSkillInfor(300, 500, "샤이닝버스터", strength.getMaxHp(), 1));
-		skillList.add(new MonsterSkillInfor(500, 900, "더블샷", strength.getMaxHp(), 1));
+		skillList.add(new MonsterSkillInfor(600, 1000, "더블샷", strength.getMaxHp(), 1));
 		skillList.add(new MonsterSkillInfor(0, 1000, "몸통박치기", strength.getMaxHp(), 0));
 	}
 

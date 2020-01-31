@@ -32,7 +32,7 @@ public class CombatSwitchingAttack extends MonsterAttack {
 	}
 	
 	private void makeStunBuff() {
-		int stunRate = 40 + monsterSkill.getSkillPoint() * 3;
+		int stunRate = 30 + monsterSkill.getSkillPoint() * 3;
 		int stunLast = 2 + (monsterSkill.getSkillPoint() / 11);
 		if(CalUtils.calPercent(stunRate)) {
 			opponent.getCharacter().addBuff(BuffFactory.makeSpecialBuff("스턴", stunLast));
@@ -52,7 +52,7 @@ public class CombatSwitchingAttack extends MonsterAttack {
 	
 	@Override
 	protected ArrayList<AttackInfor> makeAttackInfor() {
-		double percent = 0.6f + (double)monsterSkill.getSkillPoint() * 0.1f;
+		double percent = 0.7f + (double)monsterSkill.getSkillPoint() * 0.1f;
 		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
 		for(int i = 0; i < 4; i++) {
 			ret.add(new AttackInfor(attacker.getCharacter(), monsterSkill.getProperty(), attacker.getCharacter().calNormalDamge(percent), 0, DamageType.DAMAGE_HP_TYPE));

@@ -21,9 +21,9 @@ public final class Homunculus extends Monster {
 	public void initSkillList() {
 		skillList.add(new MonsterSkillInfor(0, 300, "공격력약화", strength.getMaxHp(), 8));
 		skillList.add(new MonsterSkillInfor(200, 400, "안티매직쉘", strength.getMaxHp(), 8));
-		skillList.add(new MonsterSkillInfor(250, 550, "서클오브마나", strength.getMaxHp(), 3));
-		skillList.add(new MonsterSkillInfor(550, 750, "포이즌미스트", strength.getMaxHp(), 1));
-		skillList.add(new MonsterSkillInfor(750, 900, "체력회복", strength.getMaxHp() - 30000, 25));
+		skillList.add(new MonsterSkillInfor(200, 500, "서클오브마나", strength.getMaxHp(), 3));
+		skillList.add(new MonsterSkillInfor(500, 750, "포이즌미스트", strength.getMaxHp(), 1));
+		skillList.add(new MonsterSkillInfor(750, 900, "체력회복", strength.getMaxHp() - 30000, 20));
 		skillList.add(new MonsterSkillInfor(0, 1000, "몸통박치기", strength.getMaxHp(), 0));
 	}
 

@@ -176,6 +176,9 @@ public class ItemPool {
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 60, 120, 0, 0, 0, 65, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_CLOTHES, SexType.WOMAN, false));
 		items.put("플라티나", new EquipmentItem("플라티나", getPrice(EquipmentItem.EQUIPMENT_TYPE_CLOTHES, 70), "platinum", 1,
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 70, 140, 0, 0, 0, 75, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_CLOTHES, SexType.ALL, false));
+		
+		items.put("네오스", new EquipmentItem("네오스", getPrice(EquipmentItem.EQUIPMENT_TYPE_CLOTHES, 80), "neos", 1,
+				new Strength(new Resistance(10, 10, 0, 0, 0, 0), 80, 250, 50, 0, 0, 100, 25, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_CLOTHES, SexType.ALL, true));
 	}
 
 	private static void initPantsItem() {
@@ -391,11 +394,12 @@ public class ItemPool {
 		items.put("수호수의뿔", new MaterialItem("수호수의뿔", 850, "guardianHorn", 1, "수호수, 라이카의 머리에 달려 있던 뿔이다."));
 		items.put("검은갑옷조각", new MaterialItem("검은갑옷조각", 900, "blackArmorPiece", 1, "수호병사의 어깨를 감싸고 있던 갑옷의 조각이다."));
 		
-		//퀘스트 아이템s
+		//퀘스트 아이템
 		items.put("스카이롬", new MaterialItem("스카이롬", 150, "skyrom", 1, "하늘의 힘을 가졌다고 알려진 보석이다. 정확히 어떤 힘이 있는지는 아무도 모른다.", false));
 		items.put("가짜스카이롬", new MaterialItem("가짜스카이롬", 150, "skyrom", 1, "가짜 스카이롬이다.", false));
 		items.put("궁전출입자격증", new MaterialItem("궁전출입자격증", 100, "palaceCertificateOfEntry", 1, "궁전에 출입할 자격이 있음을 알리는 종이조각이다.", false));
-		
+		items.put("연금술사의돌", new MaterialItem("연금술사의돌", 100, "alchemistStone", 1, "연금술사의 특별한 힘이 응축된 돌이다. 장비를 합성하는데 반드시 필요하다.", false));
+		items.put("비밀문서", new MaterialItem("비밀문서", 100, "confidentialDocument", 1, "알카드노 비밀 연구소에 숨겨져있던 문서이다. 실험에 대한 기밀내용이 적혀져있다.", false));
 	}
 
 	
