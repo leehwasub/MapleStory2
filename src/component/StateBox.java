@@ -89,13 +89,18 @@ public class StateBox extends Thread {
 		g.setFont(FontUtils.SMALL_FONT);
 		if(buffList != null && buffList.size() != 0) {
 			for(int i = buffList.size() - 1; i >= 0; i--) {
-				if(buffList.get(i).isDebuff()) {
-					g.setColor(Color.RED);
-				} else {
-					g.setColor(Color.YELLOW);
+				Buff buff = buffList.get(i);
+				if(buff != null) {
+					if(buff.isDebuff()) {
+						g.setColor(Color.RED);
+					} else {
+						g.setColor(Color.YELLOW);
+					}
 				}
-				g.drawString("X"+buffList.get(i).getLast(), x + 5 + (32 * i), y - 40);
-				g.drawImage(buffList.get(i).getImage(), x + (32 * i), y - 35, panel);
+				if(buff != null) {
+					g.drawString("X"+buff.getLast(), x + 5 + (32 * i), y - 40);
+					g.drawImage(buff.getImage(), x + (32 * i), y - 35, panel);
+				}
 			}
 		}
 	}
