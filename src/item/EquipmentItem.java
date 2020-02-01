@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import character.SexType;
+import character.Status;
 import character.Strength;
 import map.Point;
 import utils.ColorUtils;
@@ -25,6 +26,7 @@ public class EquipmentItem extends Item implements Serializable {
 	private Strength strength;
 	private int type;
 	private SexType sex;
+	private Status status;
 	private boolean isRare = false;
 	
 	public EquipmentItem(String name, int cost, String imageUrl, int num, Strength strength, int type, SexType sex,
@@ -34,6 +36,18 @@ public class EquipmentItem extends Item implements Serializable {
 		this.type = type;
 		this.sex = sex;
 		this.isRare = isRare;
+		this.status = new Status(0, 0, 0, 0);
+		setImageWithTypeForInit();
+	}
+	
+	public EquipmentItem(String name, int cost, String imageUrl, int num, Strength strength, int type, SexType sex,
+			boolean isRare, Status status) {
+		super(name, cost, imageUrl, num);
+		this.strength = strength;
+		this.type = type;
+		this.sex = sex;
+		this.isRare = isRare;
+		this.status = status;
 		setImageWithTypeForInit();
 	}
 
@@ -62,6 +76,9 @@ public class EquipmentItem extends Item implements Serializable {
 
 	public void drawInfor(Graphics2D g, Point p) {
 		ArrayList<String> arr = strength.getStrengthItemInfor();
+		if(status != null) {
+			arr.addAll(status.getStatusItemInfor());
+		}
 		g.setColor(Color.BLACK);
 		g.fillRect(p.getX(), p.getY(), 200, 160 + arr.size() * 20);
 		g.setFont(FontUtils.SMALL_FONT);
@@ -155,6 +172,15 @@ public class EquipmentItem extends Item implements Serializable {
 	public String toString() {
 		return "EquipmentItem [strength=" + this.strength + ", type=" + this.type + ", sex=" + this.sex + "] "
 				+ super.toString();
+	}
+
+	public Status getStatus() {
+		if(status == null) status = new Status(0, 0, 0, 0);
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import character.Resistance;
 import character.SexType;
+import character.Status;
 import character.Strength;
 import skill.Skill;
 import utils.DialogUtils;
@@ -289,6 +290,9 @@ public class ItemPool {
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 50, 0, 0, 0, 0, 60, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_HELMET, SexType.ALL, false));
 		items.put("오리엔트헬멧", new EquipmentItem("오리엔트헬멧", getPrice(EquipmentItem.EQUIPMENT_TYPE_HELMET, 60), "orientHelmet", 1,
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 60, 0, 0, 0, 0, 75, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_HELMET, SexType.ALL, false));
+		
+		items.put("휀넬", new EquipmentItem("휀넬", getPrice(EquipmentItem.EQUIPMENT_TYPE_HELMET, 80), "fennel", 1,
+				new Strength(new Resistance(0, 0, 0, 0, 0, 15), 80, 0, 0, 0, 0, 120, 20, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_HELMET, SexType.ALL, true, new Status(3, 2, 0, 0)));
 	}
 
 	private static void initShoesItem() {
@@ -415,7 +419,7 @@ public class ItemPool {
 		if ((item instanceof EquipmentItem)) {
 			EquipmentItem item2 = (EquipmentItem) item;
 			EquipmentItem e = new EquipmentItem(item2.getName(), item2.getCost(), item2.getImageUrl(), num,
-					item2.getStrength(), item2.getType(), item2.getSex(), item2.isRare());
+					item2.getStrength(), item2.getType(), item2.getSex(), item2.isRare(), item2.getStatus());
 			return e;
 		}
 		if (item instanceof BuffItem) {

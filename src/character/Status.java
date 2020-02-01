@@ -1,6 +1,7 @@
 package character;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Status implements Serializable, Cloneable {
 	private static final long serialVersionUID = 1L;
@@ -14,6 +15,20 @@ public class Status implements Serializable, Cloneable {
 		this.dex = dex;
 		this.Int = Int;
 		this.luk = luk;
+	}
+	
+	public ArrayList<String> getStatusItemInfor() {
+		ArrayList<String> ret = new ArrayList<String>();
+		if (this.str != 0) {
+			ret.add("STR +" + this.str);
+		}if (this.dex != 0) {
+			ret.add("DEX +" + this.dex);
+		} if (this.Int != 0) {
+			ret.add("INT +" + this.Int);
+		} if (this.luk != 0) {
+			ret.add("LUK +" + this.luk);
+		}
+		return ret;
 	}
 
 	public int getStr() {

@@ -40,6 +40,8 @@ public class Adventurer extends Character implements Serializable {
 	private HuntEvent huntEvent;
 	
 	private Skill usedSkill;
+	
+	private Status tempStatus = new Status(4, 4, 4, 4);
 
 	public Adventurer(String name, String imageUrl, Strength strength, Status status, String career) {
 		super(name, imageUrl, strength);
@@ -60,6 +62,11 @@ public class Adventurer extends Character implements Serializable {
 		strength.setCriticalRate(0);
 		strength.getResistance().resetResistence();
 		ignoreDamageRate = 0;
+		try {
+			tempStatus = (Status)status.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
 		
 		if(careerLevel == 0) {
 			strength.setMaxHp(NewbieStateUtils.getMaxHpByIndex(strength.getLevel()));
@@ -69,8 +76,8 @@ public class Adventurer extends Character implements Serializable {
 			strength.setMaxMp(WarriorStateUtils.getMaxMpByIndex(strength.getLevel()));
 		}
 
-		strength.setAccuracyRate(this.status.dex / 2);
-		strength.setEvasionRate(this.status.luk / 2);
+		strength.setAccuracyRate(status.dex / 2);
+		strength.setEvasionRate(status.luk / 4);
 		
 		calPassiveSkillState();
 		
@@ -86,12 +93,16 @@ public class Adventurer extends Character implements Serializable {
 				strength.addEvasionRate(wearEquipment[i].getStrength().getEvasionRate());
 				strength.addCriticalRate(wearEquipment[i].getStrength().getCriticalRate());
 				strength.getResistance().addAllResistance(wearEquipment[i].getStrength().getResistance());
+				tempStatus.addStr(wearEquipment[i].getStatus().getStr());
+				tempStatus.addDex(wearEquipment[i].getStatus().getDex());
+				tempStatus.addInt(wearEquipment[i].getStatus().getInt());
+				tempStatus.addLuk(wearEquipment[i].getStatus().getLuk());
 			}
 		}
 		
 		strengthBuffEffect();
 		
-		maxPhysicalDamage = (this.strength.getPhysicalDamage() * this.status.str / 10);
+		maxPhysicalDamage = (strength.getPhysicalDamage() * tempStatus.str / 10);
 		if(Main.DAMAGE_TEST_MODE) {
 			maxPhysicalDamage *= 10;
 		}
@@ -168,6 +179,17 @@ public class Adventurer extends Character implements Serializable {
 		setQuickSkillByIndex(keyIndex, null);
 		calState();
 		return true;
+	}
+
+	public Status getTempStatus() {
+		if(tempStatus == null) {
+			try {
+				tempStatus = (Status) status.clone();
+			} catch (CloneNotSupportedException e) {
+				e.printStackTrace();
+			}
+		}
+		return tempStatus;
 	}
 
 	public Status getStatus() {
