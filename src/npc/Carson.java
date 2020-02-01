@@ -33,7 +33,7 @@ public class Carson extends Npc{
 					.addMessage("카슨의 말로는 이것이 밝혀 졌다고 해도 섣불리 움직였다가는 놈들이 바로 연구실을 폐기하고 뒷짐 질 것이 뻔하기 때문에 신중하게 ")
 					.addMessage("움직여야 한다고 한다. 카슨은 나에게 이에 대한 조사를 부탁하였고 연구에 대한 증거를 확보한뒤 연구실을 폐기 하면 된다고 한다.")
 					.addMessage("연구소 비밀번호는 276410이었다. 까먹지 말고 제대로 입력해서 몰래 비밀 연구소로 들어가도록 하자. 알카드노 연구소 C-1구역에서 통로를 찾을 수 있을것이다.")
-					.addQuestMaterial("비밀문서", 3).addQuestKill("프랑켄로이드", 1).setRewardExp(30000).setRewardMoney(80000)
+					.addQuestMaterial("비밀문서", 3).addQuestKill("프랑켄로이드", 1).setRewardExp(30000).setRewardMoney(80000).addRewardItem("휀넬", 1)
 					.setPlayerQuestProceed(QuestProceed.CARSON_QUEST_2);
 			player.setQuest(quest);
 		}
