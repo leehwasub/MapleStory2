@@ -178,7 +178,7 @@ public class HuntComponent {
 			monsterState.reload(monster);
 			this.monster = monster;
 			turnQueue.add(monsterState);
-
+			
 			mainMapleInterface.loadStateBoxOnQuickButton(adventurerState);
 			setVisibleTrueComponent();
 
@@ -475,7 +475,7 @@ public class HuntComponent {
 			monsterState.barSetVisibleTrue();
 			this.isEnd = false;
 			attackButton.setVisible(true);
-			if(monster.isBoss()) {
+			if(!monster.isBoss()) {
 				runButton.setVisible(true);
 			}
 		}

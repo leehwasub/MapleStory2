@@ -27,10 +27,12 @@ import monsterAttack.HpHealAttack;
 import monsterAttack.HumanityInAttack;
 import monsterAttack.ManaBurstAttack;
 import monsterAttack.MassiveFireAttack;
+import monsterAttack.MassiveSplashAttack;
 import monsterAttack.MonsterAttack;
 import monsterAttack.MoonlightSpearAttack;
 import monsterAttack.PoisonMistAttack;
 import monsterAttack.PowerTransferAttack;
+import monsterAttack.RocketPunchAttack;
 import monsterAttack.ShadowShellAttack;
 import monsterAttack.ShiningBusterAttack;
 import monsterAttack.SkillLockAttack;
@@ -115,6 +117,10 @@ public class AttackFactory {
 			return new PoisonMistAttack(hunt, attacker, opponents, new MonsterSkill("포이즌미스트", Property.PROPERTY_POSION, skillPoint, AttackType.OPPONENT));
 		case "윈드서클":
 			return new WindCircleAttack(hunt, attacker, opponents, new MonsterSkill("윈드서클", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
+		case "매시브스플래쉬":
+			return new MassiveSplashAttack(hunt, attacker, opponents, new MonsterSkill("매시브스플래쉬", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
+		case "로켓펀치":
+			return new RocketPunchAttack(hunt, attacker, opponents, new MonsterSkill("로켓펀치", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

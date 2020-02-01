@@ -140,6 +140,8 @@ public class MonsterFactory {
 			return new Homunculus();
 		case "호문스큘러":
 			return new Homunscullo();
+		case "프랑켄로이드":
+			return new Frankenroid();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -434,6 +436,9 @@ public class MonsterFactory {
 			} else if (isRange(percent, 7, 14)) {
 				ret = makeMonster("호문스큘러");
 			}
+			break;
+		case "비밀연구소위험지역":
+			ret = makeMonster("프랑켄로이드");
 			break;
 		}
 		return ret;
