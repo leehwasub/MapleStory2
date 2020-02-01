@@ -34,7 +34,13 @@ public class Carson extends Npc{
 					.addMessage("움직여야 한다고 한다. 카슨은 나에게 이에 대한 조사를 부탁하였고 연구에 대한 증거를 확보한뒤 연구실을 폐기 하면 된다고 한다.")
 					.addMessage("연구소 비밀번호는 276410이었다. 까먹지 말고 제대로 입력해서 몰래 비밀 연구소로 들어가도록 하자. 알카드노 연구소 C-1구역에서 통로를 찾을 수 있을것이다.")
 					.addQuestMaterial("비밀문서", 3).addQuestKill("프랑켄로이드", 1).setRewardExp(30000).setRewardMoney(80000).addRewardItem("휀넬", 1)
-					.setPlayerQuestProceed(QuestProceed.CARSON_QUEST_2);
+					.addRewardItem("엘릭서", 50).setPlayerQuestProceed(QuestProceed.CARSON_QUEST_2);
+			player.setQuest(quest);
+		}  else if(questNum == 2) {
+			quest = Quest.makeQuest(3, 31, "들리는 소문").addMessage("이제 마가티아에서 내가 할일은 끝났다. 그런 도중에 마가티아에서 검은마법사에 대한 소문을 들었다. ")
+					.addMessage("리프레와 시간의 신전에서 검은 마법사의 잔당이 나타나고 있다는 소문이다. 뭔가 심상치 않은데.... ")
+					.addMessage("일단 리프레로 한번 가보도록 하자. 리프레는 니할 사막 정거장을 통해 갈 수 있다.").addQuestVisit("쿠포")
+					.setRewardExp(2000).setPlayerQuestProceed(QuestProceed.CARSON_QUEST_3);
 			player.setQuest(quest);
 		}
 	}

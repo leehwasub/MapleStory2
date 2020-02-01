@@ -24,7 +24,7 @@ public class Bedin extends Npc{
 		Quest quest = null;
 		if(questNum == 0) {
 			quest = Quest.makeQuest(3, 25, "돌연변이 몬스터 처리").addMessage("알카드노의 연구실장 '베딘'과 이야기를 나누었다. 그는 제뉴미스트 연구소의 현재 가장큰 문제점은 실험으로 생겨난 돌연변이 몬스터라고 한다.")
-					.addMessage("일단 102호에 있는 '루루모'를 처리해 달라고 한다. 보스급 몬스터 이기 때문에 만반의 준비를 갖추고 가도록 하자.")
+					.addMessage("일단 102호에 있는 '루루모'를 처리해 달라고 한다. 보스급 몬스터 이기 때문에 만반의 준비를 갖추고 가도록 하자.").addRewardItem("살살녹는치즈", 50)
 					.addQuestKill("루루모", 1).setRewardExp(30000).setRewardMoney(70000).setPlayerQuestProceed(QuestProceed.BEDIN_QUEST_1);
 			player.setQuest(quest);
 		} else if(questNum == 1) {
@@ -32,7 +32,7 @@ public class Bedin extends Npc{
 					.addMessage("옛날 제뉴미스트 연구소에서 알 수 없는 사고로 사망한 연구원의 유령이라는 소문이다. 일단 연구실을 돌아다니면서 단서를 찾아 보도록 하자.")
 					.addMessage("그리고 5월의 이슬도 5개정도 구해서 가져가도록 하자. 오늘 실험에 쓸 재료로 필요하다고 한다.")
 					.addQuestMaterial("출입증", 10).addQuestMaterial("5월의이슬", 5).setRewardExp(35000).setRewardMoney(80000)
-					.addRewardNpcQuestProceed("필리아", 1)
+					.addRewardNpcQuestProceed("필리아", 1).addRewardItem("마나엘릭서", 50)
 					.setPlayerQuestProceed(QuestProceed.BEDIN_QUEST_2);
 			player.setQuest(quest);
 		} else if(questNum == 2) {
