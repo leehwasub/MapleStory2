@@ -490,17 +490,18 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		case MapleMap.MAP_HARBOR_TYPE:
 			MusicUtils.startEffectSound("harborEnter");
 			break;
-		case MapleMap.MAP_DUNGEON_TYPE:
-			if(player.get_curMap().getMapType() == MapleMap.MAP_DUNGEON_TYPE) break;
+		case MapleMap.MAP_DUNGEON_ENTER_TYPE:
+			if(player.get_curMap().getMapType() == MapleMap.MAP_DUNGEON_ENTER_TYPE) break;
 			ans = JOptionPane.showConfirmDialog(null, "던전에 입장한 이후에는 저장할 수 없으며 클리어시까지 퇴장할 수 없습니다. 입장 하시겠습니까?", "확인", JOptionPane.YES_NO_OPTION);
 			if(ans != JOptionPane.YES_OPTION) {
 				return;
 			}
+			player.setCanSave(false);
 			moveOtherMapButton.setVisible(false);
 			break;
 		}
 		
-		if(!MapMoveCondition.checkCanMove(player)) return;
+		if(!MapMoveCondition.checkCanMove(player, this)) return;
 		
 		this.player.get_curMap().moveOtherMap(this.player, this);
 		
@@ -617,7 +618,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	public void endHunt() {
 		updateMainStateBar();
 		player.setIsCanMove(true);
-		if(player.get_curMap().getMapType() != MapleMap.MAP_DUNGEON_TYPE) {
+		if(player.get_curMap().getMapType() != MapleMap.MAP_DUNGEON_TYPE && player.get_curMap().getMapType() != MapleMap.MAP_DUNGEON_ENTER_TYPE) {
 			player.setCanSave(true);
 		}
 		player.getMainAdventurer().setUsedSkill(null);

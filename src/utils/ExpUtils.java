@@ -1,7 +1,8 @@
 package utils;
 
 public class ExpUtils {
-	public static int[] needExp = new int[91];
+	
+	public static int[] needExp = new int[101];
 
 	static {
 		initNeedExp();
@@ -81,23 +82,37 @@ public class ExpUtils {
 		needExp[71] = 201234;
 		needExp[72] = 212348;
 		needExp[73] = 229872;
-		needExp[74] = 233987;
-		needExp[75] = 244806;
-		needExp[76] = 254564;
-		needExp[77] = 268390;
-		needExp[78] = 272415;
-		needExp[79] = 280718;
-		needExp[80] = 299871;
-		needExp[81] = 309809;
-		needExp[82] = 313482;
-		needExp[83] = 332009;
-		needExp[84] = 362387;
-		needExp[85] = 394921;
-		needExp[86] = 474809;
-		needExp[87] = 552387;
-		needExp[88] = 622837;
-		needExp[89] = 704381;
-		needExp[90] = 99999999;
+		needExp[74] = 243987;
+		needExp[75] = 254806;
+		needExp[76] = 274564;
+		needExp[77] = 288390;
+		needExp[78] = 302415;
+		needExp[79] = 310718;
+		needExp[80] = 339871;
+		needExp[81] = 359809;
+		needExp[82] = 373482;
+		needExp[83] = 392009;
+		needExp[84] = 412387;
+		needExp[85] = 434921;
+		needExp[86] = 454809;
+		needExp[87] = 472387;
+		needExp[88] = 492835;
+		needExp[89] = 514381;
+		needExp[90] = 533215;
+		needExp[91] = 562146;
+		needExp[92] = 588542;
+		needExp[93] = 617347;
+		needExp[94] = 635866;
+		needExp[95] = 661249;
+		needExp[96] = 709314;
+		needExp[97] = 742921;
+		needExp[98] = 783341;
+		needExp[99] = 821362;
+		needExp[100] = 999999999;
+	}
+	
+	public static int getFullLevel() {
+		return 100;
 	}
 
 	public static int[] getNeedExp() {

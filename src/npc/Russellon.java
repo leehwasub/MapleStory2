@@ -40,6 +40,10 @@ public class Russellon extends Npc{
 					.setRewardExp(32000).setRewardMoney(70000).addRewardItem("네오스", 1)
 					.setPlayerQuestProceed(QuestProceed.RUSSELLON_QUEST_3);
 			player.setQuest(quest);
+		} else if(questNum == 3) {
+			quest = Quest.makeQuest(3, 23, "제뉴미스트 연구소로").addMessage("러셀론으로부터의 의뢰를 끝마치고 전사 장비를 하나 선물받았다. 이제 제뉴미스트 연구소로가서 그들을 도와주도록 하자.")
+					.addRewardNpcQuestProceed("베딘", 1).addQuestVisit("카슨").setRewardExp(1500).setPlayerQuestProceed(QuestProceed.RUSSELLON_QUEST_4);
+			player.setQuest(quest);
 		}
 	}
 

@@ -17,6 +17,10 @@ public class AttackInfor {
 		this.magicDamage = magicDamage;
 		this.damageType = damageType;
 	}
+	
+	public int getTotalDamage() {
+		return (this.physicalDamage + this.magicDamage);
+	}
 
 	public Character getAttacker() {
 		return this.attacker;

@@ -24,6 +24,12 @@ public class DialogUtils {
 		JOptionPane.showMessageDialog(null, message, "알림", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
+	public static String showInputDialog(String message) {
+		dialogSetFont();
+		return JOptionPane.showInputDialog(null, message, "입력");
+	}
+	
+	
 	/**
 	 *  
 	 * @param message

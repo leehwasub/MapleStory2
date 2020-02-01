@@ -77,7 +77,7 @@ public class SpearManHuntEvent implements HuntEvent, Serializable{
 	}
 
 	@Override
-	public void hit(Adventurer adventurer, AttackInfor attackInfor) {
+	public int hit(Adventurer adventurer, AttackInfor attackInfor) {
 		CrossSurgeSkill crossSurgeSkill = (CrossSurgeSkill)adventurer.getSkillWithName("크로스오버체인");
 		if(crossSurgeSkill != null && crossSurgeSkill.getPoint() >= 1 && adventurer.isAlreadyBuffed("크로스오버체인") 
 				&& attackInfor.getDamageType() == DamageType.DAMAGE_HP_TYPE) {
@@ -87,6 +87,7 @@ public class SpearManHuntEvent implements HuntEvent, Serializable{
 			double rate = crossSurgeSkill.getRecoveryRate(point) / 100.0;
 			adventurer.healHp(Math.min(crossSurgeSkill.getMaxRecovery(point), (int)(damage * rate)));
 		}
+		return attackInfor.getTotalDamage();
 	}
 	
 }

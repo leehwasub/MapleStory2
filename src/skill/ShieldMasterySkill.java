@@ -36,7 +36,7 @@ public class ShieldMasterySkill extends PassiveSkill{
 	}
 	
 	public int stunRate(int point) {
-		return 15 + (point * 2);
+		return 15 + point;
 	}
 	
 	public int stunTurn(int point) {

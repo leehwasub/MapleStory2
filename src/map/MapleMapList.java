@@ -256,6 +256,11 @@ public class MapleMapList {
 		getMap("C-1구역").addPortal(new Portal(new PointMapName(4, 0, "C-1구역"), new PointMapName(4, 24, "B-1구역")));
 		getMap("C-1구역").addPortal(new Portal(new PointMapName(8, 15, "C-1구역"), new PointMapName(0, 4, "C-2구역")));
 		getMap("C-2구역").addPortal(new Portal(new PointMapName(0, 4, "C-2구역"), new PointMapName(8, 15, "C-1구역")));
+		getMap("C-2구역").addPortal(new Portal(new PointMapName(0, 4, "C-2구역"), new PointMapName(8, 15, "C-1구역")));
+		getMap("C-1구역").addPortal(new Portal(new PointMapName(4, 29, "C-1구역"), new PointMapName(3, 0, "비밀연구소1구역")));
+		getMap("비밀연구소1구역").addPortal(new Portal(new PointMapName(3, 34, "비밀연구소1구역"), new PointMapName(3, 0, "비밀연구소2구역")));
+		getMap("비밀연구소2구역").addPortal(new Portal(new PointMapName(3, 34, "비밀연구소2구역"), new PointMapName(3, 1, "비밀연구소3구역")));
+		getMap("비밀연구소3구역").addPortal(new Portal(new PointMapName(3, 7, "비밀연구소3구역"), new PointMapName(0, 0, "비밀연구소위험지역")));
 		//리프레숲
 		
 		

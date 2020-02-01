@@ -19,6 +19,8 @@ public class WarpMapBossRoom {
 			return new PointMapName(0, 20, "선인장사막");
 		case "루루모":
 			return new PointMapName(4, 29, "연구소102호");
+		case "프랑켄로이드":
+			return new PointMapName(3, 7, "비밀연구소3구역");
 		default:
 			JOptionPane.showMessageDialog(null, "보스 종료후 워프 실패!!", "오류", JOptionPane.ERROR_MESSAGE);
 			break;
@@ -45,6 +47,15 @@ public class WarpMapBossRoom {
 			break;
 		case "루루모":
 			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(4, 29, "연구소102호"), MapleMap.MAP_EMPTY_STATE));
+			break;
+		case "프랑켄로이드":
+			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(1, 9, "비밀연구소3구역"), MapleMap.MAP_EMPTY_STATE));
+			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(2, 9, "비밀연구소3구역"), MapleMap.MAP_EMPTY_STATE));
+			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(3, 9, "비밀연구소3구역"), MapleMap.MAP_EMPTY_STATE));
+			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(4, 9, "비밀연구소3구역"), MapleMap.MAP_EMPTY_STATE));
+			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(5, 9, "비밀연구소3구역"), MapleMap.MAP_EMPTY_STATE));
+			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(3, 7, "비밀연구소3구역"), MapleMap.MAP_EMPTY_STATE));
+			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(4, 29, "C-1구역"), MapleMap.MAP_EMPTY_STATE));
 			break;
 		default:
 			JOptionPane.showMessageDialog(null, "보스 종료후 보스 워프 닫기 실패!!", "오류", JOptionPane.ERROR_MESSAGE);

@@ -30,7 +30,7 @@ public class DamageText extends Thread {
 			g.setColor(Color.BLUE);
 		}
 		fm = g.getFontMetrics();
-		if (hit.getDamage() != 0) {
+		if (!hit.isMiss()) {
 			if(hit.isCritical()) {
 				g.setFont(FontUtils.LITTLE_MID_FONT);
 				fm = g.getFontMetrics();

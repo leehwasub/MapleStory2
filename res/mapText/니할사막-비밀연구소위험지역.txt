@@ -1,0 +1,4 @@
+2 2 니할사막 비밀연구소위험지역 magatiaNear magatiaBoss2 2 마가티아
+0 1 1
+1 0 1
+1 1 1

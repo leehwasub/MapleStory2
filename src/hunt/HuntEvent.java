@@ -16,5 +16,5 @@ public interface HuntEvent {
 	public void startTurn(Hunt hunt);
 	public void startAttack(Hunt hunt);
 	public void afterAttack(Hunt hunt);
-	public void hit(Adventurer adventurer, AttackInfor attackInfor);
+	public int hit(Adventurer adventurer, AttackInfor attackInfor);
 }

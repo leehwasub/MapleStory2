@@ -116,20 +116,21 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 	}
 
 	@Override
-	public void hit(Adventurer adventurer, AttackInfor attackInfor) {
+	public int hit(Adventurer adventurer, AttackInfor attackInfor) {
 		ShieldMasterySkill shieldMasterySkill = (ShieldMasterySkill)adventurer.getSkillWithName("실드마스터리");
 		EquipmentItem shieldItem = (EquipmentItem)adventurer.getWearEquipmentByIndex(EquipmentItem.EQUIPMENT_TYPE_SHIELD);
 		if(shieldMasterySkill != null && shieldMasterySkill.getPoint() >= 1 && shieldItem != null) {
 			int point = shieldMasterySkill.getPoint();
 			if(CalUtils.calPercent(shieldMasterySkill.guardRate(point))) {
-				attackInfor.setPhysicalDamage(1);
-				attackInfor.setMagicDamage(1);
+				attackInfor.setPhysicalDamage(attackInfor.getPhysicalDamage() / 2);
+				attackInfor.setMagicDamage(attackInfor.getMagicDamage() / 2);
 				MusicUtils.startEffectSound("defence");
 				if(CalUtils.calPercent(shieldMasterySkill.stunRate(point))) {
 					attackInfor.getAttacker().addBuff(BuffFactory.makeSpecialBuff("스턴", shieldMasterySkill.stunTurn(point)));
 				}
 			}
 		}
+		return attackInfor.getTotalDamage();
 	}
 	
 }

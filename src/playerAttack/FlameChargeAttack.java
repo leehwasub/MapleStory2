@@ -41,11 +41,9 @@ public class FlameChargeAttack extends PlayerAttack {
 	
 	private double combatOrdersEffect() {
 		double extraRate = 0.0;
-		if(((Adventurer)attacker.getCharacter()).isAlreadyBuffed("컴뱃오더스")) {
-			CombatOrdersSkill combatOrdersSkill = (CombatOrdersSkill)((Adventurer)attacker.getCharacter()).getSkillWithName("컴뱃오더스");
-			if(combatOrdersSkill != null && combatOrdersSkill.getPoint() >= 1) {
-				extraRate = combatOrdersSkill.getExtraChargeEffect(combatOrdersSkill.getPoint()) / 100.0;
-			}
+		CombatOrdersSkill combatOrdersSkill = (CombatOrdersSkill)((Adventurer)attacker.getCharacter()).getSkillWithName("컴뱃오더스");
+		if(combatOrdersSkill != null && combatOrdersSkill.getPoint() >= 1) {
+			extraRate = combatOrdersSkill.getExtraChargeEffect(combatOrdersSkill.getPoint()) / 100.0;
 		}
 		return extraRate;
 	}

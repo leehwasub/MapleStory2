@@ -110,8 +110,8 @@ public class FighterHuntEvent implements HuntEvent, Serializable{
 	}
 
 	@Override
-	public void hit(Adventurer adventurer, AttackInfor attackInfor) {
-		
+	public int hit(Adventurer adventurer, AttackInfor attackInfor) {
+		return attackInfor.getTotalDamage();
 	}
 	
 }

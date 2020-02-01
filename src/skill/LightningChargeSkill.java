@@ -26,7 +26,7 @@ public class LightningChargeSkill extends ActiveSkill{
 	}
 	
 	public int stunRate(int point) {
-		return 10 + point;
+		return 10 + (point / 2);
 	}
 
 	public int extraEffect(int point) {

@@ -56,13 +56,14 @@ public abstract class Monster extends Character {
 	}
 	
 	@Override
-	public void hitEvent(Character character, AttackInfor attackInfor) {
+	public int hitEvent(Character character, AttackInfor attackInfor) {
 		if(isAlreadyBuffed("파워트랜스퍼")) {
 			int skillPoint = getMonsterSkillInforWithName("파워트랜스퍼").getSkillPoint();
 			double percent = (8.0 + ((double)skillPoint * 2.0)) / 100.0;
 			attackInfor.subPhysicalDamage((int)(attackInfor.getPhysicalDamage() * percent));
 			attackInfor.subMagicDamage((int)(attackInfor.getMagicDamage() * percent));
 		}
+		return attackInfor.getTotalDamage();
 	}
 	
 	@Override

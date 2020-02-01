@@ -27,7 +27,7 @@ public class ElementalChargeSkill extends PassiveSkill{
 	}
 	
 	public int recoveryEffect(int point) {
-		return 1 + (point / 5);
+		return 1;
 	}
 	
 	public int ignoreDamageEffect(int point) {

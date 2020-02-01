@@ -59,7 +59,7 @@ public class SkillFactory {
 		case "위협":
 			return new ThreatenSkill("threaten", "위협", 20, "적을 위협하여 일정 확률로 물리마법 공격력, 물리마법방어력, 적중률을 감소시킨다", AttackType.OPPONENT, Property.PROPERTY_NOTHING, 2);
 		case "컴뱃오더스":
-			return new CombatOrdersSkill("combatOrders", "컴뱃오더스", 20, "일정 시간동안 모든 스킬포인트 증가, 플레임차지와 라이트닝 차지의 효과를 증대시키는 버프를 건다.", AttackType.OPPONENT, Property.PROPERTY_NOTHING, 5);
+			return new CombatOrdersSkill("combatOrders", "컴뱃오더스", 20, "일정 시간동안 모든 스킬포인트 증가시킨다. 또한 플레임차지와 라이트닝 차지의 효과를 영구적으로 증대시킨다.", AttackType.OPPONENT, Property.PROPERTY_NOTHING, 5);
 		case "라만차스피어":
 			return new LaManchaSpearSkill("laManchaSpear", "라만차스피어", 20, "거대한 창을 휘둘러 시전시에 약간의 데미지를 준후 강력한 한번의 일격을 가한다", AttackType.OPPONENT, Property.PROPERTY_NOTHING);
 		case "비홀더쇼크":

@@ -103,8 +103,8 @@ public class Adventurer extends Character implements Serializable {
 	}
 	
 	@Override
-	public void hitEvent(Character character, AttackInfor attackInfor) {
-		huntEvent.hit((Adventurer)character, attackInfor);
+	public int hitEvent(Character character, AttackInfor attackInfor) {
+		return huntEvent.hit((Adventurer)character, attackInfor);
 	}
 	
 
@@ -114,7 +114,11 @@ public class Adventurer extends Character implements Serializable {
 
 	public void addExp(int exp) {
 		this.exp += exp;
-		while (this.exp >= this.Exp[getStrength().getLevel()]) {
+		if(getStrength().getLevel() == ExpUtils.getFullLevel()) {
+			this.exp = 0;
+			return;
+		}
+		while (getStrength().getLevel() != ExpUtils.getFullLevel() && this.exp >= this.Exp[getStrength().getLevel()]) {
 			MusicUtils.startEffectSound("levelUp");
 			this.exp -= this.Exp[getStrength().getLevel()];
 			getStrength().setLevel(getStrength().getLevel() + 1);

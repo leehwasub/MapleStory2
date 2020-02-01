@@ -66,8 +66,8 @@ public class CombatOrdersSkill extends ActiveSkill{
 
 	@Override
 	public String getEffectDetail(int point) {
-		return "MP " + getNeedMp(point) + " 소비, " + getLast(point) + "턴간 모든 스킬포인트 " + getEffect(point) + "증가, 블리자드 차지와 플레임 차지의 데미지"
-				+ getExtraChargeEffect(point) + "% 추가 증가(쿨타임" + coolTime + "턴)";
+		return "MP " + getNeedMp(point) + " 소비, " + getLast(point) + "턴간 모든 스킬포인트 " + getEffect(point) + "증가(쿨타임" + coolTime + "턴)[패시브효과 : "
+				+ " 블리자드 차지와 플레임 차지의 데미지" + getExtraChargeEffect(point) + "% 추가 증가]";
 	}
 
 }

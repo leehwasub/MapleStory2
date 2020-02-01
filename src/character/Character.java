@@ -69,30 +69,41 @@ public abstract class Character implements Serializable{
 			isMiss = true;
 		}
 		if (!isMiss) {
-			d = Math.max(0, attackInfor.getPhysicalDamage() - this.strength.getPhysicalDefense());
-			d += Math.max(1, attackInfor.getMagicDamage() - this.strength.getMagicDefense());
-			d = calResistenceDamage(d, attackInfor.getProperty());
+			int getPhysicalDamage = Math.max(0, attackInfor.getPhysicalDamage() - this.strength.getPhysicalDefense());
+			int getMagicDamage = Math.max(1, attackInfor.getMagicDamage() - this.strength.getMagicDefense());
+
+			getPhysicalDamage = calResistenceDamage(getPhysicalDamage, attackInfor.getProperty());
+			getMagicDamage = calResistenceDamage(getMagicDamage, attackInfor.getProperty());
 
 			int calCritical = (int)(Math.random() * 100) + 1;
 			
 			if(opponentStr.getCriticalRate() >= calCritical) {
 				isCritical = true;
-				d *= 2;
+				getPhysicalDamage *= 2;
+				getMagicDamage *= 2;
 			}
 			
 			double ignoreDamageRateDouble = (double)ignoreDamageRate / 100.0;
-			d = d - (int)((double)d * ignoreDamageRateDouble);
-			hitEvent(this, attackInfor);
+			getPhysicalDamage = getPhysicalDamage - (int)((double)d * ignoreDamageRateDouble);
+			getMagicDamage = getMagicDamage - (int)((double)d * ignoreDamageRateDouble);
+			
+			d += getPhysicalDamage;
+			d += getMagicDamage;
+			attackInfor.setPhysicalDamage(getPhysicalDamage);
+			attackInfor.setMagicDamage(getMagicDamage);
+			
+			d = hitEvent(this, attackInfor);
+			
 			this.curHp -= Math.max(1, d);
 		}
 		if (this.curHp <= 0) {
 			this.isDead = true;
 		}
-		return new Hit(d, attackInfor.getDamageType(), isCritical);
+		return new Hit(d, attackInfor.getDamageType(), isCritical, isMiss);
 	}
 	
-	public void hitEvent(Character character, AttackInfor attackInfor) {
-		
+	public int hitEvent(Character character, AttackInfor attackInfor) {
+		return (attackInfor.getPhysicalDamage() + attackInfor.getMagicDamage());
 	}
 	
 	public int calResistenceDamage(int d, Property property) {
