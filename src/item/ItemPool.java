@@ -253,27 +253,25 @@ public class ItemPool {
 		items.put("3차스킬북", new SkillBookItem("3차스킬북", 100, "skillBook", 1, 50, "3차 전직을 할 수 있는 스킬북이다."));
 		
 		//마스터리북
-		items.put("마스터리북:브랜디쉬30", new MasteryBookItem("마스터리북:브랜디쉬30", 100000, "masteryBook", 1, 75, "브랜디쉬", 30));
-		items.put("마스터리북:분노30", new MasteryBookItem("마스터리북:분노30", 100000, "masteryBook", 1, 75, "분노", 30));
-		items.put("마스터리북:찬스어택20", new MasteryBookItem("마스터리북:찬스어택20", 100000, "masteryBook", 1, 75, "찬스어택", 20));
-		items.put("마스터리북:브레이브슬래시30", new MasteryBookItem("마스터리북:브레이브슬래시30", 100000, "masteryBook", 1, 75, "브레이브슬래시", 30));
-		items.put("마스터리북:패닉30", new MasteryBookItem("마스터리북:패닉30", 100000, "masteryBook", 1, 75, "패닉", 30));
-		items.put("마스터리북:샤우트30", new MasteryBookItem("마스터리북:샤우트30", 100000, "masteryBook", 1, 75, "샤우트", 30));
-		items.put("마스터리북:콤보시너지30", new MasteryBookItem("마스터리북:콤보시너지30", 100000, "masteryBook", 1, 75, "콤보시너지", 30));
-		items.put("마스터리북:플레임차지30", new MasteryBookItem("마스터리북:플레임차지30", 100000, "masteryBook", 1, 75, "플레임차지", 30));
-		items.put("마스터리북:블리자드차지30", new MasteryBookItem("마스터리북:블리자드차지30", 100000, "masteryBook", 1, 75, "블리자드차지", 30));
-		items.put("마스터리북:실드마스터리20", new MasteryBookItem("마스터리북:실드마스터리20", 100000, "masteryBook", 1, 75, "실드마스터리", 20));
-		items.put("마스터리북:라이트닝차지30", new MasteryBookItem("마스터리북:라이트닝차지30", 100000, "masteryBook", 1, 75, "라이트닝차지", 30));
-		items.put("마스터리북:리스토네이션20", new MasteryBookItem("마스터리북:리스토네이션20", 100000, "masteryBook", 1, 75, "리스토네이션", 20));
-		items.put("마스터리북:위협30", new MasteryBookItem("마스터리북:위협30", 100000, "masteryBook", 1, 75, "위협", 30));
-		items.put("마스터리북:컴뱃오더스30", new MasteryBookItem("마스터리북:컴뱃오더스30", 100000, "masteryBook", 1, 75, "컴뱃오더스", 30));
-		items.put("마스터리북:피어싱쓰루30", new MasteryBookItem("마스터리북:피어싱쓰루30", 100000, "masteryBook", 1, 75, "피어싱쓰루", 30));
-		items.put("마스터리북:아이언월25", new MasteryBookItem("마스터리북:아이언월25", 100000, "masteryBook", 1, 75, "아이언월", 25));
-		items.put("마스터리북:로드오브다크니스20", new MasteryBookItem("마스터리북:로드오브다크니스20", 100000, "masteryBook", 1, 75, "로드오브다크니스", 20));
-		items.put("마스터리북:비홀더스버프30", new MasteryBookItem("마스터리북:비홀더스버프30", 100000, "masteryBook", 1, 75, "비홀더스버프", 30));
-		items.put("마스터리북:라만차스피어30", new MasteryBookItem("마스터리북:라만차스피어30", 100000, "masteryBook", 1, 75, "라만차스피어", 30));
-		items.put("마스터리북:비홀더쇼크30", new MasteryBookItem("마스터리북:비홀더쇼크30", 100000, "masteryBook", 1, 75, "비홀더쇼크", 30));
-		items.put("마스터리북:크로스오버체인30", new MasteryBookItem("마스터리북:크로스오버체인30", 100000, "masteryBook", 1, 75, "크로스오버체인", 30));
+		items.put("마스터리북:분노30", new MasteryBookItem("마스터리북:분노30", 100000, "masteryBook", 1, 80, "분노", 30));
+		items.put("마스터리북:찬스어택20", new MasteryBookItem("마스터리북:찬스어택20", 100000, "masteryBook", 1, 80, "찬스어택", 20));
+		items.put("마스터리북:브레이브슬래시30", new MasteryBookItem("마스터리북:브레이브슬래시30", 100000, "masteryBook", 1, 80, "브레이브슬래시", 30));
+		items.put("마스터리북:패닉30", new MasteryBookItem("마스터리북:패닉30", 100000, "masteryBook", 1, 80, "패닉", 30));
+		items.put("마스터리북:샤우트30", new MasteryBookItem("마스터리북:샤우트30", 100000, "masteryBook", 1, 80, "샤우트", 30));
+		items.put("마스터리북:콤보시너지30", new MasteryBookItem("마스터리북:콤보시너지30", 100000, "masteryBook", 1, 80, "콤보시너지", 30));
+		items.put("마스터리북:플레임차지30", new MasteryBookItem("마스터리북:플레임차지30", 100000, "masteryBook", 1, 80, "플레임차지", 30));
+		items.put("마스터리북:블리자드차지30", new MasteryBookItem("마스터리북:블리자드차지30", 100000, "masteryBook", 1, 80, "블리자드차지", 30));
+		items.put("마스터리북:실드마스터리20", new MasteryBookItem("마스터리북:실드마스터리20", 100000, "masteryBook", 1, 80, "실드마스터리", 20));
+		items.put("마스터리북:라이트닝차지30", new MasteryBookItem("마스터리북:라이트닝차지30", 100000, "masteryBook", 1, 80, "라이트닝차지", 30));
+		items.put("마스터리북:리스토네이션20", new MasteryBookItem("마스터리북:리스토네이션20", 100000, "masteryBook", 1, 80, "리스토네이션", 20));
+		items.put("마스터리북:위협30", new MasteryBookItem("마스터리북:위협30", 100000, "masteryBook", 1, 80, "위협", 30));
+		items.put("마스터리북:컴뱃오더스30", new MasteryBookItem("마스터리북:컴뱃오더스30", 100000, "masteryBook", 1, 80, "컴뱃오더스", 30));
+		items.put("마스터리북:아이언월25", new MasteryBookItem("마스터리북:아이언월25", 100000, "masteryBook", 1, 80, "아이언월", 25));
+		items.put("마스터리북:로드오브다크니스20", new MasteryBookItem("마스터리북:로드오브다크니스20", 100000, "masteryBook", 1, 80, "로드오브다크니스", 20));
+		items.put("마스터리북:비홀더스버프30", new MasteryBookItem("마스터리북:비홀더스버프30", 100000, "masteryBook", 1, 80, "비홀더스버프", 30));
+		items.put("마스터리북:라만차스피어30", new MasteryBookItem("마스터리북:라만차스피어30", 100000, "masteryBook", 1, 80, "라만차스피어", 30));
+		items.put("마스터리북:비홀더쇼크30", new MasteryBookItem("마스터리북:비홀더쇼크30", 100000, "masteryBook", 1, 80, "비홀더쇼크", 30));
+		items.put("마스터리북:크로스오버체인30", new MasteryBookItem("마스터리북:크로스오버체인30", 100000, "masteryBook", 1, 80, "크로스오버체인", 30));
 	}
 	
 	private static void initTitleItem() {
