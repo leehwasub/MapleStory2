@@ -9,6 +9,11 @@ public class Heal implements Serializable {
 	private int healMp;
 	private int healPercentHp;
 	private int healPercentMp;
+	
+	public Heal(int healHp, int healMp) {
+		this.healHp = healHp;
+		this.healMp = healMp;
+	}
 
 	public Heal(int healHp, int healMp, int healPercentHp, int healPercentMp) {
 		this.healHp = healHp;
@@ -21,12 +26,12 @@ public class Heal implements Serializable {
 		ArrayList<String> ret = new ArrayList<String>();
 		if (this.healHp != 0) {
 			ret.add("HP +" + this.healHp + " 회복");
-		} else if (this.healMp != 0) {
+		} if (this.healMp != 0) {
 			ret.add("MP +" + this.healMp + " 회복");
-		} else if (this.healPercentHp != 0) {
-			ret.add("HP %" + this.healPercentHp + " 회복");
-		} else if (this.healPercentMp != 0) {
-			ret.add("MP %" + this.healPercentMp + " 회복");
+		} if (this.healPercentHp != 0) {
+			ret.add("HP " + this.healPercentHp + "% 회복");
+		} if (this.healPercentMp != 0) {
+			ret.add("MP " + this.healPercentMp + "% 회복");
 		}
 		return ret;
 	}

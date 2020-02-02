@@ -22,7 +22,7 @@ public class LightningChargeSkill extends ActiveSkill{
 
 	@Override
 	public int getLast(int point) {
-		return 2 + (point / 15);
+		return 2;
 	}
 	
 	public int stunRate(int point) {

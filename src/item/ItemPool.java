@@ -222,20 +222,20 @@ public class ItemPool {
 	}
 
 	private static void initComsumableItem() {
-		items.put("초보모험가의빨간포션",new HealItem("초보모험가의빨간포션", 12, "newbieRedPortion", 1, new Heal(50, 0, 0, 0), 1));
-		items.put("초보모험가의파란포션", new HealItem("초보모험가의파란포션", 25, "newbieBluePortion", 1, new Heal(0, 50, 0, 0), 1));
-		items.put("빨간포션", new HealItem("빨간포션", 25, "redPortion", 1, new Heal(100, 0, 0, 0), 5));
-		items.put("파란포션", new HealItem("파란포션", 50, "bluePortion", 1, new Heal(0, 100, 0, 0), 5));
-		items.put("레몬", new HealItem("레몬", 75, "remon", 1, new Heal(0, 150, 0, 0), 10));
-		items.put("마나엘릭서", new HealItem("마나엘릭서", 150, "manaElixir", 1, new Heal(0, 300, 0, 0), 10));
-		items.put("주황포션", new HealItem("주황포션", 75, "orangePortion", 1, new Heal(300, 0, 0, 0), 10));
-		items.put("하얀포션", new HealItem("하얀포션", 125, "whitePortion", 1, new Heal(500, 0, 0, 0), 10));
-		items.put("맑은물", new HealItem("맑은물", 250, "freshWater", 1, new Heal(0, 500, 0, 0), 10));
-		items.put("팥빙수", new HealItem("팥빙수", 1000, "shavedIce", 1, new Heal(0, 2000, 0, 0), 10));
-		items.put("새우튀김", new HealItem("새우튀김", 190, "friedShrimp", 1, new Heal(750, 0, 0, 0), 15));
-		items.put("장어구이", new HealItem("장어구이", 250, "grilledEel", 1, new Heal(1000, 0, 0, 0), 20));
-		items.put("쭈쭈바", new HealItem("쭈쭈바", 500, "pencilBar", 1, new Heal(2000, 0, 0, 0), 25));
-		items.put("살살녹는치즈", new HealItem("살살녹는치즈", 1000, "goodCheese", 1, new Heal(4000, 0, 0, 0), 30));
+		items.put("초보모험가의빨간포션",new HealItem("초보모험가의빨간포션", 12, "newbieRedPortion", 1, new Heal(50, 0), 1));
+		items.put("초보모험가의파란포션", new HealItem("초보모험가의파란포션", 25, "newbieBluePortion", 1, new Heal(0, 50), 1));
+		items.put("빨간포션", new HealItem("빨간포션", 25, "redPortion", 1, new Heal(100, 0), 5));
+		items.put("파란포션", new HealItem("파란포션", 50, "bluePortion", 1, new Heal(0, 100), 5));
+		items.put("레몬", new HealItem("레몬", 75, "remon", 1, new Heal(0, 150), 10));
+		items.put("마나엘릭서", new HealItem("마나엘릭서", 150, "manaElixir", 1, new Heal(0, 300), 15));
+		items.put("주황포션", new HealItem("주황포션", 75, "orangePortion", 1, new Heal(300, 0), 10));
+		items.put("하얀포션", new HealItem("하얀포션", 125, "whitePortion", 1, new Heal(500, 0), 15));
+		items.put("맑은물", new HealItem("맑은물", 250, "freshWater", 1, new Heal(0, 500), 20));
+		items.put("팥빙수", new HealItem("팥빙수", 1000, "shavedIce", 1, new Heal(0, 2000), 30));
+		items.put("새우튀김", new HealItem("새우튀김", 190, "friedShrimp", 1, new Heal(750, 0), 15));
+		items.put("장어구이", new HealItem("장어구이", 250, "grilledEel", 1, new Heal(1000, 0), 20));
+		items.put("쭈쭈바", new HealItem("쭈쭈바", 500, "pencilBar", 1, new Heal(2000, 0), 25));
+		items.put("살살녹는치즈", new HealItem("살살녹는치즈", 1000, "goodCheese", 1, new Heal(4000, 0), 30));
 		
 		items.put("엘릭서",new HealItem("엘릭서", 2500, "elixir", 1, new Heal(0, 0, 50, 50), 50));
 		items.put("파워엘릭서", new HealItem("파워엘릭서", 5000, "powerElixir", 1, new Heal(0, 0, 100, 100), 60));
@@ -243,7 +243,7 @@ public class ItemPool {
 		items.put("전사의물약", new BuffItem("전사의물약", 250, "warriorPower", 1, 10, new Strength(new Resistance(), 0, 0, 0, 5, 0, 0, 0, 0, 0, 0), 5));
 		items.put("명사수의물약", new BuffItem("명사수의물약", 250, "shooterPower", 1, 10, new Strength(new Resistance(), 0, 0, 0, 0, 0, 0, 0, 5, 0, 0), 5));
 		items.put("민첩함의물약", new BuffItem("민첩함의물약", 250, "agilityPower", 1, 10, new Strength(new Resistance(), 0, 0, 0, 0, 0, 0, 0, 0, 5, 0), 5));
-		items.put("전사의알약", new BuffItem("전사의알약", 400, "warriorTablet", 1, 20, new Strength(new Resistance(), 0, 0, 0, 5, 0, 0, 0, 0, 0, 0), 7));
+		items.put("전사의알약", new BuffItem("전사의알약", 500, "warriorTablet", 1, 20, new Strength(new Resistance(), 0, 0, 0, 5, 0, 0, 0, 0, 0, 0), 10));
 		
 		items.put("마을귀환주문서", new WarpItem("마을귀환주문서", 200, "villegeReturn", 1, 1, "가까운 마을로 이동할 수 있는 주문서이다"));
 		
@@ -251,6 +251,29 @@ public class ItemPool {
 		
 		//스킬북
 		items.put("3차스킬북", new SkillBookItem("3차스킬북", 100, "skillBook", 1, 50, "3차 전직을 할 수 있는 스킬북이다."));
+		
+		//마스터리북
+		items.put("마스터리북:브랜디쉬30", new MasteryBookItem("마스터리북:브랜디쉬30", 100000, "masteryBook", 1, 75, "브랜디쉬", 30));
+		items.put("마스터리북:분노30", new MasteryBookItem("마스터리북:분노30", 100000, "masteryBook", 1, 75, "분노", 30));
+		items.put("마스터리북:찬스어택20", new MasteryBookItem("마스터리북:찬스어택20", 100000, "masteryBook", 1, 75, "찬스어택", 20));
+		items.put("마스터리북:브레이브슬래시30", new MasteryBookItem("마스터리북:브레이브슬래시30", 100000, "masteryBook", 1, 75, "브레이브슬래시", 30));
+		items.put("마스터리북:패닉30", new MasteryBookItem("마스터리북:패닉30", 100000, "masteryBook", 1, 75, "패닉", 30));
+		items.put("마스터리북:샤우트30", new MasteryBookItem("마스터리북:샤우트30", 100000, "masteryBook", 1, 75, "샤우트", 30));
+		items.put("마스터리북:콤보시너지30", new MasteryBookItem("마스터리북:콤보시너지30", 100000, "masteryBook", 1, 75, "콤보시너지", 30));
+		items.put("마스터리북:플레임차지30", new MasteryBookItem("마스터리북:플레임차지30", 100000, "masteryBook", 1, 75, "플레임차지", 30));
+		items.put("마스터리북:블리자드차지30", new MasteryBookItem("마스터리북:블리자드차지30", 100000, "masteryBook", 1, 75, "블리자드차지", 30));
+		items.put("마스터리북:실드마스터리20", new MasteryBookItem("마스터리북:실드마스터리20", 100000, "masteryBook", 1, 75, "실드마스터리", 20));
+		items.put("마스터리북:라이트닝차지30", new MasteryBookItem("마스터리북:라이트닝차지30", 100000, "masteryBook", 1, 75, "라이트닝차지", 30));
+		items.put("마스터리북:리스토네이션20", new MasteryBookItem("마스터리북:리스토네이션20", 100000, "masteryBook", 1, 75, "리스토네이션", 20));
+		items.put("마스터리북:위협30", new MasteryBookItem("마스터리북:위협30", 100000, "masteryBook", 1, 75, "위협", 30));
+		items.put("마스터리북:컴뱃오더스30", new MasteryBookItem("마스터리북:컴뱃오더스30", 100000, "masteryBook", 1, 75, "컴뱃오더스", 30));
+		items.put("마스터리북:피어싱쓰루30", new MasteryBookItem("마스터리북:피어싱쓰루30", 100000, "masteryBook", 1, 75, "피어싱쓰루", 30));
+		items.put("마스터리북:아이언월25", new MasteryBookItem("마스터리북:아이언월25", 100000, "masteryBook", 1, 75, "아이언월", 25));
+		items.put("마스터리북:로드오브다크니스20", new MasteryBookItem("마스터리북:로드오브다크니스20", 100000, "masteryBook", 1, 75, "로드오브다크니스", 20));
+		items.put("마스터리북:비홀더스버프30", new MasteryBookItem("마스터리북:비홀더스버프30", 100000, "masteryBook", 1, 75, "비홀더스버프", 30));
+		items.put("마스터리북:라만차스피어30", new MasteryBookItem("마스터리북:라만차스피어30", 100000, "masteryBook", 1, 75, "라만차스피어", 30));
+		items.put("마스터리북:비홀더쇼크30", new MasteryBookItem("마스터리북:비홀더쇼크30", 100000, "masteryBook", 1, 75, "비홀더쇼크", 30));
+		items.put("마스터리북:크로스오버체인30", new MasteryBookItem("마스터리북:크로스오버체인30", 100000, "masteryBook", 1, 75, "크로스오버체인", 30));
 	}
 	
 	private static void initTitleItem() {

@@ -261,6 +261,16 @@ public class MapleMapList {
 		getMap("비밀연구소1구역").addPortal(new Portal(new PointMapName(3, 34, "비밀연구소1구역"), new PointMapName(3, 0, "비밀연구소2구역")));
 		getMap("비밀연구소2구역").addPortal(new Portal(new PointMapName(3, 34, "비밀연구소2구역"), new PointMapName(3, 1, "비밀연구소3구역")));
 		getMap("비밀연구소3구역").addPortal(new Portal(new PointMapName(3, 7, "비밀연구소3구역"), new PointMapName(0, 0, "비밀연구소위험지역")));
+		getMap("비밀연구소3구역").addPortal(new Portal(new PointMapName(3, 14, "비밀연구소3구역"), new PointMapName(4, 29, "C-1구역")));
+		
+		getMap("아리안트").addPortal(new Portal(new PointMapName(0, 8, "아리안트"), new PointMapName(4, 15, "아리안트승강장")));
+		getMap("아리안트승강장").addPortal(new Portal(new PointMapName(4, 15, "아리안트승강장"), new PointMapName(0, 8, "아리안트")));
+		getMap("아리안트승강장").addPortal(new Portal(new PointMapName(2, 0, "아리안트승강장"), new PointMapName(3, 15, "니할사막->엘나스산맥승강장")));
+		getMap("니할사막->엘나스산맥승강장").addPortal(new Portal(new PointMapName(3, 15, "니할사막->엘나스산맥승강장"), new PointMapName(2, 0, "아리안트승강장")));
+		getMap("니할사막->엘나스산맥승강장").addPortal(new Portal(new PointMapName(3, 0, "니할사막->엘나스산맥승강장"), new PointMapName(1, 1, "니할사막->엘나스산맥")));
+		getMap("아리안트승강장").addPortal(new Portal(new PointMapName(6, 0, "아리안트승강장"), new PointMapName(3, 15, "니할사막->미나르숲승강장")));
+		getMap("니할사막->미나르숲승강장").addPortal(new Portal(new PointMapName(3, 15, "니할사막->미나르숲승강장"), new PointMapName(6, 0, "아리안트승강장")));
+		getMap("니할사막->미나르숲승강장").addPortal(new Portal(new PointMapName(3, 0, "니할사막->미나르숲승강장"), new PointMapName(1, 1, "니할사막->미나르숲")));
 		//리프레숲
 		
 		

@@ -105,7 +105,7 @@ public class PanicSkill extends ActiveSkill{
 	@Override
 	public String getEffectDetail(int point) {
 		return "MP " + getNeedMp(point) + " 소비, 콤보어택 " + needComboAttack() + "개 사용, " + getEffect(point) + "% 물리데미지로 한번공격"
-				+ "공격후 " + deBuffRate(point) + "% 확률로 적에게 물리 데미지를 " + deBuffEffect(point) + "% 감소, "+ deBuffLast(point) +"턴간 적중률을 " + deBuffEffect(point) + "% 감소시키는"
+				+ "후 " + deBuffRate(point) + "% 확률로 적에게 " + deBuffLast(point) + "턴간 데미지를 " + deBuffEffect(point) + "% 감소, 적중률을 " + deBuffEffect(point) + "% 감소시키는"
 						+ "디버프를 건다. (쿨타임 " + coolTime + "턴)";
 	}
 	

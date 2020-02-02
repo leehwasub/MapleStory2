@@ -514,6 +514,10 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			mainMessageBox.clearMessageBox();
 			break;
 		}
+		if(player.get_curMap().getMapType() != MapleMap.MAP_DUNGEON_ENTER_TYPE && player.get_curMap().getMapType() != MapleMap.MAP_DUNGEON_TYPE
+				&& player.get_curMap().getMapType() != MapleMap.MAP_BOSS_TYPE) {
+			player.setCanSave(true);
+		}
 		
 		if (this.player.get_curMap().getMapType() == MapleMap.MAP_BOSS_TYPE) {
 			meetMonsterEvent();

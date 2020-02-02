@@ -12,7 +12,7 @@ public final class Frankenroid extends Monster {
 
 	public Frankenroid() {
 		super("프랑켄로이드", "frankenroid",
-				new Strength(new Resistance(100, 100, 150, 100, 100, 100), 60, 700000, 60000, 0, 0, 900, 900, 40, 40, 0), 793, 812, 815, 830,
+				new Strength(new Resistance(100, 100, 150, 100, 100, 100), 60, 800000, 60000, 0, 0, 900, 900, 40, 40, 0), 793, 812, 815, 830,
 				37000 * Main.EXP_BONUS, 100000 * Main.MONEY_BONUS, true);
 		initSkillList();
 	}

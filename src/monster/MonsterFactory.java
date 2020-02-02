@@ -150,7 +150,7 @@ public class MonsterFactory {
 	public static Monster readyMonster(String mapName) {
 		Monster ret = null;
 		int percent = (int) (Math.random() * 300.0D);
-		if(Main.MONSTER_TEST_MODE) percent *= 1000000;
+		if(Main.MONSTER_TEST_MODE) percent = 500;
 		switch (mapName) {
 		case "초보자의숲2":
 			if (isRange(percent, 0, 10)) {
@@ -439,6 +439,20 @@ public class MonsterFactory {
 			break;
 		case "비밀연구소위험지역":
 			ret = makeMonster("프랑켄로이드");
+			break;
+		case "비밀연구소1구역":
+			if (isRange(percent, 0, 7)) {
+				ret = makeMonster("강화된아이언뮤테");
+			} else if (isRange(percent, 7, 14)) {
+				ret = makeMonster("강화된미스릴뮤테");
+			}
+			break;
+		case "비밀연구소2구역":
+			if (isRange(percent, 0, 7)) {
+				ret = makeMonster("로이드");
+			} else if (isRange(percent, 7, 14)) {
+				ret = makeMonster("네오휴로이드");
+			}
 			break;
 		}
 		return ret;

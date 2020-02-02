@@ -24,7 +24,7 @@ public class Manji extends Npc{
 		if(questNum == 0) {
 			quest = Quest.makeQuest(1, 7, "만지의 시험 1").addMessage("페리온 동쪽골목에 있는 만지와 만났다. 그는 페리온의 역사에대해 설명하며 현재 지금 현재 에레고스가 부활할 징조가 나타나고 있다고 한다.")
 					.addMessage("만약 에레고스 퇴치와 샤레니안에 관해서 흥미가 있다면 먼저 파이어 보어 15마리를 잡아서 힘을 증명하라고 한다. 파이어보어는 와일드 땅1에서 만날 수 있다.").addQuestKill("파이어보어", 15)
-					.setRewardExp(300).setRewardMoney(500).addRewardItem("주황포션", 30).setPlayerQuestProceed(QuestProceed.MANJI_QUEST_1);
+					.setRewardExp(300).setRewardMoney(500).addRewardItem("하얀포션", 30).setPlayerQuestProceed(QuestProceed.MANJI_QUEST_1);
 			player.setQuest(quest);
 		} else if(questNum == 1) {
 			quest = Quest.makeQuest(1, 8, "만지의 시험 2").addMessage("첫번째 시험을 끝낸이후 이번에는 와일드 보어의땅 2에가서 아이언 호그와 아이언 보어를 각각 10마리를 잡아와라고한다.")

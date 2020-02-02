@@ -252,6 +252,7 @@ public class MapleMap implements Serializable {
 		mainMapleInterface.myRepaint();
 	}
 	
+	
 	public Point setWarpPoint(String mapName) {
 		MapleMap map = MapleMapList.getInstance().getMap(mapName);
 		int X = map.getMaxX() / 2;

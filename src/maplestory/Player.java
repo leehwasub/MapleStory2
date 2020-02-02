@@ -721,7 +721,7 @@ public class Player implements Serializable {
 	public void playerWarp(String mapName, MainMapleInterface mainMapleInterface) {
 		get_curMap().warp(this, mapName, mainMapleInterface);
 	}
-
+	
 	public void playerWarp(PointMapName pointMapName, MainMapleInterface mainMapleInterface) {
 		get_curMap().warp(this, pointMapName, mainMapleInterface);
 	}

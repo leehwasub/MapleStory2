@@ -71,13 +71,13 @@ public class NpcList implements Serializable {
 		npcList.add(new Carson("carson", "카슨", new PointMapName(1, 4, "제뉴미스트연구소")));
 		npcList.add(new Bedin("bedin", "베딘", new PointMapName(3, 14, "연구소1층복도")));
 		npcList.add(new Phyllia("phyllia", "필리아", new PointMapName(1, 23, "마가티아")));
-		
 		npcList.add(new RealConfidentialDocument("realConfidentialDocument", "기밀문서1", new PointMapName(0, 8, "비밀연구소1구역")));
 		npcList.add(new FakeConfidentialDocument("fakeConfidentialDocument", "기밀문서2", new PointMapName(0, 25, "비밀연구소1구역")));
 		npcList.add(new FakeConfidentialDocument("fakeConfidentialDocument", "기밀문서3", new PointMapName(6, 17, "비밀연구소1구역")));
 		npcList.add(new RealConfidentialDocument("realConfidentialDocument", "기밀문서4", new PointMapName(0, 6, "비밀연구소2구역")));
 		npcList.add(new FakeConfidentialDocument("fakeConfidentialDocument", "기밀문서5", new PointMapName(1, 33, "비밀연구소2구역")));
 		npcList.add(new RealConfidentialDocument("realConfidentialDocument", "기밀문서6", new PointMapName(6, 17, "비밀연구소2구역")));
+		npcList.add(new ExplosiveDevice("explosiveDevice", "폭발장치", new PointMapName(3, 13, "비밀연구소3구역")));
 	}
 
 	public ArrayList<Npc> getNpcListArray() {
