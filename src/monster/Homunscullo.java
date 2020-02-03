@@ -12,7 +12,7 @@ public final class Homunscullo extends Monster {
 
 	public Homunscullo() {
 		super("호문스큘러", "homunscullo",
-				new Strength(new Resistance(100, 100, 150, 100, 100, 100), 60, 75000, 2800, 0, 0, 800, 800, 40, 40, 0), 732, 750, 775, 794,
+				new Strength(new Resistance(100, 100, 150, 100, 100, 100), 60, 67000, 2800, 0, 0, 800, 800, 40, 40, 0), 732, 750, 775, 794,
 				820 * Main.EXP_BONUS, 2340 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

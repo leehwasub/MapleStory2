@@ -152,6 +152,10 @@ public class MonsterFactory {
 			return new Beetle();
 		case "듀얼비틀":
 			return new DualBeetle();
+		case "호브":
+			return new Hobi();
+		case "헹키":
+			return new Hankie();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -226,6 +230,10 @@ public class MonsterFactory {
 		monsters.add(makeMonster("프랑켄로이드"));
 		monsters.add(makeMonster("레쉬"));
 		monsters.add(makeMonster("다크레쉬"));
+		monsters.add(makeMonster("비틀"));
+		monsters.add(makeMonster("듀얼비틀"));
+		monsters.add(makeMonster("호브"));
+		monsters.add(makeMonster("헹키"));
 		Collections.sort(monsters);
 		return monsters;
 	}
@@ -545,17 +553,24 @@ public class MonsterFactory {
 			}
 			break;
 		case "리프레서쪽숲":
-			if (isRange(percent, 0, 7)) {
+			if (isRange(percent, 0, 5)) {
 				ret = makeMonster("레쉬");
-			} else if (isRange(percent, 7, 14)) {
+			} else if (isRange(percent, 5, 10)) {
 				ret = makeMonster("다크레쉬");
 			}
 			break;
 		case "리프레동쪽숲":
-			if (isRange(percent, 0, 7)) {
+			if (isRange(percent, 0, 5)) {
 				ret = makeMonster("비틀");
-			} else if (isRange(percent, 7, 14)) {
+			} else if (isRange(percent, 5, 10)) {
 				ret = makeMonster("듀얼비틀");
+			}
+			break;
+		case "심술쟁이의숲":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("호브");
+			} else if (isRange(percent, 5, 10)) {
+				ret = makeMonster("헹키");
 			}
 			break;
 		}
