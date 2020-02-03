@@ -14,7 +14,7 @@ import monster.DropItemFactory;
 import monsterAttack.MonsterAttack;
 import utils.DialogUtils;
 
-public abstract class Monster extends Character {
+public abstract class Monster extends Character implements Comparable<Monster>{
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -189,6 +189,15 @@ public abstract class Monster extends Character {
 
 	public void setHuntEvent(HuntEvent huntEvent) {
 		this.huntEvent = huntEvent;
+	}
+	
+	public int getMonsterLevel() {
+		return this.strength.getLevel();
+	}
+	
+	@Override
+	public int compareTo(Monster o) {
+		return this.getMonsterLevel() - o.getMonsterLevel();
 	}
 
 	@Override

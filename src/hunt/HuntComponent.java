@@ -161,6 +161,7 @@ public class HuntComponent {
 		private ArrayList<SkillImage> skillImageList = new ArrayList<SkillImage>();
 		
 		private HuntEvent playerHuntEvent;
+		private HuntEvent monsterHuntEvent;
 		private boolean isRun;
 		private boolean isRunFailed;
 
@@ -177,6 +178,7 @@ public class HuntComponent {
 
 			monsterState.reload(monster);
 			this.monster = monster;
+			monsterHuntEvent = monster.getHuntEvent();
 			turnQueue.add(monsterState);
 			
 			mainMapleInterface.loadStateBoxOnQuickButton(adventurerState);
@@ -323,6 +325,12 @@ public class HuntComponent {
 				}
 				
 				if ((character instanceof Monster)) {
+					
+					if(monsterHuntEvent != null) {
+						monsterHuntEvent.startTurn(this);
+						nowStateBox.updateStateBox();
+					}
+						
 					Monster turnMonster = (Monster) character;
 					this.monsterAttack = turnMonster.attack(this, nowStateBox, adventurerState);
 					this.monsterAttack.start();
@@ -510,6 +518,10 @@ public class HuntComponent {
 
 		public Adventurer getAdventurer() {
 			return adventurer;
+		}
+
+		public Monster getMonster() {
+			return monster;
 		}
 
 		public PlayerAttack getPlayerAttack() {

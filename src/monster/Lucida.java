@@ -19,7 +19,7 @@ public final class Lucida extends Monster {
 	
 	@Override
 	public void initSkillList() {
-		skillList.add(new MonsterSkillInfor(0, 150, "공격력강화", strength.getMaxHp(), 4));
+		skillList.add(new MonsterSkillInfor(0, 150, "방어력약화", strength.getMaxHp(), 4));
 		skillList.add(new MonsterSkillInfor(150, 300, "회피율강화", strength.getMaxHp(), 4));
 		skillList.add(new MonsterSkillInfor(900, 1000, "안티매직쉘", strength.getMaxHp(), 1));
 		skillList.add(new MonsterSkillInfor(600, 900, "데빌사이더", strength.getMaxHp(), 1));

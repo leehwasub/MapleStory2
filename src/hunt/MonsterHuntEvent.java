@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 import attack.AttackInfor;
 import character.Adventurer;
+import character.Monster;
 import component.StateBox;
 import hunt.HuntComponent.Hunt;
 import playerAttack.PlayerAttack;
@@ -35,7 +36,11 @@ public class MonsterHuntEvent implements HuntEvent, Serializable {
 
 	@Override
 	public void startTurn(Hunt hunt) {
-		
+		Monster monster = hunt.getMonster();
+		if(monster.isAlreadyBuffed("인피니티")) {
+			int skillPoint = monster.getMonsterSkillInforWithName("인피니티").getSkillPoint();
+			monster.healHp(skillPoint * 3000);
+		}
 	}
 	
 	@Override

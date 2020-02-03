@@ -11,6 +11,7 @@ import component.StateBox;
 import hunt.HuntComponent.Hunt;
 import skill.ActiveSkill;
 import skill.ShoutSkill;
+import utils.CalUtils;
 
 public class ShoutAttack extends PlayerAttack {
 	
@@ -28,10 +29,9 @@ public class ShoutAttack extends PlayerAttack {
 	}
 	
 	private void makeStunBuff() {
-		double stunRate = ((ShoutSkill)activeSkill).deBuffRate(activeSkill.getPoint());
+		int stunRate = ((ShoutSkill)activeSkill).deBuffRate(activeSkill.getPoint());
 		int stunLast = ((ShoutSkill)activeSkill).deBuffTurn(activeSkill.getPoint());
-		int stun100Rate = (int)(Math.random() *  99) + 1;
-		if(stun100Rate <= stunRate) {
+		if(CalUtils.calPercent(stunRate)) {
 			opponent.getCharacter().addBuff(BuffFactory.makeSpecialBuff("스턴", stunLast));
 		}
 	}

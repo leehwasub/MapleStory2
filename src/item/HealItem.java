@@ -46,16 +46,16 @@ public class HealItem extends ConsumableItem implements Serializable {
 			MusicUtils.startEffectSound("portionUse");
 			setNum(getNum() - 1);
 			if (this.heal.getHealHp() != 0) {
-				adventurer.healHp(this.heal.getHealHp());
+				adventurer.healHp(heal.getHealHp());
 			}
 			if (this.heal.getHealMp() != 0) {
-				adventurer.healMp(this.heal.getHealMp());
+				adventurer.healMp(heal.getHealMp());
 			}
 			if (this.heal.getHealPercentHp() != 0) {
-				adventurer.healHp(this.heal.getHealPercentHp() / 100 * adventurer.getMaxHp());
+				adventurer.healHp(heal.getHealPercentHp() * adventurer.getMaxHp() / 100);
 			}
 			if (this.heal.getHealPercentMp() != 0) {
-				adventurer.healMp(this.heal.getHealPercentMp() / 100 * adventurer.getMaxMp());
+				adventurer.healMp(heal.getHealPercentMp() * adventurer.getMaxMp() / 100);
 			}
 			mainMapleInterface.mainStateBarUpdate();
 			player.removeEmptyItem();

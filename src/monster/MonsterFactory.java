@@ -1,7 +1,9 @@
 package monster;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import character.Monster;
-import javafx.scene.chart.CategoryAxis;
 import maplestory.Main;
 import utils.DialogUtils;
 
@@ -142,9 +144,97 @@ public class MonsterFactory {
 			return new Homunscullo();
 		case "프랑켄로이드":
 			return new Frankenroid();
+		case "레쉬":
+			return new Rash();
+		case "다크레쉬":
+			return new DarkRash();
+		case "비틀":
+			return new Beetle();
+		case "듀얼비틀":
+			return new DualBeetle();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
+	}
+	
+	public ArrayList<Monster> getSortedMonsters(){
+		ArrayList<Monster> monsters = new ArrayList<Monster>();
+		monsters.add(makeMonster("파란달팽이"));
+		monsters.add(makeMonster("빨간달팽이"));
+		monsters.add(makeMonster("마노"));
+		monsters.add(makeMonster("돼지"));
+		monsters.add(makeMonster("리본돼지"));
+		monsters.add(makeMonster("주황버섯"));
+		monsters.add(makeMonster("초록버섯"));
+		monsters.add(makeMonster("스텀프"));
+		monsters.add(makeMonster("엑스텀프"));
+		monsters.add(makeMonster("와일드보어"));
+		monsters.add(makeMonster("파이어보어"));
+		monsters.add(makeMonster("아이언호그"));
+		monsters.add(makeMonster("아이언보어"));
+		monsters.add(makeMonster("우드마스크"));
+		monsters.add(makeMonster("스톤마스크"));
+		monsters.add(makeMonster("스켈독"));
+		monsters.add(makeMonster("머미독"));
+		monsters.add(makeMonster("스켈레톤사병"));
+		monsters.add(makeMonster("스켈레톤장교"));
+		monsters.add(makeMonster("스켈레톤지휘관"));
+		monsters.add(makeMonster("에레고스"));
+		monsters.add(makeMonster("스타픽시"));
+		monsters.add(makeMonster("루나픽시"));
+		monsters.add(makeMonster("러스터픽시"));
+		monsters.add(makeMonster("샐리온"));
+		monsters.add(makeMonster("그류핀"));
+		monsters.add(makeMonster("라이오너"));
+		monsters.add(makeMonster("루이넬"));
+		monsters.add(makeMonster("엘리자"));
+		monsters.add(makeMonster("스톤볼"));
+		monsters.add(makeMonster("화이트팽"));
+		monsters.add(makeMonster("헥터"));
+		monsters.add(makeMonster("페페"));
+		monsters.add(makeMonster("다크페페"));
+		monsters.add(makeMonster("예티"));
+		monsters.add(makeMonster("다크예티"));
+		monsters.add(makeMonster("웨어울프"));
+		monsters.add(makeMonster("라이칸스로프"));
+		monsters.add(makeMonster("불독"));
+		monsters.add(makeMonster("파이어독"));
+		monsters.add(makeMonster("자쿰"));
+		monsters.add(makeMonster("노란모래토끼"));
+		monsters.add(makeMonster("검은모래토끼"));
+		monsters.add(makeMonster("카투스"));
+		monsters.add(makeMonster("로얄카투스"));
+		monsters.add(makeMonster("벨라모아"));
+		monsters.add(makeMonster("귀마개프릴드"));
+		monsters.add(makeMonster("데우"));
+		monsters.add(makeMonster("키요"));
+		monsters.add(makeMonster("모래거인"));
+		monsters.add(makeMonster("스콜피온"));
+		monsters.add(makeMonster("큐브슬라임"));
+		monsters.add(makeMonster("루모"));
+		monsters.add(makeMonster("트리플루모"));
+		monsters.add(makeMonster("아이언뮤테"));
+		monsters.add(makeMonster("강화된아이언뮤테"));
+		monsters.add(makeMonster("미스릴뮤테"));
+		monsters.add(makeMonster("강화된미스릴뮤테"));
+		monsters.add(makeMonster("로이드"));
+		monsters.add(makeMonster("네오휴로이드"));
+		monsters.add(makeMonster("루루모"));
+		monsters.add(makeMonster("샤이티"));
+		monsters.add(makeMonster("호문쿨루"));
+		monsters.add(makeMonster("호문스큘러"));
+		monsters.add(makeMonster("프랑켄로이드"));
+		monsters.add(makeMonster("레쉬"));
+		monsters.add(makeMonster("다크레쉬"));
+		Collections.sort(monsters);
+		return monsters;
+	}
+	
+	public void printAllMonster() {
+		ArrayList<Monster> monsters = getSortedMonsters();
+		for(int i = 0; i < monsters.size(); i++){
+			System.out.println(monsters.get(i));
+		}
 	}
 
 	public static Monster readyMonster(String mapName) {
@@ -452,6 +542,20 @@ public class MonsterFactory {
 				ret = makeMonster("로이드");
 			} else if (isRange(percent, 7, 14)) {
 				ret = makeMonster("네오휴로이드");
+			}
+			break;
+		case "리프레서쪽숲":
+			if (isRange(percent, 0, 7)) {
+				ret = makeMonster("레쉬");
+			} else if (isRange(percent, 7, 14)) {
+				ret = makeMonster("다크레쉬");
+			}
+			break;
+		case "리프레동쪽숲":
+			if (isRange(percent, 0, 7)) {
+				ret = makeMonster("비틀");
+			} else if (isRange(percent, 7, 14)) {
+				ret = makeMonster("듀얼비틀");
 			}
 			break;
 		}

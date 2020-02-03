@@ -262,7 +262,6 @@ public class MapleMapList {
 		getMap("비밀연구소2구역").addPortal(new Portal(new PointMapName(3, 34, "비밀연구소2구역"), new PointMapName(3, 1, "비밀연구소3구역")));
 		getMap("비밀연구소3구역").addPortal(new Portal(new PointMapName(3, 7, "비밀연구소3구역"), new PointMapName(0, 0, "비밀연구소위험지역")));
 		getMap("비밀연구소3구역").addPortal(new Portal(new PointMapName(3, 14, "비밀연구소3구역"), new PointMapName(4, 29, "C-1구역")));
-		
 		getMap("아리안트").addPortal(new Portal(new PointMapName(0, 8, "아리안트"), new PointMapName(4, 15, "아리안트승강장")));
 		getMap("아리안트승강장").addPortal(new Portal(new PointMapName(4, 15, "아리안트승강장"), new PointMapName(0, 8, "아리안트")));
 		getMap("아리안트승강장").addPortal(new Portal(new PointMapName(2, 0, "아리안트승강장"), new PointMapName(3, 15, "니할사막->엘나스산맥승강장")));
@@ -272,8 +271,35 @@ public class MapleMapList {
 		getMap("니할사막->미나르숲승강장").addPortal(new Portal(new PointMapName(3, 15, "니할사막->미나르숲승강장"), new PointMapName(6, 0, "아리안트승강장")));
 		getMap("니할사막->미나르숲승강장").addPortal(new Portal(new PointMapName(3, 0, "니할사막->미나르숲승강장"), new PointMapName(1, 1, "니할사막->미나르숲")));
 		//리프레숲
-		
-		
+		getMap("리프레").addPortal(new Portal(new PointMapName(7, 0, "리프레"), new PointMapName(9, 34, "리프레서쪽숲")));
+		getMap("리프레서쪽숲").addPortal(new Portal(new PointMapName(9, 34, "리프레서쪽숲"), new PointMapName(7, 0, "리프레")));
+		getMap("리프레").addPortal(new Portal(new PointMapName(7, 29, "리프레"), new PointMapName(7, 0, "리프레동쪽숲")));
+		getMap("리프레동쪽숲").addPortal(new Portal(new PointMapName(7, 0, "리프레동쪽숲"), new PointMapName(7, 29, "리프레")));
+		getMap("리프레서쪽숲").addPortal(new Portal(new PointMapName(24, 13, "리프레서쪽숲"), new PointMapName(0, 8, "심술쟁이의숲")));
+		getMap("심술쟁이의숲").addPortal(new Portal(new PointMapName(0, 8, "심술쟁이의숲"), new PointMapName(24, 13, "리프레서쪽숲")));
+		getMap("리프레동쪽숲").addPortal(new Portal(new PointMapName(24, 21, "리프레동쪽숲"), new PointMapName(0, 10, "하늘둥지")));
+		getMap("하늘둥지").addPortal(new Portal(new PointMapName(0, 10, "하늘둥지"), new PointMapName(24, 21, "리프레동쪽숲")));
+		getMap("켄타우로스의영역").addPortal(new Portal(new PointMapName(16, 0, "켄타우로스의영역"), new PointMapName(15, 19, "심술쟁이의숲")));
+		getMap("심술쟁이의숲").addPortal(new Portal(new PointMapName(15, 19, "심술쟁이의숲"), new PointMapName(16, 0, "켄타우로스의영역")));
+		getMap("켄타우로스의영역").addPortal(new Portal(new PointMapName(16, 34, "켄타우로스의영역"), new PointMapName(14, 0, "하늘둥지")));
+		getMap("하늘둥지").addPortal(new Portal(new PointMapName(14, 0, "하늘둥지"), new PointMapName(16, 34, "켄타우로스의영역")));
+		getMap("심술쟁이의숲").addPortal(new Portal(new PointMapName(29, 10, "심술쟁이의숲"), new PointMapName(0, 4, "가파른언덕")));
+		getMap("가파른언덕").addPortal(new Portal(new PointMapName(0, 4, "가파른언덕"), new PointMapName(29, 10, "심술쟁이의숲")));
+		getMap("하늘둥지").addPortal(new Portal(new PointMapName(29, 9, "하늘둥지"), new PointMapName(0, 9, "가파른언덕")));
+		getMap("가파른언덕").addPortal(new Portal(new PointMapName(0, 9, "가파른언덕"), new PointMapName(29, 9, "하늘둥지")));
+		getMap("가파른언덕").addPortal(new Portal(new PointMapName(30, 0, "가파른언덕"), new PointMapName(6, 36, "용의숲입구")));
+		getMap("용의숲입구").addPortal(new Portal(new PointMapName(6, 36, "용의숲입구"), new PointMapName(30, 0, "가파른언덕")));
+		getMap("용의숲입구").addPortal(new Portal(new PointMapName(6, 0, "용의숲입구"), new PointMapName(8, 44, "용의숲1")));
+		getMap("용의숲1").addPortal(new Portal(new PointMapName(8, 44, "용의숲1"), new PointMapName(6, 0, "용의숲입구")));
+		getMap("용의숲1").addPortal(new Portal(new PointMapName(6, 0, "용의숲1"), new PointMapName(8, 44, "용의숲2")));
+		getMap("용의숲2").addPortal(new Portal(new PointMapName(8, 44, "용의숲2"), new PointMapName(6, 0, "용의숲1")));
+		getMap("용의숲2").addPortal(new Portal(new PointMapName(5, 0, "용의숲2"), new PointMapName(46, 12, "용의협곡")));
+		getMap("용의협곡").addPortal(new Portal(new PointMapName(46, 12, "용의협곡"), new PointMapName(5, 0, "용의숲2")));
+		getMap("용의협곡").addPortal(new Portal(new PointMapName(0, 11, "용의협곡"), new PointMapName(44, 37, "용의둥지")));
+		getMap("용의둥지").addPortal(new Portal(new PointMapName(44, 37, "용의둥지"), new PointMapName(0, 11, "용의협곡")));
+		getMap("용의둥지").addPortal(new Portal(new PointMapName(0, 5, "용의둥지"), new PointMapName(5, 20, "혼테일동굴입구")));
+		getMap("혼테일동굴입구").addPortal(new Portal(new PointMapName(5, 20, "혼테일동굴입구"), new PointMapName(0, 5, "용의둥지")));
+		getMap("혼테일동굴입구").addPortal(new Portal(new PointMapName(5, 0, "혼테일동굴입구"), new PointMapName(0, 0, "혼테일동굴")));
 		//시간의신전
 	}
 

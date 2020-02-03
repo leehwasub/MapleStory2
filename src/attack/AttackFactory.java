@@ -25,6 +25,7 @@ import monsterAttack.FlameShootAttack;
 import monsterAttack.FlashAttack;
 import monsterAttack.HpHealAttack;
 import monsterAttack.HumanityInAttack;
+import monsterAttack.InfinityAttack;
 import monsterAttack.ManaBurstAttack;
 import monsterAttack.MassiveFireAttack;
 import monsterAttack.MassiveSplashAttack;
@@ -121,6 +122,8 @@ public class AttackFactory {
 			return new MassiveSplashAttack(hunt, attacker, opponents, new MonsterSkill("매시브스플래쉬", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		case "로켓펀치":
 			return new RocketPunchAttack(hunt, attacker, opponents, new MonsterSkill("로켓펀치", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
+		case "인피니티":
+			return new InfinityAttack(hunt, attacker, opponents, new MonsterSkill("인피니티", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

@@ -19,7 +19,7 @@ public final class LoyalCactus extends Monster {
 	
 	@Override
 	public void initSkillList() {
-		skillList.add(new MonsterSkillInfor(0, 300, "방어력강화", strength.getMaxHp(), 6));
+		skillList.add(new MonsterSkillInfor(0, 300, "방어력약화", strength.getMaxHp(), 6));
 		skillList.add(new MonsterSkillInfor(200, 400, "안티매직쉘", strength.getMaxHp(), 5));
 		skillList.add(new MonsterSkillInfor(550, 700, "체력회복", strength.getMaxHp() - 5000, 3));
 		skillList.add(new MonsterSkillInfor(700, 1000, "플레임샷", strength.getMaxHp(), 3));
