@@ -23,6 +23,7 @@ import character.Character;
 import character.Monster;
 import component.MapleButton;
 import component.StateBox;
+import lastingImage.LastingSkillImage;
 import map.WarpMapBossRoom;
 import maplestory.MainMapleInterface;
 import maplestory.Message;
@@ -222,13 +223,12 @@ public class HuntComponent {
 				}
 				*/
 				if (this.skillImageList != null) {
-					for (int i = this.skillImageList.size() - 1; i >= 0; i--) {
-						System.out.println(((SkillImage) this.skillImageList.get(i)).isAlive());
-						if (((SkillImage) this.skillImageList.get(i)).isAlive()) {
-							((SkillImage) this.skillImageList.get(i)).draw(g);
-						} else {
-							this.skillImageList.remove(i);
-						}
+					for (int i = skillImageList.size() - 1; i >= 0; i--) {
+						if(skillImageList.get(i) != null && skillImageList.get(i).isAlive()) {
+							skillImageList.get(i).draw(g);
+						} else if(skillImageList.get(i) != null) {
+							skillImageList.remove(i);
+						}				
 					}
 				}
 				if (this.monsterAttack != null) {
@@ -269,6 +269,18 @@ public class HuntComponent {
 				((Adventurer)nowStateBox.getCharacter()).subAllSkillCoolTime();
 			}
 			mainMapleInterface.setQuickSkillEnabled();
+			checkLastingImages();
+		}
+
+		private void checkLastingImages() {
+			for(int i = skillImageList.size() - 1; i >= 0; i--) {
+				if(skillImageList.get(i) instanceof LastingSkillImage) {
+					LastingSkillImage skillImage = (LastingSkillImage)skillImageList.get(i);
+					if(skillImage != null && !skillImage.isCanLast()) {
+						skillImageList.remove(i);
+					}
+				}
+			}
 		}
 
 		public int checkDead() {
@@ -504,8 +516,15 @@ public class HuntComponent {
 			monsterState.barSetVisibleFalse();
 			attackButton.setVisible(false);
 			runButton.setVisible(false);
-			this.turnQueue.clear();
+			turnQueue.clear();
+			turnQueue = null;
+			monster.removeAllBuff();
 			this.monster = null;
+			checkLastingImages();
+			for(int i = skillImageList.size() - 1; i >= 0; i--) {
+				skillImageList.remove(i);
+			}
+			skillImageList = null;
 		}
 
 		public void addDamageText(Hit hit, StateBox opponent) {

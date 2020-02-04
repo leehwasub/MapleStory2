@@ -8,6 +8,7 @@ import attackImage.SkillLockUseImage;
 import buff.BuffFactory;
 import component.StateBox;
 import hunt.HuntComponent.Hunt;
+import lastingImage.PowerTransferLastingImage;
 import skill.MonsterSkill;
 import utils.MusicUtils;
 
@@ -21,6 +22,7 @@ public class PowerTransferAttack extends MonsterAttack {
 		attacker.attackForwardMotion();
 		addSkillImageThread(new PowerTransferUseImage(hunt, attacker, opponent, null), true);
 		attacker.getCharacter().addBuff(BuffFactory.makeSpecialBuff("파워트랜스퍼", 6 + monsterSkill.getSkillPoint() / 3));
+		hunt.addSkillImage(new PowerTransferLastingImage(hunt, attacker, opponent, null));
 		afterAttack();
 	}
 
