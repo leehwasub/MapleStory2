@@ -12,7 +12,7 @@ public final class Yeti extends Monster {
 
 	public Yeti() {
 		super("예티", "yeti",
-				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 35, 6000, 200, 0, 0, 250, 250, 25, 25, 0), 364, 386, 0, 0,
+				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 35, 6000, 200, 10, 10, 25, 25), 364, 386, 0, 0,
 				170 * Main.EXP_BONUS, 340 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

@@ -12,7 +12,7 @@ public final class Werewolf extends Monster {
 
 	public Werewolf() {
 		super("웨어울프", "werewolf",
-				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 37, 7100, 250, 0, 0, 230, 230, 29, 29, 0), 392, 406, 0, 0,
+				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 37, 7100, 250, 10, 10, 29, 29), 392, 406, 0, 0,
 				190 * Main.EXP_BONUS, 400 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

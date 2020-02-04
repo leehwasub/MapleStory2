@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import attack.AttackFactory;
 import attack.AttackInfor;
 import attack.AttackType;
+import buff.BuffFactory;
 import component.StateBox;
 import hunt.HuntComponent.Hunt;
 import hunt.HuntEvent;
@@ -12,7 +13,9 @@ import hunt.MonsterHuntEvent;
 import maplestory.Player;
 import monster.DropItemFactory;
 import monsterAttack.MonsterAttack;
+import utils.CalUtils;
 import utils.DialogUtils;
+import utils.MusicUtils;
 
 public abstract class Monster extends Character implements Comparable<Monster>{
 	
@@ -59,10 +62,13 @@ public abstract class Monster extends Character implements Comparable<Monster>{
 	public int hitEvent(Character character, AttackInfor attackInfor) {
 		if(isAlreadyBuffed("파워트랜스퍼")) {
 			int skillPoint = getMonsterSkillInforWithName("파워트랜스퍼").getSkillPoint();
-			double percent = (8.0 + ((double)skillPoint * 2.0)) / 100.0;
-			attackInfor.subPhysicalDamage((int)(attackInfor.getPhysicalDamage() * percent));
-			attackInfor.subMagicDamage((int)(attackInfor.getMagicDamage() * percent));
-		}
+			int percent = 8 + skillPoint * 2;
+			if(CalUtils.calPercent(percent)) {
+				attackInfor.setPhysicalDamage(attackInfor.getPhysicalDamage() / 2);
+				attackInfor.setMagicDamage(attackInfor.getMagicDamage() / 2);
+				MusicUtils.startEffectSound("defence");
+			}
+		}	
 		return attackInfor.getTotalDamage();
 	}
 	
@@ -203,9 +209,11 @@ public abstract class Monster extends Character implements Comparable<Monster>{
 	@Override
 	public String toString() {
 		return "Monster [skillList=" + skillList + ", exp=" + exp + ", money=" + money + ", isBoss=" + isBoss
-				+ ", oriStrength=" + oriStrength + ", oriMinPhysicalDamage=" + oriMinPhysicalDamage
-				+ ", oriMaxPhysicalDamage=" + oriMaxPhysicalDamage + ", oriMinMagicDamage=" + oriMinMagicDamage
-				+ ", oriMaxMagicDamage=" + oriMaxMagicDamage + "]" + super.toString();
+				+ ", strength=" + strength + ", minPhysicalDamage=" + minPhysicalDamage
+				+ ", maxPhysicalDamage=" + maxPhysicalDamage + ", minMagicDamage=" + minMagicDamage
+				+ ", maxMagicDamage=" + maxMagicDamage + "]";
 	}
+
+	
 	
 }

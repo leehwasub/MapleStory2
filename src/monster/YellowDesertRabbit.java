@@ -12,7 +12,7 @@ public final class YellowDesertRabbit extends Monster {
 
 	public YellowDesertRabbit() {
 		super("노란모래토끼", "yellowDesertRabbit",
-				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 41, 10000, 350, 0, 0, 250, 250, 37, 37, 0), 450, 464, 450, 470,
+				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 41, 10000, 350, 10, 10, 37, 37), 450, 464, 450, 470,
 				235 * Main.EXP_BONUS, 520 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

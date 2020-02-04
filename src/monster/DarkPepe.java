@@ -12,7 +12,7 @@ public final class DarkPepe extends Monster {
 
 	public DarkPepe() {
 		super("다크페페", "darkPepe",
-				new Strength(new Resistance(50, 150, 100, 100, 150, 50), 33, 4200, 400, 0, 0, 145, 200, 35, 35, 0), 320, 334, 325, 347,
+				new Strength(new Resistance(50, 150, 100, 100, 150, 50), 33, 4200, 400, 10, 10, 35, 35), 320, 334, 325, 347,
 				154 * Main.EXP_BONUS, 272 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

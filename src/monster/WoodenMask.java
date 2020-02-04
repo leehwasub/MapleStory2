@@ -12,7 +12,7 @@ public final class WoodenMask extends Monster {
 
 	public WoodenMask() {
 		super("우드마스크", "woodenMask",
-				new Strength(new Resistance(50, 100, 100, 100, 100, 100), 18, 900, 60, 0, 0, 40, 40, 12, 12, 0), 164, 171, 0, 0,
+				new Strength(new Resistance(50, 100, 100, 100, 100, 100), 18, 900, 60, 10, 10, 12, 12), 164, 171, 0, 0,
 				50 * Main.EXP_BONUS, 90 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

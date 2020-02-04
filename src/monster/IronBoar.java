@@ -12,7 +12,7 @@ public final class IronBoar extends Monster {
 
 	public IronBoar() {
 		super("아이언보어", "ironBoar",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 17, 750, 30, 0, 0, 100, 20, 7, 7, 0), 126, 131, 0, 0,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 17, 750, 30, 10, 10, 7, 7), 126, 131, 0, 0,
 				46 * Main.EXP_BONUS, 75 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

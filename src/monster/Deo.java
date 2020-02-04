@@ -12,7 +12,7 @@ public final class Deo extends Monster {
 
 	public Deo() {
 		super("데우", "deo",
-				new Strength(new Resistance(170, 30, 100, 100, 100, 100), 45, 140000, 8000, 0, 0, 550, 550, 37, 37, 0), 564, 583, 583, 600,
+				new Strength(new Resistance(170, 30, 100, 100, 100, 100), 45, 140000, 8000, 20, 20, 37, 37), 564, 583, 583, 600,
 				9600 * Main.EXP_BONUS, 20000 * Main.MONEY_BONUS, true);
 		initSkillList();
 	}

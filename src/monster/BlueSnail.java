@@ -12,7 +12,7 @@ public final class BlueSnail extends Monster {
 
 	public BlueSnail() {
 		super("파란달팽이", "blueSnail",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 1, 15, 2, 8, 0, 0, 0, 0, 0, 0), 7, 10, 0, 0, 3 * Main.EXP_BONUS,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 1, 15, 2, 10, 10, 0, 0), 7, 10, 0, 0, 3 * Main.EXP_BONUS,
 				10 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

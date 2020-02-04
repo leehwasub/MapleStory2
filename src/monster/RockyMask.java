@@ -12,7 +12,7 @@ public final class RockyMask extends Monster {
 
 	public RockyMask() {
 		super("스톤마스크", "rockyMask",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 19, 1000, 60, 0, 0, 70, 70, 12, 12, 0), 171, 179, 0, 0,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 19, 1000, 60, 10, 10, 12, 12), 171, 179, 0, 0,
 				55 * Main.EXP_BONUS, 90 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

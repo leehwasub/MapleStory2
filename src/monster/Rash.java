@@ -12,7 +12,7 @@ public final class Rash extends Monster {
 
 	public Rash() {
 		super("레쉬", "rash",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 61, 70000, 1500, 0, 0, 700, 700, 40, 40, 0), 737, 750, 755, 774,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 61, 70000, 1500, 10, 10, 40, 40), 737, 750, 755, 774,
 				900 * Main.EXP_BONUS, 2400 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

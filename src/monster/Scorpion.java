@@ -12,7 +12,7 @@ public final class Scorpion extends Monster {
 
 	public Scorpion() {
 		super("스콜피온", "scorpion",
-				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 47, 15100, 450, 0, 0, 600, 600, 37, 37, 0), 552, 557, 561, 570,
+				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 47, 15100, 450, 10, 10, 37, 37), 552, 557, 561, 570,
 				396 * Main.EXP_BONUS, 836 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

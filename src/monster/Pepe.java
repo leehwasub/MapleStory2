@@ -12,7 +12,7 @@ public final class Pepe extends Monster {
 
 	public Pepe() {
 		super("페페", "pepe",
-				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 33, 3810, 400, 0, 0, 135, 200, 35, 35, 0), 312, 320, 320, 340,
+				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 33, 3810, 400, 10, 10, 35, 35), 312, 320, 320, 340,
 				150 * Main.EXP_BONUS, 245 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

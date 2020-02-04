@@ -12,7 +12,7 @@ public final class LusterPixie extends Monster {
 
 	public LusterPixie() {
 		super("러스터픽시", "lusterPixie",
-				new Strength(new Resistance(100, 100, 100, 100, 50, 150), 27, 2460, 600, 0, 0, 80, 300, 30, 30, 0), 220, 224, 270, 285,
+				new Strength(new Resistance(100, 100, 100, 100, 50, 150), 27, 2460, 600, 10, 10, 30, 30), 220, 224, 270, 285,
 				102 * Main.EXP_BONUS, 175 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

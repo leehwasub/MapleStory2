@@ -12,7 +12,7 @@ public final class Kiyo extends Monster {
 
 	public Kiyo() {
 		super("키요", "kiyo",
-				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 46, 15000, 420, 0, 0, 480, 480, 37, 37, 0), 535, 550, 550, 570,
+				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 46, 15000, 420, 10, 10, 37, 37), 535, 550, 550, 570,
 				371 * Main.EXP_BONUS, 800 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

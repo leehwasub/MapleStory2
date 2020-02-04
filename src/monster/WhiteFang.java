@@ -12,7 +12,7 @@ public final class WhiteFang extends Monster {
 
 	public WhiteFang() {
 		super("화이트팽", "whiteFang",
-				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 31, 3400, 200, 0, 0, 100, 150, 35, 35, 0), 284, 290, 0, 0,
+				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 31, 3400, 200, 10, 10, 35, 35), 284, 290, 0, 0,
 				134 * Main.EXP_BONUS, 215 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

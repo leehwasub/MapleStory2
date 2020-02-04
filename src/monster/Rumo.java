@@ -12,7 +12,7 @@ public final class Rumo extends Monster {
 
 	public Rumo() {
 		super("루모", "rumo",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 50, 22000, 1500, 0, 0, 450, 450, 40, 40, 0), 584, 595, 595, 600,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 50, 22000, 1500, 10, 10, 40, 40), 584, 595, 595, 600,
 				483 * Main.EXP_BONUS, 1035 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

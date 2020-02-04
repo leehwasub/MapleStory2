@@ -12,7 +12,7 @@ public final class AxeStump extends Monster {
 
 	public AxeStump() {
 		super("엑스텀프", "axeStump",
-				new Strength(new Resistance(50, 100, 100, 100, 100, 100), 12, 320, 20, 0, 0, 10, 0, 5, 5, 0), 70, 76, 0, 0,
+				new Strength(new Resistance(50, 100, 100, 100, 100, 100), 12, 320, 20, 10, 10, 5, 5), 70, 76, 0, 0,
 				28 * Main.EXP_BONUS, 35 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

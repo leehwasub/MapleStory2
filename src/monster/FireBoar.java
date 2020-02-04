@@ -12,7 +12,7 @@ public final class FireBoar extends Monster {
 
 	public FireBoar() {
 		super("파이어보어", "fireBoar",
-				new Strength(new Resistance(150, 100, 100, 100, 100, 100), 15, 610, 20, 0, 0, 20, 20, 7, 7, 0), 131, 134, 0, 0,
+				new Strength(new Resistance(150, 100, 100, 100, 100, 100), 15, 610, 20, 10, 10, 7, 7), 131, 134, 0, 0,
 				38 * Main.EXP_BONUS, 60 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

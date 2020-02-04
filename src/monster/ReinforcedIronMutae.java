@@ -12,7 +12,7 @@ public final class ReinforcedIronMutae extends Monster {
 
 	public ReinforcedIronMutae() {
 		super("강화된아이언뮤테", "reinforcedIronMutae",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 52, 32000, 2500, 0, 0, 700, 700, 40, 40, 0), 621, 630, 622, 633,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 52, 32000, 2500, 10, 10, 40, 40), 621, 630, 622, 633,
 				671 * Main.EXP_BONUS, 1240 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

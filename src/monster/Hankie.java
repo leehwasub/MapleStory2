@@ -12,7 +12,7 @@ public final class Hankie extends Monster {
 
 	public Hankie() {
 		super("헹키", "hankie",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 66, 120000, 2700, 0, 0, 800, 800, 40, 40, 0), 797, 813, 805, 820,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 66, 120000, 2700, 10, 10, 40, 40), 797, 813, 805, 820,
 				1250 * Main.EXP_BONUS, 3500 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

@@ -12,7 +12,7 @@ public final class Cerebes extends Monster {
 
 	public Cerebes() {
 		super("불독", "cerebes",
-				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 39, 7600, 200, 0, 0, 350, 300, 25, 25, 0), 441, 461, 460, 482,
+				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 39, 7600, 200, 10, 10, 25, 25), 441, 461, 460, 482,
 				212 * Main.EXP_BONUS, 450 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

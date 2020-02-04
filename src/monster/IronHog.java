@@ -12,7 +12,7 @@ public final class IronHog extends Monster {
 
 	public IronHog() {
 		super("아이언호그", "ironHog",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 16, 700, 30, 0, 0, 100, 20, 7, 7, 0), 120, 123, 0, 0,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 16, 700, 30, 10, 10, 7, 7), 120, 123, 0, 0,
 				42 * Main.EXP_BONUS, 70 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

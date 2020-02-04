@@ -37,7 +37,7 @@ public class EvilEyeBuffSkill extends PassiveSkill{
 	}
 	
 	public int getDefenceEffect(int point) {
-		return 15 * point;
+		return 10 * point;
 	}
 	
 	public int getCriticalEffect(int point) {

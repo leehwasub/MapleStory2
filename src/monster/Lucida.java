@@ -12,7 +12,7 @@ public final class Lucida extends Monster {
 
 	public Lucida() {
 		super("루이넬", "lucida",
-				new Strength(new Resistance(100, 100, 100, 100, 150, 50), 29, 2800, 800, 0, 0, 120, 300, 27, 27, 0), 254, 265, 270, 287,
+				new Strength(new Resistance(100, 100, 100, 100, 150, 50), 29, 2800, 800, 10, 10, 27, 27), 254, 265, 270, 287,
 				118 * Main.EXP_BONUS, 194 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

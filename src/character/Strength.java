@@ -24,9 +24,12 @@ public class Strength implements Serializable, Cloneable, Buffable {
 	private int accuracyRate;
 	private int evasionRate;
 	private int criticalRate;
+	
+	private int physicalDefenseRate;
+	private int magicDefenseRate;
 
 	/**
-	 * 
+	 *  플레이어 생성 or 플레이어 버프
 	 * @param resistance 저항력
 	 * @param level 래벨
 	 * @param maxHp 최대체력
@@ -52,6 +55,56 @@ public class Strength implements Serializable, Cloneable, Buffable {
 		this.accuracyRate = accuracyRate;
 		this.evasionRate = evasionRate;
 		this.criticalRate = criticalRate;
+	}
+	
+	/**
+	 * 몬스터 버프 생성용
+	 * @param resistance
+	 * @param level
+	 * @param maxHp
+	 * @param maxMp
+	 * @param physicalDamage
+	 * @param magicDamage
+	 * @param physicalDefenseRate
+	 * @param magicDefenseRate
+	 * @param accuracyRate
+	 * @param evasionRate
+	 */
+	public Strength(Resistance resistance, int level, int maxHp, int maxMp, int physicalDamage, int magicDamage,
+			int physicalDefenseRate, int magicDefenseRate, int accuracyRate, int evasionRate) {
+		this.resistance = resistance;
+		this.level = level;
+		this.maxHp = maxHp;
+		this.maxMp = maxMp;
+		this.physicalDamage = physicalDamage;
+		this.magicDamage = magicDamage;
+		this.physicalDefenseRate = physicalDefenseRate;
+		this.magicDefenseRate = magicDefenseRate;
+		this.accuracyRate = accuracyRate;
+		this.evasionRate = evasionRate;
+	}
+	
+	
+	/**
+	 *  몬스터 생성용 constructor
+	 * @param resistance
+	 * @param level
+	 * @param maxHp
+	 * @param maxMp
+	 * @param physicalDefenseRate
+	 * @param magicDefenceRate
+	 * @param accuracyRate
+	 * @param evasionRate
+	 */
+	public Strength(Resistance resistance, int level, int maxHp, int maxMp, int physicalDefenseRate, int magicDefenseRate, int accuracyRate, int evasionRate) {
+		this.resistance = resistance;
+		this.level = level;
+		this.maxHp = maxHp;
+		this.maxMp = maxMp;
+		this.physicalDefenseRate = physicalDefenseRate;
+		this.magicDefenseRate = magicDefenseRate;
+		this.accuracyRate = accuracyRate;
+		this.evasionRate = evasionRate;
 	}
 
 	/**
@@ -215,7 +268,23 @@ public class Strength implements Serializable, Cloneable, Buffable {
 	public void setCriticalRate(int criticalRate) {
 		this.criticalRate = criticalRate;
 	}
-	
+
+	public int getPhysicalDefenseRate() {
+		return physicalDefenseRate;
+	}
+
+	public int getMagicDefenseRate() {
+		return magicDefenseRate;
+	}
+
+	public void setPhysicalDefenseRate(int physicalDefenseRate) {
+		this.physicalDefenseRate = physicalDefenseRate;
+	}
+
+	public void setMagicDefenseRate(int magicDefenseRate) {
+		this.magicDefenseRate = magicDefenseRate;
+	}
+
 	@Override
 	public boolean isOverlapEffect(Buffable buffable) {
 		Strength strength = (Strength)buffable;
@@ -229,6 +298,8 @@ public class Strength implements Serializable, Cloneable, Buffable {
 		if(accuracyRate > 0 && strength.accuracyRate > 0) return true;
 		if(evasionRate > 0 && strength.evasionRate > 0) return true;
 		if(criticalRate > 0 && strength.criticalRate > 0) return true;
+		if(physicalDefenseRate > 0 && strength.physicalDefenseRate > 0) return true;
+		if(magicDefenseRate > 0 && strength.magicDefenseRate > 0) return true;
 		return resistance.isOverlapEffect(resistance);
 	}
 	
@@ -244,7 +315,8 @@ public class Strength implements Serializable, Cloneable, Buffable {
 		return "Strength [resistance=" + resistance + ", level=" + level + ", maxHp=" + maxHp + ", maxMp=" + maxMp
 				+ ", physicalDamage=" + physicalDamage + ", magicDamage=" + magicDamage + ", physicalDefense="
 				+ physicalDefense + ", magicDefense=" + magicDefense + ", accuracyRate=" + accuracyRate
-				+ ", evasionRate=" + evasionRate + ", criticalRate=" + criticalRate + "]";
+				+ ", evasionRate=" + evasionRate + ", criticalRate=" + criticalRate + ", physicalDefenseRate="
+				+ physicalDefenseRate + ", magicDefenseRate=" + magicDefenseRate + "]";
 	}
 
 	

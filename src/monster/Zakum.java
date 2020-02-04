@@ -12,7 +12,7 @@ public final class Zakum extends Monster {
 
 	public Zakum() {
 		super("자쿰", "zakum",
-				new Strength(new Resistance(170, 30, 100, 100, 100, 100), 40, 100000, 60000, 0, 0, 300, 300, 30, 25, 0), 502, 536, 632, 688,
+				new Strength(new Resistance(170, 30, 100, 100, 100, 100), 40, 100000, 60000, 10, 10, 30, 25), 502, 536, 632, 688,
 				20000 * Main.EXP_BONUS, 80000 * Main.MONEY_BONUS, true);
 		initSkillList();
 	}

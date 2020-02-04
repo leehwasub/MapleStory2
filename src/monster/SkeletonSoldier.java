@@ -12,7 +12,7 @@ public final class SkeletonSoldier extends Monster {
 
 	public SkeletonSoldier() {
 		super("스켈레톤사병", "skeletonSoldier",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 22, 1350, 120, 0, 0, 100, 100, 12, 12, 0), 192, 204, 0, 0,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 22, 1350, 120, 10, 10, 12, 12), 192, 204, 0, 0,
 				65 * Main.EXP_BONUS, 124 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

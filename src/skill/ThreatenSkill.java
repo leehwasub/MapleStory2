@@ -71,15 +71,15 @@ public class ThreatenSkill extends ActiveSkill{
 	public void setPhysicalDefenseDecre(Monster monster) {
 		Strength str = monster.getOriStrength();
 		double rate = ((double)getEffect(point) / 100.0);
-		int decredPhysicalDefense = str.getPhysicalDefense()  - (int)(str.getPhysicalDefense() * rate);
-		decrePhysicalDefense = str.getPhysicalDefense() - decredPhysicalDefense;
+		int decredPhysicalDefense = str.getPhysicalDefenseRate()  - (int)(str.getPhysicalDefenseRate() * rate);
+		decrePhysicalDefense = str.getPhysicalDefenseRate() - decredPhysicalDefense;
 	}
 	
 	public void setMagicDefenseDecre(Monster monster) {
 		Strength str = monster.getStrength();
 		double rate = ((double)getEffect(point) / 100.0);
-		int decredMagicDefense = str.getMagicDefense()  - (int)(str.getMagicDefense() * rate);
-		decreMagicDefense = str.getMagicDefense() - decredMagicDefense;
+		int decredMagicDefense = str.getMagicDefenseRate()  - (int)(str.getMagicDefenseRate() * rate);
+		decreMagicDefense = str.getMagicDefenseRate() - decredMagicDefense;
 	}
 
 	public int getDecrePhysicalDamage() {

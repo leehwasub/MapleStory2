@@ -69,8 +69,16 @@ public abstract class Character implements Serializable{
 			isMiss = true;
 		}
 		if (!isMiss) {
-			int getPhysicalDamage = Math.max(0, attackInfor.getPhysicalDamage() - this.strength.getPhysicalDefense());
-			int getMagicDamage = Math.max(1, attackInfor.getMagicDamage() - this.strength.getMagicDefense());
+			int getPhysicalDamage = 0;
+			int getMagicDamage = 0;
+			
+			if(this instanceof Adventurer) {
+				getPhysicalDamage = Math.max(1, attackInfor.getPhysicalDamage() - this.strength.getPhysicalDefense());
+				getMagicDamage = Math.max(1, attackInfor.getMagicDamage() - this.strength.getMagicDefense());
+			} else if(this instanceof Monster) {
+				getPhysicalDamage = attackInfor.getPhysicalDamage() * (100 - strength.getPhysicalDefenseRate()) / 100;
+				getMagicDamage = attackInfor.getMagicDamage() * (100 - strength.getMagicDefenseRate()) / 100;
+			}
 
 			getPhysicalDamage = calResistenceDamage(getPhysicalDamage, attackInfor.getProperty());
 			getMagicDamage = calResistenceDamage(getMagicDamage, attackInfor.getProperty());

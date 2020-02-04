@@ -12,7 +12,7 @@ public final class Rurumo extends Monster {
 
 	public Rurumo() {
 		super("루루모", "rurumo",
-				new Strength(new Resistance(100, 100, 170, 100, 100, 100), 58, 420000, 28000, 0, 0, 800, 800, 40, 40, 0), 750, 771, 800, 810,
+				new Strength(new Resistance(100, 100, 170, 100, 100, 100), 58, 420000, 28000, 20, 20, 40, 40), 750, 771, 800, 810,
 				22000 * Main.EXP_BONUS, 60000 * Main.MONEY_BONUS, true);
 		initSkillList();
 	}

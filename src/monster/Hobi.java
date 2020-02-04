@@ -12,7 +12,7 @@ public final class Hobi extends Monster {
 
 	public Hobi() {
 		super("호브", "hobi",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 65, 100000, 2700, 0, 0, 800, 800, 40, 40, 0), 790, 807, 800, 815,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 65, 100000, 2700, 10, 10, 40, 40), 790, 807, 800, 815,
 				1170 * Main.EXP_BONUS, 3300 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

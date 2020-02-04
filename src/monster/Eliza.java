@@ -12,7 +12,7 @@ public final class Eliza extends Monster {
 
 	public Eliza() {
 		super("엘리자", "eliza",
-				new Strength(new Resistance(100, 100, 100, 100, 150, 50), 30, 27000, 6000, 0, 0, 150, 400, 30, 30, 0), 270, 295, 301, 317,
+				new Strength(new Resistance(100, 100, 100, 100, 150, 50), 30, 27000, 6000, 20, 20, 30, 30), 270, 295, 301, 317,
 				3000 * Main.EXP_BONUS, 5000 * Main.MONEY_BONUS, true);
 		initSkillList();
 	}
