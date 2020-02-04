@@ -39,6 +39,7 @@ import monsterAttack.ShiningBusterAttack;
 import monsterAttack.SkillLockAttack;
 import monsterAttack.SwordAttack;
 import monsterAttack.TackleAttack;
+import monsterAttack.UnforgettableNightmareAttack;
 import monsterAttack.WindCircleAttack;
 import playerAttack.NormalAttack;
 import playerAttack.PlayerAttack;
@@ -124,6 +125,8 @@ public class AttackFactory {
 			return new RocketPunchAttack(hunt, attacker, opponents, new MonsterSkill("로켓펀치", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		case "인피니티":
 			return new InfinityAttack(hunt, attacker, opponents, new MonsterSkill("인피니티", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
+		case "잊혀지지않는악몽":
+			return new UnforgettableNightmareAttack(hunt, attacker, opponents, new MonsterSkill("잊혀지지않는악몽", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

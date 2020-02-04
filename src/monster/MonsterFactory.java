@@ -158,6 +158,8 @@ public class MonsterFactory {
 			return new Hankie();
 		case "하프":
 			return new Harp();
+		case "블러드하프":
+			return new BloodHarp();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -237,6 +239,7 @@ public class MonsterFactory {
 		monsters.add(makeMonster("호브"));
 		monsters.add(makeMonster("헹키"));
 		monsters.add(makeMonster("하프"));
+		monsters.add(makeMonster("블러드하프"));
 		Collections.sort(monsters);
 		return monsters;
 	}
@@ -580,7 +583,7 @@ public class MonsterFactory {
 			if (isRange(percent, 0, 5)) {
 				ret = makeMonster("하프");
 			} else if (isRange(percent, 5, 10)) {
-				ret = makeMonster("하프");
+				ret = makeMonster("블러드하프");
 			}
 			break;
 		}

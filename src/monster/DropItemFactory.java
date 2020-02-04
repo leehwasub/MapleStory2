@@ -122,6 +122,20 @@ public class DropItemFactory {
 				getItems.add(ItemPool.getItem("5월의이슬", 1));
 			} else if (monster instanceof Homunscullo) {
 				getItems.add(ItemPool.getItem("호문스큘러의흙", 1));
+			} else if (monster instanceof Rash) {
+				getItems.add(ItemPool.getItem("레쉬의털뭉치", 1));
+			} else if (monster instanceof DarkRash) {
+				getItems.add(ItemPool.getItem("다크레쉬의털뭉치", 1));
+			} else if (monster instanceof Beetle) {
+				getItems.add(ItemPool.getItem("비틀의뿔", 1));
+			} else if (monster instanceof DualBeetle) {
+				getItems.add(ItemPool.getItem("듀얼비틀의뿔", 1));
+			} else if (monster instanceof Hankie) {
+				getItems.add(ItemPool.getItem("헹키의팬플롯", 1));
+			} else if (monster instanceof Harp) {
+				getItems.add(ItemPool.getItem("하프의꼬리깃털", 1));
+			} else if (monster instanceof BloodHarp) {
+				getItems.add(ItemPool.getItem("블러드하프의머리관", 1));
 			}
 		}
 		return getItems;

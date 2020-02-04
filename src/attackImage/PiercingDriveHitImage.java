@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import attack.AttackInfor;
 import component.StateBox;
 import hunt.HuntComponent.Hunt;
+import utils.MusicUtils;
 
 public class PiercingDriveHitImage extends SkillImage {
 	public PiercingDriveHitImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
@@ -13,6 +14,7 @@ public class PiercingDriveHitImage extends SkillImage {
 
 	public void run() {
 		attacker.updateStateBox();
+		MusicUtils.startEffectSound("piercingDriveHit");
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
 			try {

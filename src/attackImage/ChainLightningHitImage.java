@@ -16,7 +16,6 @@ public class ChainLightningHitImage extends SkillImage {
 		MusicUtils.startEffectSound("chainLightningHit");
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
-			System.out.println(this.index);
 			try {
 				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
