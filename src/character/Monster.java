@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import attack.AttackFactory;
 import attack.AttackInfor;
 import attack.AttackType;
+import buff.Buff;
 import buff.BuffFactory;
 import component.StateBox;
 import hunt.HuntComponent.Hunt;
@@ -70,6 +71,14 @@ public abstract class Monster extends Character implements Comparable<Monster>{
 			}
 		}	
 		return attackInfor.getTotalDamage();
+	}
+	
+	@Override
+	public boolean isCanBuffed(Buff buff) {
+		if(isAlreadyBuffed("플레임배리어") && buff.getName().equals("화상")) {
+			return false;
+		}
+		return true;
 	}
 	
 	@Override

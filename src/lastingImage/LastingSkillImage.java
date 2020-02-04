@@ -34,7 +34,7 @@ public abstract class LastingSkillImage extends SkillImage{
 		Thread thread = new Thread(){
 			public void run() {
 				while(isCanLast) {
-					point.setXY(attacker.getX(), attacker.getY());
+					point.setXY(attacker.getX() + 65 - imageList.get(0).getWidth(null)/2, attacker.getY() + 65 - imageList.get(0).getHeight(null)/2);
 				}
 			}
 		};

@@ -240,9 +240,14 @@ public abstract class Character implements Serializable{
 		if(buff instanceof StrengthBuff && ((StrengthBuff)buff).getBuffType() == StrengthBuffType.PORTION_BUFF) {
 			removeOverlapStrengthBuff(buff);
 		}
+		if(!isCanBuffed(buff)) {
+			return;
+		}
 		buffList.add(buff);
 	}
 	
+	public abstract boolean isCanBuffed(Buff buff);
+
 	private void removeOverlapStrengthBuff(Buff buff) {
 		if(buffList == null || buffList.size() == 0) return;
 		for(int i = buffList.size() - 1; i >= 0; i--) {

@@ -21,6 +21,8 @@ import monsterAttack.DoubleShootAttack;
 import monsterAttack.DoubleSlashAttack;
 import monsterAttack.EvasionRateDownAttack;
 import monsterAttack.EvasionRateUpAttack;
+import monsterAttack.FlameBarrierAttack;
+import monsterAttack.FlameBiteAttack;
 import monsterAttack.FlameShootAttack;
 import monsterAttack.FlashAttack;
 import monsterAttack.HpHealAttack;
@@ -127,6 +129,10 @@ public class AttackFactory {
 			return new InfinityAttack(hunt, attacker, opponents, new MonsterSkill("인피니티", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
 		case "잊혀지지않는악몽":
 			return new UnforgettableNightmareAttack(hunt, attacker, opponents, new MonsterSkill("잊혀지지않는악몽", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
+		case "플레임바이트":
+			return new FlameBiteAttack(hunt, attacker, opponents, new MonsterSkill("플레임바이트", Property.PROPERTY_FIRE, skillPoint, AttackType.OPPONENT));
+		case "플레임배리어":
+			return new FlameBarrierAttack(hunt, attacker, opponents, new MonsterSkill("플레임배리어", Property.PROPERTY_FIRE, skillPoint, AttackType.MYSELF));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

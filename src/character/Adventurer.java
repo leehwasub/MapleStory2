@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import attack.AttackInfor;
+import buff.Buff;
 import hunt.EmptyHuntEvent;
 import hunt.HuntEvent;
 import item.ConsumableItem;
@@ -438,6 +439,11 @@ public class Adventurer extends Character implements Serializable {
 			}
 		}
 		return ret;
+	}
+
+	@Override
+	public boolean isCanBuffed(Buff buff) {
+		return true;
 	}
 
 	

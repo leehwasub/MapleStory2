@@ -222,13 +222,11 @@ public class HuntComponent {
 					this.quickButtons.draw(g);
 				}
 				*/
-				if (this.skillImageList != null) {
+				if (skillImageList != null && skillImageList.size() != 0) {
 					for (int i = skillImageList.size() - 1; i >= 0; i--) {
-						if(skillImageList.get(i) != null && skillImageList.get(i).isAlive()) {
+						if(skillImageList.get(i) != null) {
 							skillImageList.get(i).draw(g);
-						} else if(skillImageList.get(i) != null) {
-							skillImageList.remove(i);
-						}				
+						}			
 					}
 				}
 				if (this.monsterAttack != null) {
@@ -279,6 +277,8 @@ public class HuntComponent {
 					if(skillImage != null && !skillImage.isCanLast()) {
 						skillImageList.remove(i);
 					}
+				} else if(!skillImageList.get(i).isAlive()){
+					skillImageList.remove(i);
 				}
 			}
 		}
@@ -521,6 +521,10 @@ public class HuntComponent {
 			monster.removeAllBuff();
 			this.monster = null;
 			checkLastingImages();
+			removeAllSkillImages();
+		}
+		
+		private void removeAllSkillImages() {
 			for(int i = skillImageList.size() - 1; i >= 0; i--) {
 				skillImageList.remove(i);
 			}

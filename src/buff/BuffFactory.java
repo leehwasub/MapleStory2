@@ -47,8 +47,11 @@ public class BuffFactory {
 			return new StrengthBuff("confusion", "혼란", 7 + skillPoint / 3, "물리,마법 공격력과 적중률을 일정시간 동안 약화한다", 
 					new Strength(new Resistance(), 0, 0, 0, -(6 + skillPoint), -(6 + skillPoint), 0, 0, -(6 + skillPoint), 0, 0), StrengthBuffType.SKILL_BUFF);
 		case "인피니티":
-			return new StrengthBuff("infinity", "인피니티", 8 + skillPoint / 3, "일정시간 물리마법방어력을 강화하고 턴마다 일정량 체력을 회복한다.", 
+			return new StrengthBuff("infinity", "인피니티", 8 + skillPoint / 3, "일시적으로 모든 상태이상버프를 없애고 일정시간 물리마법방어력을 강화하고 턴마다 일정량 체력을 회복한다.", 
 					new Strength(new Resistance(), 0, 0, 0, 0, 0, (4 + skillPoint), (4 + skillPoint), 0, 0), StrengthBuffType.SKILL_BUFF);
+		case "플레임배리어":
+			return new StrengthBuff("flameBarrier", "플레임배리어", 8 + skillPoint / 3, "일정시간 물리마법방어력을 강화하고 불속성 저항을 증가시키고 화상상태 면역이 된다.", 
+					new Strength(new Resistance(30 + skillPoint * 3, 0, 0, 0, 0, 0), 0, 0, 0, 0, 0, (9 + skillPoint), (9 + skillPoint), 0, 0), StrengthBuffType.SKILL_BUFF);
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeMonsterBuff("+buffName+") 버프 생성 실패!");
 		return null;

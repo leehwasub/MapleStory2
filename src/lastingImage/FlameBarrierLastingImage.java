@@ -16,9 +16,9 @@ public class FlameBarrierLastingImage extends LastingSkillImage{
 	public void run() {
 		setChangedPoint();
 		while(isCanLast) {
+			MusicUtils.startEffectSound("flameBarrierLasting");
 			for (int i = 0; i < this.imageList.size() && isCanLast; i++) {
 				this.index = i;
-				MusicUtils.startEffectSound("flameBarrierLasting");
 				try {
 					Thread.sleep(delayList.get(i));
 				} catch (InterruptedException e) {
