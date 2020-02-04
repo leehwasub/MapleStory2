@@ -26,7 +26,7 @@ public class RocketPunchAttack extends MonsterAttack {
 
 	public void run() {
 		this.attacker.attackForwardMotion();
-		addSkillImageThread(new RocketPunchUseImage(hunt, attacker, opponent, null), true, 90);
+		addSkillImageThread(new RocketPunchUseImage(hunt, attacker, opponent, null), true, 360);
 		addSkillImageThread(new RocketPunchBallMovableImage(hunt, attacker, opponent, makeAttackInfor()), new RocketPunchHitImage(hunt, opponent, opponent, null), true);
 		makeStunBuff();
 		afterAttack();

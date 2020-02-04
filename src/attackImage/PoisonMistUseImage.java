@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class PoisonMistUseImage extends SkillImage {
 	public PoisonMistUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/poisonMistUse", hunt, attacker, opponent, attackInfor, 90, -225, -50);
+		super("monsterSkillImage/poisonMistUse", hunt, attacker, opponent, attackInfor, -225, -50);
 	}
 
 	public void run() {
@@ -19,7 +19,7 @@ public class PoisonMistUseImage extends SkillImage {
 			this.index = i;
 			if(i == 10 || i == 11) hit();
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class ShadowShellUseImage extends SkillImage {
 	public ShadowShellUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/shadowShellUse", hunt, attacker, opponent, attackInfor, 60, 0, 0);
+		super("monsterSkillImage/shadowShellUse", hunt, attacker, opponent, attackInfor, 0, 0);
 	}
 
 	public void run() {
@@ -18,7 +18,7 @@ public class ShadowShellUseImage extends SkillImage {
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

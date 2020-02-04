@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class PowerStrikeUseImage extends SkillImage {
 	public PowerStrikeUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("playerSkillImage/powerStrikeUse", hunt, attacker, opponent, attackInfor, 60, 0, 0);
+		super("playerSkillImage/powerStrikeUse", hunt, attacker, opponent, attackInfor, 0, 0);
 	}
 
 	public void run() {
@@ -17,9 +17,8 @@ public class PowerStrikeUseImage extends SkillImage {
 		MusicUtils.startEffectSound("powerStrikeUse");
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
-			System.out.println(this.index);
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

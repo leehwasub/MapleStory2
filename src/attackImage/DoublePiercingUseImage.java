@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class DoublePiercingUseImage extends SkillImage {
 	public DoublePiercingUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/doublePiercingUse", hunt, attacker, opponent, attackInfor, 120, 0, 0);
+		super("monsterSkillImage/doublePiercingUse", hunt, attacker, opponent, attackInfor, 0, 0);
 	}
 
 	public void run() {
@@ -19,7 +19,7 @@ public class DoublePiercingUseImage extends SkillImage {
 			this.index = i;
 			if(i == 0 || i == 3) hit();
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class WindCircleUseImage extends SkillImage {
 	public WindCircleUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/windCircleUse", hunt, attacker, opponent, attackInfor, 90, -200, 0);
+		super("monsterSkillImage/windCircleUse", hunt, attacker, opponent, attackInfor, -200, 0);
 	}
 
 	public void run() {
@@ -19,7 +19,7 @@ public class WindCircleUseImage extends SkillImage {
 			this.index = i;
 			if(i == 5 || i == 6 || i == 7 || i == 8) hit();
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

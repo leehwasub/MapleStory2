@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class AdvancedFlameShootUseImage extends SkillImage {
 	public AdvancedFlameShootUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/advancedFlameShootUse", hunt, attacker, opponent, attackInfor, 90, 0, 0);
+		super("monsterSkillImage/advancedFlameShootUse", hunt, attacker, opponent, attackInfor, 0, 0);
 	}
 
 	public void run() {
@@ -19,7 +19,7 @@ public class AdvancedFlameShootUseImage extends SkillImage {
 			this.index = i;
 			System.out.println(this.index);
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

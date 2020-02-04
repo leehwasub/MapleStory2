@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class ManaBurstUseImage extends SkillImage {
 	public ManaBurstUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/manaBurstUse", hunt, attacker, opponent, attackInfor, 90, -200, 0);
+		super("monsterSkillImage/manaBurstUse", hunt, attacker, opponent, attackInfor, -200, 0);
 	}
 
 	public void run() {
@@ -17,10 +17,9 @@ public class ManaBurstUseImage extends SkillImage {
 		MusicUtils.startEffectSound("manaBurstUse");
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
-			System.out.println(this.index);
 			if(i == 6 || i == 7 || i == 8) hit();
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

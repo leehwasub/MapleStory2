@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class BlowBeastUseImage extends SkillImage {
 	public BlowBeastUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/blowBeastUse", hunt, attacker, opponent, attackInfor, 120, 0, -120);
+		super("monsterSkillImage/blowBeastUse", hunt, attacker, opponent, attackInfor, 0, -120);
 	}
 
 	public void run() {
@@ -22,7 +22,7 @@ public class BlowBeastUseImage extends SkillImage {
 				hit();
 			}
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

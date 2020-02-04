@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class PowerTransferUseImage extends SkillImage {
 	public PowerTransferUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/powerTransferUse", hunt, attacker, opponent, attackInfor, 90, 0, 0);
+		super("monsterSkillImage/powerTransferUse", hunt, attacker, opponent, attackInfor, 0, 0);
 	}
 
 	public void run() {
@@ -18,7 +18,7 @@ public class PowerTransferUseImage extends SkillImage {
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

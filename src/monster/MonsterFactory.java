@@ -156,6 +156,8 @@ public class MonsterFactory {
 			return new Hobi();
 		case "헹키":
 			return new Hankie();
+		case "하프":
+			return new Harp();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -234,6 +236,7 @@ public class MonsterFactory {
 		monsters.add(makeMonster("듀얼비틀"));
 		monsters.add(makeMonster("호브"));
 		monsters.add(makeMonster("헹키"));
+		monsters.add(makeMonster("하프"));
 		Collections.sort(monsters);
 		return monsters;
 	}
@@ -571,6 +574,13 @@ public class MonsterFactory {
 				ret = makeMonster("호브");
 			} else if (isRange(percent, 5, 10)) {
 				ret = makeMonster("헹키");
+			}
+			break;
+		case "하늘둥지":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("하프");
+			} else if (isRange(percent, 5, 10)) {
+				ret = makeMonster("하프");
 			}
 			break;
 		}

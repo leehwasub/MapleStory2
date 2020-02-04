@@ -252,7 +252,7 @@ public class InventoryStatePanel extends JPanel {
 	}
 
 	public void quickItemEvent(int index) {
-		if (this.quickItemButton[index].getItem() == null) {
+		if (this.quickItemButton[index].getItem() == null || player.isHunt()) {
 			return;
 		}
 		player.usePortion(mainMapleInterface, this.quickItemButton[index].getItem());

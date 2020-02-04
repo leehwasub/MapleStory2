@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class HumanityInUseImage extends SkillImage {
 	public HumanityInUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/humanityInUse", hunt, attacker, opponent, attackInfor, 90, -50, 0);
+		super("monsterSkillImage/humanityInUse", hunt, attacker, opponent, attackInfor, -50, 0);
 	}
 
 	public void run() {
@@ -17,10 +17,9 @@ public class HumanityInUseImage extends SkillImage {
 		MusicUtils.startEffectSound("humanityInUse");
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
-			System.out.println(this.index);
 			if(i == 4 || i == 5) hit();
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

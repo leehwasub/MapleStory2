@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class PiercingDriveUseImage extends SkillImage {
 	public PiercingDriveUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("playerSkillImage/piercingDriveUse", hunt, attacker, opponent, attackInfor, 90, 200, 0);
+		super("playerSkillImage/piercingDriveUse", hunt, attacker, opponent, attackInfor, 200, 0);
 	}
 
 	public void run() {
@@ -17,12 +17,11 @@ public class PiercingDriveUseImage extends SkillImage {
 		MusicUtils.startEffectSound("piercingDriveUse");
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
-			System.out.println(this.index);
 			if(i == 1 || i == 2) {
 				hit();
 			}
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

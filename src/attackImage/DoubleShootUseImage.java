@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class DoubleShootUseImage extends SkillImage {
 	public DoubleShootUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/doubleShootUse", hunt, attacker, opponent, attackInfor, 90, -30, 0);
+		super("monsterSkillImage/doubleShootUse", hunt, attacker, opponent, attackInfor, -30, 0);
 	}
 
 	public void run() {
@@ -17,9 +17,8 @@ public class DoubleShootUseImage extends SkillImage {
 		MusicUtils.startEffectSound("doubleShootUse");
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
-			System.out.println(this.index);
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

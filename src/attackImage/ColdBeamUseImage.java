@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class ColdBeamUseImage extends SkillImage {
 	public ColdBeamUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/coldBeamUse", hunt, attacker, opponent, attackInfor, 90, 0, -50);
+		super("monsterSkillImage/coldBeamUse", hunt, attacker, opponent, attackInfor, 0, -50);
 	}
 
 	public void run() {
@@ -19,7 +19,7 @@ public class ColdBeamUseImage extends SkillImage {
 			this.index = i;
 			if(i == 5 || i == 6 || i == 7) hit();
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

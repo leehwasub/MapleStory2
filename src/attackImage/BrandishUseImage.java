@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class BrandishUseImage extends SkillImage {
 	public BrandishUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("playerSkillImage/brandishUse", hunt, attacker, opponent, attackInfor, 120, 100, 0);
+		super("playerSkillImage/brandishUse", hunt, attacker, opponent, attackInfor, 100, 0);
 	}
 
 	public void run() {
@@ -22,7 +22,7 @@ public class BrandishUseImage extends SkillImage {
 				hit();
 			}
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

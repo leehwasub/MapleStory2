@@ -8,7 +8,7 @@ import hunt.HuntComponent.Hunt;
 
 public class MassiveFireBallMovableImage extends MovableSkillImage {
 	public MassiveFireBallMovableImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/massiveFireBall", hunt, attacker, opponent, attackInfor, 90, 300);
+		super("monsterSkillImage/massiveFireBall", hunt, attacker, opponent, attackInfor, 300);
 	}
 
 	public void run() {
@@ -17,7 +17,7 @@ public class MassiveFireBallMovableImage extends MovableSkillImage {
 			for (int i = 0; i < this.imageList.size() && nowTime < takeTime - 1; i++) {
 				this.index = i;
 				try {
-					Thread.sleep(this.delay);
+					Thread.sleep(delayList.get(i));
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

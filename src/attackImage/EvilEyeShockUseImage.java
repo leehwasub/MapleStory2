@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class EvilEyeShockUseImage extends SkillImage {
 	public EvilEyeShockUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("playerSkillImage/evilEyeShockUse", hunt, attacker, opponent, attackInfor, 120, 0, 0);
+		super("playerSkillImage/evilEyeShockUse", hunt, attacker, opponent, attackInfor, 0, 0);
 	}
 
 	public void run() {
@@ -21,7 +21,7 @@ public class EvilEyeShockUseImage extends SkillImage {
 				hit();
 			}
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

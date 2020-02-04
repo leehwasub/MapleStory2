@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class ChainLightningUseImage extends SkillImage {
 	public ChainLightningUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/chainLightningUse", hunt, attacker, opponent, attackInfor, 90, 0, 0);
+		super("monsterSkillImage/chainLightningUse", hunt, attacker, opponent, attackInfor, 0, 0);
 	}
 
 	public void run() {
@@ -19,7 +19,7 @@ public class ChainLightningUseImage extends SkillImage {
 			this.index = i;
 			if(i == 9) hit();
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

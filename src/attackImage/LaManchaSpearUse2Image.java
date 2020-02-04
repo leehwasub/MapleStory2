@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class LaManchaSpearUse2Image extends SkillImage {
 	public LaManchaSpearUse2Image(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("playerSkillImage/laManchaSpearUse2", hunt, attacker, opponent, attackInfor, 90, 200, 0);
+		super("playerSkillImage/laManchaSpearUse2", hunt, attacker, opponent, attackInfor, 200, 0);
 	}
 
 	public void run() {
@@ -19,7 +19,7 @@ public class LaManchaSpearUse2Image extends SkillImage {
 			this.index = i;
 			if(i == 0) hit();
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

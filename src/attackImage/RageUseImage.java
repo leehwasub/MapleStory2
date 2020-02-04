@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class RageUseImage extends SkillImage {
 	public RageUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("playerSkillImage/rageUse", hunt, attacker, opponent, attackInfor, 90, 0, -30);
+		super("playerSkillImage/rageUse", hunt, attacker, opponent, attackInfor, 0, -30);
 	}
 
 	public void run() {
@@ -17,9 +17,8 @@ public class RageUseImage extends SkillImage {
 		MusicUtils.startEffectSound("rageUse");
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
-			System.out.println(this.index);
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

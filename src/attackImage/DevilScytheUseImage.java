@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class DevilScytheUseImage extends SkillImage {
 	public DevilScytheUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/devilScytheUse", hunt, attacker, opponent, attackInfor, 90, 100, -30);
+		super("monsterSkillImage/devilScytheUse", hunt, attacker, opponent, attackInfor, 100, -30);
 	}
 
 	public void run() {
@@ -17,9 +17,8 @@ public class DevilScytheUseImage extends SkillImage {
 		MusicUtils.startEffectSound("devilScytheUse");
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
-			System.out.println(this.index);
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

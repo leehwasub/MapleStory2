@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class FlameChargeUseImage extends SkillImage {
 	public FlameChargeUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("playerSkillImage/flameChargeUse", hunt, attacker, opponent, attackInfor, 90, 200, 0);
+		super("playerSkillImage/flameChargeUse", hunt, attacker, opponent, attackInfor, 200, 0);
 	}
 
 	public void run() {
@@ -17,12 +17,11 @@ public class FlameChargeUseImage extends SkillImage {
 		MusicUtils.startEffectSound("flameChargeUse");
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
-			System.out.println(this.index);
 			if(i == 3 || i == 4 || i == 5) {
 				hit();
 			}
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

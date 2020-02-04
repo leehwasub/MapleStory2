@@ -12,7 +12,7 @@ public class DevilScytheMovableImage extends MovableSkillImage {
 	boolean isHit[] = new boolean[2];
 	
 	public DevilScytheMovableImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/devilScytheBall", hunt, attacker, opponent, attackInfor, 60, 500);
+		super("monsterSkillImage/devilScytheBall", hunt, attacker, opponent, attackInfor, 500);
 	}
 
 	public void run() {
@@ -31,7 +31,7 @@ public class DevilScytheMovableImage extends MovableSkillImage {
 					MusicUtils.startEffectSound("devilScytheBall");
 				}
 				try {
-					Thread.sleep(this.delay);
+					Thread.sleep(delayList.get(i));
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

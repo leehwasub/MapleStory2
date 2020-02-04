@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class RocketPunchUseImage extends SkillImage {
 	public RocketPunchUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/rocketPunchUse", hunt, attacker, opponent, attackInfor, 90, -30, 0);
+		super("monsterSkillImage/rocketPunchUse", hunt, attacker, opponent, attackInfor, -30, 0);
 	}
 
 	public void run() {
@@ -17,9 +17,8 @@ public class RocketPunchUseImage extends SkillImage {
 		MusicUtils.startEffectSound("rocketPunchUse");
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
-			System.out.println(this.index);
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

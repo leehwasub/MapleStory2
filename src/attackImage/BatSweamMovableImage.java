@@ -12,7 +12,7 @@ public class BatSweamMovableImage extends MovableSkillImage {
 	boolean isHit[] = new boolean[2];
 
 	public BatSweamMovableImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/batSweamBall", hunt, attacker, opponent, attackInfor, 60, 300);
+		super("monsterSkillImage/batSweamBall", hunt, attacker, opponent, attackInfor, 300);
 	}
 
 	public void run() {
@@ -27,7 +27,7 @@ public class BatSweamMovableImage extends MovableSkillImage {
 					}
 				}
 				try {
-					Thread.sleep(this.delay);
+					Thread.sleep(delayList.get(i));
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

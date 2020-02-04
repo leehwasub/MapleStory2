@@ -9,16 +9,15 @@ import utils.MusicUtils;
 
 public class MassiveFireHitImage extends SkillImage {
 	public MassiveFireHitImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/massiveFireHit", hunt, attacker, opponent, attackInfor, 90, -50, 0);
+		super("monsterSkillImage/massiveFireHit", hunt, attacker, opponent, attackInfor, -50, 0);
 	}
 
 	public void run() {
 		MusicUtils.startEffectSound("massiveFireHit");
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
-			System.out.println(this.index);
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

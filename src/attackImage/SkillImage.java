@@ -20,8 +20,8 @@ import utils.ResourceLoader;
 
 public abstract class SkillImage extends Thread {
 	protected ArrayList<Image> imageList = new ArrayList<Image>();
+	protected ArrayList<Integer> delayList = new ArrayList<Integer>();
 	protected int index;
-	protected int delay;
 	protected Point point;
 	protected Hunt hunt;
 	protected StateBox attacker;
@@ -40,8 +40,7 @@ public abstract class SkillImage extends Thread {
 		public void hit();
 	}
 
-	public SkillImage(String root, Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor, int delay, int modifyX, int modifyY) {
-		this.delay = delay;
+	public SkillImage(String root, Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor, int modifyX, int modifyY) {
 		this.attacker = attacker;
 		this.opponent = opponent;
 		this.attackInfor = attackInfor;
@@ -66,6 +65,10 @@ public abstract class SkillImage extends Thread {
 				String format = ((ImageFileFrame) frameList.get(i)).getExtension();
 				this.imageList.add(new ImageIcon(ResourceLoader.getImage(root, strFrame + "." + format)).getImage());
 			}
+			for (int i = 1; i < fileNameList.size(); i++) {
+				delayList.add(frameList.get(i).getFrame() - frameList.get(i - 1).getFrame());
+			}
+			delayList.add(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -77,7 +80,9 @@ public abstract class SkillImage extends Thread {
 			point.setY(point.getY()+ 65 - imageList.get(0).getHeight(null)/2 + modifyY);
 		}
 		
-		totalDelay = imageList.size() * delay;
+		for(int i = 0; i < delayList.size(); i++) {
+			totalDelay += delayList.get(i);
+		}
 	}
 	
 	public void hit() {
@@ -100,9 +105,8 @@ public abstract class SkillImage extends Thread {
 	public void run() {
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
-			System.out.println(this.index);
 			try {
-				sleep(this.delay);
+				sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

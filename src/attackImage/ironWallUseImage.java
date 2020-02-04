@@ -9,7 +9,7 @@ import utils.MusicUtils;
 
 public class ironWallUseImage extends SkillImage {
 	public ironWallUseImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("playerSkillImage/ironWillUse", hunt, attacker, opponent, attackInfor, 120, 0, -30);
+		super("playerSkillImage/ironWillUse", hunt, attacker, opponent, attackInfor, 0, -30);
 	}
 
 	public void run() {
@@ -17,9 +17,8 @@ public class ironWallUseImage extends SkillImage {
 		MusicUtils.startEffectSound("ironWillUse");
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
-			System.out.println(this.index);
 			try {
-				Thread.sleep(this.delay);
+				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
