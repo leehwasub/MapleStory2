@@ -54,7 +54,7 @@ public class PanicSkill extends ActiveSkill{
 
 	@Override
 	public int getEffect(int point) {
-		return 1185 + point * 30;
+		return 1070 + point * 30;
 	}
 	
 	
