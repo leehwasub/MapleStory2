@@ -33,8 +33,13 @@ public class LeafreShop extends Shop {
 		consumableItemList.add(ItemPool.getItem("명사수의물약", 1));
 		consumableItemList.add(ItemPool.getItem("민첩함의물약", 1));
 		consumableItemList.add(ItemPool.getItem("전사의알약", 1));
+		consumableItemList.add(ItemPool.getItem("사미인탕", 1));
 		consumableItemList.add(ItemPool.getItem("마을귀환주문서", 1));
 		consumableItemList.add(ItemPool.getItem("만병통치약", 1));
+		consumableItemList.add(ItemPool.getItem("블레이즈캡슐", 1));
+		consumableItemList.add(ItemPool.getItem("글레이스캡슐", 1));
+		consumableItemList.add(ItemPool.getItem("코카콜라알약", 1));
+		consumableItemList.add(ItemPool.getItem("코카콜라제로알약", 1));
 		consumableItemList.add(ItemPool.getItem("마스터리북:분노30", 1));
 		consumableItemList.add(ItemPool.getItem("마스터리북:찬스어택20", 1));
 		consumableItemList.add(ItemPool.getItem("마스터리북:브레이브슬래시30", 1));

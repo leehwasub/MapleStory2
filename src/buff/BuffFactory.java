@@ -2,7 +2,6 @@ package buff;
 
 import attack.DamageType;
 import attack.Property;
-import buff.StrengthBuff.StrengthBuffType;
 import character.Resistance;
 import character.Strength;
 import skill.ActiveSkill;
@@ -51,7 +50,10 @@ public class BuffFactory {
 					new Strength(new Resistance(), 0, 0, 0, 0, 0, (4 + skillPoint), (4 + skillPoint), 0, 0), StrengthBuffType.SKILL_BUFF);
 		case "플레임배리어":
 			return new StrengthBuff("flameBarrier", "플레임배리어", 8 + skillPoint / 3, "일정시간 물리마법방어력을 강화하고 불속성 저항을 증가시키고 화상상태 면역이 된다.", 
-					new Strength(new Resistance(30 + skillPoint * 3, 0, 0, 0, 0, 0), 0, 0, 0, 0, 0, (9 + skillPoint), (9 + skillPoint), 0, 0), StrengthBuffType.SKILL_BUFF);
+					new Strength(new Resistance(50, 0, 0, 0, 0, 0), 0, 0, 0, 0, 0, (9 + skillPoint), (9 + skillPoint), 0, 0), StrengthBuffType.SKILL_BUFF);
+		case "아머브레이크":
+			return new StrengthRateBuff("armorBreak", "아머브레이크", 4 + skillPoint / 3, "물리 공격력과 마법 공격력을 일정시간 동안 절반으로 약화된다.", 
+						new StrengthRate(1.0, 1.0, 1.0, 1.0, 0.5, 0.5, 1.0, 1.0, 1.0), StrengthBuffType.SKILL_BUFF);
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeMonsterBuff("+buffName+") 버프 생성 실패!");
 		return null;

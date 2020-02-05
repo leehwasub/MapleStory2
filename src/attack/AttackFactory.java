@@ -33,6 +33,7 @@ import monsterAttack.MassiveFireAttack;
 import monsterAttack.MassiveSplashAttack;
 import monsterAttack.MonsterAttack;
 import monsterAttack.MoonlightSpearAttack;
+import monsterAttack.PlainChargeDriveAttack;
 import monsterAttack.PoisonMistAttack;
 import monsterAttack.PowerTransferAttack;
 import monsterAttack.RocketPunchAttack;
@@ -133,6 +134,8 @@ public class AttackFactory {
 			return new FlameBiteAttack(hunt, attacker, opponents, new MonsterSkill("플레임바이트", Property.PROPERTY_FIRE, skillPoint, AttackType.OPPONENT));
 		case "플레임배리어":
 			return new FlameBarrierAttack(hunt, attacker, opponents, new MonsterSkill("플레임배리어", Property.PROPERTY_FIRE, skillPoint, AttackType.MYSELF));
+		case "플레인차지드라이브":
+			return new PlainChargeDriveAttack(hunt, attacker, opponents, new MonsterSkill("플레인차지드라이브", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

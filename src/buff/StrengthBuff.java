@@ -9,10 +9,6 @@ import character.Strength;
 
 public final class StrengthBuff extends Buff{
 	
-	public enum StrengthBuffType{
-		SKILL_BUFF, PORTION_BUFF
-	}
-	
 	private Strength strength;
 	private StrengthBuffType buffType;
 	
@@ -36,15 +32,17 @@ public final class StrengthBuff extends Buff{
 			character.addMaxPhysicalDamage(strength.getPhysicalDamage());
 			character.addMinMagicDamage(strength.getMagicDamage());
 			character.addMaxMagicDamage(strength.getMagicDamage());
+			str.addPhysicalDefenseRate(strength.getPhysicalDefenseRate());
+			str.addMagicDefenseRate(strength.getMagicDefenseRate());
 		} else if(character instanceof Adventurer) {
 			str.addPhysicalDamage(strength.getPhysicalDamage());
 			str.addMagicDamage(strength.getMagicDamage());
+			str.addPhysicalDefense(strength.getPhysicalDefense());
+			str.addMagicDefense(strength.getMagicDefense());
 		}
-		str.addPhysicalDefense(this.strength.getPhysicalDefense());
-		str.addMagicDefense(this.strength.getMagicDefense());
-		str.addAccuracyRate(this.strength.getAccuracyRate());
-		str.addEvasionRate(this.strength.getEvasionRate());
-		str.addCriticalRate(this.strength.getCriticalRate());
+		str.addAccuracyRate(strength.getAccuracyRate());
+		str.addEvasionRate(strength.getEvasionRate());
+		str.addCriticalRate(strength.getCriticalRate());
 		str.getResistance().addAllResistance(strength.getResistance());
 	}
 	

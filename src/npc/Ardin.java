@@ -26,7 +26,7 @@ public class Ardin extends Npc{
 		if(questNum == 0) {
 			quest = Quest.makeQuest(3, 6, "선인장 사막에서의 수련").addMessage("세잔의 말대로 데우를 처리하기 위해 선인장 사막에 있는 아딘을 만났다. 아딘은 데우 또한 선인장 몬스터이기 때문에")
 					.addMessage(" 이들을 먼저 사냥해 보는것이 도움이 될거라고 한다. 주변에서 카투스와 로얄 카투스를 사냥하도록 하자.")
-					.addQuestKill("카투스", 15).addQuestKill("로얄카투스", 15)
+					.addQuestKill("카투스", 15).addQuestKill("로얄카투스", 15).addRewardItem("사미인탕", 10)
 					.setRewardExp(8500).setRewardMoney(17000).addRewardUpdateMap("선인장사막", 0, 20, MapleMap.MAP_PORTAL_STATE)
 					.setPlayerQuestProceed(QuestProceed.ARDIN_QUEST_1);
 			player.setQuest(quest);

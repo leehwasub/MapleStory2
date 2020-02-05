@@ -45,7 +45,7 @@ public class PanicSkill extends ActiveSkill{
 	}
 	
 	public int deBuffRate(int point) {
-		return 30 + point * 3;
+		return Math.min(100, 30 + point * 3);
 	}
 	
 	public int deBuffEffect(int point) {
@@ -54,7 +54,7 @@ public class PanicSkill extends ActiveSkill{
 
 	@Override
 	public int getEffect(int point) {
-		return 865 + point * 15;
+		return 1185 + point * 30;
 	}
 	
 	
@@ -106,7 +106,7 @@ public class PanicSkill extends ActiveSkill{
 	public String getEffectDetail(int point) {
 		return "MP " + getNeedMp(point) + " 소비, 콤보어택 " + needComboAttack() + "개 사용, " + getEffect(point) + "% 물리데미지로 한번공격"
 				+ "후 " + deBuffRate(point) + "% 확률로 적에게 " + deBuffLast(point) + "턴간 데미지를 " + deBuffEffect(point) + "% 감소, 적중률을 " + deBuffEffect(point) + "% 감소시키는"
-						+ "디버프를 건다. (쿨타임 " + coolTime + "턴)";
+						+ "디버프를 건다.(쿨타임 " + coolTime + "턴)";
 	}
 	
 }

@@ -44,7 +44,7 @@ public class FlameBiteAttack extends MonsterAttack {
 	
 	@Override
 	protected ArrayList<AttackInfor> makeAttackInfor() {
-		double percent = 1.0f + (double)monsterSkill.getSkillPoint() * 0.05f;
+		double percent = 0.8f + (double)monsterSkill.getSkillPoint() * 0.05f;
 		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
 		for(int i = 0; i < 3; i++) {
 			ret.add(new AttackInfor(attacker.getCharacter(), monsterSkill.getProperty(), 0, attacker.getCharacter().calMagicDamge(percent), DamageType.DAMAGE_HP_TYPE));

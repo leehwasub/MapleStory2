@@ -157,9 +157,13 @@ public class InventoryStatePanel extends JPanel {
 		g.setColor(Color.WHITE);
 		g.drawString(adventurer.getMinMagicDamage() + "~" + adventurer.getMaxMagicDamage(), LINE_X[1] + 100, 220);
 		g.setColor(Color.YELLOW);
-		g.drawString("직업", LINE_X[1], 250);
+		g.drawString("크리티컬확률", LINE_X[1], 250);
 		g.setColor(Color.WHITE);
-		g.drawString(adventurer.getCareer(), LINE_X[1] + 50, 250);
+		g.drawString(adventurer.getStrength().getCriticalRate()+"%", LINE_X[1] + 110, 250);
+		g.setColor(Color.YELLOW);
+		g.drawString("직업", LINE_X[1], 280);
+		g.setColor(Color.WHITE);
+		g.drawString(adventurer.getCareer(), LINE_X[1] + 50, 280);
 		g.setColor(Color.YELLOW);
 		g.drawString("포션 단축키", LINE_X[2], 40);
 		g.setColor(Color.white);

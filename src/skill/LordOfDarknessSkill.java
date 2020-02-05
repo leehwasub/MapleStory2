@@ -20,7 +20,7 @@ public class LordOfDarknessSkill extends PassiveSkill{
 
 	@Override
 	public int getEffect(int point) {
-		return 6 + 2 * point;
+		return 10 + 2 * point;
 	}
 	
 	public int getExtraEffect(int point) {

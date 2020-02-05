@@ -244,6 +244,13 @@ public class ItemPool {
 		items.put("명사수의물약", new BuffItem("명사수의물약", 250, "shooterPower", 1, 10, new Strength(new Resistance(), 0, 0, 0, 0, 0, 0, 0, 5, 0, 0), 5));
 		items.put("민첩함의물약", new BuffItem("민첩함의물약", 250, "agilityPower", 1, 10, new Strength(new Resistance(), 0, 0, 0, 0, 0, 0, 0, 0, 5, 0), 5));
 		items.put("전사의알약", new BuffItem("전사의알약", 500, "warriorTablet", 1, 20, new Strength(new Resistance(), 0, 0, 0, 5, 0, 0, 0, 0, 0, 0), 10));
+		items.put("사미인탕", new BuffItem("사미인탕", 1000, "samiInSoup", 1, 30, new Strength(new Resistance(), 0, 0, 0, 7, 0, 0, 0, 0, 0, 0), 15));
+		items.put("블레이즈캡슐", new BuffItem("블레이즈캡슐", 4000, "blazeCapsule", 1, 40, new Strength(new Resistance(30, 0, 0, 0, 0, 0), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), 15));
+		items.put("글레이스캡슐", new BuffItem("글레이스캡슐", 4000, "glaceCapsule", 1, 40, new Strength(new Resistance(0, 30, 0, 0, 0, 0), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), 15));
+		items.put("코카콜라알약", new BuffItem("코카콜라알약", 2000, "coke", 1, 50, new Strength(new Resistance(), 0, 0, 0, 0, 0, 100, 100, 0, 0, 0), 15));
+		items.put("코카콜라제로알약", new BuffItem("코카콜라제로알약", 3000, "cokeZero", 1, 60, new Strength(new Resistance(), 0, 0, 0, 0, 0, 150, 150, 0, 0, 0), 15));
+		
+		items.put("최상급영웅의비약", new BuffItem("최상급영웅의비약", 20000, "greatestHeroSecretPortion", 1, 80, new Strength(new Resistance(), 0, 0, 0, 24, 24, 200, 200, 10, 10, 10), 20));
 		
 		items.put("마을귀환주문서", new WarpItem("마을귀환주문서", 200, "villegeReturn", 1, 1, "가까운 마을로 이동할 수 있는 주문서이다"));
 		

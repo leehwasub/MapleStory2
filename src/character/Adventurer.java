@@ -114,6 +114,7 @@ public class Adventurer extends Character implements Serializable {
 		afterCalState();
 	}
 	
+	
 	@Override
 	public int hitEvent(Character character, AttackInfor attackInfor) {
 		return huntEvent.hit((Adventurer)character, attackInfor);

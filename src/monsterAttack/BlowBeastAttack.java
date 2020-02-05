@@ -7,10 +7,12 @@ import attack.DamageType;
 import attack.Hit;
 import attack.Property;
 import attackImage.BlowBeastUseImage;
+import buff.BuffFactory;
 import character.Character;
 import component.StateBox;
 import hunt.HuntComponent.Hunt;
 import skill.MonsterSkill;
+import utils.CalUtils;
 import utils.MusicUtils;
 
 public class BlowBeastAttack extends MonsterAttack {
@@ -22,7 +24,16 @@ public class BlowBeastAttack extends MonsterAttack {
 	public void run() {
 		attacker.attackForwardMotion();
 		addSkillImageThread(new BlowBeastUseImage(hunt, opponent, opponent, makeAttackInfor()), true);
+		makeArmorBreakBuff();
 		afterAttack();
+	}
+	
+
+	private void makeArmorBreakBuff() {
+		int armorBreakRate = (10 * (monsterSkill.getSkillPoint() - 1));
+		if(CalUtils.calPercent(armorBreakRate)) {
+			opponent.getCharacter().addBuff(BuffFactory.makeMonsterBuff("아머브레이크", monsterSkill.getSkillPoint()));
+		}
 	}
 	
 	@Override

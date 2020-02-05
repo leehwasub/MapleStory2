@@ -99,7 +99,6 @@ public class FighterHuntEvent implements HuntEvent, Serializable{
  		if(randomRate <= rate && !(attack instanceof IronBodyAttack) && !(attack instanceof RageAttack)) {
  			comboAttack.addComboNum();
  		}
- 		
 
 	}
 

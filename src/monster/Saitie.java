@@ -21,7 +21,7 @@ public final class Saitie extends Monster {
 	public void initSkillList() {
 		skillList.add(new MonsterSkillInfor(0, 300, "회피율강화", strength.getMaxHp(), 10));
 		skillList.add(new MonsterSkillInfor(200, 400, "안티매직쉘", strength.getMaxHp(), 7));
-		skillList.add(new MonsterSkillInfor(500, 900, "윈드서클", strength.getMaxHp(), 4));
+		skillList.add(new MonsterSkillInfor(500, 900, "윈드서클", strength.getMaxHp(), 2));
 		skillList.add(new MonsterSkillInfor(0, 1000, "몸통박치기", strength.getMaxHp(), 0));
 	}
 

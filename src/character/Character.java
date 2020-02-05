@@ -13,7 +13,8 @@ import buff.AbnormalBuff;
 import buff.Buff;
 import buff.SpecialBuff;
 import buff.StrengthBuff;
-import buff.StrengthBuff.StrengthBuffType;
+import buff.StrengthBuffType;
+import buff.StrengthRateBuff;
 import utils.ResourceLoader;
 
 public abstract class Character implements Serializable{
@@ -164,7 +165,7 @@ public abstract class Character implements Serializable{
 		double max = getMaxMagicDamage() * rate;
 		return (int) (Math.random() * ((int) max - (int) min)) + (int) min;
 	}
-
+	
 	public void healHp(int heal) {
 		this.curHp = Math.min(this.curHp + heal, this.strength.getMaxHp());
 	}
@@ -240,6 +241,9 @@ public abstract class Character implements Serializable{
 		if(buff instanceof StrengthBuff && ((StrengthBuff)buff).getBuffType() == StrengthBuffType.PORTION_BUFF) {
 			removeOverlapStrengthBuff(buff);
 		}
+		if(buff instanceof StrengthRateBuff && ((StrengthRateBuff)buff).getBuffType() == StrengthBuffType.PORTION_BUFF) {
+			removeOverlapStrengthRateBuff(buff);
+		}
 		if(!isCanBuffed(buff)) {
 			return;
 		}
@@ -247,6 +251,17 @@ public abstract class Character implements Serializable{
 	}
 	
 	public abstract boolean isCanBuffed(Buff buff);
+	
+	private void removeOverlapStrengthRateBuff(Buff buff) {
+		if(buffList == null || buffList.size() == 0) return;
+		for(int i = buffList.size() - 1; i >= 0; i--) {
+			if(buffList.get(i) instanceof StrengthRateBuff && ((StrengthRateBuff)buffList.get(i)).getBuffType() == ((StrengthRateBuff)buff).getBuffType()) {
+				if(buffList.get(i).isOverlapEffect(buff)) {
+					buffList.remove(i);
+				}
+			}
+		}
+	}
 
 	private void removeOverlapStrengthBuff(Buff buff) {
 		if(buffList == null || buffList.size() == 0) return;
@@ -320,7 +335,7 @@ public abstract class Character implements Serializable{
 	public void strengthBuffEffect() {
 		if(buffList == null || buffList.size() == 0) return;
 		for(int i = 0; i < buffList.size(); i++) {
-			if(buffList.get(i) instanceof StrengthBuff) {
+			if(buffList.get(i) instanceof StrengthBuff || buffList.get(i) instanceof StrengthRateBuff) {
 				buffList.get(i).effect(this);
 			}
 		}
@@ -345,7 +360,6 @@ public abstract class Character implements Serializable{
 		return false;
 	}
 	
-
 	public void removeAllAbnormalBuff() {
 		if(buffList == null || buffList.size() == 0) return;
 		for(int i = buffList.size() - 1; i >= 0; i--) {
@@ -354,7 +368,7 @@ public abstract class Character implements Serializable{
 			}
 		}
 	}
-
+	
 	public ArrayList<Buff> getBuffList() {
 		if(buffList == null) newBuffList();
 		return this.buffList;

@@ -115,6 +115,8 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	private StorePanel store;
 	private MessageBox mainMessageBox = new MessageBox(1010, 130, 2, Color.CYAN);
 	
+	private boolean isEndingHunt = true;
+	
 	private QuickButtonPanel quickButtonPanel;
 
 	public MainPanel(MapleInterface mapleInterface, final Player player) {
@@ -372,7 +374,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 
 	private void meetMonsterEvent() {
 		Monster monster = MonsterFactory.readyMonster(this.player.get_curMap().getName());
-		if (monster != null) {
+		if (monster != null && isEndingHunt) {
 			player.setIsCanMove(false);
 			player.setHunt(true);
 			player.setCanSave(false);
@@ -620,6 +622,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	}
 
 	public void endHunt() {
+		isEndingHunt = false;
 		updateMainStateBar();
 		player.setIsCanMove(true);
 		if(player.get_curMap().getMapType() != MapleMap.MAP_DUNGEON_TYPE && player.get_curMap().getMapType() != MapleMap.MAP_DUNGEON_ENTER_TYPE) {
@@ -627,13 +630,13 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		}
 		player.getMainAdventurer().setUsedSkill(null);
 		player.setHunt(false);
-		messageList.clearMessage();
 		player.allSetAlive();
 		player.setCanUsePortion(true);
 		player.setCanUseSkill(false);
 		player.getMainAdventurer().removeAllBuff();
 		player.calState();
 		setQuickSkillEnabled();
+		isEndingHunt = true;
 	}
 
 	public void pushMessage(Message message) {

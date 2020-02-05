@@ -39,7 +39,7 @@ public class AdvancedFlameShootAttack extends MonsterAttack {
 	@Override
 	protected ArrayList<AttackInfor> makeAttackInfor() {
 		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
-		double percent = 1.4f + (double)monsterSkill.getSkillPoint() * 0.1f;
+		double percent = 1.3f + (double)monsterSkill.getSkillPoint() * 0.1f;
 		for(int i = 0; i < 1; i++) {
 			ret.add(new AttackInfor(this.attacker.getCharacter(), monsterSkill.getProperty(), 0, this.attacker.getCharacter().calMagicDamge(percent), DamageType.DAMAGE_HP_TYPE));
 		}

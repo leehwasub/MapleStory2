@@ -6,12 +6,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import buff.StrengthBuff;
-import buff.StrengthBuff.StrengthBuffType;
-import character.Character;
+import buff.StrengthBuffType;
 import character.Strength;
 import map.Point;
 import maplestory.MainMapleInterface;
-import maplestory.MapleInterface;
 import maplestory.Player;
 import utils.ColorUtils;
 import utils.FontUtils;

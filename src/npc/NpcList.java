@@ -80,6 +80,9 @@ public class NpcList implements Serializable {
 		npcList.add(new ExplosiveDevice("explosiveDevice", "폭발장치", new PointMapName(3, 13, "비밀연구소3구역")));
 		npcList.add(new Kupo("kupo", "쿠포", new PointMapName(4, 8, "리프레")));
 		npcList.add(new Dame("dame", "데임", new PointMapName(6, 24, "리프레")));
+		npcList.add(new MysteriousMagic("mysteriousMagician", "수상한마법사", new PointMapName(10, 4, "용의협곡")));
+		npcList.add(new Tatamo("tatamo", "타타모", new PointMapName(10, 17, "리프레")));
+		npcList.add(new Koscu("koscu", "코스쿠", new PointMapName(5, 3, "혼테일동굴입구")));
 	}
 
 	public ArrayList<Npc> getNpcListArray() {

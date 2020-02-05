@@ -160,6 +160,24 @@ public class MonsterFactory {
 			return new Harp();
 		case "블러드하프":
 			return new BloodHarp();
+		case "켄타우로스":
+			return new Kentaurus();
+		case "버크":
+			return new Birk();
+		case "듀얼버크":
+			return new DualBirk();
+		case "블루드래곤터틀":
+			return new BlueDragonTurtle();
+		case "레드드래곤터틀":
+			return new RedDragonTurtle();
+		case "블루와이번":
+			return new BlueWyvern();
+		case "레드와이번":
+			return new RedWyvern();
+		case "코니언":
+			return new Cornian();
+		case "다크와이번":
+			return new DarkWyvern();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -240,6 +258,15 @@ public class MonsterFactory {
 		monsters.add(makeMonster("헹키"));
 		monsters.add(makeMonster("하프"));
 		monsters.add(makeMonster("블러드하프"));
+		monsters.add(makeMonster("켄타우로스"));
+		monsters.add(makeMonster("버크"));
+		monsters.add(makeMonster("듀얼버크"));
+		monsters.add(makeMonster("블루드래곤터틀"));
+		monsters.add(makeMonster("레드드래곤터틀"));
+		monsters.add(makeMonster("블루와이번"));
+		monsters.add(makeMonster("레드와이번"));
+		monsters.add(makeMonster("코니언"));
+		monsters.add(makeMonster("다크와이번"));
 		Collections.sort(monsters);
 		return monsters;
 	}
@@ -584,6 +611,49 @@ public class MonsterFactory {
 				ret = makeMonster("하프");
 			} else if (isRange(percent, 5, 10)) {
 				ret = makeMonster("블러드하프");
+			}
+			break;
+		case "켄타우로스의영역":
+			if (isRange(percent, 0, 10)) {
+				ret = makeMonster("켄타우로스");
+			}
+			break;
+		case "가파른언덕":
+			if (isRange(percent, 0, 10)) {
+				ret = makeMonster("버크");
+			}
+			break;
+		case "용의숲입구":
+			if (isRange(percent, 0, 10)) {
+				ret = makeMonster("듀얼버크");
+			}
+			break;
+		case "용의숲1":
+			if (isRange(percent, 0, 6)) {
+				ret = makeMonster("블루드래곤터틀");
+			} if (isRange(percent, 6, 10)) {
+				ret = makeMonster("레드드래곤터틀");
+			}
+			break;
+		case "용의숲2":
+			if (isRange(percent, 0, 4)) {
+				ret = makeMonster("블루드래곤터틀");
+			} if (isRange(percent, 4, 10)) {
+				ret = makeMonster("레드드래곤터틀");
+			}
+			break;
+		case "용의협곡":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("블루와이번");
+			} if (isRange(percent, 5, 10)) {
+				ret = makeMonster("레드와이번");
+			}
+			break;
+		case "용의둥지":
+			if (isRange(percent, 0, 5)) {
+				ret = makeMonster("다크와이번");
+			} if (isRange(percent, 5, 10)) {
+				ret = makeMonster("코니언");
 			}
 			break;
 		}

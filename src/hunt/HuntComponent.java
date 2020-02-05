@@ -408,7 +408,7 @@ public class HuntComponent {
 			String getItemInfor = null;
 			if(!isRun) {
 				if (winFlag) {
-					getItemInfor = this.player.getSpoils(this.monster);
+					getItemInfor = player.getSpoils(monster);
 					mainMapleInterface.pushMessage(new Message("승리하였습니다!", Color.CYAN, false));
 				} else {
 					mainMapleInterface.pushMessage(new Message("패배하였습니다!", Color.CYAN, false));
@@ -420,10 +420,11 @@ public class HuntComponent {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			end();
 			if (getItemInfor != null) {
+				System.out.println("머지? : " + getItemInfor);
 				mainMapleInterface.pushMessage(new Message(getItemInfor, Color.MAGENTA, true));
 			}
+			end();
 			interrupt();
 		}
 
@@ -450,6 +451,7 @@ public class HuntComponent {
 				player.getMainAdventurer().spendMp(needMp);
 				adventurerState.updateStateBox();
 			}
+			player.calState();
 			
 			//succeed using the skill
 			if(playerHuntEvent != null) {
@@ -462,7 +464,6 @@ public class HuntComponent {
 			player.setCanUsePortion(false);
 			attackButton.setVisible(false);
 			runButton.setVisible(false);
-			player.calState();
 			wakeUp();
 		}
 

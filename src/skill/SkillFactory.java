@@ -63,7 +63,7 @@ public class SkillFactory {
 		case "라만차스피어":
 			return new LaManchaSpearSkill("laManchaSpear", "라만차스피어", 20, "거대한 창을 휘둘러 시전시에 약간의 데미지를 준후 강력한 한번의 일격을 가한다", AttackType.OPPONENT, Property.PROPERTY_NOTHING);
 		case "비홀더쇼크":
-			return new EvilEyeShockSkill("evilEyeShock", "비홀더쇼크", 20, "비홀더가 강력한 포효를 내지르며 전기 속성의 강력한 데미지를 준다", AttackType.OPPONENT, Property.PROPERTY_THUNDER, 4);
+			return new EvilEyeShockSkill("evilEyeShock", "비홀더쇼크", 20, "비홀더가 강력한 포효를 내지르며 전기 속성의 강력한 데미지를 준다", AttackType.OPPONENT, Property.PROPERTY_THUNDER, 3);
 		case "크로스오버체인":
 			return new CrossSurgeSkill("crossSurge", "크로스오버체인", 20, "일정 시간동안 HP비율에 따라 데미지가 증가하고 받은 피해를 감소시킨다", AttackType.MYSELF, Property.PROPERTY_NOTHING);
 		case "로드오브다크니스":

@@ -248,6 +248,14 @@ public class Strength implements Serializable, Cloneable, Buffable {
 	public void addCriticalRate(int criticalRate) {
 		this.criticalRate = Math.max(0, this.criticalRate + criticalRate);
 	}
+	
+	public void addPhysicalDefenseRate(int physicalDefenseRate) {
+		this.physicalDefenseRate = Math.max(0, this.physicalDefenseRate + physicalDefenseRate);
+	}
+	
+	public void addMagicDefenseRate(int magicDefenseRate) {
+		this.magicDefenseRate = Math.max(0, this.magicDefenseRate + magicDefenseRate);
+	}
 
 	public void levelUp() {
 		this.level += 1;
@@ -300,7 +308,7 @@ public class Strength implements Serializable, Cloneable, Buffable {
 		if(criticalRate > 0 && strength.criticalRate > 0) return true;
 		if(physicalDefenseRate > 0 && strength.physicalDefenseRate > 0) return true;
 		if(magicDefenseRate > 0 && strength.magicDefenseRate > 0) return true;
-		return resistance.isOverlapEffect(resistance);
+		return resistance.isOverlapEffect(strength.resistance);
 	}
 	
 	@Override

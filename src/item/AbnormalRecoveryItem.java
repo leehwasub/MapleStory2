@@ -5,13 +5,8 @@ import java.awt.Graphics2D;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import buff.StrengthBuff;
-import buff.StrengthBuff.StrengthBuffType;
-import character.Character;
-import character.Strength;
 import map.Point;
 import maplestory.MainMapleInterface;
-import maplestory.MapleInterface;
 import maplestory.Player;
 import utils.ColorUtils;
 import utils.FontUtils;
