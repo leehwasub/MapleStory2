@@ -1,4 +1,4 @@
-35 12 미나르숲 가파른언덕 leafreNear leafreNear 1 리프레
+35 12 미나르숲 가파른언덕 leafreNear leafreNear 1 리프레 leafre
 0 4 3
 0 9 3
 1 2 1

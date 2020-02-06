@@ -19,12 +19,18 @@ public class TileMapList {
 		tileMapList.add(new TileMap("magatia", ColorUtils.GRAY_40));
 		tileMapList.add(new TileMap("dragonCliff", ColorUtils.SEA_40));
 		tileMapList.add(new TileMap("elnath", ColorUtils.WHITE_40));
-		tileMapList.add(new TileMap("dangerousCliff", ColorUtils.GRAY_40));
-		tileMapList.add(new TileMap("hellCave", ColorUtils.WHITE_40));
+		tileMapList.add(new TileMap("dangerousCliff", ColorUtils.WHITE_60));
+		tileMapList.add(new TileMap("hellCave", ColorUtils.GRAY_40));
 		tileMapList.add(new TileMap("orbisTower", ColorUtils.GRAY_40));
-		tileMapList.add(new TileMap("pellion", ColorUtils.WHITE_40));
-		tileMapList.add(new TileMap("excavationArea", ColorUtils.GRAY_40));
-		tileMapList.add(new TileMap("militaryCamp", ColorUtils.WHITE_40));
+		tileMapList.add(new TileMap("pellion", ColorUtils.DARK_GOLD_40));
+		tileMapList.add(new TileMap("excavationArea", ColorUtils.DARK_GOLD_40));
+		tileMapList.add(new TileMap("militaryCamp", ColorUtils.GRAY_40));
+		tileMapList.add(new TileMap("forest", ColorUtils.GREEN_40));
+		tileMapList.add(new TileMap("leafre", ColorUtils.GREEN_40));
+		tileMapList.add(new TileMap("dragonForest", ColorUtils.DRAGON_FOREST_40));
+		tileMapList.add(new TileMap("sharenianCastle", ColorUtils.GRAY_40));
+		tileMapList.add(new TileMap("genumist", ColorUtils.GRAY_40));
+		tileMapList.add(new TileMap("alcadno", ColorUtils.GRAY_40));
 	}
 	
 	private static TileMap getTileMapWithName(String tileName) {

@@ -1,4 +1,4 @@
-33 35 미나르숲 켄타우로스의영역 leafreNear leafreNear 1 리프레
+33 35 미나르숲 켄타우로스의영역 leafreNear leafreNear 1 리프레 leafre
 0 9 1
 0 17 1
 0 25 1

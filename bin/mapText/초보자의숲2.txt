@@ -1,4 +1,4 @@
-10 15 메이플아일랜드 초보자의숲2 mapleIsland mapleIsland 1 암허스트
+10 15 메이플아일랜드 초보자의숲2 mapleIsland mapleIsland 1 암허스트 forest
 0 7 1
 2 12 1
 3 1 1

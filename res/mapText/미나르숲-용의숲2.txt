@@ -1,4 +1,4 @@
-16 45 미나르숲 용의숲2 dragonForest dragonForest 1 리프레
+16 45 미나르숲 용의숲2 dragonForest dragonForest 1 리프레 dragonForest
 0 9 1
 0 23 1
 0 39 1

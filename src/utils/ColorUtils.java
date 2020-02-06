@@ -22,4 +22,7 @@ public class ColorUtils {
 	public static final Color YELLOW_40 = new Color(255, 255, 0, 102);
 	public static final Color YELLOW_60 = new Color(255, 255, 0, 153);
 	public static final Color GRAY_40 = new Color(128, 128, 128, 102);
+	public static final Color GREEN_40 = new Color(0, 128, 0, 102);
+	public static final Color DRAGON_FOREST_40 = new Color(255, 0, 102, 102);
+	public static final Color DARK_GOLD_40 = new Color(204, 172, 0, 102);
 }

@@ -1,4 +1,4 @@
-25 35 미나르숲 리프레동쪽숲 leafreNear leafreNear 1 리프레
+25 35 미나르숲 리프레동쪽숲 leafreNear leafreNear 1 리프레 leafre
 1 10 1
 1 12 1
 1 16 1

@@ -1,4 +1,4 @@
-5 10 니할사막 알카드노연구소 magatia magatia 0 마가티아
+5 10 니할사막 알카드노연구소 magatia magatia 0 마가티아 alcadno
 0 2 1
 0 4 2
 0 9 3

@@ -1,4 +1,4 @@
-7 15 니할사막 비밀연구소3구역 magatiaNear magatia 6 마가티아
+7 15 니할사막 비밀연구소3구역 magatiaNear magatia 6 마가티아 alcadno
 0 1 1
 0 2 1
 0 6 1

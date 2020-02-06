@@ -1,4 +1,4 @@
-15 30 미나르숲 리프레 leafre leafre 0 리프레
+15 30 미나르숲 리프레 leafre leafre 0 리프레 leafre
 0 10 1
 0 14 3
 1 0 1

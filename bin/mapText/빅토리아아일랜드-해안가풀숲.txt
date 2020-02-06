@@ -1,4 +1,4 @@
-10 27 빅토리아아일랜드 해안가풀숲 victoriaForest victoriaForest 1 리스항구
+10 27 빅토리아아일랜드 해안가풀숲 victoriaForest victoriaForest 1 리스항구 forest
 0 3 1
 0 7 1
 0 11 1

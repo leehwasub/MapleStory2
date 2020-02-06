@@ -1,4 +1,4 @@
-13 37 미나르숲 용의숲입구 leafreNear leafreNear 1 리프레
+13 37 미나르숲 용의숲입구 leafreNear leafreNear 1 리프레 leafre
 0 5 1
 0 6 1
 0 14 1

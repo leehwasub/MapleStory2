@@ -1,4 +1,4 @@
-5 20 니할사막 연구소101호 magatiaNear magatia 1 마가티아
+5 20 니할사막 연구소101호 magatiaNear magatia 1 마가티아 genumist
 0 1 1
 0 5 1
 0 6 1

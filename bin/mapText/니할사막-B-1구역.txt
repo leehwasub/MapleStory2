@@ -1,4 +1,4 @@
-9 25 니할사막 B-1구역 magatiaNear magatia 1 마가티아
+9 25 니할사막 B-1구역 magatiaNear magatia 1 마가티아 alcadno
 0 10 1
 0 14 1
 0 15 1

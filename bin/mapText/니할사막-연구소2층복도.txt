@@ -1,4 +1,4 @@
-5 21 니할사막 연구소2층복도 magatiaNear magatia 0 마가티아
+5 21 니할사막 연구소2층복도 magatiaNear magatia 0 마가티아 genumist
 0 2 1
 0 3 3
 0 4 1

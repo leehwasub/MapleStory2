@@ -1,4 +1,4 @@
-5 10 니할사막 제뉴미스트연구소 magatia magatia 0 마가티아
+5 10 니할사막 제뉴미스트연구소 magatia magatia 0 마가티아 genumist
 0 0 3
 0 2 1
 1 2 1

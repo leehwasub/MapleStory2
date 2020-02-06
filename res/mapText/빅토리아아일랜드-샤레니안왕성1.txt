@@ -1,4 +1,4 @@
-15 35 빅토리아아일랜드 샤레니안왕성1 sharenianCastle sharenianCastle 5 페리온
+15 35 빅토리아아일랜드 샤레니안왕성1 sharenianCastle sharenianCastle 5 페리온 sharenianCastle
 0 9 1
 0 19 1
 0 25 1

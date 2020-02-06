@@ -1,4 +1,4 @@
-30 9 니할사막 C-2구역 magatiaNear magatia 1 마가티아
+30 9 니할사막 C-2구역 magatiaNear magatia 1 마가티아 alcadno
 0 4 3
 2 1 1
 2 3 1

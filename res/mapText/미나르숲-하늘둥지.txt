@@ -1,4 +1,4 @@
-30 20 미나르숲 하늘둥지 leafreNear leafreNear 1 리프레
+30 20 미나르숲 하늘둥지 leafreNear leafreNear 1 리프레 leafre
 0 10 3
 1 0 1
 2 1 1
