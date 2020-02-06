@@ -1,4 +1,4 @@
-2 2 니할사막 선인장사막북쪽 ariantNear1 deo 2 아리안트
+2 2 니할사막 선인장사막북쪽 ariantNear1 deo 2 아리안트 ariant
 0 1 1
 1 0 1
 1 1 1

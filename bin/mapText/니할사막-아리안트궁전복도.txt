@@ -1,4 +1,4 @@
-7 21 니할사막 아리안트궁전복도 ariantPalace ariant 0 아리안트
+7 21 니할사막 아리안트궁전복도 ariantPalace ariant 0 아리안트 ariantPalace
 0 0 1
 0 2 1
 0 4 1

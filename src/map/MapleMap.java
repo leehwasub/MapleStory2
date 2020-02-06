@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import character.Guard;
 import maplestory.MainMapleInterface;
 import maplestory.Player;
+import npc.Npc;
+import npc.NpcList;
 import utils.ColorUtils;
 import utils.FontUtils;
 import utils.MusicUtils;
@@ -118,7 +120,6 @@ public class MapleMap implements Serializable {
 		Point point = calMapPosition[Math.max(player.getCurX() - this.basePoint.getX(), 0)][Math
 				.max(player.getCurY() - this.basePoint.getY(), 0)];
 		drawMapImage(g);
-		g.drawImage(mapPositionImage, point.getY(), point.getX(), null);
 		
 		
 		for (int i = this.basePoint.getX(); i < Math.min(this.basePoint.getX() + MAX_MAP_VIEW_X, this.maxX); i++) {
@@ -132,6 +133,10 @@ public class MapleMap implements Serializable {
 				if (mapinfo == 2) {
 					g.setColor(Color.RED);
 					g.drawString("N", y, x);
+					Npc npc = NpcList.getInstance().getNpc(new PointMapName(i, j, name));
+					if(npc != null) {
+						g.drawImage(npc.getMiniImage(), y - 9, x - 21, null);
+					}
 				} else if (mapinfo == 1) {
 					g.setColor(Color.black);
 					g.drawString("X", y, x);
@@ -143,16 +148,17 @@ public class MapleMap implements Serializable {
 					g.drawImage(MapleMapList.getPortalImage(), y - 9, x - 21, null);
 				} else if (mapinfo == 4) {
 					g.setColor(Color.MAGENTA);
-					g.drawString("S", y, x);
+					g.drawImage(MapleMapList.getStoreImage(), y - 9, x - 21, null);
 				} else if (mapinfo == 5) {
 					g.setColor(Color.YELLOW);
-					g.drawString("H", y, x);
+					g.drawImage(MapleMapList.getHealImage(), y - 9, x - 21, null);
 				} else if (mapinfo == 6) {
 					g.setColor(Color.CYAN);
-					g.drawString("G", y, x);
+					g.drawImage(MapleMapList.getGuardImage(), y - 9, x - 21, null);
 				} 
 			}
 		}
+		g.drawImage(mapPositionImage, point.getY(), point.getX(), null);
 		g.setFont(FontUtils.SMALL_FONT);
 		g.setColor(Color.YELLOW);
 		g.drawString(player.get_curMap().getIsland(), 20, 28);

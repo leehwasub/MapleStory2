@@ -23,6 +23,7 @@ import utils.ResourceLoader;
 public abstract class Npc implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private transient Image image;
+	private transient Image miniImage;
 	private String imageUrl;
 	protected String name;
 	protected int process;
@@ -45,6 +46,7 @@ public abstract class Npc implements Serializable {
 
 	public void setImageForInit() {
 		this.image = ResourceLoader.getImage("npcImage", this.imageUrl + "NpcImage.png");
+		this.miniImage = ResourceLoader.getImage("npcMiniImage", this.imageUrl + "NpcImage.png");
 	}
 
 	public void initTalkList(String engName) throws Exception {
@@ -213,6 +215,10 @@ public abstract class Npc implements Serializable {
 
 	public void setClearNum(int clearNum) {
 		this.clearNum = clearNum;
+	}
+	
+	public Image getMiniImage() {
+		return miniImage;
 	}
 	
 }

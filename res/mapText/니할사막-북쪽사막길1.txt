@@ -1,4 +1,4 @@
-50 70 니할사막 북쪽사막길1 ariantNear2 ariantNear2 1 아리안트
+50 70 니할사막 북쪽사막길1 ariantNear2 ariantNear2 1 아리안트 ariant
 1 52 1
 1 54 1
 2 56 1

@@ -31,6 +31,9 @@ public class TileMapList {
 		tileMapList.add(new TileMap("sharenianCastle", ColorUtils.GRAY_40));
 		tileMapList.add(new TileMap("genumist", ColorUtils.GRAY_40));
 		tileMapList.add(new TileMap("alcadno", ColorUtils.GRAY_40));
+		tileMapList.add(new TileMap("ariant", ColorUtils.DARK_GOLD_40));
+		tileMapList.add(new TileMap("ariantPalace", ColorUtils.WHITE_40));
+		tileMapList.add(new TileMap("emptyHouse", ColorUtils.DARK_GOLD_40));
 	}
 	
 	private static TileMap getTileMapWithName(String tileName) {

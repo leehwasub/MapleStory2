@@ -1,4 +1,4 @@
-10 30 니할사막 아리안트마을 ariant ariant 0 아리안트
+10 30 니할사막 아리안트마을 ariant ariant 0 아리안트 ariant
 0 8 1
 0 9 3
 0 10 1

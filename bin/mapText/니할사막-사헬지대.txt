@@ -1,4 +1,4 @@
-30 50 니할사막 사헬지대 ariantNear2 ariantNear2 1 마가티아
+30 50 니할사막 사헬지대 ariantNear2 ariantNear2 1 마가티아 ariant
 0 26 1
 1 25 1
 1 27 1

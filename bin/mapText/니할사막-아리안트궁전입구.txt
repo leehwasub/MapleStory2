@@ -1,4 +1,4 @@
-7 7 니할사막 아리안트궁전입구 ariant ariant 0 아리안트
+7 7 니할사막 아리안트궁전입구 ariant ariant 0 아리안트 ariant
 0 3 3
 1 0 1
 1 1 1

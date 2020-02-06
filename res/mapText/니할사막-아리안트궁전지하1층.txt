@@ -1,4 +1,4 @@
-30 15 니할사막 아리안트궁전지하1층 ariantPalace ariant 0 아리안트
+30 15 니할사막 아리안트궁전지하1층 ariantPalace ariant 0 아리안트 ariantPalace
 0 0 3
 1 1 1
 1 2 1

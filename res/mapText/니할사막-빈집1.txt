@@ -1,4 +1,4 @@
-4 4 니할사막 빈집1 ariant ariant 0 아리안트
+4 4 니할사막 빈집1 ariant ariant 0 아리안트 emptyHouse
 1 1 1
 1 2 2
 2 1 1

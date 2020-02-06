@@ -1,4 +1,4 @@
-45 45 니할사막 마른사막 ariantNear1 ariantNear1 1 아리안트
+45 45 니할사막 마른사막 ariantNear1 ariantNear1 1 아리안트 ariant
 1 11 1
 2 24 1
 2 37 1

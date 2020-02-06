@@ -16,6 +16,9 @@ public class MapleMapList {
 	private ArrayList<MapleMap> maps = new ArrayList<MapleMap>();
 	
 	private static final Image PORTAL_IMAGE = ResourceLoader.getImage("componentImage", "portalImage.png");
+	private static final Image GUARD_IMAGE = ResourceLoader.getImage("componentImage", "guardImage.png");
+	private static final Image STORE_IMAGE = ResourceLoader.getImage("componentImage", "storeImage.png");
+	private static final Image HEAL_IMAGE = ResourceLoader.getImage("componentImage", "healImage.png");
 	private static MapleMapList instance;
 	
 
@@ -314,7 +317,18 @@ public class MapleMapList {
 	public static Image getPortalImage() {
 		return PORTAL_IMAGE;
 	}
+	
+	public static Image getGuardImage() {
+		return GUARD_IMAGE;
+	}
 
+	public static Image getStoreImage() {
+		return STORE_IMAGE;
+	}
+	
+	public static Image getHealImage() {
+		return HEAL_IMAGE;
+	}
 
 	public MapleMap getMap(String mapName) {
 		for (int i = 0; i < maps.size(); i++) {

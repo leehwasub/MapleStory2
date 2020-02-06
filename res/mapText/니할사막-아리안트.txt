@@ -1,4 +1,4 @@
-15 40 니할사막 아리안트 ariant ariant 0 아리안트
+15 40 니할사막 아리안트 ariant ariant 0 아리안트 ariant
 0 8 3
 0 19 3
 0 24 1

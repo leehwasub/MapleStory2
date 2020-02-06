@@ -1,4 +1,4 @@
-9 16 니할사막 아리안트승강장 ariant ariant 0 아리안트
+9 16 니할사막 아리안트승강장 ariant ariant 0 아리안트 ariant
 0 0 1
 0 3 1
 0 6 1
