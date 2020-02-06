@@ -19,7 +19,7 @@ public class TileMapList {
 		tileMapList.add(new TileMap("magatia", ColorUtils.GRAY_40));
 		tileMapList.add(new TileMap("dragonCliff", ColorUtils.SEA_40));
 		tileMapList.add(new TileMap("elnath", ColorUtils.WHITE_40));
-		tileMapList.add(new TileMap("dangerousCliff", ColorUtils.WHITE_60));
+		tileMapList.add(new TileMap("dangerousCliff", ColorUtils.WHITE_40));
 		tileMapList.add(new TileMap("hellCave", ColorUtils.GRAY_40));
 		tileMapList.add(new TileMap("orbisTower", ColorUtils.GRAY_40));
 		tileMapList.add(new TileMap("pellion", ColorUtils.DARK_GOLD_40));
@@ -34,6 +34,10 @@ public class TileMapList {
 		tileMapList.add(new TileMap("ariant", ColorUtils.DARK_GOLD_40));
 		tileMapList.add(new TileMap("ariantPalace", ColorUtils.WHITE_40));
 		tileMapList.add(new TileMap("emptyHouse", ColorUtils.DARK_GOLD_40));
+		tileMapList.add(new TileMap("amherst", ColorUtils.GREEN_40));
+		tileMapList.add(new TileMap("lithHarbor", ColorUtils.WHITE_40));
+		tileMapList.add(new TileMap("orbisNear", ColorUtils.WHITE_40));
+		tileMapList.add(new TileMap("orbis", ColorUtils.WHITE_40));
 	}
 	
 	private static TileMap getTileMapWithName(String tileName) {

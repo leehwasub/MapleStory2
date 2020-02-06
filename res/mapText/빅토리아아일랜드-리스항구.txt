@@ -1,4 +1,4 @@
-20 15 빅토리아아일랜드 리스항구 lithHarbor lithHarbor 0 리스항구
+20 15 빅토리아아일랜드 리스항구 lithHarbor lithHarbor 0 리스항구 lithHarbor
 0 13 1
 0 14 1
 1 11 5

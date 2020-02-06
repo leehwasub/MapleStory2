@@ -1,4 +1,4 @@
-25 40 엘나스산맥 구름공원1 orbisNear orbis 1 오르비스
+25 40 엘나스산맥 구름공원1 orbisNear orbis 1 오르비스 orbisNear
 1 13 1
 2 4 1
 2 12 1

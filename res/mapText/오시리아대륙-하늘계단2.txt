@@ -1,4 +1,4 @@
-15 40 엘나스산맥 하늘계단2 orbisNear orbis 1 오르비스
+15 40 엘나스산맥 하늘계단2 orbisNear orbis 1 오르비스 orbisNear
 0 5 1
 0 15 1
 0 30 1

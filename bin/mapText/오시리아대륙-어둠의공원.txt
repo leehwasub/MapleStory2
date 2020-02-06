@@ -1,4 +1,4 @@
-2 2 엘나스산맥 어둠의공원 orbisNear boss1 2 오르비스
+2 2 엘나스산맥 어둠의공원 orbisNear boss1 2 오르비스 orbisNear
 0 1 1
 1 0 1
 1 1 1

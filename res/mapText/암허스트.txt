@@ -1,4 +1,4 @@
-13 17 메이플아일랜드 암허스트 amherst amherst 0 암허스트
+13 17 메이플아일랜드 암허스트 amherst amherst 0 암허스트 amherst
 1 4 1
 2 9 4
 2 12 1
