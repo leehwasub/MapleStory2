@@ -1,4 +1,4 @@
-25 13 빅토리아아일랜드 발굴중단지역 excavationArea excavationArea 1 페리온
+25 13 빅토리아아일랜드 발굴중단지역 excavationArea excavationArea 1 페리온 excavationArea
 0 4 3
 2 7 1
 2 8 1

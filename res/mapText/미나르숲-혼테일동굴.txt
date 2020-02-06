@@ -1,4 +1,4 @@
-2 2 미나르숲 혼테일동굴 dragonCliff hontale 2 리프레
+2 2 미나르숲 혼테일동굴 dragonCliff hontale 2 리프레 dragonCliff
 0 1 1
 1 0 1
 1 1 1

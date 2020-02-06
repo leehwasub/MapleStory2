@@ -28,6 +28,8 @@ public class MapleMap implements Serializable {
 	private ArrayList<Portal> portalList = new ArrayList<Portal>();
 	private Point basePoint = new Point(0, 0);
 	private String warpMapName;
+	private String tileMapName;
+	private int[][] tileMap;
 	
 	private ArrayList<Guard> guardList = new ArrayList<Guard>();
 	
@@ -83,22 +85,28 @@ public class MapleMap implements Serializable {
 	public void drawMapImage(Graphics2D g) {
 		int startX = 20;
 		int startY = 40;
-		g.setColor(ColorUtils.WHITE_60);
+		g.setColor(ColorUtils.WHITE_0);
 		g.fillRect(startX, startY, 32*Math.min(maxY, MAX_MAP_VIEW_Y), 32*Math.min(maxX, MAX_MAP_VIEW_X));
 		g.setColor(Color.YELLOW);
 		for(int i = 1; i < Math.min(maxY, MAX_MAP_VIEW_Y); i++) {
-			g.drawLine(startX + 32*i, startY, startX + 32*i, startY+32*Math.min(maxX, MAX_MAP_VIEW_X));
+			//g.drawLine(startX + 32*i, startY, startX + 32*i, startY+32*Math.min(maxX, MAX_MAP_VIEW_X));
 		}
 		for(int i = 1; i < Math.min(maxX, MAX_MAP_VIEW_X); i++) {
-			g.drawLine(startX, startY + 32*i, startX + 32*Math.min(maxY, MAX_MAP_VIEW_Y), startY+32*i);
+			//g.drawLine(startX, startY + 32*i, startX + 32*Math.min(maxY, MAX_MAP_VIEW_Y), startY+32*i);
 		}
 	}
 	
 	public void drawMapPanelImage(Graphics2D g) {
 		int startX = 10;
 		int startY = 10;
-		g.setColor(ColorUtils.BLACK_80);
+		if(tileMapName != null && tileMapName.length() != 0) {
+			g.setColor(TileMapList.getFloorColor(tileMapName));
+		} else {
+			g.setColor(ColorUtils.WHITE_40);
+		}
 		g.fillRect(startX, startY, 32*Math.min(maxY, MAX_MAP_VIEW_Y) + 20, 32*Math.min(maxX, MAX_MAP_VIEW_X) + 40);
+		g.setColor(ColorUtils.BLACK_80);
+		g.fillRect(startX, startY, 32*Math.min(maxY, MAX_MAP_VIEW_Y) + 20, 28);
 	}
 
 	public void drawMap(Graphics2D g, Player player) {
@@ -120,15 +128,19 @@ public class MapleMap implements Serializable {
 				g.setFont(FontUtils.generalFont);
 				int y = point2.getY() + 4;
 				int x = point2.getX() + 15;
+				//9 21
 				if (mapinfo == 2) {
 					g.setColor(Color.RED);
 					g.drawString("N", y, x);
 				} else if (mapinfo == 1) {
 					g.setColor(Color.black);
 					g.drawString("X", y, x);
+					if(tileMapName != null && tileMapName.length() != 0) {
+						g.drawImage(TileMapList.getTileImage(tileMapName, tileMap[i][j]), y - 9, x - 21, null);
+					}
 				} else if (mapinfo == 3) {
 					g.setColor(Color.BLUE);
-					g.drawString("P", y, x);
+					g.drawImage(MapleMapList.getPortalImage(), y - 9, x - 21, null);
 				} else if (mapinfo == 4) {
 					g.setColor(Color.MAGENTA);
 					g.drawString("S", y, x);
@@ -138,7 +150,7 @@ public class MapleMap implements Serializable {
 				} else if (mapinfo == 6) {
 					g.setColor(Color.CYAN);
 					g.drawString("G", y, x);
-				}
+				} 
 			}
 		}
 		g.setFont(FontUtils.SMALL_FONT);
@@ -475,6 +487,28 @@ public class MapleMap implements Serializable {
 
 	public void setWarpMapName(String warpMapName) {
 		this.warpMapName = warpMapName;
+	}
+
+	public String getTileMapName() {
+		return tileMapName;
+	}
+
+	public void setTileMapName(String tileMapName) {
+		this.tileMapName = tileMapName;
+	}
+
+	public int[][] getTileMap() {
+		return tileMap;
+	}
+
+	public void setTileMap(int[][] tileMap) {
+		this.tileMap = tileMap;
+		for(int i = 0; i < tileMap.length; i++) {
+			for(int j = 0; j < tileMap[i].length; j++) {
+				System.out.print(tileMap[i][j] + " ");
+			}
+			System.out.println();
+		}
 	}
 
 	public String toString() {

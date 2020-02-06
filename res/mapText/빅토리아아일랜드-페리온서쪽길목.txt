@@ -1,4 +1,4 @@
-25 20 빅토리아아일랜드 페리온서쪽길목 pellionNear pellion 1 페리온
+25 20 빅토리아아일랜드 페리온서쪽길목 pellionNear pellion 1 페리온 pellion
 0 1 1
 0 7 1
 0 8 1

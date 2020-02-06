@@ -1,4 +1,4 @@
-11 21 미나르숲 혼테일동굴입구 dragonCliff dragonCliff 0 리프레
+11 21 미나르숲 혼테일동굴입구 dragonCliff dragonCliff 0 리프레 dragonCliff
 0 4 1
 0 9 1
 0 14 1

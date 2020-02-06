@@ -1,4 +1,4 @@
-12 30 엘나스산맥 엘나스 elnath elnath 0 엘나스
+12 30 엘나스산맥 엘나스 elnath elnath 0 엘나스 elnath
 0 7 1
 0 16 1
 0 21 1

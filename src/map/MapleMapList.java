@@ -1,5 +1,6 @@
 package map;
 
+import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -9,10 +10,12 @@ import maplestory.Main;
 import maplestory.MainMapleInterface;
 import maplestory.Player;
 import utils.FileLoader;
+import utils.ResourceLoader;
 
 public class MapleMapList {
 	private ArrayList<MapleMap> maps = new ArrayList<MapleMap>();
 	
+	private static final Image PORTAL_IMAGE = ResourceLoader.getImage("componentImage", "portalImage.png");
 	private static MapleMapList instance;
 	
 
@@ -59,6 +62,10 @@ public class MapleMapList {
 						mapleMap.setMapType(Integer.parseInt(property[6]));
 						mapleMap.setWarpMapName(property[7]);
 						mapleMap.initMap(Integer.parseInt(property[0]), Integer.parseInt(property[1]));
+						if(property.length == 9) {
+							mapleMap.setTileMapName(property[8]);
+							mapleMap.setTileMap(TileMapList.makeRandomTileNumbers(property[8], mapleMap.getMaxX(), mapleMap.getMaxY()));
+						}
 					} else {
 						mapleMap.setMap(Integer.parseInt(property[0]), Integer.parseInt(property[1]),
 								Integer.parseInt(property[2]));
@@ -302,6 +309,12 @@ public class MapleMapList {
 		getMap("혼테일동굴입구").addPortal(new Portal(new PointMapName(5, 0, "혼테일동굴입구"), new PointMapName(0, 0, "혼테일동굴")));
 		//시간의신전
 	}
+	
+	
+	public static Image getPortalImage() {
+		return PORTAL_IMAGE;
+	}
+
 
 	public MapleMap getMap(String mapName) {
 		for (int i = 0; i < maps.size(); i++) {

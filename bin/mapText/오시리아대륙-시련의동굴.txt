@@ -1,4 +1,4 @@
-30 40 엘나스산맥 시련의동굴 hellCave hellCave 1 엘나스
+30 40 엘나스산맥 시련의동굴 hellCave hellCave 1 엘나스 hellCave
 0 0 1
 0 1 1
 0 2 1

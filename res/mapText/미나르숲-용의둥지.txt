@@ -1,4 +1,4 @@
-45 45 미나르숲 용의둥지 dragonCliff dragonCliff 1 리프레
+45 45 미나르숲 용의둥지 dragonCliff dragonCliff 1 리프레 dragonCliff
 0 5 3
 0 17 1
 0 35 1

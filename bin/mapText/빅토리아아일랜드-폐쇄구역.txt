@@ -1,4 +1,4 @@
-25 25 빅토리아아일랜드 폐쇄구역 excavationArea excavationArea 1 페리온
+25 25 빅토리아아일랜드 폐쇄구역 excavationArea excavationArea 1 페리온 excavationArea
 0 15 1
 0 21 1
 1 0 1

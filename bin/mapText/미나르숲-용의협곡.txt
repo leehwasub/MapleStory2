@@ -1,4 +1,4 @@
-47 22 미나르숲 용의협곡 dragonCliff dragonCliff 1 리프레
+47 22 미나르숲 용의협곡 dragonCliff dragonCliff 1 리프레 dragonCliff
 0 5 1
 0 11 3
 0 16 1

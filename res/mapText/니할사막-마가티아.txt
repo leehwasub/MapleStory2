@@ -1,4 +1,4 @@
-20 30 니할사막 마가티아 magatia magatia 0 마가티아
+20 30 니할사막 마가티아 magatia magatia 0 마가티아 magatia
 0 8 1
 0 10 3
 0 12 1
