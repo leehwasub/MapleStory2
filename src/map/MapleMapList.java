@@ -67,7 +67,6 @@ public class MapleMapList {
 						mapleMap.initMap(Integer.parseInt(property[0]), Integer.parseInt(property[1]));
 						if(property.length == 9) {
 							mapleMap.setTileMapName(property[8]);
-							mapleMap.setTileMap(TileMapList.makeRandomTileNumbers(property[8], mapleMap.getMaxX(), mapleMap.getMaxY()));
 						}
 					} else {
 						mapleMap.setMap(Integer.parseInt(property[0]), Integer.parseInt(property[1]),

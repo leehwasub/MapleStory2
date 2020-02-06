@@ -471,6 +471,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 
 	private void moveOtherMapEvent() {
 		int type = player.getNextMapType();
+		if(!MapMoveCondition.checkCanMove(player, this)) return;
 		switch(type) {
 		case MapleMap.MAP_SAILING_TYPE:
 			int ans = JOptionPane.showConfirmDialog(null, "배에 탑승하면 도중에 내릴 수 없습니다. 탑승하시겠습니까?", "확인", JOptionPane.YES_NO_OPTION);
@@ -502,9 +503,6 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			moveOtherMapButton.setVisible(false);
 			break;
 		}
-		
-		if(!MapMoveCondition.checkCanMove(player, this)) return;
-		
 		this.player.get_curMap().moveOtherMap(this.player, this);
 		
 		int mapState = player.get_curMap().getMap(player.getCurX(), player.getCurY());

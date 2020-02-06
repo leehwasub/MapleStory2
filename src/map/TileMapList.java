@@ -4,17 +4,26 @@ import java.awt.Color;
 import java.awt.Image;
 import java.util.ArrayList;
 
+import monster.TripleRumo;
 import utils.ColorUtils;
 
 public class TileMapList {
 	
-	private static ArrayList<TileMap> tileMapList = new ArrayList<TileMap>();
+	private static TileMapList instance;
+	private ArrayList<TileMap> tileMapList = new ArrayList<TileMap>();
 	
-	static {
+	public TileMapList() {
 		init();
 	}
+	
+	public static TileMapList getInstance() {
+		if(instance == null) {
+			instance = new TileMapList();
+		}
+		return instance;
+	}
 
-	private static void init() {
+	private void init() {
 		tileMapList.clear();
 		tileMapList.add(new TileMap("magatia", ColorUtils.GRAY_40));
 		tileMapList.add(new TileMap("dragonCliff", ColorUtils.SEA_40));
@@ -40,7 +49,7 @@ public class TileMapList {
 		tileMapList.add(new TileMap("orbis", ColorUtils.WHITE_40));
 	}
 	
-	private static TileMap getTileMapWithName(String tileName) {
+	private TileMap getTileMapWithName(String tileName) {
 		for(int i = 0; i < tileMapList.size(); i++) {
 			if(tileMapList.get(i).getTileName().equals(tileName)) {
 				return tileMapList.get(i);
@@ -49,15 +58,11 @@ public class TileMapList {
 		return null;
 	}
 	
-	public static int[][] makeRandomTileNumbers(String tileName, int x, int y){
-		return getTileMapWithName(tileName).makeRandomTileNumbers(x, y);
+	public Image getTileImage(String tileName){
+		return getTileMapWithName(tileName).getTileImage();
 	}
 	
-	public static Image getTileImage(String tileName, int index){
-		return getTileMapWithName(tileName).getTileImage(index);
-	}
-	
-	public static Color getFloorColor(String tileName){
+	public Color getFloorColor(String tileName){
 		return getTileMapWithName(tileName).getFloorColor();
 	}
 	

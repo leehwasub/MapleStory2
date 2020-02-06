@@ -6,6 +6,7 @@ import monsterAttack.AccuracyRateDownAttack;
 import monsterAttack.AccuracyRateUpAttack;
 import monsterAttack.AdvancedFlameShootAttack;
 import monsterAttack.BatSweamAttack;
+import monsterAttack.BlazingExtinctionAttack;
 import monsterAttack.BlowBeastAttack;
 import monsterAttack.BuffRemoveAttack;
 import monsterAttack.ChainLightningAttack;
@@ -136,6 +137,8 @@ public class AttackFactory {
 			return new FlameBarrierAttack(hunt, attacker, opponents, new MonsterSkill("플레임배리어", Property.PROPERTY_FIRE, skillPoint, AttackType.MYSELF));
 		case "플레인차지드라이브":
 			return new PlainChargeDriveAttack(hunt, attacker, opponents, new MonsterSkill("플레인차지드라이브", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
+		case "블레이징익스팅션":
+			return new BlazingExtinctionAttack(hunt, attacker, opponents, new MonsterSkill("블레이징익스팅션", Property.PROPERTY_FIRE, skillPoint, AttackType.OPPONENT));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

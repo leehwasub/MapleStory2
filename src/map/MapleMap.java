@@ -102,7 +102,7 @@ public class MapleMap implements Serializable {
 		int startX = 10;
 		int startY = 10;
 		if(tileMapName != null && tileMapName.length() != 0) {
-			g.setColor(TileMapList.getFloorColor(tileMapName));
+			g.setColor(TileMapList.getInstance().getFloorColor(tileMapName));
 		} else {
 			g.setColor(ColorUtils.WHITE_40);
 		}
@@ -141,7 +141,7 @@ public class MapleMap implements Serializable {
 					g.setColor(Color.black);
 					g.drawString("X", y, x);
 					if(tileMapName != null && tileMapName.length() != 0) {
-						g.drawImage(TileMapList.getTileImage(tileMapName, tileMap[i][j]), y - 9, x - 21, null);
+						g.drawImage(TileMapList.getInstance().getTileImage(tileMapName), y - 9, x - 21, null);
 					}
 				} else if (mapinfo == 3) {
 					g.setColor(Color.BLUE);

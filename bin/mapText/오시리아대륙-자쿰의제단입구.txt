@@ -1,4 +1,4 @@
-7 17 엘나스산맥 자쿰의제단입구 hellCave hellCave 0 엘나스
+7 17 엘나스산맥 자쿰의제단입구 hellCave hellCave 0 엘나스 hellCave
 0 0 1
 0 1 1
 0 2 1

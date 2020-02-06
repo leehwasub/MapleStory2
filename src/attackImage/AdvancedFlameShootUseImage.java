@@ -17,7 +17,6 @@ public class AdvancedFlameShootUseImage extends SkillImage {
 		MusicUtils.startEffectSound("advancedFlameShootUse");
 		for (int i = 0; i < this.imageList.size(); i++) {
 			this.index = i;
-			System.out.println(this.index);
 			try {
 				Thread.sleep(delayList.get(i));
 			} catch (InterruptedException e) {

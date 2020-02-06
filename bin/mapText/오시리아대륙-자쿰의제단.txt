@@ -1,4 +1,4 @@
-2 2 엘나스산맥 자쿰의제단 hellCave zakum 2 엘나스
+2 2 엘나스산맥 자쿰의제단 hellCave zakum 2 엘나스 hellCave
 0 1 1
 1 0 1
 1 1 1

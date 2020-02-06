@@ -178,6 +178,8 @@ public class MonsterFactory {
 			return new Cornian();
 		case "다크와이번":
 			return new DarkWyvern();
+		case "혼테일":
+			return new Horntail();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -267,6 +269,7 @@ public class MonsterFactory {
 		monsters.add(makeMonster("레드와이번"));
 		monsters.add(makeMonster("코니언"));
 		monsters.add(makeMonster("다크와이번"));
+		monsters.add(makeMonster("혼테일"));
 		Collections.sort(monsters);
 		return monsters;
 	}
@@ -655,6 +658,9 @@ public class MonsterFactory {
 			} if (isRange(percent, 5, 10)) {
 				ret = makeMonster("코니언");
 			}
+			break;
+		case "혼테일동굴":
+			ret = makeMonster("혼테일");
 			break;
 		}
 		return ret;
