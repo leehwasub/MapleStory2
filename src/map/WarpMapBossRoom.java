@@ -23,6 +23,14 @@ public class WarpMapBossRoom {
 			return new PointMapName(3, 7, "비밀연구소3구역");
 		case "혼테일":
 			return new PointMapName(5, 0, "혼테일동굴입구");
+		case "도도":
+			return new PointMapName(0, 18, "추억의길2");
+		case "릴리노흐":
+			return new PointMapName(18, 20, "후회의길2");
+		case "라이카":
+			return new PointMapName(20, 18, "망각의길2");
+		case "핑크빈":
+			return new PointMapName(6, 3, "잊혀진회랑");
 		default:
 			JOptionPane.showMessageDialog(null, "보스 종료후 워프 실패!!", "오류", JOptionPane.ERROR_MESSAGE);
 			break;
@@ -61,6 +69,18 @@ public class WarpMapBossRoom {
 			break;
 		case "혼테일":
 			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(5, 0, "혼테일동굴입구"), MapleMap.MAP_EMPTY_STATE));
+			break;
+		case "도도":
+			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(0, 18, "추억의길2"), MapleMap.MAP_EMPTY_STATE));
+			break;
+		case "릴리노흐":
+			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(18, 20, "후회의길2"), MapleMap.MAP_EMPTY_STATE));
+			break;
+		case "라이카":
+			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(20, 18, "망각의길2"), MapleMap.MAP_EMPTY_STATE));
+			break;
+		case "핑크빈":
+			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(6, 3, "잊혀진회랑"), MapleMap.MAP_EMPTY_STATE));
 			break;
 		default:
 			JOptionPane.showMessageDialog(null, "보스 종료후 보스 워프 닫기 실패!!", "오류", JOptionPane.ERROR_MESSAGE);

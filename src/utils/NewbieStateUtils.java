@@ -1,8 +1,8 @@
 package utils;
 
 public class NewbieStateUtils {
-	private static final int[] MAX_HP = new int[91];
-	private static final int[] MAX_MP = new int[91];
+	private static final int[] MAX_HP = new int[ExpUtils.MAX_LEVEL + 1];
+	private static final int[] MAX_MP = new int[ExpUtils.MAX_LEVEL + 1];
 
 	static {
 		int b = 0;

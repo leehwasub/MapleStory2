@@ -1,0 +1,4 @@
+2 2 시간의신전 문지기의방3 templeOfTimeNear2 templeOfTimeBoss 2 시간의신전 templeOfTime3
+0 1 1
+1 0 1
+1 1 1

@@ -248,8 +248,7 @@ public class ItemPool {
 		items.put("블레이즈캡슐", new BuffItem("블레이즈캡슐", 4000, "blazeCapsule", 1, 40, new Strength(new Resistance(30, 0, 0, 0, 0, 0), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), 15));
 		items.put("글레이스캡슐", new BuffItem("글레이스캡슐", 4000, "glaceCapsule", 1, 40, new Strength(new Resistance(0, 30, 0, 0, 0, 0), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), 15));
 		items.put("코카콜라알약", new BuffItem("코카콜라알약", 2000, "coke", 1, 50, new Strength(new Resistance(), 0, 0, 0, 0, 0, 100, 100, 0, 0, 0), 15));
-		items.put("코카콜라제로알약", new BuffItem("코카콜라제로알약", 3000, "cokeZero", 1, 60, new Strength(new Resistance(), 0, 0, 0, 0, 0, 150, 150, 0, 0, 0), 15));
-		
+		items.put("코카콜라제로알약", new BuffItem("코카콜라제로알약", 3000, "cokeZero", 1, 60, new Strength(new Resistance(), 0, 0, 0, 0, 0, 150, 150, 0, 0, 0), 15));	
 		items.put("최상급영웅의비약", new BuffItem("최상급영웅의비약", 20000, "greatestHeroSecretPortion", 1, 80, new Strength(new Resistance(), 0, 0, 0, 24, 24, 200, 200, 10, 10, 10), 20));
 		
 		items.put("마을귀환주문서", new WarpItem("마을귀환주문서", 200, "villegeReturn", 1, 1, "가까운 마을로 이동할 수 있는 주문서이다"));
@@ -285,7 +284,9 @@ public class ItemPool {
 		items.put("페리온을구한자", new EquipmentItem("페리온을구한자", 50000, "savePellion", 1,
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 25, 100, 0, 2, 0, 0, 0, 1, 0, 0), EquipmentItem.EQUIPMENT_TYPE_TITLE, SexType.ALL, false));
 		items.put("엘나스를구한자", new EquipmentItem("엘나스를구한자", 50000, "saveElnath", 1,
-				new Strength(new Resistance(0, 10, 0, 0, 0, 0), 25, 0, 0, 0, 0, 50, 50, 0, 0, 2), EquipmentItem.EQUIPMENT_TYPE_TITLE, SexType.ALL, false));
+				new Strength(new Resistance(0, 10, 0, 0, 0, 0), 40, 0, 0, 0, 0, 50, 50, 0, 0, 2), EquipmentItem.EQUIPMENT_TYPE_TITLE, SexType.ALL, false));
+		items.put("리프레의영웅", new EquipmentItem("리프레의영웅", 300000, "heroOfLeafre", 1,
+				new Strength(new Resistance(20, 20, 0, 0, 0, 0), 80, 150, 150, 0, 0, 80, 80, 5, 5, 5), EquipmentItem.EQUIPMENT_TYPE_TITLE, SexType.ALL, true));
 	}
 
 	private static void initGloveItem() {

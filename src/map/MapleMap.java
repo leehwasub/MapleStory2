@@ -145,16 +145,16 @@ public class MapleMap implements Serializable {
 					}
 				} else if (mapinfo == 3) {
 					g.setColor(Color.BLUE);
-					g.drawImage(MapleMapList.getPortalImage(), y - 9, x - 21, null);
+					g.drawImage(MapleMapList.getInstance().getPortalImage(), y - 9, x - 21, null);
 				} else if (mapinfo == 4) {
 					g.setColor(Color.MAGENTA);
-					g.drawImage(MapleMapList.getStoreImage(), y - 9, x - 21, null);
+					g.drawImage(MapleMapList.getInstance().getStoreImage(), y - 9, x - 21, null);
 				} else if (mapinfo == 5) {
 					g.setColor(Color.YELLOW);
-					g.drawImage(MapleMapList.getHealImage(), y - 9, x - 21, null);
+					g.drawImage(MapleMapList.getInstance().getHealImage(), y - 9, x - 21, null);
 				} else if (mapinfo == 6) {
 					g.setColor(Color.CYAN);
-					g.drawImage(MapleMapList.getGuardImage(), y - 9, x - 21, null);
+					g.drawImage(MapleMapList.getInstance().getGuardImage(), y - 9, x - 21, null);
 				} 
 			}
 		}

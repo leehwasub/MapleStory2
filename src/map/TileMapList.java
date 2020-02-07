@@ -12,7 +12,7 @@ public class TileMapList {
 	private static TileMapList instance;
 	private ArrayList<TileMap> tileMapList = new ArrayList<TileMap>();
 	
-	public TileMapList() {
+	private TileMapList() {
 		init();
 	}
 	
@@ -47,6 +47,9 @@ public class TileMapList {
 		tileMapList.add(new TileMap("lithHarbor", ColorUtils.WHITE_40));
 		tileMapList.add(new TileMap("orbisNear", ColorUtils.WHITE_40));
 		tileMapList.add(new TileMap("orbis", ColorUtils.WHITE_40));
+		tileMapList.add(new TileMap("templeOfTime1", ColorUtils.WHITE_40));
+		tileMapList.add(new TileMap("templeOfTime2", ColorUtils.WHITE_40));
+		tileMapList.add(new TileMap("templeOfTime3", ColorUtils.WHITE_40));
 	}
 	
 	private TileMap getTileMapWithName(String tileName) {

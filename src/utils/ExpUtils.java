@@ -2,7 +2,9 @@ package utils;
 
 public class ExpUtils {
 	
-	public static int[] needExp = new int[101];
+	public static final int MAX_LEVEL = 100;
+	
+	public static int[] needExp = new int[MAX_LEVEL + 1];
 
 	static {
 		initNeedExp();
@@ -112,7 +114,7 @@ public class ExpUtils {
 	}
 	
 	public static int getFullLevel() {
-		return 100;
+		return MAX_LEVEL;
 	}
 
 	public static int[] getNeedExp() {

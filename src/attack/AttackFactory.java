@@ -28,6 +28,7 @@ import monsterAttack.FlameShootAttack;
 import monsterAttack.FlashAttack;
 import monsterAttack.HpHealAttack;
 import monsterAttack.HumanityInAttack;
+import monsterAttack.IceStrikeAttack;
 import monsterAttack.InfinityAttack;
 import monsterAttack.ManaBurstAttack;
 import monsterAttack.MassiveFireAttack;
@@ -35,12 +36,14 @@ import monsterAttack.MassiveSplashAttack;
 import monsterAttack.MonsterAttack;
 import monsterAttack.MoonlightSpearAttack;
 import monsterAttack.PlainChargeDriveAttack;
+import monsterAttack.PoisonBreathAttack;
 import monsterAttack.PoisonMistAttack;
 import monsterAttack.PowerTransferAttack;
 import monsterAttack.RocketPunchAttack;
 import monsterAttack.ShadowShellAttack;
 import monsterAttack.ShiningBusterAttack;
 import monsterAttack.SkillLockAttack;
+import monsterAttack.SoulEndureAttack;
 import monsterAttack.SwordAttack;
 import monsterAttack.TackleAttack;
 import monsterAttack.UnforgettableNightmareAttack;
@@ -139,6 +142,12 @@ public class AttackFactory {
 			return new PlainChargeDriveAttack(hunt, attacker, opponents, new MonsterSkill("플레인차지드라이브", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
 		case "블레이징익스팅션":
 			return new BlazingExtinctionAttack(hunt, attacker, opponents, new MonsterSkill("블레이징익스팅션", Property.PROPERTY_FIRE, skillPoint, AttackType.OPPONENT));
+		case "포이즌브레스":
+			return new PoisonBreathAttack(hunt, attacker, opponents, new MonsterSkill("포이즌브레스", Property.PROPERTY_POSION, skillPoint, AttackType.OPPONENT));
+		case "소울인듀어":
+			return new SoulEndureAttack(hunt, attacker, opponents, new MonsterSkill("소울인듀어", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
+		case "아이스스트라이크":
+			return new IceStrikeAttack(hunt, attacker, opponents, new MonsterSkill("아이스스트라이크", Property.PROPERTY_ICE, skillPoint, AttackType.OPPONENT));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

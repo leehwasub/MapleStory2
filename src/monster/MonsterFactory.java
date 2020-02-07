@@ -180,6 +180,18 @@ public class MonsterFactory {
 			return new DarkWyvern();
 		case "혼테일":
 			return new Horntail();
+		case "추억의신관":
+			return new MemoryMonkTrainee();
+		case "추억의수호대장":
+			return new ChiefMemoryGuardian();
+		case "후회의신관":
+			return new QualmMonkTrainee();
+		case "후회의수호대장":
+			return new ChiefQualmGuardian();
+		case "망각의신관":
+			return new OblivionMonkTrainee();
+		case "망각의수호대장":
+			return new ChiefOblivionGuardian();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -270,6 +282,12 @@ public class MonsterFactory {
 		monsters.add(makeMonster("코니언"));
 		monsters.add(makeMonster("다크와이번"));
 		monsters.add(makeMonster("혼테일"));
+		monsters.add(makeMonster("추억의신관"));
+		monsters.add(makeMonster("추억의수호대장"));
+		monsters.add(makeMonster("후회의신관"));
+		monsters.add(makeMonster("후회의수호대장"));
+		monsters.add(makeMonster("망각의신관"));
+		monsters.add(makeMonster("망각의수호대장"));
 		Collections.sort(monsters);
 		return monsters;
 	}
@@ -661,6 +679,36 @@ public class MonsterFactory {
 			break;
 		case "혼테일동굴":
 			ret = makeMonster("혼테일");
+			break;
+		case "추억의길1":
+			if (isRange(percent, 0, 10)) {
+				ret = makeMonster("추억의신관");
+			}
+			break;
+		case "추억의길2":
+			if (isRange(percent, 0, 10)) {
+				ret = makeMonster("추억의수호대장");
+			}
+			break;
+		case "후회의길1":
+			if (isRange(percent, 0, 10)) {
+				ret = makeMonster("후회의신관");
+			}
+			break;
+		case "후회의길2":
+			if (isRange(percent, 0, 10)) {
+				ret = makeMonster("후회의수호대장");
+			}
+			break;
+		case "망각의길1":
+			if (isRange(percent, 0, 10)) {
+				ret = makeMonster("망각의신관");
+			}
+			break;
+		case "망각의길2":
+			if (isRange(percent, 0, 10)) {
+				ret = makeMonster("망각의수호대장");
+			}
 			break;
 		}
 		return ret;

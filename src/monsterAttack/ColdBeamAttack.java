@@ -43,7 +43,7 @@ public class ColdBeamAttack extends MonsterAttack {
 	
 	@Override
 	protected ArrayList<AttackInfor> makeAttackInfor() {
-		double percent = 0.5f + (double)monsterSkill.getSkillPoint() * 0.1f;
+		double percent = 0.5f + (double)monsterSkill.getSkillPoint() * 0.05f;
 		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
 		for(int i = 0; i < 3; i++) {
 			ret.add(new AttackInfor(this.attacker.getCharacter(), monsterSkill.getProperty(), 0, attacker.getCharacter().calMagicDamge(percent), DamageType.DAMAGE_HP_TYPE));

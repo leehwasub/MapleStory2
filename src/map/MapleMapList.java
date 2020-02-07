@@ -15,10 +15,10 @@ import utils.ResourceLoader;
 public class MapleMapList {
 	private ArrayList<MapleMap> maps = new ArrayList<MapleMap>();
 	
-	private static final Image PORTAL_IMAGE = ResourceLoader.getImage("componentImage", "portalImage.png");
-	private static final Image GUARD_IMAGE = ResourceLoader.getImage("componentImage", "guardImage.png");
-	private static final Image STORE_IMAGE = ResourceLoader.getImage("componentImage", "storeImage.png");
-	private static final Image HEAL_IMAGE = ResourceLoader.getImage("componentImage", "healImage.png");
+	private final Image portalImage = ResourceLoader.getImage("componentImage", "portalImage.png");
+	private final Image guardImage = ResourceLoader.getImage("componentImage", "guardImage.png");
+	private final Image storeImage = ResourceLoader.getImage("componentImage", "storeImage.png");
+	private final Image healImage = ResourceLoader.getImage("componentImage", "healImage.png");
 	private static MapleMapList instance;
 	
 
@@ -309,24 +309,52 @@ public class MapleMapList {
 		getMap("용의둥지").addPortal(new Portal(new PointMapName(0, 5, "용의둥지"), new PointMapName(5, 20, "혼테일동굴입구")));
 		getMap("혼테일동굴입구").addPortal(new Portal(new PointMapName(5, 20, "혼테일동굴입구"), new PointMapName(0, 5, "용의둥지")));
 		getMap("혼테일동굴입구").addPortal(new Portal(new PointMapName(5, 0, "혼테일동굴입구"), new PointMapName(0, 0, "혼테일동굴")));
+		getMap("리프레").addPortal(new Portal(new PointMapName(0, 14, "리프레"), new PointMapName(4, 15, "리프레승강장")));
+		getMap("리프레승강장").addPortal(new Portal(new PointMapName(4, 15, "리프레승강장"), new PointMapName(0, 14, "리프레")));
+		getMap("리프레승강장").addPortal(new Portal(new PointMapName(2, 0, "리프레승강장"), new PointMapName(3, 15, "미나르숲->니할사막승강장")));
+		getMap("미나르숲->니할사막승강장").addPortal(new Portal(new PointMapName(3, 15, "미나르숲->니할사막승강장"), new PointMapName(2, 0, "리프레승강장")));
+		getMap("미나르숲->니할사막승강장").addPortal(new Portal(new PointMapName(3, 0, "미나르숲->니할사막승강장"), new PointMapName(1, 1, "미나르숲->니할사막")));
+		getMap("리프레승강장").addPortal(new Portal(new PointMapName(6, 0, "리프레승강장"), new PointMapName(3, 15, "미나르숲->시간의신전승강장")));
+		getMap("미나르숲->시간의신전승강장").addPortal(new Portal(new PointMapName(3, 15, "미나르숲->시간의신전승강장"), new PointMapName(6, 0, "리프레승강장")));
+		getMap("미나르숲->시간의신전승강장").addPortal(new Portal(new PointMapName(3, 0, "미나르숲->시간의신전승강장"), new PointMapName(1, 1, "미나르숲->시간의신전")));
 		//시간의신전
+		getMap("시간의신전").addPortal(new Portal(new PointMapName(3, 24, "시간의신전"), new PointMapName(10, 0, "추억의길1")));
+		getMap("추억의길1").addPortal(new Portal(new PointMapName(10, 0, "추억의길1"), new PointMapName(3, 24, "시간의신전")));
+		getMap("추억의길1").addPortal(new Portal(new PointMapName(10, 36, "추억의길1"), new PointMapName(10, 0, "추억의길2")));
+		getMap("추억의길2").addPortal(new Portal(new PointMapName(10, 0, "추억의길2"), new PointMapName(10, 36, "추억의길1")));
+		getMap("추억의길2").addPortal(new Portal(new PointMapName(0, 18, "추억의길2"), new PointMapName(0, 0, "문지기의방1")));
+		getMap("추억의길2").addPortal(new Portal(new PointMapName(10, 36, "추억의길2"), new PointMapName(10, 0, "후회의길1")));
+		getMap("후회의길1").addPortal(new Portal(new PointMapName(10, 0, "후회의길1"), new PointMapName(10, 36, "추억의길2")));
+		getMap("후회의길1").addPortal(new Portal(new PointMapName(20, 30, "후회의길1"), new PointMapName(0, 10, "후회의길2")));
+		getMap("후회의길2").addPortal(new Portal(new PointMapName(0, 10, "후회의길2"), new PointMapName(20, 30, "후회의길1")));
+		getMap("후회의길2").addPortal(new Portal(new PointMapName(18, 20, "후회의길2"), new PointMapName(0, 0, "문지기의방2")));
+		getMap("후회의길2").addPortal(new Portal(new PointMapName(30, 0, "후회의길2"), new PointMapName(10, 36, "망각의길1")));
+		getMap("망각의길1").addPortal(new Portal(new PointMapName(10, 36, "망각의길1"), new PointMapName(30, 0, "후회의길2")));
+		getMap("망각의길1").addPortal(new Portal(new PointMapName(10, 0, "망각의길1"), new PointMapName(10, 36, "망각의길2")));
+		getMap("망각의길2").addPortal(new Portal(new PointMapName(10, 36, "망각의길2"), new PointMapName(10, 0, "망각의길1")));
+		getMap("망각의길2").addPortal(new Portal(new PointMapName(20, 18, "망각의길2"), new PointMapName(0, 0, "문지기의방3")));
+		getMap("망각의길2").addPortal(new Portal(new PointMapName(10, 0, "망각의길2"), new PointMapName(2, 36, "무너진회랑")));
+		getMap("무너진회랑").addPortal(new Portal(new PointMapName(2, 36, "무너진회랑"), new PointMapName(10, 0, "망각의길2")));
+		getMap("무너진회랑").addPortal(new Portal(new PointMapName(2, 0, "무너진회랑"), new PointMapName(3, 12, "잊혀진회랑")));
+		getMap("잊혀진회랑").addPortal(new Portal(new PointMapName(3, 12, "잊혀진회랑"), new PointMapName(2, 0, "무너진회랑")));
+		getMap("잊혀진회랑").addPortal(new Portal(new PointMapName(6, 3, "잊혀진회랑"), new PointMapName(0, 0, "신들의황혼")));
 	}
 	
 	
-	public static Image getPortalImage() {
-		return PORTAL_IMAGE;
+	public Image getPortalImage() {
+		return portalImage;
 	}
 	
-	public static Image getGuardImage() {
-		return GUARD_IMAGE;
+	public Image getGuardImage() {
+		return guardImage;
 	}
 
-	public static Image getStoreImage() {
-		return STORE_IMAGE;
+	public Image getStoreImage() {
+		return storeImage;
 	}
 	
-	public static Image getHealImage() {
-		return HEAL_IMAGE;
+	public Image getHealImage() {
+		return healImage;
 	}
 
 	public MapleMap getMap(String mapName) {

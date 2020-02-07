@@ -54,6 +54,9 @@ public class BuffFactory {
 		case "아머브레이크":
 			return new StrengthRateBuff("armorBreak", "아머브레이크", 4 + skillPoint / 3, "물리 공격력과 마법 공격력을 일정시간 동안 절반으로 약화된다.", 
 						new StrengthRate(1.0, 1.0, 1.0, 1.0, 0.5, 0.5, 1.0, 1.0, 1.0), StrengthBuffType.SKILL_BUFF);
+		case "소울인듀어":
+			return new StrengthBuff("soulEndure", "소울인듀어", 8 + skillPoint / 3, "모든 속성저항과 물리마법방어력을 강화한다.", 
+					new Strength(new Resistance(17 + skillPoint * 3), 0, 0, 0, 0, 0, 9 + skillPoint, 9 + skillPoint, 0, 0), StrengthBuffType.SKILL_BUFF);
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeMonsterBuff("+buffName+") 버프 생성 실패!");
 		return null;
