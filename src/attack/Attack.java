@@ -189,7 +189,7 @@ public abstract class Attack extends Thread {
 			for (int i = this.skillImageList.size() - 1; i >= 0; i--) {
 				if (!skillImageList.get(i).isAlive()) {
 					if(skillImageList.get(i).getTotalDamage() != 0) {
-						this.damage = skillImageList.get(i).getTotalDamage();
+						this.damage += skillImageList.get(i).getTotalDamage();
 					}
 					this.skillImageList.remove(i);
 				} else {

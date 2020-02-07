@@ -31,12 +31,14 @@ public class BlizzardAttack extends MonsterAttack {
 
 	public void run() {
 		attacker.attackForwardMotion();
-		addSkillImageThread(new BlizzardUseImage(hunt, opponent, opponent, makeAttackInfor(), 70, -70), new BlizzardHitImage(hunt, opponent, opponent, null), true, 240);
-		addSkillImageThread(new BlizzardUseImage(hunt, opponent, opponent, makeAttackInfor(), 70, -70), new BlizzardHitImage(hunt, opponent, opponent, null), true, 300);
-		addSkillImageThread(new BlizzardUseImage(hunt, opponent, opponent, makeAttackInfor(), 70, -70), new BlizzardHitImage(hunt, opponent, opponent, null), true, 300);
-		addSkillImageThread(new BlizzardUseImage(hunt, opponent, opponent, makeAttackInfor(), 70, -70), new BlizzardHitImage(hunt, opponent, opponent, null), true, 300);
-		addSkillImageThread(new BlizzardUseImage(hunt, opponent, opponent, makeAttackInfor(), 70, -70), new BlizzardHitImage(hunt, opponent, opponent, null), true, 300);
-		addSkillImageThread(new BlizzardUseImage(hunt, opponent, opponent, makeAttackInfor(), 70, -70), new BlizzardHitImage(hunt, opponent, opponent, null), true, 300);
+		//70 -100
+		for(int i = 0; i < 6; i++) {
+			int delay = 100 + (int)(Math.random() * 140);
+			int modifyX = (int)(Math.random() * 140);
+			int modifyY = (int)(Math.random() * 140);
+			addSkillImageThread(new BlizzardUseImage(hunt, opponent, opponent, makeAttackInfor(), modifyX, -170 + modifyY), new BlizzardHitImage(hunt, opponent, opponent, null), true, delay);
+		}
+		sleep(new BlizzardUseImage(hunt, opponent, opponent, makeAttackInfor(), 0, 0).getTotalDelay());
 		makeFrostBiteBuff();
 		afterAttack();
 	}
@@ -53,7 +55,7 @@ public class BlizzardAttack extends MonsterAttack {
 	
 	@Override
 	protected ArrayList<AttackInfor> makeAttackInfor() {
-		double percent = 0.6f + (double)monsterSkill.getSkillPoint() * 0.04f;
+		double percent = 0.7f + (double)monsterSkill.getSkillPoint() * 0.05f;
 		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
 		for(int i = 0; i < 1; i++) {
 			ret.add(new AttackInfor(this.attacker.getCharacter(), monsterSkill.getProperty(), 0, attacker.getCharacter().calMagicDamge(percent), DamageType.DAMAGE_HP_TYPE));
@@ -66,7 +68,7 @@ public class BlizzardAttack extends MonsterAttack {
 	}
 
 	public int calNeedMp() {
-		return 35 + monsterSkill.getSkillPoint() * 5;
+		return 70 + monsterSkill.getSkillPoint() * 7;
 	}
 	
 }

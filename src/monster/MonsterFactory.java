@@ -196,6 +196,8 @@ public class MonsterFactory {
 			return new Dodo();
 		case "릴리노흐":
 			return new Lilynouch();
+		case "라이카":
+			return new Lyka();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;

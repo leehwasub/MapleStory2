@@ -25,7 +25,15 @@ public class BlowBeastAttack extends MonsterAttack {
 		attacker.attackForwardMotion();
 		addSkillImageThread(new BlowBeastUseImage(hunt, opponent, opponent, makeAttackInfor()), true);
 		makeArmorBreakBuff();
+		makeStunBuff();
 		afterAttack();
+	}
+	
+	private void makeStunBuff() {
+		int stunRate = (15 * (monsterSkill.getSkillPoint() - 4));
+		if(CalUtils.calPercent(stunRate)) {
+			opponent.getCharacter().addBuff(BuffFactory.makeSpecialBuff("스턴", 2));
+		}
 	}
 	
 
@@ -38,9 +46,10 @@ public class BlowBeastAttack extends MonsterAttack {
 	
 	@Override
 	protected ArrayList<AttackInfor> makeAttackInfor() {
+		double damage = 1.8d + (monsterSkill.getSkillPoint() * 0.2d);
 		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
 		for(int i = 0; i < 1; i++) {
-			ret.add(new AttackInfor(attacker.getCharacter(), monsterSkill.getProperty(), attacker.getCharacter().calNormalDamge(2.0d), 0, DamageType.DAMAGE_HP_TYPE));
+			ret.add(new AttackInfor(attacker.getCharacter(), monsterSkill.getProperty(), attacker.getCharacter().calNormalDamge(damage), 0, DamageType.DAMAGE_HP_TYPE));
 		}
 		return ret;
 	}
@@ -50,7 +59,7 @@ public class BlowBeastAttack extends MonsterAttack {
 	}
 
 	public int calNeedMp() {
-		return 20;
+		return 25 + monsterSkill.getSkillPoint() * 10;
 	}
 	
 }
