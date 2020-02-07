@@ -192,6 +192,10 @@ public class MonsterFactory {
 			return new OblivionMonkTrainee();
 		case "망각의수호대장":
 			return new ChiefOblivionGuardian();
+		case "도도":
+			return new Dodo();
+		case "릴리노흐":
+			return new Lilynouch();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -709,6 +713,18 @@ public class MonsterFactory {
 			if (isRange(percent, 0, 10)) {
 				ret = makeMonster("망각의수호대장");
 			}
+			break;
+		case "문지기의방1":
+			ret = makeMonster("도도");
+			break;
+		case "문지기의방2":
+			ret = makeMonster("릴리노흐");
+			break;
+		case "문지기의방3":
+			ret = makeMonster("라이카");
+			break;
+		case "신들의황혼":
+			ret = makeMonster("핑크빈");
 			break;
 		}
 		return ret;

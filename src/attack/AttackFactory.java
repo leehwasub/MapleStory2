@@ -7,6 +7,7 @@ import monsterAttack.AccuracyRateUpAttack;
 import monsterAttack.AdvancedFlameShootAttack;
 import monsterAttack.BatSweamAttack;
 import monsterAttack.BlazingExtinctionAttack;
+import monsterAttack.BlizzardAttack;
 import monsterAttack.BlowBeastAttack;
 import monsterAttack.BuffRemoveAttack;
 import monsterAttack.ChainLightningAttack;
@@ -20,6 +21,7 @@ import monsterAttack.DevilScytheAttack;
 import monsterAttack.DoublePiercingAttack;
 import monsterAttack.DoubleShootAttack;
 import monsterAttack.DoubleSlashAttack;
+import monsterAttack.EtherealFormAttack;
 import monsterAttack.EvasionRateDownAttack;
 import monsterAttack.EvasionRateUpAttack;
 import monsterAttack.FlameBarrierAttack;
@@ -38,6 +40,7 @@ import monsterAttack.MoonlightSpearAttack;
 import monsterAttack.PlainChargeDriveAttack;
 import monsterAttack.PoisonBreathAttack;
 import monsterAttack.PoisonMistAttack;
+import monsterAttack.PoisonNovaAttack;
 import monsterAttack.PowerTransferAttack;
 import monsterAttack.RocketPunchAttack;
 import monsterAttack.ShadowShellAttack;
@@ -148,6 +151,12 @@ public class AttackFactory {
 			return new SoulEndureAttack(hunt, attacker, opponents, new MonsterSkill("소울인듀어", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
 		case "아이스스트라이크":
 			return new IceStrikeAttack(hunt, attacker, opponents, new MonsterSkill("아이스스트라이크", Property.PROPERTY_ICE, skillPoint, AttackType.OPPONENT));
+		case "에테리얼폼":
+			return new EtherealFormAttack(hunt, attacker, opponents, new MonsterSkill("에테리얼폼", Property.PROPERTY_NOTHING, skillPoint, AttackType.MYSELF));
+		case "포이즌노바":
+			return new PoisonNovaAttack(hunt, attacker, opponents, new MonsterSkill("포이즌노바", Property.PROPERTY_POSION, skillPoint, AttackType.OPPONENT));
+		case "블리자드":
+			return new BlizzardAttack(hunt, attacker, opponents, new MonsterSkill("블리자드", Property.PROPERTY_ICE, skillPoint, AttackType.OPPONENT));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;

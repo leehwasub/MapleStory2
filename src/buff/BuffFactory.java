@@ -93,6 +93,8 @@ public class BuffFactory {
 			return new SpecialBuff("portionLock", "포션잠금", last, "일정 시간 동안 포션 사용이 금지된다", true);
 		case "파워트랜스퍼":
 			return new SpecialBuff("powerTransfer", "파워트랜스퍼", last, "일정 시간 동안 방어막을 생성해 일정확률로 공격을 방어한다", false);
+		case "에테리얼폼":
+			return new SpecialBuff("etherealForm", "에테리얼폼", last, "일정 시간 동안 모든 상태이상에 대해 면역상태가 된다", false);
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeSpecialBuff("+buffName+") 버프 생성 실패!");
 		return null;

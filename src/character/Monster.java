@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import attack.AttackFactory;
 import attack.AttackInfor;
 import attack.AttackType;
+import buff.AbnormalBuff;
 import buff.Buff;
 import buff.BuffFactory;
 import component.StateBox;
@@ -76,6 +77,9 @@ public abstract class Monster extends Character implements Comparable<Monster>{
 	@Override
 	public boolean isCanBuffed(Buff buff) {
 		if(isAlreadyBuffed("플레임배리어") && buff.getName().equals("화상")) {
+			return false;
+		}
+		if(isAlreadyBuffed("에테리얼폼") && buff instanceof AbnormalBuff) {
 			return false;
 		}
 		return true;

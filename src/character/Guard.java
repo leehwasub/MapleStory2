@@ -29,9 +29,11 @@ public class Guard extends Thread {
 
 	boolean isGo(int x, int y) {
 		MapleMap curMap = MapleMapList.getInstance().getMap(nowMap.getMapName());
-		if (x >= 0 && y >= 0 && x < curMap.getMaxX() && y < curMap.getMaxY()
-				&& curMap.getMap(x, y) == MapleMap.MAP_EMPTY_STATE) {
-			return true;
+		if(curMap != null) {
+			if (x >= 0 && y >= 0 && x < curMap.getMaxX() && y < curMap.getMaxY()
+					&& curMap.getMap(x, y) == MapleMap.MAP_EMPTY_STATE) {
+				return true;
+			}
 		}
 		return false;
 	}

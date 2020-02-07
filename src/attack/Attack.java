@@ -112,6 +112,25 @@ public abstract class Attack extends Thread {
 		}
 	}
 	
+	public void addSkillImageThread(SkillImage skillImage, SkillImage hitImage, boolean isNowDelay, int delay) {
+		Thread thread = new Thread(()-> {
+			skillImage.start();
+			addSkillImage(skillImage);
+			skillImage.setHitListener(new HitListener() {
+				@Override
+				public void hit() {
+					addHitImageThread(hitImage);
+				}
+			});
+		});
+		thread.start();
+		if(isNowDelay) {
+			sleep(delay);
+		} else {
+			this.skillDelay += delay;
+		}
+	}
+	
 	public void addSkillImageThread(SkillImage skillImage, boolean isNowDelay) {
 		int delay = skillImage.getTotalDelay();
 		Thread thread = new Thread(()-> {
