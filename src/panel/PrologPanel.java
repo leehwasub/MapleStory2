@@ -26,8 +26,10 @@ import maplestory.Player;
 import npc.NpcList;
 import quest.Quest;
 import quest.QuestProceed;
+import utils.DialogUtils;
 import utils.FileLoader;
 import utils.FontUtils;
+import utils.InputValidUtils;
 import utils.ResourceLoader;
 
 public class PrologPanel extends JPanel {
@@ -76,7 +78,6 @@ public class PrologPanel extends JPanel {
 	private int textProcess = 0;
 	private Player player;
 	private String mainAdventurerName;
- 
 
 	public PrologPanel(MapleInterface mapleInterface) {
 		setLayout(null);
@@ -117,13 +118,15 @@ public class PrologPanel extends JPanel {
 		this.nameButton.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
 				String name = PrologPanel.this.nameField.getText();
-				if ((name != null) && (name.length() >= 3) && (name.length() <= 8)) {
+				if (InputValidUtils.isValidName(name)) {
 					PrologPanel.this.mainAdventurerName = name;
 					PrologPanel.this.updateText();
 					PrologPanel.this.nameButton.setVisible(false);
 					PrologPanel.this.nameField.setVisible(false);
 					PrologPanel.this.manSelectButton.setVisible(true);
 					PrologPanel.this.womanSelectButton.setVisible(true);
+				} else {
+					DialogUtils.showWarningDialog("이름은 3글자이상 12글자 이하, 특수문자는 포함될 수 없습니다.");
 				}
 			}
 		});
