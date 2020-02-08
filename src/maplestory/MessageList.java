@@ -20,8 +20,10 @@ public class MessageList {
 	}
 
 	public void draw(Graphics2D g) {
-		if (messageQueue != null && !messageQueue.isEmpty() && !messageQueue.peek().isAlive() && messageQueue.peek().isVolatility()) {
-			messageQueue.poll();
+		if (messageQueue != null && !messageQueue.isEmpty()) {
+			if(messageQueue.peek() != null && !messageQueue.peek().isAlive() && messageQueue.peek().isVolatility()) {
+				messageQueue.poll();
+			}
 		}
 		if (messageQueue != null && !messageQueue.isEmpty()) {
 			g.setFont(FontUtils.generalFont);

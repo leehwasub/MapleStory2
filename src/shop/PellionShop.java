@@ -31,6 +31,8 @@ public class PellionShop extends Shop {
 		equipmentItemList.add(ItemPool.getItem("강철방패", 1));
 		equipmentItemList.add(ItemPool.getItem("미스릴버클러", 1));
 		equipmentItemList.add(ItemPool.getItem("빨간삼각방패", 1));
+		consumableItemList.add(ItemPool.getItem("초보모험가의빨간포션", 1));
+		consumableItemList.add(ItemPool.getItem("초보모험가의파란포션", 1));
 		consumableItemList.add(ItemPool.getItem("빨간포션", 1));
 		consumableItemList.add(ItemPool.getItem("파란포션", 1));
 		consumableItemList.add(ItemPool.getItem("주황포션", 1));

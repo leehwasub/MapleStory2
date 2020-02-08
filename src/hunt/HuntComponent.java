@@ -361,10 +361,10 @@ public class HuntComponent {
 					
 					//stand by for an attack
 					playerAttack = null;
-					player.setCanUsePortion(true);
-					player.setCanUseSkill(true);
 
 					attackButton.setVisible(true);
+					player.setCanUsePortion(true);
+					player.setCanUseSkill(true);
 					if(!monster.isBoss() && !isRunFailed) {
 						runButton.setVisible(true);
 					}
@@ -430,7 +430,7 @@ public class HuntComponent {
 		}
 
 		public void playerSetAttack(String skillName) {
-			if (!attackButton.isVisible()) {
+			if (!player.isCanUseSkill()) {
 				return;
 			}
 			if(skillName.equals("일반공격")) {

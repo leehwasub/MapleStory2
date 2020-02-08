@@ -88,6 +88,7 @@ public class StartPanel extends JPanel {
 				frame.setVisible(true);
 			}
 		});
+		editorButton.setVisible(false);
 		add(editorButton);
 	}
 
