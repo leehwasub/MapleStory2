@@ -18,11 +18,6 @@ public final class AbnormalBuff extends Buff{
 		this.damage = damage;
 		this.damageType = damageType;
 	}
-
-	@Override
-	public void draw(Graphics2D g) {
-		
-	}
 	
 	@Override
 	public final void effect(Character character) {

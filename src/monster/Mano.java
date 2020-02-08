@@ -11,7 +11,7 @@ public class Mano extends Monster {
 
 	public Mano() {
 		super("마노", "mano",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 5, 400, 100, 20, 20, 10, 0), 20, 23, 30,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 5, 400, 100, 10, 10, 10, 0), 20, 23, 30,
 				33, 100, 300, true);
 		initSkillList();
 	}

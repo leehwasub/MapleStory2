@@ -18,11 +18,6 @@ public final class StrengthRateBuff extends Buff{
 		this.buffType = buffType;
 	}
 	
-	@Override
-	public void draw(Graphics2D g) {
-		
-	}
-	
 	public void effect(Character character) {
 		Strength str = character.getStrength();
 		str.setMaxHp((int)(str.getMaxHp() * strengthRate.getMaxHp()));

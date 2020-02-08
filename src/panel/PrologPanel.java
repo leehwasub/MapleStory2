@@ -139,8 +139,8 @@ public class PrologPanel extends JPanel {
 	}
 
 	public void sexSelectEvent(String sex) {
-		makeWarrior(sex);
-		//makeNewAdventurer(sex);
+		//makeWarrior(sex);
+		makeNewAdventurer(sex);
 		updateText();
 		this.nextButton.setVisible(true);
 		this.manSelectButton.setVisible(false);
@@ -179,6 +179,7 @@ public class PrologPanel extends JPanel {
 			this.player.getWearEquipment("노란반팔면티(여)");
 			this.player.getWearEquipment("빨간미니스커트(여)");
 		}
+		this.player.getWearEquipment("고무장화");
 		this.player.getWearEquipment("검");
 		this.player.getMainAdventurer().setSex(sex);
 		Quest quest = Quest.makeQuest(0, 1, "메이플 아일랜드")

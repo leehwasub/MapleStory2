@@ -56,7 +56,6 @@ public class Adventurer extends Character implements Serializable {
 	}
 
 	public void calState() {
-		Exp = ExpUtils.getNeedExp();
 		proficiency = 20;
 		strength.setPhysicalDefense(0);
 		strength.setMagicDefense(0);

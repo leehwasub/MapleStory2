@@ -587,6 +587,12 @@ public class Player implements Serializable {
 		}
 	}
 	
+	public boolean isHaveEnoughInventorySpace() {
+		Inventory inventory = getInventory();
+		return (inventory.getEquipmentInventory().size() <= 45 && inventory.getConsumableInventory().size() <= 45 &&
+				inventory.getMaterialInventory().size() <= 45);
+	}
+	
 	
 	public int getNextMapType() {
 		for (int i = 0; i < _curMap.getPortalList().size(); i++) {

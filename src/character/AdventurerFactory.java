@@ -10,15 +10,15 @@ public class AdventurerFactory {
 		switch (adventurerType) {
 		case "남자초보모험가":
 			return new Adventurer(name, "newbieMan",
-					new Strength(new Resistance(100, 100, 100, 100, 100, 100), 1, 15, 4, 0, 0, 0, 0, 0, 0, 0),
+					new Strength(new Resistance(100, 100, 100, 100, 100, 100), 1, 15, 3, 0, 0, 0, 0, 0, 0, 0),
 					new Status(4, 4, 4, 4), "초보자");
 		case "여자초보모험가":
 			return new Adventurer(name, "newbieWoman",
-					new Strength(new Resistance(100, 100, 100, 100, 100, 100), 1, 15, 4, 0, 0, 0, 0, 0, 0, 0),
+					new Strength(new Resistance(100, 100, 100, 100, 100, 100), 1, 15, 3, 0, 0, 0, 0, 0, 0, 0),
 					new Status(4, 4, 4, 4), "초보자");
 		case "남자1차모험가":
 			Adventurer adventurer = new Adventurer(name, "warriorMan",
-					new Strength(new Resistance(100, 100, 100, 100, 100, 100), 25, 15, 4, 0, 0, 0, 0, 0, 0, 0),
+					new Strength(new Resistance(100, 100, 100, 100, 100, 100), 25, 15, 3, 0, 0, 0, 0, 0, 0, 0),
 					new Status(104, 24, 4, 4), "검사");
 			//TEST
 			adventurer.addSkillPoint(15 * 3);
@@ -27,7 +27,7 @@ public class AdventurerFactory {
 			return adventurer;
 		case "여자1차모험가":
 			Adventurer adventurer2 = new Adventurer(name, "warriorWoman",
-					new Strength(new Resistance(100, 100, 100, 100, 100, 100), 25, 15, 4, 0, 0, 0, 0, 0, 0, 0),
+					new Strength(new Resistance(100, 100, 100, 100, 100, 100), 25, 15, 3, 0, 0, 0, 0, 0, 0, 0),
 					new Status(104, 24, 4, 4), "검사");
 			//TEST
 			adventurer2.addSkillPoint(15 * 3);

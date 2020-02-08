@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
 import attack.DamageText;
+import buff.Buff;
 import character.Monster;
 import component.MapleButton;
 import component.MapleExpBar;
@@ -31,6 +32,7 @@ import hunt.HuntComponent;
 import map.MapMoveCondition;
 import map.MapleMap;
 import map.MapleMapList;
+import map.Point;
 import map.PointMapName;
 import maplestory.MainMapleInterface;
 import maplestory.MapleInterface;
@@ -103,10 +105,10 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	private static final int POSITON_X = 490;
 	private static final int POSITON_Y = 300;
 	private static final int POSITON_INTERVAL = 90;
-	private MapleIsland mapleIsland = new MapleIsland();
 	private MapleInterface mapleInterface;
 	private Player player;
 	private InventoryMainPanel inventoryMainPanel;
+	private WorldMapPanel worldMapPanel;
 	private MessageList messageList = new MessageList();
 	private ArrayList<DamageText> damageTextList = new ArrayList<DamageText>();
 	private String messageString;
@@ -272,10 +274,16 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		});
 		player.setCanSave(true);
 		player.setIsCanMove(true);
-		this.mapleIsland.setImage(player);
 		this.inventoryMainPanel = new InventoryMainPanel(player, this);
+		//1220 570
 		this.inventoryMainPanel.setBounds(40, 70, 1240, 650);
 		add(this.inventoryMainPanel);
+		
+		this.worldMapPanel = new WorldMapPanel(player);
+		//1220 570
+		this.worldMapPanel.setBounds(40, 70, 1240, 650);
+		add(this.worldMapPanel);
+		worldMapPanel.setWorldImage();
 
 		this.storeInventory = new StoreInventoryPanel(player);
 		this.storeInventory.setBounds(690, 100, 740, 630);
@@ -286,6 +294,8 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		this.store.setBounds(170, 100, 860, 630);
 		this.store.setVisible(false);
 		add(store);
+		
+		huntComponent = new HuntComponent(this, this);
 		
 		quickButtonPanel = new QuickButtonPanel(player, this, this);
 		quickButtonPanel.setBounds(0, 450, 1280, 120);
@@ -302,8 +312,6 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		this.expBar = new MapleExpBar(player.getMainAdventurer());
 		this.expBar.setBounds(1020, 575, 150, 20);
 		add(this.expBar);
-		
-		huntComponent = new HuntComponent(this, this);
 		
 		player.setCanUsePortion(true);
 		player.setCanUseSkill(false);
@@ -388,6 +396,10 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		if (this.player.getCurNpc() == null) {
 			return;
 		}
+		if(!player.isHaveEnoughInventorySpace()) {
+			pushMessage(new Message("Npc와 대화전에는 인벤토리를 충분히 비워주세요.", Color.RED, true));
+			return;
+		}
 		conversationEvent();
 		mainMessageBox.clearMessageBox();
 		this.player.setIsCanMove(false);
@@ -411,13 +423,13 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	}
 
 	public void islandMapButtonEvent() {
-		if (!this.mapleIsland.toggleMapleIsland()) {
+		if (!worldMapPanel.toggleWorldMapPanel()) {
 			this.player.setIsCanMove(true);
 			setButtonWithPlayerLoc();
 			mainStateBarSetVisibleTrue();
 			this.inventoryButton.setVisible(true);
 		} else {
-			mapleIsland.setImage(player);
+			worldMapPanel.setWorldImage();
 			this.player.setIsCanMove(false);
 			setMenuDownSideButtonVisibleFalse();
 			mainStateBarSetVisibleFalse();
@@ -582,8 +594,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			this.player.getCurNpc().draw(g);
 		}
 		this.messageList.draw(g);
-		this.mapleIsland.draw(g);
-
+		//this.worldMapPanel.draw
 		repaint();
 		if (this.huntComponent != null) {
 			this.huntComponent.draw(g, this);
@@ -683,7 +694,6 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	public void setQuickSkillEnabled() {
 		quickButtonPanel.setQuickSkillEnabled();
 	}
-
 	
 
 }

@@ -93,15 +93,13 @@ public abstract class Character implements Serializable{
 			}
 			
 			double ignoreDamageRateDouble = (double)ignoreDamageRate / 100.0;
-			System.out.println("변환전 : " + getPhysicalDamage);
 			getPhysicalDamage = getPhysicalDamage - (int)((double)getPhysicalDamage * ignoreDamageRateDouble);
 			getMagicDamage = getMagicDamage - (int)((double)getMagicDamage * ignoreDamageRateDouble);
-			System.out.println("변환후 : " + getPhysicalDamage);
 			
 			d += getPhysicalDamage;
 			d += getMagicDamage;
-			attackInfor.setPhysicalDamage(getPhysicalDamage);
-			attackInfor.setMagicDamage(getMagicDamage);
+			attackInfor.setPhysicalDamage(Math.max(getPhysicalDamage, 1));
+			attackInfor.setMagicDamage(Math.max(getMagicDamage, 1));
 			
 			d = hitEvent(this, attackInfor);
 			

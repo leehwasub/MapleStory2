@@ -2,7 +2,9 @@ package npc;
 
 import java.io.Serializable;
 
+import map.MapleMap;
 import map.PointMapName;
+import map.UpdatedMapInfor;
 import maplestory.Player;
 
 public class Sugar extends Npc implements Serializable {
@@ -20,7 +22,8 @@ public class Sugar extends Npc implements Serializable {
 
 	@Override
 	public void normalEvent(Player player) {
-		// TODO Auto-generated method stub
-		
+		if(process == 25) {
+			player.addUpdatedMap(new UpdatedMapInfor(new PointMapName(4, 9, "초보자의숲1"), MapleMap.MAP_PORTAL_STATE));
+		}
 	}
 }

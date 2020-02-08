@@ -32,7 +32,7 @@ public class PowerStrikeSkill extends ActiveSkill{
 
 	@Override
 	public int getEffect(int point) {
-		return 150 + point * 5;
+		return 200 + point * 5;
 	}
 
 	@Override

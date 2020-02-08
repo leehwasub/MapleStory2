@@ -17,12 +17,7 @@ public final class StrengthBuff extends Buff{
 		this.strength = strength;
 		this.buffType = buffType;
 	}
-	
-	@Override
-	public void draw(Graphics2D g) {
-		
-	}
-	
+
 	public void effect(Character character) {
 		Strength str = character.getStrength();
 		str.addMaxHp(strength.getMaxHp());

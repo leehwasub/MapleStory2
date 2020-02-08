@@ -3,7 +3,9 @@ package maplestory;
 import java.awt.Image;
 
 import attack.DamageText;
+import buff.Buff;
 import component.StateBox;
+import map.Point;
 
 public interface MainMapleInterface {
 	public void myRepaint();

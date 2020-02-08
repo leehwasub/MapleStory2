@@ -3,6 +3,10 @@ package component;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
@@ -12,6 +16,8 @@ import character.Character;
 import hunt.HuntEvent;
 import map.Point;
 import maplestory.MainMapleInterface;
+import panel.BuffTooltipPanel;
+import utils.ColorUtils;
 import utils.FontUtils;
 import utils.ResourceLoader;
 
@@ -30,7 +36,8 @@ public class StateBox extends Thread {
 	public static final int DIR_RIGHT = 1;
 	private ArrayList<Buff> buffList;
 	private MainMapleInterface mainMapleInterface;
-
+	private BuffTooltipPanel buffTooltipPanel;
+	
 	public StateBox(int x, int y, Character character, int dir, JPanel panel, MainMapleInterface mainMapleInterface) {
 		this.x = x;
 		this.y = y;
@@ -44,11 +51,35 @@ public class StateBox extends Thread {
 			this.mapleHpBar.setBounds(x + 50, y + 50, 180, 20);
 			this.mapleMpBar.setBounds(x + 50, y + 80, 180, 20);
 		}
+		buffTooltipPanel = new BuffTooltipPanel();
+		buffTooltipPanel.setBounds(0, 0, 1200, 600);
+		panel.add(buffTooltipPanel);
 		panel.add(mapleHpBar);
 		panel.add(mapleMpBar);
 		this.dir = dir;
 		buffList = character.getBuffList();
 		this.mainMapleInterface = mainMapleInterface;
+		panel.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				int cursorIndex = -1;
+				if(buffList != null && buffList.size() != 0) {
+					for(int i = buffList.size() - 1; i >= 0; i--) {
+						if(e.getX() >= StateBox.this.x + (32 * i) + 5 && e.getX() <= 37 +  StateBox.this.x + (32 * i) && 
+								e.getY() >= StateBox.this.y + 140 && e.getY() <= StateBox.this.y + 172 && buffList.get(i) != null) {
+							cursorIndex = i;
+						}
+					}
+				}
+				if(cursorIndex != -1 && buffList.get(cursorIndex) != null) {
+					buffTooltipPanel.setBuff( buffList.get(cursorIndex));
+					buffTooltipPanel.setPoint(new Point(e.getX(), e.getY()));
+					buffTooltipPanel.setVisible(true);
+				} else{
+					buffTooltipPanel.setVisible(false);
+				}
+			}
+		});
 	}
 	
 	public void reload(Character character) {
@@ -88,6 +119,8 @@ public class StateBox extends Thread {
 		
 		g.setFont(FontUtils.SMALL_FONT);
 		if(buffList != null && buffList.size() != 0) {
+			g.setColor(ColorUtils.BLACK_80);
+			g.fillRect(x, y + 135, 32 * buffList.size() + 10, 60);
 			for(int i = buffList.size() - 1; i >= 0; i--) {
 				Buff buff = buffList.get(i);
 				if(buff != null) {
@@ -98,8 +131,8 @@ public class StateBox extends Thread {
 					}
 				}
 				if(buff != null) {
-					g.drawString("X"+buff.getLast(), x + 5 + (32 * i), y - 40);
-					g.drawImage(buff.getImage(), x + (32 * i), y - 35, panel);
+					g.drawString("X"+buff.getLast(), x + 10 + (32 * i), y + 185);
+					g.drawImage(buff.getImage(), x + (32 * i) + 5, y + 140, panel);
 				}
 			}
 		}

@@ -14,11 +14,6 @@ public class SpecialBuff extends Buff{
 	}
 
 	@Override
-	public void draw(Graphics2D g) {
-		
-	}
-	
-	@Override
 	public void effect(Character character) {
 		
 	}

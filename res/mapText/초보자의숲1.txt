@@ -1,7 +1,6 @@
 10 10 메이플아일랜드 초보자의숲1 mapleIsland mapleIsland 0 암허스트 forest
 1 1 7
 2 6 1
-4 9 3
 6 7 2
 7 1 1
 8 7 1
