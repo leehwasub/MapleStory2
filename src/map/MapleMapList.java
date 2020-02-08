@@ -338,6 +338,9 @@ public class MapleMapList {
 		getMap("무너진회랑").addPortal(new Portal(new PointMapName(2, 0, "무너진회랑"), new PointMapName(3, 12, "잊혀진회랑")));
 		getMap("잊혀진회랑").addPortal(new Portal(new PointMapName(3, 12, "잊혀진회랑"), new PointMapName(2, 0, "무너진회랑")));
 		getMap("잊혀진회랑").addPortal(new Portal(new PointMapName(6, 3, "잊혀진회랑"), new PointMapName(0, 0, "신들의황혼")));
+		getMap("시간의신전").addPortal(new Portal(new PointMapName(3, 0, "시간의신전"), new PointMapName(3, 20, "시간의신전승강장")));
+		getMap("시간의신전승강장").addPortal(new Portal(new PointMapName(3, 20, "시간의신전승강장"), new PointMapName(3, 0, "시간의신전")));
+		getMap("시간의신전승강장").addPortal(new Portal(new PointMapName(3, 0, "시간의신전승강장"), new PointMapName(1, 1, "시간의신전->미나르숲")));
 	}
 	
 	

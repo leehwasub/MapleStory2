@@ -24,7 +24,7 @@ public class SailingFactory{
 			return new Sailing(player, mainMapleInterface, "fly2", "sailing3", new PointMapName(2, 10, "아리안트"), 90000);
 		case "미나르숲->시간의신전승강장":
 			return new Sailing(player, mainMapleInterface, "fly2", "sailing5", new PointMapName(3, 12, "시간의신전"), 60000);
-		case "시간의신전->미나르숲승강장":
+		case "시간의신전승강장":
 			return new Sailing(player, mainMapleInterface, "fly2", "sailing5", new PointMapName(2, 10, "미나르숲"), 60000);
 		}
 		return null;
