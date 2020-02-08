@@ -397,7 +397,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			return;
 		}
 		if(!player.isHaveEnoughInventorySpace()) {
-			pushMessage(new Message("Npc와 대화전에는 인벤토리를 충분히 비워주세요.", Color.RED, true));
+			pushMessage(new Message("Npc와 대화전에는 모든 인벤토리를 5칸이상 비워주세요.", Color.RED, true));
 			return;
 		}
 		conversationEvent();

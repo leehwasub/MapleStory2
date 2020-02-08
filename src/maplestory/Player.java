@@ -419,8 +419,10 @@ public class Player implements Serializable {
 		if (mainAdventurer.getWearEquipmentByIndex(type) == null) {
 			return false;
 		}
-		addItem((EquipmentItem) ItemPool.getItem(mainAdventurer.getWearEquipmentByIndex(type).getName(), 1));
-		mainAdventurer.setWearEquipmentByIndex(type, null);
+		boolean isCanTakeOff = addItem(ItemPool.getItem(mainAdventurer.getWearEquipmentByIndex(type).getName(), 1));
+		if(isCanTakeOff) {
+			mainAdventurer.setWearEquipmentByIndex(type, null);
+		}
 		calState();
 		return true;
 	}

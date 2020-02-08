@@ -126,9 +126,13 @@ public class StorePanel extends JPanel {
 					if (InputValidUtils.isValidIntString(input)) {
 						int num = Integer.parseInt(input);
 						if (player.getInventory().getMoney() >= num * item.getCost()) {
-							player.subMoney(num * item.getCost());
-							player.addItem(ItemPool.getItem(item.getName(), num));
-							JOptionPane.showMessageDialog(null, "구매가 완료되었습니다.");
+							boolean isCanAdd = player.addItem(ItemPool.getItem(item.getName(), num));
+							if(isCanAdd) {
+								player.subMoney(num * item.getCost());
+								JOptionPane.showMessageDialog(null, "구매가 완료되었습니다.");
+							} else {
+								JOptionPane.showMessageDialog(null, "인벤토리 공간이 부족합니다.");
+							}
 						} else {
 							JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
 						}
