@@ -32,7 +32,7 @@ public class CombatOrdersAttack extends PlayerAttack {
 	}
 	
 	public String attackInfor() {
-		return this.attacker.getCharacterName() + "는 " +activeSkill.getName() + "를 사용. 자신에게 스킬 포인트 증가, 그리고 플레임차지 블리자드 차지를 강화시키는 버프를 걸었다.";
+		return this.attacker.getCharacterName() + "는 " +activeSkill.getName() + "를 사용. 자신에게 스킬 포인트를 증가 시키는 버프를 걸었다.";
 	}
 
 }

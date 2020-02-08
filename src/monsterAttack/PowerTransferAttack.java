@@ -27,7 +27,7 @@ public class PowerTransferAttack extends MonsterAttack {
 	}
 
 	public String attackInfor() {
-		return this.attacker.getCharacterName() + "는 " + this.monsterSkill.getAttackName() + "을 사용. " + this.opponent.getCharacterName() + "에게 물리,마법 데미지를 일정 퍼센트 무시하는 버프를 걸었다.";
+		return this.attacker.getCharacterName() + "는 " + this.monsterSkill.getAttackName() + "을 사용. 자신에게 일정확률로 적의 공격을 방어하는 버프를 걸었다.";
 	}
 
 	public int calNeedMp() {

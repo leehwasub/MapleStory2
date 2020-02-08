@@ -36,7 +36,7 @@ public class PoisonMistAttack extends MonsterAttack {
 	}
 
 	public String attackInfor() {
-		return this.attacker.getCharacterName() + "는 " + this.monsterSkill.getAttackName() + "을 사용. 자신에게 모든 속성저항을 강화하는 버프를 걸었다.";
+		return this.attacker.getCharacterName() + "는 " + this.monsterSkill.getAttackName() + "을 사용. " + this.opponent.getCharacterName() + "에게 " + this.damage + "의 피해를 주었다.";
 	}
 
 	public int calNeedMp() {

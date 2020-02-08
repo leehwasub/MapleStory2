@@ -22,9 +22,10 @@ public class TackleAttack extends MonsterAttack {
 		this.attacker.attackForwardMotion();
 		
 		Character opponentCh = this.opponent.getCharacter();
-		Hit hit = opponentCh.hit(makeAttackInfor().get(0));
+		Hit damage = opponentCh.hit(makeAttackInfor().get(0));
 		MusicUtils.startEffectSound("monsterAttack1");
-		this.hunt.addDamageText(hit, opponent);
+		this.damage = damage.getDamage();
+		this.hunt.addDamageText(damage, opponent);
 		this.opponent.updateStateBox(); 
 		afterAttack();
 	}

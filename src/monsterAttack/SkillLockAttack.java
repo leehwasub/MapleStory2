@@ -25,7 +25,7 @@ public class SkillLockAttack extends MonsterAttack {
 	}
 
 	public String attackInfor() {
-		return this.attacker.getCharacterName() + "는 " + this.monsterSkill.getAttackName() + "을 사용. " + this.opponent.getCharacterName() + "에게 적중률을 약화하는 버프를 걸었다.";
+		return this.attacker.getCharacterName() + "는 " + this.monsterSkill.getAttackName() + "을 사용. " + this.opponent.getCharacterName() + "에게 스킬을 사용하지 못하도록 하는 버프를 걸었다.";
 	}
 
 	public int calNeedMp() {

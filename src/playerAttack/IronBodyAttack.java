@@ -35,7 +35,7 @@ public class IronBodyAttack extends PlayerAttack {
 	}
 	
 	public String attackInfor() {
-		return this.attacker.getCharacterName() + "는 " +activeSkill.getName() + "를 사용. 자신에게 물리방어력을 강화시키는 버프를 걸었다.";
+		return this.attacker.getCharacterName() + "는 " +activeSkill.getName() + "를 사용. 자신에게 물리마법 방어력을 강화시키는 버프를 걸었다.";
 	}
 
 }
