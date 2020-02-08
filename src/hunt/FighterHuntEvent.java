@@ -79,7 +79,7 @@ public class FighterHuntEvent implements HuntEvent, Serializable{
 		Attack attack = hunt.getPlayerAttack();
 		
 		ComboAttackSkill comboAttack = (ComboAttackSkill)adventurer.getSkillWithName("콤보어택");
-		if(comboAttack == null || comboAttack.getPoint() == 0 || comboAttack.isHaveMaxComboNum()) return;
+		if(comboAttack == null || comboAttack.getPoint() == 0) return;
 		
 		if(attack instanceof ShoutAttack) {
 			comboAttack.subComboNum();

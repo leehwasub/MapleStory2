@@ -84,6 +84,9 @@ public class NpcList implements Serializable {
 		npcList.add(new Tatamo("tatamo", "타타모", new PointMapName(10, 17, "리프레")));
 		npcList.add(new Koscu("koscu", "코스쿠", new PointMapName(5, 3, "혼테일동굴입구")));
 		npcList.add(new Crow("crow", "크로우", new PointMapName(10, 23, "리프레")));
+		npcList.add(new Athena("athena", "헬레나", new PointMapName(5, 6, "시간의신전")));
+		npcList.add(new TempleKeeper("templeKeeper", "신전관리인", new PointMapName(1, 18, "시간의신전")));
+		npcList.add(new ForgottenTempleKeeper("forgottenTempleKeeper", "잊혀진신전관리인", new PointMapName(4, 3, "잊혀진회랑")));
 	}
 
 	public ArrayList<Npc> getNpcListArray() {

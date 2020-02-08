@@ -36,7 +36,7 @@ public class BlizzardAttack extends MonsterAttack {
 			int delay = 100 + (int)(Math.random() * 140);
 			int modifyX = (int)(Math.random() * 140);
 			int modifyY = (int)(Math.random() * 140);
-			addSkillImageThread(new BlizzardUseImage(hunt, opponent, opponent, makeAttackInfor(), modifyX, -170 + modifyY), new BlizzardHitImage(hunt, opponent, opponent, null), true, delay);
+			addSkillImageThread(new BlizzardUseImage(hunt, opponent, opponent, makeAttackInfor(), modifyX, -140 + modifyY), new BlizzardHitImage(hunt, opponent, opponent, null), true, delay);
 		}
 		sleep(new BlizzardUseImage(hunt, opponent, opponent, makeAttackInfor(), 0, 0).getTotalDelay());
 		makeFrostBiteBuff();

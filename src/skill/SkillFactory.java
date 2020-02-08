@@ -51,7 +51,7 @@ public class SkillFactory {
 		case "찬스어택":
 			return new ChanceAttackSkill("chanceAttack", "찬스어택", 10, "영구히 크리티컬 확률을 증가시킨다");
 		case "실드마스터리":
-			return new ShieldMasterySkill("shieldMastery", "실드마스터리", 10, "방패 착용시 방패 방어 효과가 증가되고 물리 공격력, 속성저항 내성이 증가된다. 또한 일정 확률로 적의 공격을 가드후 적을 기절시킬 수 있다");
+			return new ShieldMasterySkill("shieldMastery", "실드마스터리", 10, "방패 착용시 방패 방어 효과가 증가되고 물리 공격력, 속성저항 내성이 증가된다.");
 		case "라이트닝차지":
 			return new LightningChargeSkill("lightningCharge", "라이트닝차지", 20, "무기에 일시적으로 전기속성을 부여한뒤 강력한 일격을 가한다.", AttackType.OPPONENT, Property.PROPERTY_THUNDER);
 		case "리스토네이션":
@@ -60,6 +60,8 @@ public class SkillFactory {
 			return new ThreatenSkill("threaten", "위협", 20, "적을 위협하여 일정 확률로 물리마법 공격력, 물리마법방어력, 적중률을 감소시킨다", AttackType.OPPONENT, Property.PROPERTY_NOTHING, 2);
 		case "컴뱃오더스":
 			return new CombatOrdersSkill("combatOrders", "컴뱃오더스", 20, "일정 시간동안 모든 스킬포인트 증가시킨다. 또한 플레임차지와 라이트닝 차지의 효과를 영구적으로 증대시킨다.", AttackType.OPPONENT, Property.PROPERTY_NOTHING, 5);
+		case "블레싱아머":
+			return new DivineShieldSkill("divineShield", "블레싱아머", 10, "피격시 일정확률로 보호막을 생성하고 보호막 가동시 물리공격력과 데미지 무시율이 증가한다.");
 		case "라만차스피어":
 			return new LaManchaSpearSkill("laManchaSpear", "라만차스피어", 20, "거대한 창을 휘둘러 시전시에 약간의 데미지를 준후 강력한 한번의 일격을 가한다", AttackType.OPPONENT, Property.PROPERTY_NOTHING);
 		case "비홀더쇼크":

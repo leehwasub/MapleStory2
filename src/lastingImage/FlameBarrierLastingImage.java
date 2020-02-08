@@ -10,7 +10,7 @@ import utils.MusicUtils;
 public class FlameBarrierLastingImage extends LastingSkillImage{
 
 	public FlameBarrierLastingImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/flameBarrierLasting", hunt, attacker, opponent, attackInfor);
+		super("monsterSkillImage/flameBarrierLasting", hunt, attacker, opponent, attackInfor, 0, 0);
 	}
 	
 	public void run() {

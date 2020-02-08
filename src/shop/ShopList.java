@@ -16,6 +16,7 @@ public class ShopList {
 		shopList.add(new AriantShop());
 		shopList.add(new MagatiaShop());
 		shopList.add(new LeafreShop());
+		shopList.add(new TempleOfTimeShop());
 	}
 
 	public static Shop getShop(PointMapName m) {

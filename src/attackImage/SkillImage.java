@@ -13,6 +13,7 @@ import attack.Hit;
 import character.Monster;
 import component.StateBox;
 import hunt.HuntComponent.Hunt;
+import lastingImage.LastingSkillImage;
 import hunt.ImageFileFrame;
 import map.Point;
 import utils.FileLoader;

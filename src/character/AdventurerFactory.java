@@ -79,8 +79,8 @@ public class AdventurerFactory {
 		case "나이트":
 			adventurer.setCareerLevel(3);
 			adventurer.addSkill(3, SkillFactory.makeSkill("실드마스터리"));
+			adventurer.addSkill(3, SkillFactory.makeSkill("블레싱아머"));
 			adventurer.addSkill(3, SkillFactory.makeSkill("라이트닝차지"));
-			adventurer.addSkill(3, SkillFactory.makeSkill("리스토네이션"));
 			adventurer.addSkill(3, SkillFactory.makeSkill("위협"));
 			adventurer.addSkill(3, SkillFactory.makeSkill("컴뱃오더스"));
 			imageUrl.append("3");

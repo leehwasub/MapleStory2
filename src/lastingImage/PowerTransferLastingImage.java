@@ -10,7 +10,7 @@ import utils.MusicUtils;
 public class PowerTransferLastingImage extends LastingSkillImage{
 
 	public PowerTransferLastingImage(Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super("monsterSkillImage/powerTransferLasting", hunt, attacker, opponent, attackInfor);
+		super("monsterSkillImage/powerTransferLasting", hunt, attacker, opponent, attackInfor, 0, 0);
 	}
 	
 	public void run() {

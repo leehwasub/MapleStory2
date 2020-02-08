@@ -33,7 +33,7 @@ public class EvilEyeBuffSkill extends PassiveSkill{
 	}
 	
 	public int getPhysicalDamageEffect(int point) {
-		return 2;
+		return 2 + (point / 2);
 	}
 	
 	public int getDefenceEffect(int point) {
@@ -64,7 +64,7 @@ public class EvilEyeBuffSkill extends PassiveSkill{
 
 	@Override
 	public String getEffectDetail(int point) {
-		return "비홀더가 직접시전, " + getEveryTurn(point) + "턴 간격으로 " + getLast(point) + "턴간 물리데미지 +" + getPhysicalDamageEffect(point)
+		return "비홀더가 직접시전, " + getEveryTurn(point) + "턴 간격으로 " + getLast(point) + "턴간 물리공격력 +" + getPhysicalDamageEffect(point)
 			+ ", 물리마법방어력 +" + getDefenceEffect(point) + ", 크리티컬 확률 +" + getCriticalEffect(point) + "% 증가";
 	}
 

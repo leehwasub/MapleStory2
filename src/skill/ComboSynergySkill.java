@@ -18,7 +18,7 @@ public class ComboSynergySkill extends PassiveSkill{
 
 	@Override
 	public int getEffect(int point) {
-		return 2 * point;
+		return Math.min(3 * point, 60);
 	}
 	
 	public int getDamageEffect(int point) {

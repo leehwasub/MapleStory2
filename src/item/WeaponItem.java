@@ -31,6 +31,7 @@ public class WeaponItem extends EquipmentItem implements Serializable{
 		this.fm = g.getFontMetrics(FontUtils.SMALL_FONT);
 		g.setColor(Color.WHITE);
 		int width = this.fm.stringWidth(name);
+		if(isRare()) g.setColor(ColorUtils.PURPLE);
 		g.drawString(getName(), p.getX() + (200 - width) / 2, p.getY() + 25);
 		g.drawImage(getImage(), p.getX() + 20, p.getY() + 45, null);
 		g.setColor(Color.YELLOW);

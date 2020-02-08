@@ -40,7 +40,7 @@ public class ShoutSkill extends ActiveSkill{
 	}
 	
 	public int deBuffTurn(int point) {
-		return 2 + (point / 15);
+		return 2 + (point / 16);
 	}
 	
 	@Override

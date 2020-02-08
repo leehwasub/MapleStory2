@@ -59,7 +59,7 @@ public class BlowBeastAttack extends MonsterAttack {
 	}
 
 	public int calNeedMp() {
-		return 25 + monsterSkill.getSkillPoint() * 10;
+		return 15 + monsterSkill.getSkillPoint() * 10;
 	}
 	
 }

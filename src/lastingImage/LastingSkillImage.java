@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import attack.AttackInfor;
 import attackImage.SkillImage;
+import character.Monster;
 import component.StateBox;
 import hunt.HuntComponent.Hunt;
 
@@ -11,8 +12,8 @@ public abstract class LastingSkillImage extends SkillImage{
 	
 	protected boolean isCanLast;
 	
-	public LastingSkillImage(String root, Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor) {
-		super(root, hunt, attacker, opponent, attackInfor, 0, 0);
+	public LastingSkillImage(String root, Hunt hunt, StateBox attacker, StateBox opponent, ArrayList<AttackInfor> attackInfor, int modifyX, int modifyY) {
+		super(root, hunt, attacker, opponent, attackInfor, modifyX, modifyY);
 		this.isCanLast = true;
 	}
 	
@@ -34,7 +35,11 @@ public abstract class LastingSkillImage extends SkillImage{
 		Thread thread = new Thread(){
 			public void run() {
 				while(isCanLast) {
-					point.setXY(attacker.getX() + 65 - imageList.get(0).getWidth(null)/2, attacker.getY() + 65 - imageList.get(0).getHeight(null)/2);
+					if(attacker.getCharacter() instanceof Monster) {
+						point.setXY(attacker.getX() + 65 - imageList.get(0).getWidth(null)/2 + modifyX, attacker.getY() + 65 - imageList.get(0).getHeight(null)/2 + modifyY);
+					} else {
+						point.setXY(attacker.getX() + 300 - imageList.get(0).getWidth(null)/2 + modifyX, attacker.getY() + 65 - imageList.get(0).getHeight(null)/2 + modifyY);
+					}
 				}
 			}
 		};

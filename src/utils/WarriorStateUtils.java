@@ -7,7 +7,7 @@ public class WarriorStateUtils {
 	static {
 		int b = 0;
 		int c = 0;
-		for (int i = 1; i <= 90; i++) {
+		for (int i = 1; i <= ExpUtils.MAX_LEVEL; i++) {
 			b = b + 35 + (i - 1) * 2;
 			MAX_HP[i] = b;
 			c = c + 3 + (i - 1) / 14;

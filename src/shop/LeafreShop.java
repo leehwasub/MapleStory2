@@ -49,8 +49,8 @@ public class LeafreShop extends Shop {
 		consumableItemList.add(ItemPool.getItem("마스터리북:플레임차지30", 1));
 		consumableItemList.add(ItemPool.getItem("마스터리북:블리자드차지30", 1));
 		consumableItemList.add(ItemPool.getItem("마스터리북:실드마스터리20", 1));
+		consumableItemList.add(ItemPool.getItem("마스터리북:블레싱아머20", 1));
 		consumableItemList.add(ItemPool.getItem("마스터리북:라이트닝차지30", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:리스토네이션20", 1));
 		consumableItemList.add(ItemPool.getItem("마스터리북:위협30", 1));
 		consumableItemList.add(ItemPool.getItem("마스터리북:컴뱃오더스30", 1));
 		consumableItemList.add(ItemPool.getItem("마스터리북:아이언월25", 1));

@@ -33,6 +33,7 @@ import monsterAttack.MonsterAttack;
 import panel.MainPanel;
 import playerAttack.PlayerAttack;
 import skill.ActiveSkill;
+import skill.Skill;
 import skill.SkillFactory;
 import skill.SkillValid;
 import utils.CalUtils;
@@ -513,18 +514,28 @@ public class HuntComponent {
 					WarpMapBossRoom.closeMapAfterClear(player, monster.getName());
 				}
 			}
+			monster.removeAllBuff();
+			adventurer.removeAllBuff();
 			adventurerState.barSetVisibleFalse();
 			monsterState.barSetVisibleFalse();
 			attackButton.setVisible(false);
 			runButton.setVisible(false);
 			turnQueue.clear();
 			turnQueue = null;
-			monster.removeAllBuff();
 			this.monster = null;
 			checkLastingImages();
 			removeAllSkillImages();
 		}
 		
+		public SkillImage getSkillImage(Skill skill) {
+			for(int i = skillImageList.size() - 1; i >= 0; i--) {
+				if(skillImageList.get(i).getClass().equals(skill.getClass())) {
+					return skillImageList.get(i);
+				}
+			}
+			return null;
+		}
+
 		private void removeAllSkillImages() {
 			for(int i = skillImageList.size() - 1; i >= 0; i--) {
 				skillImageList.remove(i);

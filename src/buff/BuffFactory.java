@@ -95,6 +95,8 @@ public class BuffFactory {
 			return new SpecialBuff("powerTransfer", "파워트랜스퍼", last, "일정 시간 동안 방어막을 생성해 일정확률로 공격을 방어한다", false);
 		case "에테리얼폼":
 			return new SpecialBuff("etherealForm", "에테리얼폼", last, "일정 시간 동안 모든 상태이상에 대해 면역상태가 된다", false);
+		case "블레싱아머":
+			return new SpecialBuff("divineShield", "블레싱아머", last, "일정 시간 동안 물리공격력이 증가하고 일정 퍼센트 데미지를 무시한다.", false);
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeSpecialBuff("+buffName+") 버프 생성 실패!");
 		return null;

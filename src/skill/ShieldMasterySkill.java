@@ -20,7 +20,7 @@ public class ShieldMasterySkill extends PassiveSkill{
 
 	@Override
 	public int getEffect(int point) {
-		return 10 + (point * 2);
+		return 10 + point;
 	}
 	
 	public int getDefenseUpRate(int point) {
@@ -34,19 +34,11 @@ public class ShieldMasterySkill extends PassiveSkill{
 	public int guardRate(int point) {
 		return 10 + point;
 	}
-	
-	public int stunRate(int point) {
-		return 15 + point;
-	}
-	
-	public int stunTurn(int point) {
-		return 2;
-	}
 
 	@Override
 	public String getEffectDetail(int point) {
 		return "방패 착용시 모든 속성 저항 +"+ getEffect(point) + ", 방패 무기의 방어력 " + getDefenseUpRate(point) + "% 증가, 물리 공격력 +" + getDamageEffect(point)
-				+ ", " + guardRate(point) + "% 확률로 적 공격 방어, 방어시 " + stunRate(point) + "% 확률로 " + stunTurn(point) + "턴간 적 스턴";
+				+ ", " + guardRate(point) + "% 확률로 적 공격 방어";
 	}
 
 	@Override

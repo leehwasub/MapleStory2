@@ -3,20 +3,25 @@ package hunt;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import attack.Attack;
 import attack.AttackInfor;
+import attackImage.EvilEyeBuffUseImage;
+import attackImage.SkillImage;
 import buff.BuffFactory;
 import character.Adventurer;
 import component.StateBox;
 import hunt.HuntComponent.Hunt;
 import item.EquipmentItem;
+import lastingImage.DivineShieldLastingImage;
 import playerAttack.BlizzardChargeAttack;
 import playerAttack.FlameChargeAttack;
 import playerAttack.LightningChargeAttack;
 import playerAttack.PlayerAttack;
 import skill.BlizzardChargeSkill;
 import skill.CombatOrdersSkill;
+import skill.DivineShieldSkill;
 import skill.ElementalChargeSkill;
 import skill.FlameChargeSkill;
 import skill.LightningChargeSkill;
@@ -88,6 +93,11 @@ public class PageHuntEvent implements HuntEvent, Serializable{
  		if(!adventurer.isAlreadyBuffed("컴뱃오더스") && combatOrdersSkill != null && combatOrdersSkill.getPoint() >= 1) {
  			combatOrdersSkill.updateToOriginalSkillPoint(adventurer);
  		}
+ 		
+ 		if(adventurer.isAlreadyBuffed("블레싱아머") && hunt.getSkillImage(adventurer.getSkillWithName("블레싱아머")) == null) {
+ 			hunt.addSkillImage(new DivineShieldLastingImage(hunt, hunt.getAdventurerState(), hunt.getMonsterState(), null));
+ 		}
+ 		
 		adventurer.calState();
 	}
 
@@ -125,8 +135,16 @@ public class PageHuntEvent implements HuntEvent, Serializable{
 				attackInfor.setPhysicalDamage(attackInfor.getPhysicalDamage() / 2);
 				attackInfor.setMagicDamage(attackInfor.getMagicDamage() / 2);
 				MusicUtils.startEffectSound("defence");
-				if(CalUtils.calPercent(shieldMasterySkill.stunRate(point))) {
-					attackInfor.getAttacker().addBuff(BuffFactory.makeSpecialBuff("스턴", shieldMasterySkill.stunTurn(point)));
+			}
+		}
+		DivineShieldSkill divineShieldSkill = (DivineShieldSkill)adventurer.getSkillWithName("블레싱아머");
+		if(divineShieldSkill != null && divineShieldSkill.getPoint() >= 1) {
+			int point = divineShieldSkill.getPoint();
+			if(CalUtils.calPercent(divineShieldSkill.guardRate(point))) {
+				divineShieldSkill.subDivineShieldCoolTime();
+				if(divineShieldSkill.getDivineShieldCoolTime() == 0) {
+					adventurer.addBuff((BuffFactory.makeSpecialBuff("블레싱아머", divineShieldSkill.getLast(point))));
+					divineShieldSkill.resetDivineShieldCoolTime();
 				}
 			}
 		}

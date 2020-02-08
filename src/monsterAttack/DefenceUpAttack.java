@@ -29,7 +29,7 @@ public class DefenceUpAttack extends MonsterAttack {
 	}
 
 	public int calNeedMp() {
-		return 10 + monsterSkill.getSkillPoint() * 3;
+		return 7 + monsterSkill.getSkillPoint() * 3;
 	}
 
 	@Override

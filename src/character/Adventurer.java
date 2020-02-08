@@ -16,6 +16,7 @@ import maplestory.Player;
 import skill.ActiveSkill;
 import skill.PassiveSkill;
 import skill.Skill;
+import skill.SkillFactory;
 import utils.ExpUtils;
 import utils.MusicUtils;
 import utils.NewbieStateUtils;
@@ -418,6 +419,13 @@ public class Adventurer extends Character implements Serializable {
 					((ActiveSkill)skillList.get(i).get(j)).resetCoolTime();
 				}
 			}
+		}
+	}
+	
+	public void test() {
+		if(career.equals("나이트") && getSkillWithName("리스토네이션") != null) {
+			skillList.get(2).remove(2);
+			skillList.get(2).add(1, SkillFactory.makeSkill("블레싱아머"));
 		}
 	}
 	

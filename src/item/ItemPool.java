@@ -83,6 +83,8 @@ public class ItemPool {
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 60, 0, 0, 0, 0, 60, 15, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_SHIELD, SexType.ALL, false));
 		items.put("아퀼라실드", new EquipmentItem("아퀼라실드", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHIELD, 70), "aquilaShield", 1, 
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 70, 0, 0, 0, 0, 70, 20, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_SHIELD, SexType.ALL, false));
+		items.put("타임리스카이트실드", new EquipmentItem("타임리스카이트실드", getPrice(EquipmentItem.EQUIPMENT_TYPE_SHIELD, 80), "timelessKiteShield", 1, 
+				new Strength(new Resistance(0, 0, 10, 10, 10, 0), 80, 0, 0, 0, 0, 140, 90, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_SHIELD, SexType.ALL, true));
 	}
 
 
@@ -117,6 +119,8 @@ public class ItemPool {
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 60, 0, 0, 83, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
 		items.put("프라우테", new WeaponItem("프라우테", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 70), "praote", 1, 
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 70, 0, 0, 98, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SWORD));
+		items.put("타임리스엑서큐서너스", new WeaponItem("타임리스엑서큐서너스", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 80), "timelessXercucinus", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 80, 0, 0, 123, 0, 0, 0, 0, 0, 5), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, true, WeaponType.SWORD));
 	
 		items.put("삼지창", new WeaponItem("삼지창", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 25), "trident", 1, 
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 25, 0, 0, 47, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SPEAR));
@@ -136,6 +140,8 @@ public class ItemPool {
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 60, 0, 0, 98, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SPEAR));
 		items.put("피나카", new WeaponItem("피나카", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 70), "pinaka", 1, 
 				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 70, 0, 0, 105, 0, 0, 0, 0, 0, 0), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, false, WeaponType.SPEAR));
+		items.put("타임리스알슈피스", new WeaponItem("타임리스알슈피스", getPrice(EquipmentItem.EQUIPMENT_TYPE_WAEPON, 80), "timelessAlSchpis", 1, 
+				new Strength(new Resistance(0, 0, 0, 0, 0, 0), 80, 0, 0, 130, 0, 0, 0, 0, 0, 5), EquipmentItem.EQUIPMENT_TYPE_WAEPON, SexType.ALL, true, WeaponType.SWORD));
 	}
 
 	private static void initClothsItem() {
@@ -268,8 +274,8 @@ public class ItemPool {
 		items.put("마스터리북:플레임차지30", new MasteryBookItem("마스터리북:플레임차지30", 100000, "masteryBook", 1, 80, "플레임차지", 30));
 		items.put("마스터리북:블리자드차지30", new MasteryBookItem("마스터리북:블리자드차지30", 100000, "masteryBook", 1, 80, "블리자드차지", 30));
 		items.put("마스터리북:실드마스터리20", new MasteryBookItem("마스터리북:실드마스터리20", 100000, "masteryBook", 1, 80, "실드마스터리", 20));
+		items.put("마스터리북:블레싱아머20", new MasteryBookItem("마스터리북:블레싱아머20", 100000, "masteryBook", 1, 80, "블레싱아머", 20));
 		items.put("마스터리북:라이트닝차지30", new MasteryBookItem("마스터리북:라이트닝차지30", 100000, "masteryBook", 1, 80, "라이트닝차지", 30));
-		items.put("마스터리북:리스토네이션20", new MasteryBookItem("마스터리북:리스토네이션20", 100000, "masteryBook", 1, 80, "리스토네이션", 20));
 		items.put("마스터리북:위협30", new MasteryBookItem("마스터리북:위협30", 100000, "masteryBook", 1, 80, "위협", 30));
 		items.put("마스터리북:컴뱃오더스30", new MasteryBookItem("마스터리북:컴뱃오더스30", 100000, "masteryBook", 1, 80, "컴뱃오더스", 30));
 		items.put("마스터리북:아이언월25", new MasteryBookItem("마스터리북:아이언월25", 100000, "masteryBook", 1, 80, "아이언월", 25));
@@ -287,6 +293,8 @@ public class ItemPool {
 				new Strength(new Resistance(0, 10, 0, 0, 0, 0), 40, 0, 0, 0, 0, 50, 50, 0, 0, 2), EquipmentItem.EQUIPMENT_TYPE_TITLE, SexType.ALL, false));
 		items.put("리프레의영웅", new EquipmentItem("리프레의영웅", 300000, "heroOfLeafre", 1,
 				new Strength(new Resistance(20, 20, 0, 0, 0, 0), 80, 150, 150, 0, 0, 80, 80, 5, 5, 5), EquipmentItem.EQUIPMENT_TYPE_TITLE, SexType.ALL, true));
+		items.put("메이플월드의영웅", new EquipmentItem("메이플월드의영웅", 1000000, "heroOfMapleWorld", 1,
+				new Strength(new Resistance(20, 20, 20, 20, 20, 20), 90, 300, 300, 0, 0, 150, 150, 10, 10, 10), EquipmentItem.EQUIPMENT_TYPE_TITLE, SexType.ALL, true));
 	}
 
 	private static void initGloveItem() {

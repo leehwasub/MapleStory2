@@ -198,6 +198,8 @@ public class MonsterFactory {
 			return new Lilynouch();
 		case "라이카":
 			return new Lyka();
+		case "핑크빈":
+			return new PinkBean();
 		}
 		DialogUtils.showErrorDialog("Monsterfactory.makeMonster(monsterName) 몬스터 생성 실패!");
 		return null;
@@ -294,6 +296,10 @@ public class MonsterFactory {
 		monsters.add(makeMonster("후회의수호대장"));
 		monsters.add(makeMonster("망각의신관"));
 		monsters.add(makeMonster("망각의수호대장"));
+		monsters.add(makeMonster("도도"));
+		monsters.add(makeMonster("릴리노흐"));
+		monsters.add(makeMonster("라이카"));
+		monsters.add(makeMonster("핑크빈"));
 		Collections.sort(monsters);
 		return monsters;
 	}
@@ -396,6 +402,24 @@ public class MonsterFactory {
 			}
 			break;
 		case "군영":
+			if (isRange(percent, 0, 4)) {
+				ret = makeMonster("스켈레톤사병");
+			} else if (isRange(percent, 4, 7)) {
+				ret = makeMonster("스켈레톤장교");
+			} else if (isRange(percent, 7, 10)) {
+				ret = makeMonster("스켈레톤지휘관");
+			}
+			break;
+		case "샤레니안왕성1":
+			if (isRange(percent, 0, 4)) {
+				ret = makeMonster("스켈레톤사병");
+			} else if (isRange(percent, 4, 7)) {
+				ret = makeMonster("스켈레톤장교");
+			} else if (isRange(percent, 7, 10)) {
+				ret = makeMonster("스켈레톤지휘관");
+			}
+			break;
+		case "샤레니안왕성2":
 			if (isRange(percent, 0, 4)) {
 				ret = makeMonster("스켈레톤사병");
 			} else if (isRange(percent, 4, 7)) {

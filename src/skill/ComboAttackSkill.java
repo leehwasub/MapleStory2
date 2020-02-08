@@ -50,7 +50,9 @@ public class ComboAttackSkill extends PassiveSkill{
 	}
 	
 	public void addComboNum() {
-		this.comboNum += 1;
+		if(!isHaveMaxComboNum()) {
+			this.comboNum += 1;
+		}
 	}
 	
 	public void subComboNum() {

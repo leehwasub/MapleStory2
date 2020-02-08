@@ -5,6 +5,7 @@ import hunt.HuntComponent.Hunt;
 import monsterAttack.AccuracyRateDownAttack;
 import monsterAttack.AccuracyRateUpAttack;
 import monsterAttack.AdvancedFlameShootAttack;
+import monsterAttack.ArmageddonAttack;
 import monsterAttack.BatSweamAttack;
 import monsterAttack.BlazingExtinctionAttack;
 import monsterAttack.BlizzardAttack;
@@ -28,6 +29,7 @@ import monsterAttack.FlameBarrierAttack;
 import monsterAttack.FlameBiteAttack;
 import monsterAttack.FlameShootAttack;
 import monsterAttack.FlashAttack;
+import monsterAttack.GenesisAttack;
 import monsterAttack.HpHealAttack;
 import monsterAttack.HumanityInAttack;
 import monsterAttack.IceStrikeAttack;
@@ -157,6 +159,10 @@ public class AttackFactory {
 			return new PoisonNovaAttack(hunt, attacker, opponents, new MonsterSkill("포이즌노바", Property.PROPERTY_POSION, skillPoint, AttackType.OPPONENT));
 		case "블리자드":
 			return new BlizzardAttack(hunt, attacker, opponents, new MonsterSkill("블리자드", Property.PROPERTY_ICE, skillPoint, AttackType.OPPONENT));
+		case "아마겟돈":
+			return new ArmageddonAttack(hunt, attacker, opponents, new MonsterSkill("아마겟돈", Property.PROPERTY_NOTHING, skillPoint, AttackType.OPPONENT));
+		case "제네시스":
+			return new GenesisAttack(hunt, attacker, opponents, new MonsterSkill("제네시스", Property.PROPARTY_HOLY, skillPoint, AttackType.OPPONENT));
 		}
 		DialogUtils.showErrorDialog("AttackFactory.makeMonsterAttack("+attackName+") 몬스터 공격 실패!");
 		return null;
