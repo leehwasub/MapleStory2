@@ -22,4 +22,5 @@ public interface MainMapleInterface {
 	public void setQuickSkillImage();
 	public void mainStateBarUpdate();
 	public void setQuickSkillEnabled();
+	public void renewStoreInventory();
 }

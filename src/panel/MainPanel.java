@@ -290,7 +290,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		this.storeInventory.setVisible(false);
 		add(this.storeInventory);
 
-		this.store = new StorePanel(new MapleIslandShop(), player);
+		this.store = new StorePanel(new MapleIslandShop(), player, this);
 		this.store.setBounds(170, 100, 860, 630);
 		this.store.setVisible(false);
 		add(store);
@@ -428,6 +428,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			setButtonWithPlayerLoc();
 			mainStateBarSetVisibleTrue();
 			this.inventoryButton.setVisible(true);
+			quickButtonPanel.setVisibleTrue();
 		} else {
 			worldMapPanel.setWorldImage();
 			this.player.setIsCanMove(false);
@@ -435,6 +436,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			mainStateBarSetVisibleFalse();
 			this.inventoryButton.setVisible(false);
 			this.buyItemButton.setVisible(false);
+			quickButtonPanel.setVisibleFalse();
 		}
 		repaint();
 	}
@@ -446,6 +448,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			mainStateBarSetVisibleTrue();
 			this.islandMapButton.setVisible(true);
 			this.inventoryMainPanel.setVisible(false);
+			quickButtonPanel.setVisibleTrue();
 		} else {
 			this.player.setIsCanMove(false);
 			setMenuDownSideButtonVisibleFalse();
@@ -453,6 +456,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			this.islandMapButton.setVisible(false);
 			this.inventoryMainPanel.setVisible(true);
 			this.buyItemButton.setVisible(false);
+			quickButtonPanel.setVisibleFalse();
 		}
 		reloadPanel();
 	}
@@ -693,6 +697,11 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	@Override
 	public void setQuickSkillEnabled() {
 		quickButtonPanel.setQuickSkillEnabled();
+	}
+
+	@Override
+	public void renewStoreInventory() {
+		storeInventory.updateStoreInventory();
 	}
 	
 

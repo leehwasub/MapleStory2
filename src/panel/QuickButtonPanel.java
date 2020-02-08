@@ -122,6 +122,28 @@ public class QuickButtonPanel extends JPanel{
 		this.stateBox = stateBox;
 	}
 	
+	public void setVisibleTrue() {
+		for (int i = 0; i < Adventurer.QUICK_SKILL_ARRAY_SIZE; i++) {
+			quickSkillButton[i].setVisible(true);
+			quickSkillCancelButton[i].setVisible(true);
+		}
+		for (int i = 0; i < Adventurer.QUICK_ITEM_ARRAY_SIZE; i++) {
+			quickItemButton[i].setVisible(true);
+			quickItemCancelButton[i].setVisible(true);
+		}
+	}
+	
+	public void setVisibleFalse() {
+		for (int i = 0; i < Adventurer.QUICK_SKILL_ARRAY_SIZE; i++) {
+			quickSkillButton[i].setVisible(false);
+			quickSkillCancelButton[i].setVisible(false);
+		}
+		for (int i = 0; i < Adventurer.QUICK_ITEM_ARRAY_SIZE; i++) {
+			quickItemButton[i].setVisible(false);
+			quickItemCancelButton[i].setVisible(false);
+		}
+	}
+	
 	private void makeQuickSkillSpace() {
 		for (int i = 0; i < Adventurer.QUICK_SKILL_ARRAY_SIZE; i++) {
 			final int index = i;

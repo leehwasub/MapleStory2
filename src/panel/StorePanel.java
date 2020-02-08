@@ -23,6 +23,7 @@ import component.MapleButtonGroup;
 import item.Item;
 import item.ItemPool;
 import map.Point;
+import maplestory.MainMapleInterface;
 import maplestory.Player;
 import renderer.StoreItemRenderer;
 import shop.Shop;
@@ -65,7 +66,7 @@ public class StorePanel extends JPanel {
 	private int curType;
 	private JScrollPane scrollPane;
 
-	public StorePanel(Shop shop, Player player) {
+	public StorePanel(Shop shop, Player player, MainMapleInterface mainMapleInterface) {
 		this.shop = shop;
 		setLayout(null);
 		setBackground(new Color(0, 0, 0, 0));
@@ -130,6 +131,7 @@ public class StorePanel extends JPanel {
 							if(isCanAdd) {
 								player.subMoney(num * item.getCost());
 								JOptionPane.showMessageDialog(null, "구매가 완료되었습니다.");
+								mainMapleInterface.renewStoreInventory();
 							} else {
 								JOptionPane.showMessageDialog(null, "인벤토리 공간이 부족합니다.");
 							}

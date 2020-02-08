@@ -20,8 +20,13 @@ public class PlayerItemRenderer extends DefaultListCellRenderer implements ListC
 			boolean cellHasFocus) {
 		Item item = (Item) value;
 		list.setFont(FontUtils.SMALL_FONT);
-		setText("<html>" + item.getName() + "<br><font color=#0080FF>" + item.getCost() / 10
-				+ " 메소 </font><font color=navy>(X" + item.getNum() + ")</font></html>");
+		String moneyText = item.getCost() / 10 + " 메소 ";
+		String moneyColor = "#0080FF";
+		if(!item.isSellable()) {
+			moneyText = "판매불가 ";
+			moneyColor = "red";
+		}
+		setText("<html>" + item.getName() + "<br><font color="+moneyColor+">"+moneyText+"</font><font color=navy>(X" + item.getNum() + ")</font></html>");
 
 		setIcon(new ImageIcon(item.getImage()));
 		setIconTextGap(10);

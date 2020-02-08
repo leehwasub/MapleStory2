@@ -6,6 +6,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.sun.javafx.scene.control.skin.Utils;
+
 import character.Adventurer;
 import character.AdventurerFactory;
 import character.Monster;
@@ -32,6 +34,7 @@ import quest.Quest;
 import quest.QuestMaterial;
 import quest.QuestProceed;
 import skill.Skill;
+import utils.DialogUtils;
 import utils.FontUtils;
 import utils.MusicUtils;
 
@@ -422,6 +425,8 @@ public class Player implements Serializable {
 		boolean isCanTakeOff = addItem(ItemPool.getItem(mainAdventurer.getWearEquipmentByIndex(type).getName(), 1));
 		if(isCanTakeOff) {
 			mainAdventurer.setWearEquipmentByIndex(type, null);
+		} else {
+			DialogUtils.showWarningDialog("인벤토리가 가득찼습니다.");
 		}
 		calState();
 		return true;
