@@ -40,13 +40,13 @@ public class FileLoader {
 		for (Iterator<Path> it = walk.iterator(); it.hasNext();) {
 			String filePath = ((Path) it.next()).toString();
 			if (i != 0) {
-				System.out.println(filePath);
+				//System.out.println(filePath);
 				int folderIndex = filePath.lastIndexOf("\\");
 				if (uri.getScheme().equals("jar")) {
 					folderIndex = filePath.lastIndexOf("/");
 				}
 				filePath = filePath.substring(folderIndex + 1);
-				System.out.println(filePath);
+				//System.out.println(filePath);
 				ret.add(filePath);
 			}
 			i++;

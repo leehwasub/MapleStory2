@@ -17,7 +17,7 @@ public interface MainMapleInterface {
 	public void toMainMenu();
 	public void loadStateBoxOnQuickButton(StateBox statebox);
 	public void setQuickItemImage();
-	public void nextTurn();
+	public void potionUsed();
 	public void playerUseSkill(String skillName);
 	public void setQuickSkillImage();
 	public void mainStateBarUpdate();

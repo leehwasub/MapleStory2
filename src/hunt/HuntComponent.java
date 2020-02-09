@@ -83,6 +83,10 @@ public class HuntComponent {
 		hunt.runEvent();
 	}
 	
+	public void potionUsed() {
+		hunt.potionUsed();
+	}
+	
 	public void setMouseListener() {
 		if(!isbuttonAdapterSeted) {
 			isbuttonAdapterSeted = true;
@@ -171,7 +175,7 @@ public class HuntComponent {
 			this.isEnd = true;
 			this.player = player;
 			playerHuntEvent = adventurer.getHuntEvent();
-			
+			disablePlayerActive();
 			
 			this.adventurer = adventurer;
 			adventurerState.reload(adventurer);
@@ -189,21 +193,26 @@ public class HuntComponent {
 			if(playerHuntEvent != null) {
 				playerHuntEvent.startHunt(this);
 			}
+			enablePlayerActive();
+		}
+
+		public void potionUsed() {
+			adventurerState.updateStateBox();
+			disablePlayerActive();
+			hunt.wakeUp();
 		}
 
 		public void runEvent() {
 			int percent = ((adventurer.getAdventurerLevel() - monster.getStrength().getLevel()) * 5) + 50;
 			if(CalUtils.calPercent(percent)) {
 				mainMapleInterface.pushMessage(new Message(nowStateBox.getCharacter().getName() + "는 도망에 성공했습니다!", Color.CYAN, true));
+				disablePlayerActive();
 				isRun = true;
 				wakeUp();
 			} else {
 				mainMapleInterface.pushMessage(new Message(nowStateBox.getCharacter().getName() + "는 도망에 실패했습니다!", Color.CYAN, true));
 				isRunFailed = true;
-				player.setCanUseSkill(false);
-				player.setCanUsePortion(false);
-				attackButton.setVisible(false);
-				runButton.setVisible(false);
+				disablePlayerActive();
 				try {
 					sleep(500);
 				} catch (InterruptedException e) {
@@ -362,12 +371,7 @@ public class HuntComponent {
 					//stand by for an attack
 					playerAttack = null;
 
-					attackButton.setVisible(true);
-					player.setCanUsePortion(true);
-					player.setCanUseSkill(true);
-					if(!monster.isBoss() && !isRunFailed) {
-						runButton.setVisible(true);
-					}
+					enablePlayerActive();
 					
 					waitForAttack();
 					
@@ -430,15 +434,9 @@ public class HuntComponent {
 		}
 
 		public void playerSetAttack(String skillName) {
-			System.out.println("playerSetAttack1 : " + skillName);
 			if (!player.isCanUseSkill()) {
 				return;
 			}
-			System.out.println("playerSetAttack2 : " + skillName);
-			player.setCanUseSkill(false);
-			player.setCanUsePortion(false);
-			attackButton.setVisible(false);
-			runButton.setVisible(false);
 			if(skillName.equals("일반공격")) {
 				playerAttack = ((ActiveSkill)SkillFactory.makeSkill("일반공격")).skillUse(this, nowStateBox, monsterState);
 			} else {
@@ -458,8 +456,8 @@ public class HuntComponent {
 				player.getMainAdventurer().spendMp(needMp);
 				adventurerState.updateStateBox();
 			}
+			disablePlayerActive();
 			player.calState();
-			
 			//succeed using the skill
 			if(playerHuntEvent != null) {
 				playerHuntEvent.startAttack(this);
@@ -468,6 +466,22 @@ public class HuntComponent {
 			mainMapleInterface.setQuickSkillEnabled();
 			player.getMainAdventurer().setUsedSkill(playerAttack.getActiveSkill());
 			wakeUp();
+		}
+		
+		public void enablePlayerActive() {
+			attackButton.setVisible(true);
+			player.setCanUsePortion(true);
+			player.setCanUseSkill(true);
+			if(!monster.isBoss() && !isRunFailed) {
+				runButton.setVisible(true);
+			}
+		}
+		
+		public void disablePlayerActive() {
+			player.setCanUseSkill(false);
+			player.setCanUsePortion(false);
+			attackButton.setVisible(false);
+			runButton.setVisible(false);
 		}
 
 		public void wakeUp() {

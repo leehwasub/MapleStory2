@@ -357,7 +357,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	}
 
 	private void meetMonsterEvent() {
-		if(!isEndingHunt || moveCount < 4) return;
+		if(!isEndingHunt || moveCount < 6) return;
 		Monster monster = MonsterFactory.readyMonster(this.player.get_curMap().getName());
 		if (monster != null) {
 			player.setIsCanMove(false);
@@ -661,9 +661,9 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	}
 
 	@Override
-	public void nextTurn() {
+	public void potionUsed() {
 		if(huntComponent != null) {
-			huntComponent.wakeUp();
+			huntComponent.potionUsed();
 		}
 	}
 

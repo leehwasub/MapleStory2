@@ -185,12 +185,10 @@ public class QuickButtonPanel extends JPanel{
 			return;
 		}
 		player.getMainAdventurer().usePortion(player, mainMapleInterface, this.quickItemButton[index].getItem());
-		setQuickItemImage();
 		if(player.isHunt()) {
-			stateBox.updateStateBox();
-			player.setCanUsePortion(false);
-			mainMapleInterface.nextTurn();
+			mainMapleInterface.potionUsed();
 		}
+		setQuickItemImage();
 	}
 
 	public void setQuickItemImage() {
