@@ -202,22 +202,22 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 		addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent e) {
 				if (player.getIsCanMove()) {
-					if (e.getKeyCode() == 38) {
-						player.move(2);
+					if (e.getKeyCode() == KeyEvent.VK_UP) {
+						player.move(Player.MOVE_UP);
 						moveEvent();
-					} else if (e.getKeyCode() == 37) {
-						player.move(0);
+					} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+						player.move(Player.MOVE_LEFT);
 						moveEvent();
-					} else if (e.getKeyCode() == 39) {
-						player.move(1);
+					} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+						player.move(Player.MOVE_RIGHT);
 						moveEvent();
-					} else if (e.getKeyCode() == 40) {
-						player.move(3);
+					} else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+						player.move(Player.MOVE_DOWN);
 						moveEvent();
 					}
 					MainPanel.this.repaint();
 				}
-				if (nextButton.isVisible() && (e.getKeyCode() == 39)) {
+				if (nextButton.isVisible() && (e.getKeyCode() == KeyEvent.VK_RIGHT)) {
 					if (!player.isCanEndConversation()) {
 						conversationEvent();
 					} else {
@@ -227,49 +227,23 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 					mainStateBarUpdate();
 					repaint();
 				}
-				if (meetNpcButton.isVisible() && (e.getKeyCode() == 80)) {
+				if (meetNpcButton.isVisible() && (e.getKeyCode() == KeyEvent.VK_P)) {
 					converstionStartEvent();
 				}
-				if (moveOtherMapButton.isVisible() && (e.getKeyCode() == 80)) {
+				if (moveOtherMapButton.isVisible() && (e.getKeyCode() == KeyEvent.VK_P)) {
 					moveOtherMapEvent();
 				}
-				if (islandMapButton.isVisible() && (e.getKeyCode() == 79)) {
+				if (islandMapButton.isVisible() && (e.getKeyCode() == KeyEvent.VK_O)) {
 					islandMapButtonEvent();
-					Thread thread = new Thread() {
-						public void run() {
-							try {
-								sleep(50L);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-							MainPanel.this.repaint();
-						}
-					};
-					thread.start();
 				}
-				if (inventoryButton.isVisible() && (e.getKeyCode() == 73)) {
-					MainPanel.this.inventoryButtonEvent();
-					Thread thread = new Thread() {
-						public void run() {
-							try {
-								sleep(50L);
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-							MainPanel.this.repaint();
-						}
-					};
-					thread.start();
+				if (inventoryButton.isVisible() && (e.getKeyCode() == KeyEvent.VK_I)) {
+					inventoryButtonEvent();
 				}
-				if (storeOutButton.isVisible() && (e.getKeyCode() == 27)) {
-					MainPanel.this.storeCloseEvent();
+				if (storeOutButton.isVisible() && (e.getKeyCode() == KeyEvent.VK_ESCAPE)) {
+					storeCloseEvent();
 				}
-				if (buyItemButton.isVisible() && (e.getKeyCode() == 75)) {
+				if (buyItemButton.isVisible() && (e.getKeyCode() == KeyEvent.VK_K)) {
 					storeOpenEvent();
-				}
-				if(e.getKeyCode() == KeyEvent.VK_M) {
-					JobSelectDialog dialog = new JobSelectDialog();
-					dialog.setVisible(true);
 				}
 			}
 		});
@@ -329,6 +303,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			this.buyItemButton.setVisible(false);
 			mainMessageBox.clearMessageBox();
 			meetMonsterEvent();
+			moveCount++;
 			break;
 		case MapleMap.MAP_NPC_STATE:
 			this.moveOtherMapButton.setVisible(false);
@@ -353,7 +328,6 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			mainMessageBox.clearMessageBox();
 			break;
 		}
-		moveCount++;
 		updateMainStateBar();
 	}
 

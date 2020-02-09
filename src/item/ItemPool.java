@@ -420,19 +420,18 @@ public class ItemPool {
 		items.put("블러드하프의머리관", new MaterialItem("블러드하프의머리관", 700, "bloodHarpTailFeather", 1, "블러드 하프가 쓰고 다니는 머리관이다. 부드럽고 포근한 느낌이다."));
 		items.put("켄타우로스의불꽃", new MaterialItem("켄타우로스의불꽃", 710, "kentaurusFire", 1, "켄타우로스의 힘의 근원이다."));
 		items.put("와이번의아가미", new MaterialItem("와이번의아가미", 720, "wyverngill", 1, "블루 와이번의 얼굴 양쪽에 달려있는 작은 아가미다."));
-		items.put("해골어깨보호대", new MaterialItem("해골어깨보호대", 720, "skeletonShoulderProtector", 1, "다크 코니언의 어깨 갑주이다. 해골로 만들어져서 보는 이로 하여금 공포를 느끼게 한다."));
+		items.put("해골어깨보호대", new MaterialItem("해골어깨보호대", 720, "skeletonShoulderProtector", 1, "코니언의 어깨 갑주이다. 해골로 만들어져서 보는 이로 하여금 공포를 느끼게 한다."));
 		items.put("와이번의발톱", new MaterialItem("와이번의발톱", 730, "wyvernToenail", 1, "다크 와이번의 날개 끝에 달려있는 작고 날카로운 발톱이다."));
 		//시간의 신전
-		items.put("금이간모래시계", new MaterialItem("금이간모래시계", 740, "brokenSandglass", 1, "금이 간 모래시계이다. 위태위태하지만 아직 작동하고있다."));
 		items.put("녹색고깔모자", new MaterialItem("녹색고깔모자", 750, "greenConeHat", 1, "추억의 신관이 쓰고있던 모자이다."));
 		items.put("푸른고깔모자", new MaterialItem("푸른고깔모자", 770, "blueConeHat", 1, "후회의 신관이 쓰고있던 모자이다."));
 		items.put("붉은고깔모자", new MaterialItem("붉은고깔모자", 790, "redConeHat", 1, "망각의 신관이 쓰고있던 모자이다."));
 		items.put("녹색심장", new MaterialItem("녹색심장", 800, "greenHeart", 1, "추억의 수호대장을 이루고 있던 심장이다."));
 		items.put("푸른심장", new MaterialItem("푸른심장", 810, "blueHeart", 1, "후회의 수호대장을 이루고 있던 심장이다."));
 		items.put("붉은심장", new MaterialItem("붉은심장", 820, "redHeart", 1, "망각의 수호대장을 이루고 있던 심장이다."));
-		items.put("고래의투구", new MaterialItem("고래의투구", 830, "whalePitching", 1, "시간의 고래, 도도가 쓰고 있던 투구이다."));	
-		items.put("나이트의가면", new MaterialItem("나이트의가면", 840, "knightMask", 1, "아이스 나이트, 릴리노흐가 쓰고 있던 가면이다."));
-		items.put("수호수의뿔", new MaterialItem("수호수의뿔", 850, "guardianHorn", 1, "수호수, 라이카의 머리에 달려 있던 뿔이다."));
+		items.put("고래의투구", new MaterialItem("고래의투구", 8300, "whalePitching", 1, "시간의 고래, 도도가 쓰고 있던 투구이다."));	
+		items.put("나이트의가면", new MaterialItem("나이트의가면", 8400, "knightMask", 1, "아이스 나이트, 릴리노흐가 쓰고 있던 가면이다."));
+		items.put("수호수의뿔", new MaterialItem("수호수의뿔", 8500, "guardianHorn", 1, "수호수, 라이카의 머리에 달려 있던 뿔이다."));
 		items.put("검은갑옷조각", new MaterialItem("검은갑옷조각", 900, "blackArmorPiece", 1, "수호병사의 어깨를 감싸고 있던 갑옷의 조각이다."));
 		
 		//퀘스트 아이템
