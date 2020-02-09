@@ -25,7 +25,7 @@ public class Lisa extends Npc{
 		if(questNum == 0) {
 			quest = Quest.makeQuest(2, 3, "엘리자 유인").addMessage("엘리자는 사람을 피하는 습성이 있기 때문에 처리 하고 싶다고 만날수 있는 몬스터가 아니라고 한다.")
 					.addMessage("그렇기에 주니어 몬스터 급인 루이넬을 처리하여 엘리자가 나타나도록 유인할 수 밖에 없다고 하는데. 이를 위해 하늘계단 2에 서식하는 루이넬을 20마리 정도 처치 하도록 하자.")
-					.addQuestKill("루이넬", 20).setRewardExp(1200).setRewardMoney(2400)
+					.addQuestKill("루이넬", 20).setRewardExp(1800).setRewardMoney(3500)
 					.addRewardUpdateMap("하늘계단2", 8, 39, MapleMap.MAP_PORTAL_STATE)
 					.setPlayerQuestProceed(QuestProceed.LISA_QUEST_1);
 			player.setQuest(quest);
@@ -33,7 +33,7 @@ public class Lisa extends Npc{
 			NpcList npcList = NpcList.getInstance();
 			quest = Quest.makeQuest(2, 4, "엘리자의 분노").addMessage("루이넬의 개체수가 눈에 띄게 줄어든걸 눈치챈 엘리자는 어둠의 공원에서 더 강력한 마법공격을 준비 한다고 한다.")
 					.addMessage("엘리자가 나타났으므로 더 큰일이 벌어지기 전에 엘리자를 처리하는것이 좋겠다.")
-					.addQuestKill("엘리자", 1).setRewardExp(1500).setRewardMoney(3000)
+					.addQuestKill("엘리자", 1).setRewardExp(2000).setRewardMoney(4000)
 					.setPlayerQuestProceed(QuestProceed.LISA_QUEST_2).addRewardNpcQuestProceed("티나", npcList.getNpcProcess("티나") + 1);
 			player.setQuest(quest);
 		} if(questNum == 2) {

@@ -22,6 +22,8 @@ public class OrbisShop extends Shop {
 		equipmentItemList.add(ItemPool.getItem("디펜더헬멧", 1));
 		equipmentItemList.add(ItemPool.getItem("버거넷헬름", 1));
 		equipmentItemList.add(ItemPool.getItem("레드크로스실드", 1));
+		consumableItemList.add(ItemPool.getItem("파란포션", 1));
+		consumableItemList.add(ItemPool.getItem("주황포션", 1));
 		consumableItemList.add(ItemPool.getItem("하얀포션", 1));
 		consumableItemList.add(ItemPool.getItem("레몬", 1));
 		consumableItemList.add(ItemPool.getItem("새우튀김", 1));

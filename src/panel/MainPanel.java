@@ -357,7 +357,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	}
 
 	private void meetMonsterEvent() {
-		if(!isEndingHunt || moveCount < 6) return;
+		if((!isEndingHunt || moveCount < 6) && player.get_curMap().getMapType() != MapleMap.MAP_BOSS_TYPE) return;
 		Monster monster = MonsterFactory.readyMonster(this.player.get_curMap().getName());
 		if (monster != null) {
 			player.setIsCanMove(false);
