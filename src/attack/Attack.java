@@ -187,13 +187,13 @@ public abstract class Attack extends Thread {
 	public void draw(Graphics2D g) {
 		if (this.skillImageList != null) {
 			for (int i = this.skillImageList.size() - 1; i >= 0; i--) {
-				if (!skillImageList.get(i).isAlive()) {
+				if (skillImageList.get(i) != null && !skillImageList.get(i).isAlive()) {
 					if(skillImageList.get(i).getTotalDamage() != 0) {
 						this.damage += skillImageList.get(i).getTotalDamage();
 					}
 					this.skillImageList.remove(i);
-				} else {
-					((SkillImage) this.skillImageList.get(i)).draw(g);
+				} else if(skillImageList.get(i) != null) {
+					skillImageList.get(i).draw(g);
 				}
 			}
 		}
