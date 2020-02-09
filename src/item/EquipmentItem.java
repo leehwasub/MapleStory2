@@ -70,7 +70,6 @@ public class EquipmentItem extends Item implements Serializable {
 			} else if (this.type == 7) {
 				this.image = ResourceLoader.getImage("titleItemImage", this.imageUrl + "ItemImage.png");
 			}
-			System.out.println(this.imageUrl);
 		}
 	}
 

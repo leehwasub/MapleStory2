@@ -220,5 +220,11 @@ public abstract class Npc implements Serializable {
 	public Image getMiniImage() {
 		return miniImage;
 	}
+
+	@Override
+	public String toString() {
+		return "Npc [imageUrl=" + imageUrl + ", name=" + name + ", process=" + process + ", talkList=" + talkList
+				+ ", pointMapName=" + pointMapName + ", questNum=" + questNum + ", clearNum=" + clearNum + "]";
+	}
 	
 }

@@ -1,4 +1,4 @@
-5 9 미나르숲 미나르숲->시간의신전 leafre leafre 3 리프레 leafre
+5 9 미나르숲 미나르숲->시간의신전 leafre leafre 3 리프레 lithHarbor
 0 0 1
 0 1 1
 0 2 1

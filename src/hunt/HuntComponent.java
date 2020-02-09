@@ -200,15 +200,15 @@ public class HuntComponent {
 			} else {
 				mainMapleInterface.pushMessage(new Message(nowStateBox.getCharacter().getName() + "는 도망에 실패했습니다!", Color.CYAN, true));
 				isRunFailed = true;
+				player.setCanUseSkill(false);
+				player.setCanUsePortion(false);
+				attackButton.setVisible(false);
+				runButton.setVisible(false);
 				try {
 					sleep(500);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				player.setCanUseSkill(false);
-				player.setCanUsePortion(false);
-				attackButton.setVisible(false);
-				runButton.setVisible(false);
 				player.calState();
 				wakeUp();
 			}
@@ -430,9 +430,15 @@ public class HuntComponent {
 		}
 
 		public void playerSetAttack(String skillName) {
+			System.out.println("playerSetAttack1 : " + skillName);
 			if (!player.isCanUseSkill()) {
 				return;
 			}
+			System.out.println("playerSetAttack2 : " + skillName);
+			player.setCanUseSkill(false);
+			player.setCanUsePortion(false);
+			attackButton.setVisible(false);
+			runButton.setVisible(false);
 			if(skillName.equals("일반공격")) {
 				playerAttack = ((ActiveSkill)SkillFactory.makeSkill("일반공격")).skillUse(this, nowStateBox, monsterState);
 			} else {
@@ -461,10 +467,6 @@ public class HuntComponent {
 			playerAttack.getActiveSkill().setFullCoolTime();
 			mainMapleInterface.setQuickSkillEnabled();
 			player.getMainAdventurer().setUsedSkill(playerAttack.getActiveSkill());
-			player.setCanUseSkill(false);
-			player.setCanUsePortion(false);
-			attackButton.setVisible(false);
-			runButton.setVisible(false);
 			wakeUp();
 		}
 

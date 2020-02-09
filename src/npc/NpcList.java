@@ -39,6 +39,7 @@ public class NpcList implements Serializable {
 		npcList.add(new Jane("jane", "제인", new PointMapName(11, 6, "리스항구")));
 		npcList.add(new DancesWithBalrog("dancesWithBalrog", "주먹펴고일어서", new PointMapName(10, 9, "페리온")));
 		npcList.add(new Blackbull("blackbull", "돼지와함께춤을", new PointMapName(5, 15, "페리온")));
+		npcList.add(new TreasureBox("treasureBox", "보물상자", new PointMapName(2, 32, "와일드보어의땅2")));
 		npcList.add(new Ayan("ayan", "이얀", new PointMapName(16, 2, "페리온")));
 		npcList.add(new TenBoogies("tenBoogies", "열마리의부기", new PointMapName(16, 13, "페리온")));
 		npcList.add(new Manji("manji", "만지", new PointMapName(23, 18, "페리온동쪽길목")));
@@ -122,12 +123,12 @@ public class NpcList implements Serializable {
 	public void loadNpcData(Player player) {
 		ArrayList<Npc> savedNpc = player.getNpcList();
 		for(int i = 0; i < savedNpc.size(); i++) {
-			for(int j = 0; j < npcList.size(); j++) {
-				if(savedNpc.get(i).getName().equals(npcList.get(i).getName())){
-					npcList.get(i).setProcess(savedNpc.get(i).getProcess());
-					npcList.get(i).setClearNum(savedNpc.get(i).getClearNum());
-					npcList.get(i).setQuestNum(savedNpc.get(i).getQuestNum());
-				}
+			Npc npc = getNpcWithName(savedNpc.get(i).getName());
+			if(npc != null) {
+				npc.setProcess(savedNpc.get(i).getProcess());
+				npc.setClearNum(savedNpc.get(i).getClearNum());
+				npc.setQuestNum(savedNpc.get(i).getQuestNum());
+				System.out.println(npc.getName() + " : " + npc.getProcess());
 			}
 		}
 		ArrayList<UpdatedNpcInfor> updatedNpcList = player.getUpdatedNpcList();
@@ -137,7 +138,6 @@ public class NpcList implements Serializable {
 	}
 	
 	public void saveNpcData(Player player) {
-		System.out.println(npcList.size());
 		player.setNpcList(npcList);
 	}
 

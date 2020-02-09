@@ -116,6 +116,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	private StoreInventoryPanel storeInventory;
 	private StorePanel store;
 	private MessageBox mainMessageBox = new MessageBox(1010, 130, 2, Color.CYAN);
+	private int moveCount;
 	
 	private boolean isEndingHunt = true;
 	
@@ -352,6 +353,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 			mainMessageBox.clearMessageBox();
 			break;
 		}
+		moveCount++;
 		updateMainStateBar();
 	}
 
@@ -381,8 +383,9 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 	}
 
 	private void meetMonsterEvent() {
+		if(!isEndingHunt || moveCount < 4) return;
 		Monster monster = MonsterFactory.readyMonster(this.player.get_curMap().getName());
-		if (monster != null && isEndingHunt) {
+		if (monster != null) {
 			player.setIsCanMove(false);
 			player.setHunt(true);
 			player.setCanSave(false);
@@ -636,6 +639,7 @@ public class MainPanel extends JPanel implements MainMapleInterface {
 
 	public void endHunt() {
 		isEndingHunt = false;
+		moveCount = 0;
 		updateMainStateBar();
 		player.setIsCanMove(true);
 		if(player.get_curMap().getMapType() != MapleMap.MAP_DUNGEON_TYPE && player.get_curMap().getMapType() != MapleMap.MAP_DUNGEON_ENTER_TYPE) {

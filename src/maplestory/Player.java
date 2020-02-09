@@ -346,7 +346,6 @@ public class Player implements Serializable {
 								&& (basePoint.getY() + Math.min(maxY, MapleMap.MAX_MAP_VIEW_Y) < maxY)) {
 							basePoint.setY(basePoint.getY() + 1);
 						}
-						System.out.println(basePoint.toString());
 					}
 				}
 			}

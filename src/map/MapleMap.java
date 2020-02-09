@@ -509,12 +509,6 @@ public class MapleMap implements Serializable {
 
 	public void setTileMap(int[][] tileMap) {
 		this.tileMap = tileMap;
-		for(int i = 0; i < tileMap.length; i++) {
-			for(int j = 0; j < tileMap[i].length; j++) {
-				System.out.print(tileMap[i][j] + " ");
-			}
-			System.out.println();
-		}
 	}
 
 	public String toString() {

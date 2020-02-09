@@ -1,4 +1,4 @@
-5 9 시간의신전 시간의신전->미나르숲 templeOfTime templeOfTime 3 시간의신전 templeOfTime1
+5 9 시간의신전 시간의신전->미나르숲 templeOfTime templeOfTime 3 시간의신전 lithHarbor
 0 0 1
 0 1 1
 0 2 1

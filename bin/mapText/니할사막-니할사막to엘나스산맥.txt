@@ -1,4 +1,4 @@
-5 9 니할사막 니할사막->엘나스산맥 ariant ariant 3 아리안트
+5 9 니할사막 니할사막->엘나스산맥 ariant ariant 3 아리안트 lithHarbor
 0 0 1
 0 1 1
 0 2 1

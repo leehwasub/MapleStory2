@@ -1,4 +1,4 @@
-5 9 빅토리아아일랜드 빅토리아->엘나스산맥 lithHarbor lithHarbor 3 리스항구
+5 9 빅토리아아일랜드 빅토리아->엘나스산맥 lithHarbor lithHarbor 3 리스항구 lithHarbor
 0 0 1
 0 1 1
 0 2 1

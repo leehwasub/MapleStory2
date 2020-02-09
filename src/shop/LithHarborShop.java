@@ -11,6 +11,8 @@ public class LithHarborShop extends Shop {
 		weaponItemList.add(ItemPool.getItem("도루커대거", 1));
 		equipmentItemList.add(ItemPool.getItem("파란색원라인티셔츠(남)", 1));
 		equipmentItemList.add(ItemPool.getItem("분홍별무늬티셔츠(여)", 1));
+		consumableItemList.add(ItemPool.getItem("초보모험가의빨간포션", 1));
+		consumableItemList.add(ItemPool.getItem("초보모험가의파란포션", 1));
 		consumableItemList.add(ItemPool.getItem("빨간포션", 1));
 		consumableItemList.add(ItemPool.getItem("파란포션", 1));
 		consumableItemList.add(ItemPool.getItem("주황포션", 1));
