@@ -51,7 +51,9 @@ public class AdvancedComboSkill extends PassiveSkill{
 
 	@Override
 	public void calStateEffect(Adventurer adventurer) {
-		adventurer.addProficiency(getProficiencyEffect(point));
+		if(point >= 1) {
+			adventurer.addProficiency(getProficiencyEffect(point));
+		}
 	}
 
 }

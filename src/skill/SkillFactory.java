@@ -62,7 +62,7 @@ public class SkillFactory {
 			return new DivineShieldSkill("divineShield", "블레싱아머", 20, "피격시 일정확률로 보호막을 생성하고 보호막 가동시 물리공격력과 데미지 무시율이 증가한다.");
 		case "라만차스피어":
 			return new LaManchaSpearSkill("laManchaSpear", "라만차스피어", 30, "거대한 창을 휘둘러 시전시에 약간의 데미지를 준후 강력한 한번의 일격을 가한다", AttackType.OPPONENT, Property.PROPERTY_NOTHING);
-		case "비홀더쇼크":
+		case "비홀더쇼크": 
 			return new EvilEyeShockSkill("evilEyeShock", "비홀더쇼크", 30, "비홀더가 강력한 포효를 내지르며 강력한 데미지를 준다", AttackType.OPPONENT, Property.PROPERTY_NOTHING, 3);
 		case "크로스오버체인":
 			return new CrossSurgeSkill("crossSurge", "크로스오버체인", 20, "일정 시간동안 HP비율에 따라 데미지가 증가하고 받은 피해를 감소시킨다", AttackType.MYSELF, Property.PROPERTY_NOTHING);
@@ -79,8 +79,16 @@ public class SkillFactory {
 		case "인레이지":
 			return new EnrageSkill("enrage", "인레이지", 20, "일정시간동안 크리티컬 확률과 크리티컬 데미지를 증가시킨다. 또한 레이징블로우 스킬을 강화한다.", AttackType.OPPONENT, Property.PROPERTY_NOTHING);
 		case "인사이징":
-			return new IncisingSkill("incising", "인사이징", 30, "적에게 네번의 일격을 가한후 일정확률로 적에게 치명적인 피해를 주어 디버프를 건다.", AttackType.OPPONENT, Property.PROPERTY_NOTHING);
-		}
+			return new IncisingSkill("incising", "인사이징", 30, "적에게 네번의 일격을 가한후 일정확률로 적에게 치명적인 피해를 주어 디버프를 건다.", AttackType.OPPONENT, Property.PROPERTY_NOTHING, 2);
+		case "어드밴스드차지":
+			return new AdvancedChargeSkill("advancedCharge", "어드밴스드차지", 10, "엘리멘탈 차지의 갯수에따라 물리데미지를 증가한다. 또한 영구적으로 차지스킬의 공격 횟수를 증가시킨다.");
+		case "팔라딘엑스퍼트":
+			return new PaladinExpertSkill("paladinExpert", "팔라딘엑스퍼트", 30, "무기 숙련도, 방어력, 크리티컬 확률, 크리티컬 데미지가 영구적으로 증가한다.");
+		case "디바인차지":
+			return new DivineChargeSkill("divineCharge", "디바인차지", 30, "무기에 일시적으로 성속성을 부여한뒤 강력한 일격을 가한다.", AttackType.OPPONENT, Property.PROPARTY_HOLY, 2);
+		case "엘리멘탈포스":
+			return new ElementalForceSkill("elementalForce", "엘리멘탈포스", 30, "플레임차지, 블리자드 차지, 라이트닝 차지를 영구적으로 강화한다.");
+		} 
 		DialogUtils.showErrorDialog("SkillFactory.makeSkill("+skillName+") 새로운 스킬 생성 실패!");
 		return null;
 	}

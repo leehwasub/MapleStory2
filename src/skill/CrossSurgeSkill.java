@@ -46,7 +46,7 @@ public class CrossSurgeSkill extends ActiveSkill{
 	}
 	
 	public int getMaxRecovery(int point) {
-		return 4000;
+		return 500;
 	}
 	
 	public int getStunLast(int point) {

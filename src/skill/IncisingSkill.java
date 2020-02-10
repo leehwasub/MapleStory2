@@ -13,8 +13,8 @@ public class IncisingSkill extends ActiveSkill{
 
 	private static final long serialVersionUID = 1L;
 
-	public IncisingSkill(String imageUrl, String name, int maxPoint, String infor, AttackType attackType, Property property) {
-		super(imageUrl, name, maxPoint, infor, attackType, property);
+	public IncisingSkill(String imageUrl, String name, int maxPoint, String infor, AttackType attackType, Property property, int coolTime) {
+		super(imageUrl, name, maxPoint, infor, attackType, property, coolTime);
 	}
 
 	@Override
@@ -92,7 +92,7 @@ public class IncisingSkill extends ActiveSkill{
 	public String getEffectDetail(int point) {
 		return "MP " + getNeedMp(point) + " 소비, 콤보어택 "+ needComboAttack() + "개 사용, " + getEffect(point) + "% 물리데미지로 4번공격 , 맞은적은"
 				+ getDebuffRate(point) + "% 확률로 치명적인 상처를 입어 " + getDebuffLast(point) + "턴간 " + getDebuffLast(point) + "% 무속성 물리데미지, "
-				+ "추가 크리티컬 데미지" + getDebuffCriticalEffect(point) + "% [패시브 효과 : 샤우트데미지 +"+ getShoutEffect(point) +"%]";
+				+ "추가 크리티컬 데미지" + getDebuffCriticalEffect(point) + "% [패시브 효과 : 샤우트데미지 +"+ getShoutEffect(point) +"%](쿨타임 "+coolTime+"턴)";
 	}
 	
 }

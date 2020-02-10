@@ -11,14 +11,19 @@ import character.Adventurer;
 import component.StateBox;
 import hunt.HuntComponent.Hunt;
 import skill.ActiveSkill;
+import skill.AdvancedChargeSkill;
 import skill.CombatOrdersSkill;
+import skill.ElementalForceSkill;
 import skill.FlameChargeSkill;
 
 public class FlameChargeAttack extends PlayerAttack {
 	
 	public FlameChargeAttack(Hunt hunt, StateBox attacker, StateBox opponent, ActiveSkill activeSkill) {
 		super(hunt, attacker, opponent, activeSkill);
+		getAdvancedChargeEffect();
 	}
+	
+	private int canMoreHit = 0; 
 	
 	public void run() {
 		attacker.attackForwardMotion();
@@ -27,6 +32,24 @@ public class FlameChargeAttack extends PlayerAttack {
 				new FlameChargeHitImage(hunt, opponent, opponent, null), false);
 		makeBurnBuff();
 		afterAttack();
+	}
+	
+	
+	private double elementalForceEffect() {
+		double extraRate = 0.0;
+		ElementalForceSkill elementalForceSkill = (ElementalForceSkill)((Adventurer)attacker.getCharacter()).getSkillWithName("엘리멘탈포스");
+		if(elementalForceSkill != null && elementalForceSkill.getPoint() >= 1) {
+			extraRate = elementalForceSkill.getEffect(elementalForceSkill.getPoint()) / 100.0;
+		}
+		return extraRate;
+	}
+	
+	
+	private void getAdvancedChargeEffect() {
+		AdvancedChargeSkill advancedChargeSkill = (AdvancedChargeSkill)((Adventurer)attacker.getCharacter()).getSkillWithName("어드밴스드차지");
+		if(advancedChargeSkill != null && advancedChargeSkill.getPoint() >= 1) {
+			canMoreHit = advancedChargeSkill.getEffect(advancedChargeSkill.getPoint());
+		}
 	}
 	
 	private void makeBurnBuff() {
@@ -52,8 +75,12 @@ public class FlameChargeAttack extends PlayerAttack {
 	protected ArrayList<AttackInfor> makeAttackInfor() {
 		double rate = (double)activeSkill.getEffect(activeSkill.getPoint()) / 100.0;
 		rate += combatOrdersEffect();
+		rate += elementalForceEffect();
 		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
 		for(int i = 0; i < 3; i++) {
+			ret.add(new AttackInfor(attacker.getCharacter(), activeSkill.getProperty(), attacker.getCharacter().calNormalDamge(rate), 0, DamageType.DAMAGE_HP_TYPE));
+		}
+		for(int i = 0; i < canMoreHit; i++) {
 			ret.add(new AttackInfor(attacker.getCharacter(), activeSkill.getProperty(), attacker.getCharacter().calNormalDamge(rate), 0, DamageType.DAMAGE_HP_TYPE));
 		}
 		return ret;

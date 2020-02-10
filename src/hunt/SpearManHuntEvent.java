@@ -6,6 +6,7 @@ import java.io.Serializable;
 import attack.Attack;
 import attack.AttackInfor;
 import attack.DamageType;
+import attackImage.EvilEyeBuffEffectedImage;
 import attackImage.EvilEyeBuffUseImage;
 import attackImage.EvilEyeShockUseImage;
 import buff.BuffFactory;
@@ -53,7 +54,8 @@ public class SpearManHuntEvent implements HuntEvent, Serializable{
 		if(evilEyeBuffSkill != null && evilEyeBuffSkill.getPoint() >= 1) {
 			evilEyeBuffSkill.subEvilEyeCoolTime();
 			if(evilEyeBuffSkill.getEvilEyeCoolTime() == 0) {
-				hunt.addSkillImage(new EvilEyeBuffUseImage(hunt, hunt.getAdventurerState(), hunt.getMonsterState(), null));
+				hunt.addSkillImageWithAffectedImage(new EvilEyeBuffUseImage(hunt, hunt.getAdventurerState(), hunt.getMonsterState(), null)
+						, new EvilEyeBuffEffectedImage(hunt, hunt.getAdventurerState(), hunt.getMonsterState(), null), 720);
 				hunt.getAdventurer().addBuff(BuffFactory.makeAdventurerBuff(evilEyeBuffSkill));
 				evilEyeBuffSkill.resetEvilEyeCoolTime();
 			}

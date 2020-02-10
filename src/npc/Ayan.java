@@ -15,9 +15,7 @@ public class Ayan extends Npc{
 
 	@Override
 	public void clearEvent(Player player) {
-		if(clearNum == 0) {
-			
-		}
+		
 	}
 
 	@Override

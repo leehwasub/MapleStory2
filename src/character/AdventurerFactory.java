@@ -56,7 +56,7 @@ public class AdventurerFactory {
 			adventurer.addSkill(2, SkillFactory.makeSkill("콤보어택"));
 			adventurer.setHuntEvent(new FighterHuntEvent());
 			imageUrl.append("2");
-			//break;
+			break;
 		case "크루세이더":
 			adventurer.setCareerLevel(3);
 			adventurer.addSkill(3, SkillFactory.makeSkill("찬스어택"));
@@ -64,8 +64,8 @@ public class AdventurerFactory {
 			adventurer.addSkill(3, SkillFactory.makeSkill("패닉"));
 			adventurer.addSkill(3, SkillFactory.makeSkill("샤우트"));
 			adventurer.addSkill(3, SkillFactory.makeSkill("콤보시너지"));
-			//imageUrl.append("3");
-			//break;
+			imageUrl.append("3");
+			break;
 		case "히어로":
 			adventurer.setCareerLevel(4);
 			adventurer.addSkill(4, SkillFactory.makeSkill("레이징블로우"));
@@ -73,8 +73,7 @@ public class AdventurerFactory {
 			adventurer.addSkill(4, SkillFactory.makeSkill("매직크래쉬"));
 			adventurer.addSkill(4, SkillFactory.makeSkill("인레이지"));
 			adventurer.addSkill(4, SkillFactory.makeSkill("인사이징"));
-			//imageUrl.append("3");
-			adventurer.addSkillPoint(60 * 4);
+			imageUrl.append("3");
 			break;
 		case "페이지":
 			adventurer.setCareerLevel(2);
@@ -98,7 +97,7 @@ public class AdventurerFactory {
 		case "팔라딘":
 			adventurer.setCareerLevel(4);
 			adventurer.addSkill(4, SkillFactory.makeSkill("어드밴스드차지"));
-			adventurer.addSkill(4, SkillFactory.makeSkill("블래스트"));
+			adventurer.addSkill(4, SkillFactory.makeSkill("팔라딘엑스퍼트"));
 			adventurer.addSkill(4, SkillFactory.makeSkill("디바인차지"));
 			adventurer.addSkill(4, SkillFactory.makeSkill("매직크래쉬"));
 			adventurer.addSkill(4, SkillFactory.makeSkill("엘리멘탈포스"));
@@ -112,8 +111,9 @@ public class AdventurerFactory {
 			adventurer.addSkill(2, SkillFactory.makeSkill("아이언월"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("하이퍼바디"));
 			adventurer.setHuntEvent(new SpearManHuntEvent());
-			imageUrl.append("2");
-			break;
+			//imageUrl.append("2");
+			adventurer.addSkillPoint(30 * 4);
+			//break;
 		case "버서커":
 			adventurer.setCareerLevel(3);
 			adventurer.addSkill(3, SkillFactory.makeSkill("로드오브다크니스"));

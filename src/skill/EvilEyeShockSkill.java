@@ -37,16 +37,16 @@ public class EvilEyeShockSkill extends ActiveSkill{
 	}
 	
 	public int getStunRate(int point) {
-		return 20 + (point * 2);
+		return 10 + point * 2;
 	}
 	
 	public int getStunLast(int point) {
-		return 3;
+		return 2;
 	}
 
 	@Override
 	public String getEffectDetail(int point) {
-		return "비홀더가 직접 공격, " + getEffect(point) + "% 물리데미지로 2번 타격, 맞은 대상은" + getStunRate(point) + "% 확률로 " + getStunLast(point) + "턴간 스턴 (쿨타임 "+coolTime+"턴)";
+		return "비홀더가 직접 공격, " + getEffect(point) + "% 물리데미지로 2번 타격, 맞은 대상은 " + getStunRate(point) + "% 확률로 " + getStunLast(point) + "턴간 스턴 (쿨타임 "+coolTime+"턴)";
 	}
 
 }

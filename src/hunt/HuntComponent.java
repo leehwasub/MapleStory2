@@ -17,6 +17,7 @@ import attack.DamageText;
 import attack.Hit;
 import attackImage.EvilEyeShockUseImage;
 import attackImage.SkillImage;
+import attackImage.SkillImage.HitListener;
 import character.Adventurer;
 import character.AdventurerFactory;
 import character.Character;
@@ -250,6 +251,35 @@ public class HuntComponent {
 					playerHuntEvent.drawObject(g, this);
 				}
 			}
+		}
+		
+		public void addSkillImageWithAffectedImage(SkillImage image, SkillImage effectedImage, int delay) {
+			addSkillImage(image);
+			Thread thread = new Thread() {
+				@Override
+				public void run() {
+					try {
+						sleep(delay);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					addSkillImage(effectedImage);
+				}
+			};
+			thread.start();
+		}
+		
+		public void addSkillImageWithHitImage(SkillImage skillImage, SkillImage hitImage) {
+			addSkillImage(skillImage);
+			Thread thread = new Thread(()-> {
+				skillImage.setHitListener(new HitListener() {
+					@Override
+					public void hit() {
+						addSkillImage(hitImage);
+					}
+				});
+			});
+			thread.start();
 		}
 		
 		public void addSkillImage(SkillImage image) {

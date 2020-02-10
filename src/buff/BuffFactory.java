@@ -19,7 +19,7 @@ public class BuffFactory {
 			return new StrengthBuff("damageIncreasing", "공격력강화", 6 + skillPoint / 2, "물리 공격력과 마법 공격력을 일정시간 동안 강화한다.", 
 					new Strength(new Resistance(), 0, 0, 0, skillPoint * 20, skillPoint * 20, 0, 0, 0, 0), StrengthBuffType.SKILL_BUFF);
 		case "방어력강화":
-			return new StrengthBuff("guardIncreasing", "방어력강화", 6 + skillPoint / 2, "마법 방어력과 마법 방어력을 일정시간 동안 강화한다", 
+			return new StrengthBuff("guardIncreasing", "방어력강화", 6 + skillPoint / 2, "물리 방어력과 마법 방어력을 일정시간 동안 강화한다", 
 					new Strength(new Resistance(), 0, 0, 0, 0, 0, 4 + skillPoint, 4 + skillPoint, 0, 0), StrengthBuffType.SKILL_BUFF);
 		case "적중률강화":
 			return new StrengthBuff("accuracyRateIncreasing", "적중률강화", 6 + skillPoint / 2, "적중률을 일정시간 동안 강화한다", 
@@ -103,6 +103,8 @@ public class BuffFactory {
 			return new SpecialBuff("magicCrash", "매직크래쉬", last, "일정 시간 동안 모든 버프사용을 제한한다.", true);
 		case "인레이지":
 			return new SpecialBuff("enrage", "인레이지", last, "일정 시간 동안 크리티컬확률과 크리티컬 데미지가 증가한다.", false);
+		case "침묵":
+			return new SpecialBuff("divineCharge", "침묵", last, "일정 시간 동안 스킬 사용을 제한한다.", false);
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeSpecialBuff("+buffName+") 버프 생성 실패!");
 		return null;
