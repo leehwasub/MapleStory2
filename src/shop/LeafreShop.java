@@ -40,24 +40,5 @@ public class LeafreShop extends Shop {
 		consumableItemList.add(ItemPool.getItem("글레이스캡슐", 1));
 		consumableItemList.add(ItemPool.getItem("코카콜라알약", 1));
 		consumableItemList.add(ItemPool.getItem("코카콜라제로알약", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:분노30", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:찬스어택20", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:브레이브슬래시30", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:패닉30", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:샤우트30", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:콤보시너지30", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:플레임차지30", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:블리자드차지30", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:실드마스터리20", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:블레싱아머20", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:라이트닝차지30", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:위협30", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:컴뱃오더스30", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:아이언월25", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:로드오브다크니스20", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:비홀더스버프30", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:라만차스피어30", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:비홀더쇼크30", 1));
-		consumableItemList.add(ItemPool.getItem("마스터리북:크로스오버체인30", 1));
 	}
 }

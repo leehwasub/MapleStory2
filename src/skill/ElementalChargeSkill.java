@@ -35,7 +35,7 @@ public class ElementalChargeSkill extends PassiveSkill{
 	}
 	
 	public int damageEffect(int point) {
-		return 1;
+		return 1 + (point / 10);
 	}
 
 	@Override

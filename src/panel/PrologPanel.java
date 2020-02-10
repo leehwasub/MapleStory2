@@ -18,6 +18,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import character.AdventurerFactory;
 import component.MapleButton;
 import item.ItemPool;
 import map.MapleMapList;
@@ -142,8 +143,8 @@ public class PrologPanel extends JPanel {
 	}
 
 	public void sexSelectEvent(String sex) {
-		//makeWarrior(sex);
-		makeNewAdventurer(sex);
+		makeWarrior(sex);
+		//makeNewAdventurer(sex);
 		updateText();
 		this.nextButton.setVisible(true);
 		this.manSelectButton.setVisible(false);
@@ -168,6 +169,7 @@ public class PrologPanel extends JPanel {
 		player.getWearEquipment("일룬");
 		player.set_curMap(MapleMapList.getInstance().getMap("페리온"));
 		player.getInventory().setMoney(1000000);
+		AdventurerFactory.upgradeAdventurer("검사", player.getMainAdventurer());
 		NpcList.getInstance().setNpcProcess("주먹펴고일어서", 12);
 		NpcList.getInstance().getNpcWithName("주먹펴고일어서").setQuestNum(1);
 	}

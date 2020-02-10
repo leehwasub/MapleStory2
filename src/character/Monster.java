@@ -15,6 +15,7 @@ import hunt.MonsterHuntEvent;
 import maplestory.Player;
 import monster.DropItemFactory;
 import monsterAttack.MonsterAttack;
+import skill.IncisingSkill;
 import utils.CalUtils;
 import utils.DialogUtils;
 import utils.MusicUtils;
@@ -61,7 +62,7 @@ public abstract class Monster extends Character implements Comparable<Monster>{
 	}
 	
 	@Override
-	public int hitEvent(Character character, AttackInfor attackInfor) {
+	public int hitEvent(Character character,  AttackInfor attackInfor) {
 		if(isAlreadyBuffed("파워트랜스퍼")) {
 			int skillPoint = getMonsterSkillInforWithName("파워트랜스퍼").getSkillPoint();
 			int percent = 8 + skillPoint * 2;
@@ -70,7 +71,13 @@ public abstract class Monster extends Character implements Comparable<Monster>{
 				attackInfor.setMagicDamage(attackInfor.getMagicDamage() / 2);
 				MusicUtils.startEffectSound("defence");
 			}
-		}	
+		}
+		if(isAlreadyBuffed("인사이징") && attackInfor.isCritical()) {
+			IncisingSkill incisingSkill = (IncisingSkill)((Adventurer)attackInfor.getAttacker()).getSkillWithName("인사이징");
+			double rate = incisingSkill.getDebuffCriticalEffect(incisingSkill.getPoint()) / 100.0;
+			attackInfor.addPhysicalDamage((int)(attackInfor.getPhysicalDamage() * rate));
+			attackInfor.addMagicDamage((int)(attackInfor.getMagicDamage() * rate));
+		}
 		return attackInfor.getTotalDamage();
 	}
 	
@@ -121,6 +128,8 @@ public abstract class Monster extends Character implements Comparable<Monster>{
 				MonsterAttack attack = AttackFactory.makeMonsterAttack(hunt, attacker, opponent, infor.getSkillName(), infor.getSkillPoint());
 				//if the attack is the buff skill that is already buffed, monster will not use the skill.
 				if(attack.getMonsterSkill().getAttackType() == AttackType.MYSELF && isAlreadyBuffed(attack.getMonsterSkill().getAttackName())) continue;
+				//if a monster is buffed the magic crash, monster couldn't use the buff skill.
+				if(attack.getMonsterSkill().getAttackType() == AttackType.MYSELF && isAlreadyBuffed("매직크래쉬")) continue;
 				if(attack.getMonsterSkill().getAttackType() == AttackType.OPPONENT && opponent.getCharacter().isAlreadyBuffed(attack.getMonsterSkill().getAttackName())) continue;
 				if(infor.isNeedToExistBuff() && !opponent.getCharacter().isExistEffectBuff()) continue;
 				if(attack.calNeedMp() <= curMp) {

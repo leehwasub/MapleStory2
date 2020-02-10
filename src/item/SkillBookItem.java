@@ -7,6 +7,8 @@ import java.io.Serializable;
 
 import javax.swing.JOptionPane;
 
+import org.w3c.dom.NamedNodeMap;
+
 import character.AdventurerFactory;
 import map.Point;
 import maplestory.MainMapleInterface;
@@ -35,15 +37,25 @@ public class SkillBookItem extends ConsumableItem implements Serializable {
 			}
 			if(DialogUtils.showConfirmDialog("스킬북을 사용하시겠습니까?") == JOptionPane.YES_OPTION) {
 				int playerLevel = player.getMainAdventurer().getAdventurerLevel();
-				if(player.getMainAdventurer().getSkillPoint() <= (3 + (playerLevel - level) * 3)
+				if(player.getMainAdventurer().getSkillPoint() <= (4 + (playerLevel - level) * 4)
 						&& player.getMainAdventurer().getAdventurerLevel() <= playerLevel) {
 					setNum(num - 1);
-					if(player.getMainAdventurer().getCareer().equals("파이터")) {
-						AdventurerFactory.upgradeAdventurer("크루세이더", player.getMainAdventurer());
-					} else if(player.getMainAdventurer().getCareer().equals("페이지")) {
-						AdventurerFactory.upgradeAdventurer("나이트", player.getMainAdventurer());
-					}else if(player.getMainAdventurer().getCareer().equals("스피어맨")) {
-						AdventurerFactory.upgradeAdventurer("버서커", player.getMainAdventurer());
+					if(name.equals("3차스킬북")) {
+						if(player.getMainAdventurer().getCareer().equals("파이터")) {
+							AdventurerFactory.upgradeAdventurer("크루세이더", player.getMainAdventurer());
+						} else if(player.getMainAdventurer().getCareer().equals("페이지")) {
+							AdventurerFactory.upgradeAdventurer("나이트", player.getMainAdventurer());
+						}else if(player.getMainAdventurer().getCareer().equals("스피어맨")) {
+							AdventurerFactory.upgradeAdventurer("버서커", player.getMainAdventurer());
+						}
+					} else if(name.equals("4차스킬북")) {
+						if(player.getMainAdventurer().getCareer().equals("크루세이더")) {
+							AdventurerFactory.upgradeAdventurer("히어로", player.getMainAdventurer());
+						} else if(player.getMainAdventurer().getCareer().equals("나이트")) {
+							AdventurerFactory.upgradeAdventurer("팔라딘", player.getMainAdventurer());
+						}else if(player.getMainAdventurer().getCareer().equals("버서커")) {
+							AdventurerFactory.upgradeAdventurer("다크나이트", player.getMainAdventurer());
+						}
 					}
 					player.removeEmptyItem();
 					DialogUtils.showInfoDialog("스킬북 사용이 완료되었습니다.");

@@ -18,19 +18,19 @@ public class AdventurerFactory {
 					new Status(4, 4, 4, 4), "초보자");
 		case "남자1차모험가":
 			Adventurer adventurer = new Adventurer(name, "warriorMan",
-					new Strength(new Resistance(100, 100, 100, 100, 100, 100), 25, 15, 3, 0, 0, 0, 0, 0, 0, 0),
-					new Status(104, 24, 4, 4), "검사");
+					new Strength(new Resistance(100, 100, 100, 100, 100, 100), 20, 15, 3, 0, 0, 0, 0, 0, 0, 0),
+					new Status(79, 24, 4, 4), "검사");
 			//TEST
-			adventurer.addSkillPoint(15 * 3);
+			adventurer.addSkillPoint(10 * 4);
 			adventurer.setSex("남자");
 			//
 			return adventurer;
 		case "여자1차모험가":
 			Adventurer adventurer2 = new Adventurer(name, "warriorWoman",
-					new Strength(new Resistance(100, 100, 100, 100, 100, 100), 25, 15, 3, 0, 0, 0, 0, 0, 0, 0),
-					new Status(104, 24, 4, 4), "검사");
+					new Strength(new Resistance(100, 100, 100, 100, 100, 100), 20, 15, 3, 0, 0, 0, 0, 0, 0, 0),
+					new Status(79, 24, 4, 4), "검사");
 			//TEST
-			adventurer2.addSkillPoint(15 * 3);
+			adventurer2.addSkillPoint(10 * 4);
 			adventurer2.setSex("여자");
 			//
 			return adventurer2;
@@ -56,7 +56,7 @@ public class AdventurerFactory {
 			adventurer.addSkill(2, SkillFactory.makeSkill("콤보어택"));
 			adventurer.setHuntEvent(new FighterHuntEvent());
 			imageUrl.append("2");
-			break;
+			//break;
 		case "크루세이더":
 			adventurer.setCareerLevel(3);
 			adventurer.addSkill(3, SkillFactory.makeSkill("찬스어택"));
@@ -64,7 +64,17 @@ public class AdventurerFactory {
 			adventurer.addSkill(3, SkillFactory.makeSkill("패닉"));
 			adventurer.addSkill(3, SkillFactory.makeSkill("샤우트"));
 			adventurer.addSkill(3, SkillFactory.makeSkill("콤보시너지"));
-			imageUrl.append("3");
+			//imageUrl.append("3");
+			//break;
+		case "히어로":
+			adventurer.setCareerLevel(4);
+			adventurer.addSkill(4, SkillFactory.makeSkill("레이징블로우"));
+			adventurer.addSkill(4, SkillFactory.makeSkill("어드밴스드콤보"));
+			adventurer.addSkill(4, SkillFactory.makeSkill("매직크래쉬"));
+			adventurer.addSkill(4, SkillFactory.makeSkill("인레이지"));
+			adventurer.addSkill(4, SkillFactory.makeSkill("인사이징"));
+			//imageUrl.append("3");
+			adventurer.addSkillPoint(60 * 4);
 			break;
 		case "페이지":
 			adventurer.setCareerLevel(2);
@@ -85,6 +95,15 @@ public class AdventurerFactory {
 			adventurer.addSkill(3, SkillFactory.makeSkill("컴뱃오더스"));
 			imageUrl.append("3");
 			break;
+		case "팔라딘":
+			adventurer.setCareerLevel(4);
+			adventurer.addSkill(4, SkillFactory.makeSkill("어드밴스드차지"));
+			adventurer.addSkill(4, SkillFactory.makeSkill("블래스트"));
+			adventurer.addSkill(4, SkillFactory.makeSkill("디바인차지"));
+			adventurer.addSkill(4, SkillFactory.makeSkill("매직크래쉬"));
+			adventurer.addSkill(4, SkillFactory.makeSkill("엘리멘탈포스"));
+			imageUrl.append("3");
+			break;
 		case "스피어맨":
 			adventurer.setCareerLevel(2);
 			adventurer.addSkill(2, SkillFactory.makeSkill("창마스터리"));
@@ -102,6 +121,15 @@ public class AdventurerFactory {
 			adventurer.addSkill(3, SkillFactory.makeSkill("라만차스피어"));
 			adventurer.addSkill(3, SkillFactory.makeSkill("비홀더쇼크"));
 			adventurer.addSkill(3, SkillFactory.makeSkill("크로스오버체인"));
+			imageUrl.append("3");
+			break;
+		case "다크나이트":
+			adventurer.setCareerLevel(4);
+			adventurer.addSkill(4, SkillFactory.makeSkill("어드밴스드웨폰마스터리"));
+			adventurer.addSkill(4, SkillFactory.makeSkill("다크임페일"));
+			adventurer.addSkill(4, SkillFactory.makeSkill("매직크래쉬"));
+			adventurer.addSkill(4, SkillFactory.makeSkill("궁그닐디센트"));
+			adventurer.addSkill(4, SkillFactory.makeSkill("리인카네이션"));
 			imageUrl.append("3");
 			break;
 		}

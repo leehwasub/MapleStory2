@@ -24,8 +24,8 @@ import utils.WarriorStateUtils;
 
 public class Adventurer extends Character implements Serializable {
 	private static final long serialVersionUID = 1L;
-	public static final int QUICK_ITEM_ARRAY_SIZE = 5;
-	public static final int QUICK_SKILL_ARRAY_SIZE = 5;
+	public static final int QUICK_ITEM_ARRAY_SIZE = 6;
+	public static final int QUICK_SKILL_ARRAY_SIZE = 6;
 	private EquipmentItem[] wearEquipment = new EquipmentItem[8];
 	private Skill[] quickSkill = new Skill[QUICK_SKILL_ARRAY_SIZE];
 	private ConsumableItem[] quickItem = new ConsumableItem[QUICK_ITEM_ARRAY_SIZE];
@@ -50,7 +50,7 @@ public class Adventurer extends Character implements Serializable {
 		this.status = status;
 		this.career = career;
 		this.huntEvent = new EmptyHuntEvent();
-		for(int i = 0; i < 3; i++) {
+		for(int i = 0; i < 4; i++) {
 			skillList.add(new ArrayList<Skill>());
 		}
 	}
@@ -64,6 +64,7 @@ public class Adventurer extends Character implements Serializable {
 		strength.setCriticalRate(0);
 		strength.getResistance().resetResistence();
 		ignoreDamageRate = 0;
+		criticalExtraDamageRate = 0;
 		try {
 			tempStatus = (Status)status.clone();
 		} catch (CloneNotSupportedException e) {
@@ -140,7 +141,7 @@ public class Adventurer extends Character implements Serializable {
 			this.curHp = getMaxHp();
 			this.curMp = getMaxMp();
 			this.statePoint += 5;
-			if(this.getStrength().getLevel() >= 10) this.skillPoint += 3;
+			if(this.getStrength().getLevel() >= 10) this.skillPoint += 4;
 		}
 	}
 	
@@ -159,7 +160,7 @@ public class Adventurer extends Character implements Serializable {
 	}
 
 	public void removeEmptyQuickItem() {
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < QUICK_ITEM_ARRAY_SIZE; i++) {
 			if ((this.quickItem[i] != null) && (this.quickItem[i].getNum() == 0)) {
 				this.quickItem[i] = null;
 			}
@@ -418,13 +419,6 @@ public class Adventurer extends Character implements Serializable {
 					((ActiveSkill)skillList.get(i).get(j)).resetCoolTime();
 				}
 			}
-		}
-	}
-	
-	public void test() {
-		if(career.equals("나이트") && getSkillWithName("리스토네이션") != null) {
-			skillList.get(2).remove(2);
-			skillList.get(2).add(1, SkillFactory.makeSkill("블레싱아머"));
 		}
 	}
 	

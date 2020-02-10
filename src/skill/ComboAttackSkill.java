@@ -5,7 +5,7 @@ import character.Adventurer;
 public class ComboAttackSkill extends PassiveSkill{
 
 	private static final long serialVersionUID = 1L;
-	private static final int MAX_COMBO_NUM = 5;
+	private int maxComboNum = 5;
 	private int comboNum;
 
 	public ComboAttackSkill(String imageUrl, String name, int maxPoint, String infor) {
@@ -19,7 +19,7 @@ public class ComboAttackSkill extends PassiveSkill{
 
 	@Override
 	public int getEffect(int point) {
-		return 8 * point;
+		return 4 * point;
 	}
 
 	@Override
@@ -32,8 +32,12 @@ public class ComboAttackSkill extends PassiveSkill{
 		
 	}
 	
+	public void setMaxComboNum(int maxComboNum) {
+		this.maxComboNum = maxComboNum;
+	}
+	
 	public boolean isHaveMaxComboNum() {
-		return (comboNum == MAX_COMBO_NUM);
+		return (comboNum == maxComboNum);
 	}
 	
 	/**

@@ -66,20 +66,23 @@ public class QuickButtonPanel extends JPanel{
 			public void keyPressed(KeyEvent e) {
 				int index = -1;
 				switch(e.getKeyCode()) {
-				case KeyEvent.VK_Z:
+				case KeyEvent.VK_INSERT:
 					index = 0;
 					break;
-				case KeyEvent.VK_X:
+				case KeyEvent.VK_HOME:
 					index = 1;
 					break;
-				case KeyEvent.VK_C:
+				case KeyEvent.VK_PAGE_UP:
 					index = 2;
 					break;
-				case KeyEvent.VK_V:
+				case KeyEvent.VK_DELETE:
 					index = 3;
 					break;
-				case KeyEvent.VK_B:
+				case KeyEvent.VK_END:
 					index = 4;
+					break;
+				case KeyEvent.VK_PAGE_DOWN:
+					index = 5;
 					break;
 				}
 				if(index != -1) {
@@ -104,11 +107,14 @@ public class QuickButtonPanel extends JPanel{
 				case KeyEvent.VK_E:
 					index = 2;
 					break;
-				case KeyEvent.VK_R:
+				case KeyEvent.VK_A:
 					index = 3;
 					break;
-				case KeyEvent.VK_T:
+				case KeyEvent.VK_S:
 					index = 4;
+					break;
+				case KeyEvent.VK_D:
+					index = 5;
 					break;
 				}
 				if(index != -1) {
@@ -148,7 +154,7 @@ public class QuickButtonPanel extends JPanel{
 		for (int i = 0; i < Adventurer.QUICK_SKILL_ARRAY_SIZE; i++) {
 			final int index = i;
 			quickSkillButton[i] = new QuickSkillButton(this.quickItemButtonImage);
-			quickSkillButton[i].setBounds(230 + i * 60, 20, 50, 50);
+			quickSkillButton[i].setBounds(180 + i * 60, 20, 50, 50);
 			quickSkillButton[i].addMouseListener(new MouseAdapter() {
 				public void mousePressed(MouseEvent e) {
 					quickSkillEvent(index);
@@ -223,7 +229,7 @@ public class QuickButtonPanel extends JPanel{
 		for (int i = 0; i < Adventurer.QUICK_SKILL_ARRAY_SIZE; i++) {
 			final int keyIndex = i;
 			quickSkillCancelButton[i] = new MapleButton(this.quickCancelBasicImage, this.quickCancelEnteredImage);
-			quickSkillCancelButton[i].setBounds(235 + i * 60, 75, 40, 20);
+			quickSkillCancelButton[i].setBounds(185 + i * 60, 75, 40, 20);
 			quickSkillCancelButton[i].addMouseListener(new MouseAdapter() {
 				public void mousePressed(MouseEvent e) {
 					quickSkillCancelEvent(keyIndex);

@@ -30,11 +30,11 @@ public class Manji extends Npc{
 			quest = Quest.makeQuest(1, 8, "만지의 시험 2").addMessage("첫번째 시험을 끝낸이후 이번에는 와일드 보어의땅 2에가서 아이언 호그와 아이언 보어를 각각 10마리를 잡아와라고한다.")
 					.addMessage("놈들이 입고있는 강력한 갑옷을 조심하자.").addQuestKill("아이언호그", 10).addQuestKill("아이언보어", 10)
 					.setRewardExp(300).setRewardMoney(500).addRewardItem("일룬", 1).setPlayerQuestProceed(QuestProceed.MANJI_QUEST_2)
-					.addRewardNpcQuestProceed("열마리의부기", 1);
+					.addRewardNpcQuestProceed("주먹펴고일어서", NpcList.getInstance().getNpcProcess("주먹펴고일어서") + 1);
 			player.setQuest(quest);
 		} else if(questNum == 2) {
-			quest = Quest.makeQuest(1, 9, "유적 발굴단").addMessage("마지막 시험이 끝난이후 '만지'는 페리온에 있는 '열마리의 부기'에게 가보라고 한다.")
-					.addMessage("그녀는 유적 발굴단의 일원이기 때문에 현재 유적지 근처의 상황에 대해 잘 알 것이라는데.").setRewardExp(50).setPlayerQuestProceed(QuestProceed.MANJI_QUEST_3);
+			quest = Quest.makeQuest(1, 9, "더 강한 힘을 위해").addMessage("마지막 시험이 끝난이후 현재 상태로는 아무래도 에레고스를 상대하기는 힘드니 일단 2차전직을 위해 주먹펴고 일어서를 찾아가 보라고한다.")
+					.addQuestVisit("주먹펴고일어서").setRewardExp(50).setPlayerQuestProceed(QuestProceed.MANJI_QUEST_3);
 			player.setQuest(quest);
 		}
 	}

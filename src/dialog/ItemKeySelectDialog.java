@@ -16,7 +16,7 @@ import utils.ResourceLoader;
 
 public class ItemKeySelectDialog extends JDialog {
 	private static final long serialVersionUID = 1L;
-	private static final int DIALOG_WIDTH = 420;
+	private static final int DIALOG_WIDTH = 480;
 	private static final int DIALOG_HEIGHT = 200;
 	private ImageIcon quickQButtonBasicImage = new ImageIcon(
 			ResourceLoader.getImage("componentImage", "quickQButtonBasic.png"));
@@ -30,20 +30,24 @@ public class ItemKeySelectDialog extends JDialog {
 			ResourceLoader.getImage("componentImage", "quickEButtonBasic.png"));
 	private ImageIcon quickEButtonEnteredImage = new ImageIcon(
 			ResourceLoader.getImage("componentImage", "quickEButtonEntered.png"));
-	private ImageIcon quickRButtonBasicImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickRButtonBasic.png"));
-	private ImageIcon quickRButtonEnteredImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickRButtonEntered.png"));
-	private ImageIcon quickTButtonBasicImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickTButtonBasic.png"));
-	private ImageIcon quickTButtonEnteredImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickTButtonEntered.png"));
+	private ImageIcon quickAButtonBasicImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickAButtonBasic.png"));
+	private ImageIcon quickAButtonEnteredImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickAButtonEntered.png"));
+	private ImageIcon quickSButtonBasicImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickSButtonBasic.png"));
+	private ImageIcon quickSButtonEnteredImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickSButtonEntered.png"));
+	private ImageIcon quickDButtonBasicImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickDButtonBasic.png"));
+	private ImageIcon quickDButtonEnteredImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickDButtonEntered.png"));
 	private FontMetrics fm;
 	private MapleButton[] button = new MapleButton[Adventurer.QUICK_ITEM_ARRAY_SIZE];
 	private ImageIcon[] basicIcon = { quickQButtonBasicImage, quickWButtonBasicImage,
-			quickEButtonBasicImage, quickRButtonBasicImage,  quickTButtonBasicImage};
+			quickEButtonBasicImage, quickAButtonBasicImage,  quickSButtonBasicImage, quickDButtonBasicImage};
 	private ImageIcon[] enteredIcon = { quickQButtonEnteredImage, quickWButtonEnteredImage,
-			quickEButtonEnteredImage, quickRButtonEnteredImage,  quickTButtonEnteredImage};
+			quickEButtonEnteredImage, quickAButtonEnteredImage,  quickSButtonEnteredImage, quickDButtonEnteredImage};
 	private int returnIndex = -1;
 
 	public ItemKeySelectDialog() {
@@ -58,7 +62,7 @@ public class ItemKeySelectDialog extends JDialog {
 		int height = this.fm.getHeight();
 		JLabel label = new JLabel("키를 선택해주세요.");
 		label.setFont(FontUtils.generalFont);
-		label.setBounds((420 - width) / 2, 10, width, height);
+		label.setBounds((DIALOG_WIDTH - width) / 2, 10, width, height);
 		getContentPane().add(label);
 		for (int i = 0; i < Adventurer.QUICK_ITEM_ARRAY_SIZE; i++) {
 			final int index = i;

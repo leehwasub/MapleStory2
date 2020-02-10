@@ -34,6 +34,7 @@ public abstract class Character implements Serializable{
 	protected ArrayList<Buff> buffList = new ArrayList<Buff>();
 	protected boolean isDead;
 	protected int ignoreDamageRate;
+	protected int criticalExtraDamageRate;
 	
 	public Character() {
 		
@@ -86,10 +87,13 @@ public abstract class Character implements Serializable{
 
 			int calCritical = (int)(Math.random() * 100) + 1;
 			
-			if(opponentStr.getCriticalRate() >= calCritical) {
+			if(opponentStr.getCriticalRate() >= calCritical || attackInfor.isMustCritical()) {
 				isCritical = true;
 				getPhysicalDamage *= 2;
 				getMagicDamage *= 2;
+				getPhysicalDamage += (int)((criticalExtraDamageRate * getPhysicalDamage) / 100.0);
+				getMagicDamage += (int)((criticalExtraDamageRate * getMagicDamage) / 100.0);
+				attackInfor.setCritical(true);
 			}
 			
 			double ignoreDamageRateDouble = (double)ignoreDamageRate / 100.0;
@@ -290,6 +294,15 @@ public abstract class Character implements Serializable{
 		}
 	}
 	
+	public void removeAllEffectBuff() {
+		if(buffList == null || buffList.size() == 0) return;
+		for(int i = buffList.size() - 1; i >= 0; i--) {
+			if(!buffList.get(i).isDebuff()) {
+				buffList.remove(i);
+			}
+		}
+	}
+	
 	public boolean isExistEffectBuff() {
 		if(buffList == null || buffList.size() == 0) return false;
 		for(int i = 0; i < buffList.size(); i++) {
@@ -458,6 +471,14 @@ public abstract class Character implements Serializable{
 
 	public void setIgnoreDamageRate(int ignoreDamageRate) {
 		this.ignoreDamageRate = ignoreDamageRate;
+	}
+	
+	public void addCriticalExtraDamageRate(int criticalExtraDamageRate) {
+		this.criticalExtraDamageRate += criticalExtraDamageRate;
+	}
+
+	public void setCriticalExtraDamageRate(int criticalExtraDamageRate) {
+		this.criticalExtraDamageRate = criticalExtraDamageRate;
 	}
 
 	public String toString() {

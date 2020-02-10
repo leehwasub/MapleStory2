@@ -16,34 +16,38 @@ import utils.ResourceLoader;
 
 public class SkillKeySelectDialog extends JDialog {
 	private static final long serialVersionUID = 1L;
-	private static final int DIALOG_WIDTH = 420;
+	private static final int DIALOG_WIDTH = 480;
 	private static final int DIALOG_HEIGHT = 200;
-	private ImageIcon quickZButtonBasicImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickZButtonBasic.png"));
-	private ImageIcon quickZButtonEnteredImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickZButtonEntered.png"));
-	private ImageIcon quickXButtonBasicImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickXButtonBasic.png"));
-	private ImageIcon quickXButtonEnteredImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickXButtonEntered.png"));
-	private ImageIcon quickCButtonBasicImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickCButtonBasic.png"));
-	private ImageIcon quickCButtonEnteredImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickCButtonEntered.png"));
-	private ImageIcon quickVButtonBasicImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickVButtonBasic.png"));
-	private ImageIcon quickVButtonEnteredImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickVButtonEntered.png"));
-	private ImageIcon quickBButtonBasicImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickBButtonBasic.png"));
-	private ImageIcon quickBButtonEnteredImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickBButtonEntered.png"));
+	private ImageIcon quickINSButtonBasicImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickINSButtonBasic.png"));
+	private ImageIcon quickINSButtonEnteredImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickINSButtonEntered.png"));
+	private ImageIcon quickHOMButtonBasicImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickHOMButtonBasic.png"));
+	private ImageIcon quickHOMButtonEnteredImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickHOMButtonEntered.png"));
+	private ImageIcon quickPUButtonBasicImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickPUButtonBasic.png"));
+	private ImageIcon quickPUButtonEnteredImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickPUButtonEntered.png"));
+	private ImageIcon quickDELButtonBasicImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickDELButtonBasic.png"));
+	private ImageIcon quickDELButtonEnteredImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickDELButtonEntered.png"));
+	private ImageIcon quickENDButtonBasicImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickENDButtonBasic.png"));
+	private ImageIcon quickENDButtonEnteredImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickENDButtonEntered.png"));
+	private ImageIcon quickPDButtonBasicImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickPDButtonBasic.png"));
+	private ImageIcon quickPDButtonEnteredImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickPDButtonEntered.png"));
 	private FontMetrics fm;
 	private MapleButton[] button = new MapleButton[Adventurer.QUICK_SKILL_ARRAY_SIZE];
-	private ImageIcon[] basicIcon = { quickZButtonBasicImage, quickXButtonBasicImage,
-			quickCButtonBasicImage, quickVButtonBasicImage,  quickBButtonBasicImage};
-	private ImageIcon[] enteredIcon = { quickZButtonEnteredImage, quickXButtonEnteredImage,
-			quickCButtonEnteredImage, quickVButtonEnteredImage,  quickBButtonEnteredImage};
+	private ImageIcon[] basicIcon = { quickINSButtonBasicImage, quickHOMButtonBasicImage,
+			quickPUButtonBasicImage, quickDELButtonBasicImage,  quickENDButtonBasicImage, quickPDButtonBasicImage};
+	private ImageIcon[] enteredIcon = { quickINSButtonEnteredImage, quickHOMButtonEnteredImage,
+			quickPUButtonEnteredImage, quickDELButtonEnteredImage,  quickENDButtonEnteredImage, quickPDButtonEnteredImage};
 	private int returnIndex = -1;
 
 	public SkillKeySelectDialog() {
@@ -58,7 +62,7 @@ public class SkillKeySelectDialog extends JDialog {
 		int height = this.fm.getHeight();
 		JLabel label = new JLabel("키를 선택해주세요.");
 		label.setFont(FontUtils.generalFont);
-		label.setBounds((420 - width) / 2, 10, width, height);
+		label.setBounds((DIALOG_WIDTH - width) / 2, 10, width, height);
 		getContentPane().add(label);
 		for (int i = 0; i < Adventurer.QUICK_SKILL_ARRAY_SIZE; i++) {
 			final int index = i;

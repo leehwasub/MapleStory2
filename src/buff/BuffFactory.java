@@ -74,9 +74,11 @@ public class BuffFactory {
 			return new AbnormalBuff("thirsty", "갈증", last, "일정 시간동안 갈증 상태가 되어 마법력 데미지를 입는다", Property.PROPERTY_NOTHING, damage, DamageType.DAMAGE_MP_TYPE);
 		case "중독":
 			return new AbnormalBuff("poison", "중독", last, "일정 시간동안 중독 상태가 되어 독속성 데미지를 입는다", Property.PROPERTY_POSION, damage, DamageType.DAMAGE_HP_TYPE);
+		case "인사이징":
+			return new AbnormalBuff("incising", "인사이징", last, "일정 시간동안 지속적으로 무속성 데미지를 입고 크리티컬 피격시 데미지가 증가한다", Property.PROPERTY_NOTHING, damage, DamageType.DAMAGE_HP_TYPE);
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeAbnormalBuff("+buffName+") 버프 생성 실패!");
-		return null;
+		return null; 
 	}
 	
 	public static Buff makeSpecialBuff(String buffName, int last) {
@@ -97,6 +99,10 @@ public class BuffFactory {
 			return new SpecialBuff("etherealForm", "에테리얼폼", last, "일정 시간 동안 모든 상태이상에 대해 면역상태가 된다", false);
 		case "블레싱아머":
 			return new SpecialBuff("divineShield", "블레싱아머", last, "일정 시간 동안 물리공격력이 증가하고 일정 퍼센트 데미지를 무시한다.", false);
+		case "매직크래쉬":
+			return new SpecialBuff("magicCrash", "매직크래쉬", last, "일정 시간 동안 모든 버프사용을 제한한다.", true);
+		case "인레이지":
+			return new SpecialBuff("enrage", "인레이지", last, "일정 시간 동안 크리티컬확률과 크리티컬 데미지가 증가한다.", false);
 		}
 		DialogUtils.showErrorDialog("BuffFactory.makeSpecialBuff("+buffName+") 버프 생성 실패!");
 		return null;

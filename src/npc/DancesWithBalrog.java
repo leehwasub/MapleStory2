@@ -49,11 +49,10 @@ public class DancesWithBalrog extends Npc{
 					.addQuestLevel(10).addRewardNpcQuestProceed("돼지와함께춤을", 1);
 			player.setQuest(quest);
 		} else if(questNum == 1) {
-			quest = Quest.makeQuest(1, 17, "2차 전직").addMessage("에레고스를 처치한이후 사후 보고를 위해 '주먹펴고 일어서'를 만났다. 그는 에레고스를 처치해준것에 대해")
-					.addMessage("어떻게 보답해야 할지 모르겠다며 감사한다. 그에 대한 보답으로 나에게 더 강력한 힘을 줄 수 있다고 한다. 그를 위해서는 래벨 25이상 힘70이상 그리고")
-					.addMessage("래벨24까지의 모든 스킬포인트를 사용해야 한다고 한다. 조건이 충족되는지 확인한후 다시 찾아가 보자.")
-					.addQuestSpendAllSkillPoint(25).addQuestStatus(70, 0, 0, 0).setPlayerQuestProceed(QuestProceed.DANCESWITHBALROG_QUEST_2)
-					.addQuestLevel(25).addRewardNpcQuestProceed("이얀", 1);
+			quest = Quest.makeQuest(1, 10, "2차 전직").addMessage("2차전직을 하기위해 '주먹펴고 일어서'를 만났다. 그는 에레고스를 처리하기 위해서는 더강한 힘이 필요하다고 한다.")
+					.addMessage("2차전직을 위해서는 래벨 20이상 힘 60이상 그리고 래벨20까지의 모든 스킬포인트를 사용해야 한다고 한다. 조건이 충족되는지 확인한후 다시 찾아가 보자.")
+					.addQuestSpendAllSkillPoint(20).addQuestStatus(60, 0, 0, 0).setPlayerQuestProceed(QuestProceed.DANCESWITHBALROG_QUEST_2)
+					.addQuestLevel(20).addRewardNpcQuestProceed("열마리의부기", 1);
 			player.setQuest(quest);
 		} else if(questNum == 2) {
 			quest = Quest.makeQuest(1, 18, "대륙이동").addMessage("2차 전직을 완료 하였다. '주먹 펴고 일어서'는 이제 더큰 세계로 모험을 떠나는 것이 좋을것이라고 한다.")

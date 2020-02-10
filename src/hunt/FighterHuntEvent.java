@@ -9,7 +9,10 @@ import attack.AttackInfor;
 import character.Adventurer;
 import component.StateBox;
 import hunt.HuntComponent.Hunt;
+import playerAttack.EnrageAttack;
+import playerAttack.IncisingAttack;
 import playerAttack.IronBodyAttack;
+import playerAttack.MagicCrashAttack;
 import playerAttack.PanicAttack;
 import playerAttack.PlayerAttack;
 import playerAttack.RageAttack;
@@ -86,6 +89,10 @@ public class FighterHuntEvent implements HuntEvent, Serializable{
 		} else if(attack instanceof PanicAttack) {
 			comboAttack.subComboNum();
 			comboAttack.subComboNum();
+		} else if(attack instanceof EnrageAttack) {
+			comboAttack.subComboNum();
+		} else if(attack instanceof IncisingAttack) {
+			comboAttack.subComboNum();
 		}
 		
 		int rate = comboAttack.getEffect(comboAttack.getPoint());
@@ -96,7 +103,8 @@ public class FighterHuntEvent implements HuntEvent, Serializable{
 		}
 		
 		int randomRate = (int)(Math.random() * 99) + 1;
- 		if(randomRate <= rate && !(attack instanceof IronBodyAttack) && !(attack instanceof RageAttack)) {
+ 		if(randomRate <= rate && !(attack instanceof IronBodyAttack) && !(attack instanceof RageAttack)
+ 				&& !(attack instanceof EnrageAttack) && !(attack instanceof MagicCrashAttack)) {
  			comboAttack.addComboNum();
  		}
 

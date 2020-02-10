@@ -57,7 +57,7 @@ public class InventoryConsumablePanel extends JPanel {
 	}
 
 	private void makeSpace() {
-		int x = 50;
+		int x = 50; 
 		int y = 30;
 		for (int i = 0; i < 50; i++) {
 			final int index = i;

@@ -45,12 +45,14 @@ public class InventorySkillPanel extends JPanel {
 	private ImageIcon stateUpButtonEnteredImage = new ImageIcon(
 			ResourceLoader.getImage("componentImage", "stateUpButtonEntered.png"));
 	
-	private SkillButton[][] skillButton = new SkillButton[3][];
-	private MapleButton[][] skillUpButton = new MapleButton[3][];
+	private SkillButton[][] skillButton = new SkillButton[4][];
+	private MapleButton[][] skillUpButton = new MapleButton[4][];
 	
 	private SkillTooltipPanel skillTooltip = new SkillTooltipPanel();
 	
-	private boolean[] skillIsLoaded = {false, false, false};
+	private boolean[] skillIsLoaded = {false, false, false, false};
+	
+	private static final int INTERVAL_X = 220;
 	
 	public InventorySkillPanel(Player player, MainMapleInterface mainMapleInterface) {
 		setVisible(false);
@@ -67,7 +69,7 @@ public class InventorySkillPanel extends JPanel {
 	}
 	
 	public void skillLoad() {
-		for(int i = 0; i < 3; i++) {
+		for(int i = 0; i < 4; i++) {
 			if(!skillIsLoaded[i] && player.getMainAdventurer().getCareerLevel() >= (i+1)) {
 				loadSkill(i);
 				skillIsLoaded[i] = true;
@@ -87,7 +89,7 @@ public class InventorySkillPanel extends JPanel {
 		for(int i = 0; i < skillButton[level].length; i++) {
 			final int index = i;
 			skillButton[level][i] = new SkillButton();
-			skillButton[level][i].setBounds(240 + (300 * level), 70 + (65 * i), 50, 50);
+			skillButton[level][i].setBounds(240 + (INTERVAL_X * level), 70 + (65 * i), 50, 50);
 			skillButton[level][i].setSkill(skillList.get(i));
 			skillButton[level][i].setSkillToolTip(skillTooltip);
 			skillButton[level][i].addMouseListener(new MouseAdapter() {
@@ -103,7 +105,7 @@ public class InventorySkillPanel extends JPanel {
 		for(int i = 0; i < skillUpButton[level].length; i++) {
 			final int index = i;
 			skillUpButton[level][i] = new MapleButton(stateUpButtonBasicImage, stateUpButtonEnteredImage);
-			skillUpButton[level][i].setBounds(310 + (300 * level), 85 + (65 * i), 20, 20);
+			skillUpButton[level][i].setBounds(310 + (INTERVAL_X * level), 85 + (65 * i), 20, 20);
 			skillUpButton[level][i].addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {
@@ -162,23 +164,23 @@ public class InventorySkillPanel extends JPanel {
 		g.drawString("스킬포인트", 40, 40);
 		g.setColor(Color.WHITE);
 		g.drawString(""+player.getMainAdventurer().getSkillPoint(), 140, 40);
-		
-		for(int i = 0; i < 3; i++) {
+	
+		for(int i = 0; i < 4; i++) {
 			if(player.getMainAdventurer().getCareerLevel() >= (i+1)) {
 				g.setFont(FontUtils.MID_FONT);
 				g.setColor(Color.YELLOW);
-				g.drawString((i+1)+"차 스킬", 240 + (i * 300), 45);
+				g.drawString((i+1)+"차 스킬", 240 + (i * INTERVAL_X), 45);
 				if(skillIsLoaded[i]) {
 					for(int j = 0; j < skillButton[i].length; j++) {
 						Skill skill = skillButton[i][j].getSkill();
 						g.setFont(FontUtils.generalFont);
 						g.setColor(Color.WHITE);
 						if(skill.isCanUpgrade(player.getMainAdventurer())) {
-							g.drawString(skill.getPoint() + " / " + skill.getMaxPoint(), 350 + (i * 300), 101 + (65 * j));
+							g.drawString(skill.getPoint() + " / " + skill.getMaxPoint(), 350 + (i * INTERVAL_X), 101 + (65 * j));
 						} else {
 							g.setFont(FontUtils.SMALL_FONT);
 							g.setColor(Color.RED);
-							g.drawString(skill.requiredSkillInfor().substring(skill.requiredSkillInfor().indexOf(":")+1), 340 + (i * 300), 100 + (65 * j));
+							g.drawString(skill.requiredSkillInfor().substring(skill.requiredSkillInfor().indexOf(":")+1), 340 + (i * INTERVAL_X), 100 + (65 * j));
 						}
 					}
 				}
