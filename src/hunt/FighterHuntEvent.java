@@ -17,12 +17,14 @@ import playerAttack.PanicAttack;
 import playerAttack.PlayerAttack;
 import playerAttack.RageAttack;
 import playerAttack.ShoutAttack;
+import skill.AdvancedComboSkill;
 import skill.CombatOrdersSkill;
 import skill.ComboAttackSkill;
 import skill.ComboSynergySkill;
 import skill.ElementalChargeSkill;
 import skill.PanicSkill;
 import skill.ShoutSkill;
+import utils.CalUtils;
 import utils.ColorUtils;
 import utils.FontUtils;
 
@@ -106,6 +108,12 @@ public class FighterHuntEvent implements HuntEvent, Serializable{
  		if(randomRate <= rate && !(attack instanceof IronBodyAttack) && !(attack instanceof RageAttack)
  				&& !(attack instanceof EnrageAttack) && !(attack instanceof MagicCrashAttack)) {
  			comboAttack.addComboNum();
+ 			AdvancedComboSkill advancedComboSkill = (AdvancedComboSkill)adventurer.getSkillWithName("어드밴스드콤보");
+ 			if(advancedComboSkill != null && advancedComboSkill.getPoint() >= 1) {
+ 				if(CalUtils.calPercent(advancedComboSkill.getDoubleGetEffect(advancedComboSkill.getPoint()))){
+ 					comboAttack.addComboNum();
+ 				}
+ 			}
  		}
 
 	}

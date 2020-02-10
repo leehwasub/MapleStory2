@@ -71,7 +71,7 @@ public class SkillFactory {
 		case "비홀더스버프":
 			return new EvilEyeBuffSkill("evilEyeBuff", "비홀더스버프", 20, "일정 턴을 주기로 비홀더가 플레이어에게 버프를 건다");
 		case "레이징블로우":
-			return new RagingBlowSkill("ragingBlow", "레이징블로우", 20, "적에게 다섯번의 일격을 가한다. 인레이지 스킬로 강화할 수 있다.", AttackType.OPPONENT, Property.PROPERTY_NOTHING);
+			return new RagingBlowSkill("ragingBlow", "레이징블로우", 30, "적에게 다섯번의 일격을 가한다. 인레이지 스킬로 강화할 수 있다.", AttackType.OPPONENT, Property.PROPERTY_NOTHING);
 		case "매직크래쉬":
 			return new MagicCrashSkill("magicCrash", "매직크래쉬", 20, "적의 모든 버프 효과를 제거하고 일정시간 버프 사용을 제한한다", AttackType.OPPONENT, Property.PROPERTY_NOTHING, 3);
 		case "어드밴스드콤보":

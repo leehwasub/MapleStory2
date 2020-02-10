@@ -52,6 +52,10 @@ public class IncisingSkill extends ActiveSkill{
 		return 17;
 	}
 	
+	public int getShoutEffect(int point) {
+		return 100 + point * 2;
+	}
+	
 	@Override
 	public String requiredSkillInfor() {
 		return "선행스킬 : 어드밴스드 콤보 마스터";
@@ -88,7 +92,7 @@ public class IncisingSkill extends ActiveSkill{
 	public String getEffectDetail(int point) {
 		return "MP " + getNeedMp(point) + " 소비, 콤보어택 "+ needComboAttack() + "개 사용, " + getEffect(point) + "% 물리데미지로 4번공격 , 맞은적은"
 				+ getDebuffRate(point) + "% 확률로 치명적인 상처를 입어 " + getDebuffLast(point) + "턴간 " + getDebuffLast(point) + "% 무속성 물리데미지, "
-				+ "추가 크리티컬 데미지" + getDebuffCriticalEffect(point) + "%";
+				+ "추가 크리티컬 데미지" + getDebuffCriticalEffect(point) + "% [패시브 효과 : 샤우트데미지 +"+ getShoutEffect(point) +"%]";
 	}
 	
 }
