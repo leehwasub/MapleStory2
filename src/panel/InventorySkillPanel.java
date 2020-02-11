@@ -22,6 +22,7 @@ import maplestory.Player;
 import skill.ActiveSkill;
 import skill.PassiveSkill;
 import skill.Skill;
+import utils.ColorUtils;
 import utils.DialogUtils;
 import utils.FontUtils;
 import utils.ResourceLoader;
@@ -181,6 +182,11 @@ public class InventorySkillPanel extends JPanel {
 							g.setFont(FontUtils.SMALL_FONT);
 							g.setColor(Color.RED);
 							g.drawString(skill.requiredSkillInfor().substring(skill.requiredSkillInfor().indexOf(":")+1), 340 + (i * INTERVAL_X), 100 + (65 * j));
+						}
+						if(skillButton[i][j].isEntered()) {
+							g.setColor(ColorUtils.SEA);
+							g.setFont(FontUtils.SMALL_FONT_2);
+							g.drawString("오른쪽 클릭시 스킬 상세", 40, 80);
 						}
 					}
 				}

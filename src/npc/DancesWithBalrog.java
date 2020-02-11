@@ -56,7 +56,7 @@ public class DancesWithBalrog extends Npc{
 			player.setQuest(quest);
 		}  else if(questNum == 2) {
 			quest = Quest.makeQuest(1, 11, "유물발굴단").addMessage("2차전직을 완료했다. 이제 유물발굴단 일원중 한명인 '열마리의부기'에게 가서 현재 발굴지에서 일어나고 있는 상황에 대해서 들을수 있다고한다. ")
-					.addMessage("에레고스가 언제 부활할지 모르는 상황이므로 최대한 빨리 가보도록 하자.")
+					.addMessage("에레고스가 언제 부활할지 모르는 상황이므로 최대한 빨리 가보도록 하자.").setRewardExp(70)
 					.addQuestVisit("열마리의부기").setPlayerQuestProceed(QuestProceed.DANCESWITHBALROG_QUEST_3);
 			player.setQuest(quest);
 		}  else if(questNum == 3) {

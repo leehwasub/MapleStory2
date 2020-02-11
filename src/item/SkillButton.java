@@ -23,6 +23,7 @@ public class SkillButton extends JButton {
 	private ImageIcon buttonImage;
 	private Skill skill;
 	private SkillTooltipPanel skillToolTip;
+	private boolean isEntered;
 
 	public SkillButton(Skill skill, ImageIcon buttonImage) {
 		super(new ImageIcon(skill.getImage()));
@@ -61,11 +62,13 @@ public class SkillButton extends JButton {
 		addMouseListener(new MouseAdapter() {
 			public void mouseEntered(MouseEvent e) {
 				setCursor(new Cursor(Cursor.HAND_CURSOR));
+				isEntered = true;
 			}
 
 			public void mouseExited(MouseEvent e) {
 				setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 				setIcon(SkillButton.this.buttonImage);
+				isEntered = false;
 				if(skillToolTip != null) {
 					skillToolTip.setVisible(false);
 				}
@@ -113,6 +116,14 @@ public class SkillButton extends JButton {
 	
 	public int getSkillMaxPoint() {
 		return skill.getMaxPoint();
+	}
+
+	public boolean isEntered() {
+		return isEntered;
+	}
+
+	public void setEntered(boolean isEntered) {
+		this.isEntered = isEntered;
 	}
 
 	public void setSkill(Skill skill) {

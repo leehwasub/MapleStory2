@@ -143,8 +143,8 @@ public class PrologPanel extends JPanel {
 	}
 
 	public void sexSelectEvent(String sex) {
-		makeWarrior(sex);
-		//makeNewAdventurer(sex);
+		//makeWarrior(sex);
+		makeNewAdventurer(sex);
 		updateText();
 		this.nextButton.setVisible(true);
 		this.manSelectButton.setVisible(false);

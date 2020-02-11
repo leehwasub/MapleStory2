@@ -32,7 +32,7 @@ public class IronBodySkill extends ActiveSkill{
 
 	@Override
 	public int getEffect(int point) {
-		return 5 + point * 5;
+		return point * 5;
 	}
 
 	@Override

@@ -23,7 +23,7 @@ public class TenBoogies extends Npc{
 		Quest quest = null;
 		if(questNum == 0) {
 			quest = Quest.makeQuest(1, 12, "우드마스크 조사").addMessage("페리온에서 유물 발굴단의 일원인 '열 마리의 부기를'만났다. 그녀는 최근 페리온 주변에서 마스크를 쓰고 다니는 이상한 몬스터가 발견 되고 있다고 한다.")
-					.addMessage("이 몬스터들을 잡아서 표본을 조사해야 원인이 되는 실마리를 찾을수 있을것 같다는데.").addQuestKill("우드마스크", 15)
+					.addMessage("이 몬스터들을 잡아서 표본을 조사해야 원인이 되는 실마리를 찾을수 있을것 같다는데.").addQuestMaterial("목판", 7).addQuestMaterial("석판", 7)
 					.setRewardExp(600).setRewardMoney(1200).setPlayerQuestProceed(QuestProceed.TENBOOGIES_QUEST_1)
 					.addRewardNpcQuestProceed("윈스턴", 1);
 			player.setQuest(quest);

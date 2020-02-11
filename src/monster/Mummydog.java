@@ -12,7 +12,7 @@ public final class Mummydog extends Monster {
 
 	public Mummydog() {
 		super("머미독", "mummydog",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 21, 1210, 100, 10, 10, 12, 12), 184, 195, 0, 0,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 21, 1500, 100, 10, 10, 12, 12), 184, 195, 0, 0,
 				62 * Main.EXP_BONUS, 115 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

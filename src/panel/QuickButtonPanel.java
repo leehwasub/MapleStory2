@@ -154,7 +154,7 @@ public class QuickButtonPanel extends JPanel{
 		for (int i = 0; i < Adventurer.QUICK_SKILL_ARRAY_SIZE; i++) {
 			final int index = i;
 			quickSkillButton[i] = new QuickSkillButton(this.quickItemButtonImage);
-			quickSkillButton[i].setBounds(180 + i * 60, 20, 50, 50);
+			quickSkillButton[i].setBounds(750 + i * 60, 20, 50, 50);
 			quickSkillButton[i].addMouseListener(new MouseAdapter() {
 				public void mousePressed(MouseEvent e) {
 					quickSkillEvent(index);
@@ -173,7 +173,7 @@ public class QuickButtonPanel extends JPanel{
 		for (int i = 0; i < Adventurer.QUICK_ITEM_ARRAY_SIZE; i++) {
 			final int index = i;
 			quickItemButton[i] = new QuickItemButton(this.quickItemButtonImage);
-			quickItemButton[i].setBounds(750 + i * 60, 20, 50, 50);
+			quickItemButton[i].setBounds(180 + i * 60, 20, 50, 50);
 			quickItemButton[i].addMouseListener(new MouseAdapter() {
 				public void mousePressed(MouseEvent e) {
 					quickItemEvent(index);
@@ -215,7 +215,7 @@ public class QuickButtonPanel extends JPanel{
 		for (int i = 0; i < Adventurer.QUICK_ITEM_ARRAY_SIZE; i++) {
 			final int keyIndex = i;
 			quickItemCancelButton[i] = new MapleButton(this.quickCancelBasicImage, this.quickCancelEnteredImage);
-			quickItemCancelButton[i].setBounds(755 + i * 60, 75, 40, 20);
+			quickItemCancelButton[i].setBounds(185 + i * 60, 75, 40, 20);
 			quickItemCancelButton[i].addMouseListener(new MouseAdapter() {
 				public void mousePressed(MouseEvent e) {
 					quickItemCancelEvent(keyIndex);
@@ -229,7 +229,7 @@ public class QuickButtonPanel extends JPanel{
 		for (int i = 0; i < Adventurer.QUICK_SKILL_ARRAY_SIZE; i++) {
 			final int keyIndex = i;
 			quickSkillCancelButton[i] = new MapleButton(this.quickCancelBasicImage, this.quickCancelEnteredImage);
-			quickSkillCancelButton[i].setBounds(185 + i * 60, 75, 40, 20);
+			quickSkillCancelButton[i].setBounds(755 + i * 60, 75, 40, 20);
 			quickSkillCancelButton[i].addMouseListener(new MouseAdapter() {
 				public void mousePressed(MouseEvent e) {
 					quickSkillCancelEvent(keyIndex);
@@ -246,7 +246,7 @@ public class QuickButtonPanel extends JPanel{
 	
 	private void quickSkillCancelEvent(int keyIndex) {
 		player.getMainAdventurer().removeQuickSkill(keyIndex);
-		setQuickItemImage();
+		setQuickSkillImage();
 	}
 	
 	public void setQuickSkillImage() {

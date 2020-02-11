@@ -25,7 +25,7 @@ public class Blackbull extends Npc{
 			quest = Quest.makeQuest(1, 5, "엑스텀프 사냥").addMessage("전사로 전직한 이후 페리온 에서'돼지와 함께 춤을'을 만났다.")
 					.addMessage("그는 나에게 전사로 전직을 했지만 강력한 힘을 가지기 위해서는 많은 수련이 필요하다는데. 수련의 일환으로 엑스텀프를 15마리 정도 잡아와 달라고한다.")
 					.addMessage("엑스컴프는 페리온 동쪽 골목에서 만날 수 있다.")
-					.addQuestKill("엑스텀프", 15).setRewardExp(250).setRewardMoney(400).setPlayerQuestProceed(QuestProceed.BLACKBULL_QUEST_1)
+					.addQuestKill("엑스텀프", 15).setRewardExp(400).setRewardMoney(800).setPlayerQuestProceed(QuestProceed.BLACKBULL_QUEST_1)
 					.addRewardNpcQuestProceed("만지", 1).addRewardItem("전사의물약", 10);
 			player.setQuest(quest);
 		} else if(questNum == 1) {

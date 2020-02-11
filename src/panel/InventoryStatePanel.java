@@ -165,13 +165,14 @@ public class InventoryStatePanel extends JPanel {
 		g.setColor(Color.WHITE);
 		g.drawString(adventurer.getCareer(), LINE_X[1] + 50, 280);
 		g.setColor(Color.YELLOW);
-		g.drawString("포션 단축키", LINE_X[2], 40);
+		g.drawString("포션 단축키", LINE_X[2] - 50, 40);
 		g.setColor(Color.white);
-		g.drawString("Q W E R T", LINE_X[2] + 100, 40);
+		g.drawString("Q W E A S D", LINE_X[2] + 50, 40);
 		g.setColor(Color.YELLOW);
-		g.drawString("스킬 단축키", LINE_X[2], 70);
+		g.drawString("스킬 단축키", LINE_X[2] - 50, 70);
 		g.setColor(Color.white);
-		g.drawString("Z X C V B", LINE_X[2] + 100, 70);
+		g.drawString("INS HOM PU", LINE_X[2] + 50, 70);
+		g.drawString("DEL END PD", LINE_X[2] + 50, 100);
 		g.setColor(Color.YELLOW);
 		g.drawString("상의", 790, 55);
 		g.drawString("하의", 790, 115);
@@ -196,19 +197,19 @@ public class InventoryStatePanel extends JPanel {
 		g.setFont(FontUtils.generalFont);
 		Resistance resistance = player.getMainAdventurer().getStrength().getResistance();
 		g.setColor(Color.YELLOW);
-		g.drawString("불 저항", LINE_X[2], 130);
-		g.drawString("얼음 저항", LINE_X[2], 160);
-		g.drawString("독 저항", LINE_X[2], 190);
-		g.drawString("번개 저항", LINE_X[2], 220);
-		g.drawString("어둠 저항", LINE_X[2], 250);
-		g.drawString("성 저항", LINE_X[2], 280);
+		g.drawString("불 저항", LINE_X[2], 140);
+		g.drawString("얼음 저항", LINE_X[2], 170);
+		g.drawString("독 저항", LINE_X[2], 200);
+		g.drawString("번개 저항", LINE_X[2], 230);
+		g.drawString("어둠 저항", LINE_X[2], 260);
+		g.drawString("성 저항", LINE_X[2], 290);
 		g.setColor(Color.WHITE);
-		g.drawString(resistance.getFire()+"", LINE_X[2] + 100, 130);
-		g.drawString(resistance.getIce()+"", LINE_X[2] + 100, 160);
-		g.drawString(resistance.getPosion()+"", LINE_X[2] + 100, 190);
-		g.drawString(resistance.getThunder()+"", LINE_X[2] + 100, 220);
-		g.drawString(resistance.getDark()+"", LINE_X[2] + 100, 250);
-		g.drawString(resistance.getHoly()+"", LINE_X[2] + 100, 280);
+		g.drawString(resistance.getFire()+"", LINE_X[2] + 100, 140);
+		g.drawString(resistance.getIce()+"", LINE_X[2] + 100, 170);
+		g.drawString(resistance.getPosion()+"", LINE_X[2] + 100, 200);
+		g.drawString(resistance.getThunder()+"", LINE_X[2] + 100, 230);
+		g.drawString(resistance.getDark()+"", LINE_X[2] + 100, 260);
+		g.drawString(resistance.getHoly()+"", LINE_X[2] + 100, 290);
 	}
 
 	private void setEquipmentStateImage() {
