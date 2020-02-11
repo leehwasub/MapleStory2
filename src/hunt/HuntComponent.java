@@ -322,6 +322,14 @@ public class HuntComponent {
 				}
 			}
 		}
+		
+		public boolean checkMonsterDead() {
+			if(monsterDead == 0 && monster.isDead()) {
+				monsterDead++;
+				return true;
+			}
+			return false;
+		}
 
 		public int checkDead() {
 			if (this.turnQueue.peek().getCharacter().isDead()) {
@@ -334,7 +342,7 @@ public class HuntComponent {
 			}
 			return isCheckEnd();
 		}
-		
+
 		public int checkDeadBeforeTurn() {
 			if(nowStateBox.getCharacter().isDead()) {
 				if (nowStateBox.getCharacter() instanceof Monster) {
@@ -347,6 +355,14 @@ public class HuntComponent {
 		}
 
 		public void run() {
+			Thread thread = new Thread() {
+				@Override
+				public void run() {
+					
+					return;
+				}
+			};
+			thread.start();
 			while(true) {
 				if(checkDead() != 0) break;
 				
@@ -400,11 +416,19 @@ public class HuntComponent {
 					
 					//stand by for an attack
 					playerAttack = null;
+					
+					if(checkMonsterDead()) {
+						try {
+							Thread.sleep(500);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						winFlag = true;
+						break;
+					}
 
 					enablePlayerActive();
-					
 					waitForAttack();
-					
 					if(isRun) {
 						break;
 					}

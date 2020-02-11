@@ -111,9 +111,8 @@ public class AdventurerFactory {
 			adventurer.addSkill(2, SkillFactory.makeSkill("아이언월"));
 			adventurer.addSkill(2, SkillFactory.makeSkill("하이퍼바디"));
 			adventurer.setHuntEvent(new SpearManHuntEvent());
-			//imageUrl.append("2");
-			adventurer.addSkillPoint(30 * 4);
-			//break;
+			imageUrl.append("2");
+			break;
 		case "버서커":
 			adventurer.setCareerLevel(3);
 			adventurer.addSkill(3, SkillFactory.makeSkill("로드오브다크니스"));
@@ -128,8 +127,8 @@ public class AdventurerFactory {
 			adventurer.addSkill(4, SkillFactory.makeSkill("어드밴스드웨폰마스터리"));
 			adventurer.addSkill(4, SkillFactory.makeSkill("다크임페일"));
 			adventurer.addSkill(4, SkillFactory.makeSkill("매직크래쉬"));
+			adventurer.addSkill(4, SkillFactory.makeSkill("비홀더스리벤지"));
 			adventurer.addSkill(4, SkillFactory.makeSkill("궁그닐디센트"));
-			adventurer.addSkill(4, SkillFactory.makeSkill("리인카네이션"));
 			imageUrl.append("3");
 			break;
 		}

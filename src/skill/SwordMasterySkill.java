@@ -31,7 +31,7 @@ public class SwordMasterySkill extends PassiveSkill{
 	@Override
 	public void calStateEffect(Adventurer adventurer) {
 		WeaponItem weaponItem = (WeaponItem)adventurer.getWearEquipmentByIndex(EquipmentItem.EQUIPMENT_TYPE_WAEPON);
-		if(weaponItem != null && weaponItem.getWeaponType() == WeaponType.SWORD) {
+		if(weaponItem != null && weaponItem.getWeaponType() == WeaponType.SWORD && point >= 1) {
 			adventurer.getStrength().addAccuracyRate(getEffect(point));
 			adventurer.addProficiency(getEffect(point));
 		}

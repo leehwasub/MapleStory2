@@ -88,6 +88,14 @@ public class SkillFactory {
 			return new DivineChargeSkill("divineCharge", "디바인차지", 30, "무기에 일시적으로 성속성을 부여한뒤 강력한 일격을 가한다.", AttackType.OPPONENT, Property.PROPARTY_HOLY, 2);
 		case "엘리멘탈포스":
 			return new ElementalForceSkill("elementalForce", "엘리멘탈포스", 30, "플레임차지, 블리자드 차지, 라이트닝 차지를 영구적으로 강화한다.");
+		case "어드밴스드웨폰마스터리":
+			return new AdvancedWeaponMasterySkill("advancedWeaponMastery", "어드밴스드웨폰마스터리", 20, "창무기 착용시 숙련도 물리공격력 크리티컬 데미지를 강화한다.");
+		case "다크임페일":
+			return new DarkImpaleSkill("darkImpale", "다크임페일", 30, "빠른 속도로 전방의 적을 공격한다.", AttackType.OPPONENT, Property.PROPERTY_NOTHING);
+		case "비홀더스리벤지":
+			return new RevengeOfTheEvilEyeSkill("revengeOfTheEvilEye", "비홀더스리벤지", 20, "피격시 비홀더가 적에게 반격한후 플레이어의 체력을 회복시킨다.");
+		case "궁그닐디센트":
+			return new GungnirDescentSkill("gungnirDescent", "궁그닐디센트", 30, "거대한 창을 적의 머리위에 떨어뜨려 피해를 입힌다.", AttackType.OPPONENT, Property.PROPERTY_NOTHING, 4);
 		} 
 		DialogUtils.showErrorDialog("SkillFactory.makeSkill("+skillName+") 새로운 스킬 생성 실패!");
 		return null;

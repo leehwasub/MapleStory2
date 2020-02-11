@@ -1,6 +1,9 @@
 package skill;
 
 import character.Adventurer;
+import item.EquipmentItem;
+import item.WeaponItem;
+import item.WeaponType;
 
 public class PaladinExpertSkill extends PassiveSkill{
 
@@ -38,12 +41,13 @@ public class PaladinExpertSkill extends PassiveSkill{
 
 	@Override
 	public String getEffectDetail(int point) {
-		return "영구적으로 무기 숙련도 +" + getProficiencyEffect(point) + ", 물리마법 방어력 +" + getDefenceEffect(point) + ", 크리티컬확률 +" + getCriticalRateEffect(point) + "%, 크리티컬 데미지 +" + getCriticalDamageEffect(point) + "%";
+		return "영구적으로 검 숙련도 +" + getProficiencyEffect(point) + ", 물리마법 방어력 +" + getDefenceEffect(point) + ", 크리티컬확률 +" + getCriticalRateEffect(point) + "%, 크리티컬 데미지 +" + getCriticalDamageEffect(point) + "%";
 	}
 
 	@Override
 	public void calStateEffect(Adventurer adventurer) {
-		if(point >= 1) {
+		WeaponItem weaponItem = (WeaponItem)adventurer.getWearEquipmentByIndex(EquipmentItem.EQUIPMENT_TYPE_WAEPON);
+		if(weaponItem != null && weaponItem.getWeaponType() == WeaponType.SWORD && point >= 1) {
 			adventurer.addProficiency(getProficiencyEffect(point));
 			adventurer.addCriticalExtraDamageRate(getCriticalDamageEffect(point));
 			adventurer.getStrength().addCriticalRate(getCriticalRateEffect(point));

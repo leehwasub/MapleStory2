@@ -35,6 +35,10 @@ public class SkillBookItem extends ConsumableItem implements Serializable {
 				DialogUtils.showWarningDialog("지금은 사용할 수 없습니다.");
 				return;
 			}
+			if(name.equals("4차스킬북") && player.getMainAdventurer().getCareerLevel() == 2) {
+				DialogUtils.showWarningDialog("3차 스킬북을 먼저 사용해야 합니다.");
+				return;
+			}
 			if(DialogUtils.showConfirmDialog("스킬북을 사용하시겠습니까?") == JOptionPane.YES_OPTION) {
 				int playerLevel = player.getMainAdventurer().getAdventurerLevel();
 				if(player.getMainAdventurer().getSkillPoint() <= (4 + (playerLevel - level) * 4)

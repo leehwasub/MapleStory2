@@ -1,6 +1,9 @@
 package skill;
 
 import character.Adventurer;
+import item.EquipmentItem;
+import item.WeaponItem;
+import item.WeaponType;
 
 public class AdvancedComboSkill extends PassiveSkill{
 
@@ -46,12 +49,13 @@ public class AdvancedComboSkill extends PassiveSkill{
 
 	@Override
 	public String getEffectDetail(int point) {
-		return "콤보어택 최대 " + getEffect(point) + "개 충전 가능, " + getDoubleGetEffect(point)+"% 확률로 콤보어택 2개 충전 [패시브 효과 : 무기숙련도 "+getProficiencyEffect(point)+"% 추가 증가]";
+		return "콤보어택 최대 " + getEffect(point) + "개 충전 가능, " + getDoubleGetEffect(point)+"% 확률로 콤보어택 2개 충전 [패시브 효과 : 검숙련도 "+getProficiencyEffect(point)+"% 추가 증가]";
 	}
 
 	@Override
 	public void calStateEffect(Adventurer adventurer) {
-		if(point >= 1) {
+		WeaponItem weaponItem = (WeaponItem)adventurer.getWearEquipmentByIndex(EquipmentItem.EQUIPMENT_TYPE_WAEPON);
+		if(weaponItem != null && weaponItem.getWeaponType() == WeaponType.SWORD && point >= 1) {
 			adventurer.addProficiency(getProficiencyEffect(point));
 		}
 	}
