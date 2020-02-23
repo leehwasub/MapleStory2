@@ -12,7 +12,7 @@ public final class Sentinel extends Monster {
 
 	public Sentinel() {
 		super("스톤볼", "sentinel",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 30, 3200, 250, 10, 10, 24, 24), 292, 305, 290, 300,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 30, 4000, 250, 10, 10, 24, 24), 292, 305, 290, 300,
 				125 * Main.EXP_BONUS, 201 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

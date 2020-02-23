@@ -12,7 +12,7 @@ public final class Homunculus extends Monster {
 
 	public Homunculus() {
 		super("호문쿨루", "homunculus",
-				new Strength(new Resistance(100, 100, 150, 100, 100, 100), 59, 60000, 2500, 10, 10, 40, 40), 713, 733, 745, 774,
+				new Strength(new Resistance(100, 100, 150, 100, 100, 100), 59, 82000, 2500, 10, 10, 40, 40), 713, 733, 745, 774,
 				820 * Main.EXP_BONUS, 2340 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

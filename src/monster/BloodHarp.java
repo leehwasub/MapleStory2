@@ -12,7 +12,7 @@ public final class BloodHarp extends Monster {
 
 	public BloodHarp() {
 		super("블러드하프", "bloodHarp",
-				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 68, 98000, 4000, 10, 10, 40, 40), 813, 825, 861, 882,
+				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 68, 130000, 4000, 10, 10, 40, 40), 813, 825, 861, 882,
 				1440 * Main.EXP_BONUS, 4000 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

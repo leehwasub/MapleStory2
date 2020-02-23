@@ -12,7 +12,7 @@ public final class DarkWyvern extends Monster {
 
 	public DarkWyvern() {
 		super("다크와이번", "darkWyvern",
-				new Strength(new Resistance(150, 50, 100, 100, 150, 50), 78, 200000, 7000, 10, 10, 40, 40), 1023, 1034, 1105, 1162,
+				new Strength(new Resistance(150, 50, 100, 100, 150, 50), 78, 300000, 7000, 10, 10, 40, 40), 1023, 1034, 1105, 1162,
 				4000 * Main.EXP_BONUS, 9500 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

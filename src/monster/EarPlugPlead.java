@@ -12,7 +12,7 @@ public final class EarPlugPlead extends Monster {
 
 	public EarPlugPlead() {
 		super("귀마개프릴드", "earPlugPlead",
-				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 45, 13900, 400, 10, 10, 37, 37), 523, 540, 540, 560,
+				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 45, 21500, 400, 10, 10, 37, 37), 523, 540, 540, 560,
 				337 * Main.EXP_BONUS, 724 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

@@ -12,7 +12,7 @@ public final class MithrilMutae extends Monster {
 
 	public MithrilMutae() {
 		super("미스릴뮤테", "mithrilMutae",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 54, 35000, 2600, 10, 10, 40, 40), 626, 635, 632, 643,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 54, 54000, 2600, 10, 10, 40, 40), 626, 635, 632, 643,
 				685 * Main.EXP_BONUS, 1630 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

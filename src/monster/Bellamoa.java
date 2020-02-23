@@ -12,7 +12,7 @@ public final class Bellamoa extends Monster {
 
 	public Bellamoa() {
 		super("벨라모아", "bellamoa",
-				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 44, 12700, 400, 10, 10, 37, 37), 517, 530, 530, 550,
+				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 44, 19700, 400, 10, 10, 37, 37), 517, 530, 530, 550,
 				302 * Main.EXP_BONUS, 675 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

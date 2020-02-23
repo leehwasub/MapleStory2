@@ -12,7 +12,7 @@ public final class BlueDragonTurtle extends Monster {
 
 	public BlueDragonTurtle() {
 		super("블루드래곤터틀", "blueDragonTurtle",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 73, 150000, 5000, 10, 10, 40, 40), 950, 980, 961, 974,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 73, 200000, 5000, 10, 10, 40, 40), 950, 980, 961, 974,
 				2600 * Main.EXP_BONUS, 7200 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

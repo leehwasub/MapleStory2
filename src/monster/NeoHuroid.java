@@ -12,7 +12,7 @@ public final class NeoHuroid extends Monster {
 
 	public NeoHuroid() {
 		super("네오휴로이드", "neoHuroid",
-				new Strength(new Resistance(100, 100, 100, 150, 50, 100), 57, 48600, 2200, 10, 10, 40, 40), 683, 695, 702, 703,
+				new Strength(new Resistance(100, 100, 100, 150, 50, 100), 57, 71000, 2200, 10, 10, 40, 40), 683, 695, 702, 703,
 				753 * Main.EXP_BONUS, 2130 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

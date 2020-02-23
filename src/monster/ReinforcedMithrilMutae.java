@@ -12,7 +12,7 @@ public final class ReinforcedMithrilMutae extends Monster {
 
 	public ReinforcedMithrilMutae() {
 		super("강화된미스릴뮤테", "reinforcedMithrilMutae",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 55, 39200, 2600, 10, 10, 40, 40), 633, 640, 642, 653,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 55, 60200, 2600, 10, 10, 40, 40), 633, 640, 642, 653,
 				700 * Main.EXP_BONUS, 1814 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

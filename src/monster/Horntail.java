@@ -12,7 +12,7 @@ public final class Horntail extends Monster {
 
 	public Horntail() {
 		super("혼테일", "horntail",
-				new Strength(new Resistance(150, 50, 100, 100, 150, 50), 80, 3000000, 120000, 20, 20, 40, 40), 1123, 1244, 1305, 1362,
+				new Strength(new Resistance(150, 50, 100, 100, 150, 50), 80, 4500000, 120000, 20, 20, 40, 40), 1123, 1244, 1305, 1362,
 				200000 * Main.EXP_BONUS, 500000 * Main.MONEY_BONUS, true);
 		initSkillList();
 	}

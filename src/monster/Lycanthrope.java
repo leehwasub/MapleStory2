@@ -12,7 +12,7 @@ public final class Lycanthrope extends Monster {
 
 	public Lycanthrope() {
 		super("라이칸스로프", "lycanthrope",
-				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 37, 7420, 250, 10, 10, 29, 29), 430, 449, 0, 0,
+				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 37, 10820, 250, 10, 10, 29, 29), 430, 449, 0, 0,
 				204 * Main.EXP_BONUS, 430 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

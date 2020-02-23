@@ -12,7 +12,7 @@ public final class StarPixie extends Monster {
 
 	public StarPixie() {
 		super("스타픽시", "starPixie",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 25, 2000, 400, 10, 10, 25, 25), 202, 210, 253, 265,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 25, 2500, 400, 10, 10, 25, 25), 202, 210, 253, 265,
 				90 * Main.EXP_BONUS, 145 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

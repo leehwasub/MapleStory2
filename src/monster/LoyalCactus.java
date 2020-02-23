@@ -12,7 +12,7 @@ public final class LoyalCactus extends Monster {
 
 	public LoyalCactus() {
 		super("로얄카투스", "royalCactus",
-				new Strength(new Resistance(150, 50, 150, 100, 100, 100), 43, 11500, 400, 10, 10, 37, 37), 501, 523, 523, 528,
+				new Strength(new Resistance(150, 50, 150, 100, 100, 100), 43, 17500, 400, 10, 10, 37, 37), 501, 523, 523, 528,
 				262 * Main.EXP_BONUS, 563 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

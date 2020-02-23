@@ -60,6 +60,7 @@ public class DancesWithBalrog extends Npc{
 					.addQuestVisit("열마리의부기").setPlayerQuestProceed(QuestProceed.DANCESWITHBALROG_QUEST_3);
 			player.setQuest(quest);
 		}  else if(questNum == 3) {
+			NpcList.getInstance().setNpcProcess("이얀", 1);
 			quest = Quest.makeQuest(1, 19, "대륙이동").addMessage("2차 전직을 완료 하였다. '주먹 펴고 일어서'는 이제 더큰 세계로 모험을 떠나는 것이 좋을것이라고 한다.")
 					.addMessage("대륙 이동에 대해서는 '이얀'에게 물어보면 된다고 하는데. 곧바로 가보도록 하자.").addRewardUpdateMap("리스항구", 0, 0, MapleMap.MAP_PORTAL_STATE)
 					.setRewardExp(100).setPlayerQuestProceed(QuestProceed.DANCESWITHBALROG_QUEST_4);

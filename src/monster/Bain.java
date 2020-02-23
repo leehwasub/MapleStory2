@@ -12,7 +12,7 @@ public final class Bain extends Monster {
 
 	public Bain() {
 		super("파이어독", "bain",
-				new Strength(new Resistance(170, 30, 100, 100, 100, 100), 39, 8000, 300, 10, 10, 25, 25), 450, 472, 470, 492,
+				new Strength(new Resistance(170, 30, 100, 100, 100, 100), 39, 13000, 300, 10, 10, 25, 25), 450, 472, 470, 492,
 				227 * Main.EXP_BONUS, 500 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

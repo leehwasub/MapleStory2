@@ -12,7 +12,7 @@ public final class Cactus extends Monster {
 
 	public Cactus() {
 		super("카투스", "cactus",
-				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 42, 10700, 350, 10, 10, 37, 37), 480, 494, 480, 500,
+				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 42, 16700, 350, 10, 10, 37, 37), 480, 494, 480, 500,
 				262 * Main.EXP_BONUS, 563 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

@@ -12,7 +12,7 @@ public final class LunarPixie extends Monster {
 
 	public LunarPixie() {
 		super("루나픽시", "lunarPixie",
-				new Strength(new Resistance(100, 100, 100, 100, 150, 50), 26, 2240, 450, 10, 10, 25, 25), 215, 220, 260, 272,
+				new Strength(new Resistance(100, 100, 100, 100, 150, 50), 26, 2840, 450, 10, 10, 25, 25), 215, 220, 260, 272,
 				95 * Main.EXP_BONUS, 160 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

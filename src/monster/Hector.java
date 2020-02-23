@@ -12,7 +12,7 @@ public final class Hector extends Monster {
 
 	public Hector() {
 		super("헥터", "hector",
-				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 32, 3650, 200, 10, 10, 35, 35), 284, 290, 0, 0,
+				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 32, 4750, 200, 10, 10, 35, 35), 284, 290, 0, 0,
 				145 * Main.EXP_BONUS, 224 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

@@ -12,7 +12,7 @@ public final class OblivionMonkTrainee extends Monster {
 
 	public OblivionMonkTrainee() {
 		super("망각의신관", "OblivionMonkTrainee",
-				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 87, 290000, 16000, 10, 10, 40, 40), 1330, 1370, 1380, 1412,
+				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 87, 430000, 16000, 10, 10, 40, 40), 1330, 1370, 1380, 1412,
 				5240 * Main.EXP_BONUS, 15000 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

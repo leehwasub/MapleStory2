@@ -12,7 +12,7 @@ public final class Cellion extends Monster {
 
 	public Cellion() {
 		super("샐리온", "cellion",
-				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 28, 2630, 600, 10, 10, 27, 27), 240, 245, 260, 271,
+				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 28, 3230, 600, 10, 10, 27, 27), 240, 245, 260, 271,
 				110 * Main.EXP_BONUS, 182 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

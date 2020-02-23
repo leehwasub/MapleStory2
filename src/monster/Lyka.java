@@ -12,7 +12,7 @@ public final class Lyka extends Monster {
 
 	public Lyka() {
 		super("라이카", "lyka",
-				new Strength(new Resistance(170, 70, 120, 120, 120, 120), 89, 3800000, 160000, 20, 20, 40, 40), 1454, 1500, 1480, 1527,
+				new Strength(new Resistance(170, 70, 120, 120, 120, 120), 89, 6000000, 160000, 20, 20, 40, 40), 1454, 1500, 1480, 1527,
 				180000 * Main.EXP_BONUS, 360000 * Main.MONEY_BONUS, true);
 		initSkillList();
 	}

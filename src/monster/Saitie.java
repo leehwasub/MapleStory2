@@ -12,7 +12,7 @@ public final class Saitie extends Monster {
 
 	public Saitie() {
 		super("샤이티", "saitie",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 58, 55000, 2400, 10, 10, 40, 40), 693, 705, 712, 723,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 58, 75000, 2400, 10, 10, 40, 40), 693, 705, 712, 723,
 				820 * Main.EXP_BONUS, 2340 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

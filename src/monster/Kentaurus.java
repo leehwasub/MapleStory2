@@ -12,7 +12,7 @@ public final class Kentaurus extends Monster {
 
 	public Kentaurus() {
 		super("켄타우로스", "kentaurus",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 69, 105000, 2800, 10, 10, 40, 40), 834, 850, 851, 872,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 69, 135000, 2800, 10, 10, 40, 40), 834, 850, 851, 872,
 				1600 * Main.EXP_BONUS, 4300 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

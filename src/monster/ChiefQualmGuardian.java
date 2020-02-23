@@ -12,7 +12,7 @@ public final class ChiefQualmGuardian extends Monster {
 
 	public ChiefQualmGuardian() {
 		super("후회의수호대장", "chiefQualmGuardian",
-				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 85, 275000, 14000, 10, 10, 40, 40), 1304, 1330, 1370, 1382,
+				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 85, 415000, 14000, 10, 10, 40, 40), 1304, 1330, 1370, 1382,
 				5000 * Main.EXP_BONUS, 14000 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}
