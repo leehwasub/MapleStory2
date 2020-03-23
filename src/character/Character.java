@@ -89,8 +89,8 @@ public abstract class Character implements Serializable{
 			
 			if(opponentStr.getCriticalRate() >= calCritical || attackInfor.isMustCritical()) {
 				isCritical = true;
-				getPhysicalDamage *= 2;
-				getMagicDamage *= 2;
+				getPhysicalDamage *= 1.5;
+				getMagicDamage *= 1.5;
 				getPhysicalDamage += (int)((criticalExtraDamageRate * getPhysicalDamage) / 100.0);
 				getMagicDamage += (int)((criticalExtraDamageRate * getMagicDamage) / 100.0);
 				attackInfor.setCritical(true);
