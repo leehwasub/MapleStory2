@@ -35,8 +35,10 @@ public class SaveLoad {
 		
 		filename = new String[DATA_NUM];
 		for(int i = 0; i < DATA_NUM; i++) {
-			//filename[i] = Main.findSource(Main.class) + "/mapleData/playerinfo"+i+".dat";
+			//이클립스
 			filename[i] = Main.findSource(Main.class) + "/../../mapleData/playerinfo"+i+".dat";
+			//jar
+			//filename[i] = Main.findSource(Main.class) + "/mapleData/playerinfo"+i+".dat";
 			try {
 				filename[i] = URLDecoder.decode(filename[i], "UTF-8");
 			} catch (UnsupportedEncodingException e) {

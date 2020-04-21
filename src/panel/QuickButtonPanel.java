@@ -107,13 +107,13 @@ public class QuickButtonPanel extends JPanel{
 				case KeyEvent.VK_E:
 					index = 2;
 					break;
-				case KeyEvent.VK_A:
+				case KeyEvent.VK_R:
 					index = 3;
 					break;
-				case KeyEvent.VK_S:
+				case KeyEvent.VK_T:
 					index = 4;
 					break;
-				case KeyEvent.VK_D:
+				case KeyEvent.VK_Y:
 					index = 5;
 					break;
 				}

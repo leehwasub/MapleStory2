@@ -167,7 +167,7 @@ public class InventoryStatePanel extends JPanel {
 		g.setColor(Color.YELLOW);
 		g.drawString("포션 단축키", LINE_X[2] - 50, 40);
 		g.setColor(Color.white);
-		g.drawString("Q W E A S D", LINE_X[2] + 50, 40);
+		g.drawString("Q W E R T Y", LINE_X[2] + 50, 40);
 		g.setColor(Color.YELLOW);
 		g.drawString("스킬 단축키", LINE_X[2] - 50, 70);
 		g.setColor(Color.white);

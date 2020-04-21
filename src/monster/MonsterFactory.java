@@ -313,7 +313,7 @@ public class MonsterFactory {
 
 	public static Monster readyMonster(String mapName) {
 		Monster ret = null;
-		int percent = (int) (Math.random() * 200.0D);
+		int percent = (int) (Math.random() * 225.0D);
 		if(Main.MONSTER_TEST_MODE) percent = 500;
 		switch (mapName) {
 		case "초보자의숲2":

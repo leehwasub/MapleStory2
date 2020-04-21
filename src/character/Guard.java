@@ -40,7 +40,9 @@ public class Guard extends Thread {
 
 	public void run() {
 		while (!isEnd) {
-			MapleMapList.getInstance().getMap(nowMap.getMapName()).setMap(nowMap.getX(), nowMap.getY(), MapleMap.MAP_GUARD_STATE);
+			if(nowMap != null) {
+				MapleMapList.getInstance().getMap(nowMap.getMapName()).setMap(nowMap.getX(), nowMap.getY(), MapleMap.MAP_GUARD_STATE);	
+			}
 			int term = (int) (Math.random() * 3) + 1;
 			term *= 400;
 			for(int i = 0; i < term; i++) {

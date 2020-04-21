@@ -30,24 +30,24 @@ public class ItemKeySelectDialog extends JDialog {
 			ResourceLoader.getImage("componentImage", "quickEButtonBasic.png"));
 	private ImageIcon quickEButtonEnteredImage = new ImageIcon(
 			ResourceLoader.getImage("componentImage", "quickEButtonEntered.png"));
-	private ImageIcon quickAButtonBasicImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickAButtonBasic.png"));
-	private ImageIcon quickAButtonEnteredImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickAButtonEntered.png"));
-	private ImageIcon quickSButtonBasicImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickSButtonBasic.png"));
-	private ImageIcon quickSButtonEnteredImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickSButtonEntered.png"));
-	private ImageIcon quickDButtonBasicImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickDButtonBasic.png"));
-	private ImageIcon quickDButtonEnteredImage = new ImageIcon(
-			ResourceLoader.getImage("componentImage", "quickDButtonEntered.png"));
+	private ImageIcon quickRButtonBasicImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickRButtonBasic.png"));
+	private ImageIcon quickRButtonEnteredImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickRButtonEntered.png"));
+	private ImageIcon quickTButtonBasicImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickTButtonBasic.png"));
+	private ImageIcon quickTButtonEnteredImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickTButtonEntered.png"));
+	private ImageIcon quickYButtonBasicImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickYButtonBasic.png"));
+	private ImageIcon quickYButtonEnteredImage = new ImageIcon(
+			ResourceLoader.getImage("componentImage", "quickYButtonEntered.png"));
 	private FontMetrics fm;
 	private MapleButton[] button = new MapleButton[Adventurer.QUICK_ITEM_ARRAY_SIZE];
 	private ImageIcon[] basicIcon = { quickQButtonBasicImage, quickWButtonBasicImage,
-			quickEButtonBasicImage, quickAButtonBasicImage,  quickSButtonBasicImage, quickDButtonBasicImage};
+			quickEButtonBasicImage, quickRButtonBasicImage,  quickTButtonBasicImage, quickYButtonBasicImage};
 	private ImageIcon[] enteredIcon = { quickQButtonEnteredImage, quickWButtonEnteredImage,
-			quickEButtonEnteredImage, quickAButtonEnteredImage,  quickSButtonEnteredImage, quickDButtonEnteredImage};
+			quickEButtonEnteredImage, quickRButtonEnteredImage,  quickTButtonEnteredImage, quickYButtonEnteredImage};
 	private int returnIndex = -1;
 
 	public ItemKeySelectDialog() {
