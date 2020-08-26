@@ -54,7 +54,7 @@ public class IncisingAttack extends PlayerAttack {
 	
 	@Override
 	public String attackInfor() {
-		return this.attacker.getCharacterName() + "는 " + activeSkill.getName()  + "를 사용. " + opponent.getCharacterName() + "의 모든 버프를 없애고 모든 버프 사용을 제한하는 버프를 걸었다.";
+		return this.attacker.getCharacterName() + "는 " + activeSkill.getName()  + "를 사용. " + opponent.getCharacterName() + "에게 " + this.damage + "의 피해를 주었다.";
 	}
 
 }

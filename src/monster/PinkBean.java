@@ -12,7 +12,7 @@ public final class PinkBean extends Monster {
 
 	public PinkBean() {
 		super("핑크빈", "pinkBean",
-				new Strength(new Resistance(120, 120, 120, 120, 120, 120), 90, 9000000, 300000, 20, 20, 40, 40), 1448, 1523, 1580, 1657,
+				new Strength(new Resistance(120, 120, 120, 120, 120, 120), 90, 9000000, 300000, 20, 20, 40, 40), 1348, 1423, 1480, 1557,
 				500000 * Main.EXP_BONUS, 1000000 * Main.MONEY_BONUS, true);
 		initSkillList();
 	}

@@ -35,7 +35,7 @@ public class ArmageddonAttack extends MonsterAttack {
 	
 	@Override
 	protected ArrayList<AttackInfor> makeAttackInfor() {
-		double percent = 2.4f + (double)monsterSkill.getSkillPoint() * 0.1f;
+		double percent = 2.2f + (double)monsterSkill.getSkillPoint() * 0.1f;
 		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
 		for(int i = 0; i < 3; i++) {
 			ret.add(new AttackInfor(attacker.getCharacter(), monsterSkill.getProperty(), attacker.getCharacter().calNormalDamge(percent), 0, DamageType.DAMAGE_HP_TYPE));

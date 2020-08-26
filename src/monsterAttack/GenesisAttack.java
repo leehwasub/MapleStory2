@@ -49,7 +49,7 @@ public class GenesisAttack extends MonsterAttack {
 	
 	@Override
 	protected ArrayList<AttackInfor> makeAttackInfor() {
-		double percent = 1.2f + (double)monsterSkill.getSkillPoint() * 0.1f;
+		double percent = 1.1f + (double)monsterSkill.getSkillPoint() * 0.1f;
 		ArrayList<AttackInfor> ret = new ArrayList<AttackInfor>();
 		for(int i = 0; i < 1; i++) {
 			ret.add(new AttackInfor(this.attacker.getCharacter(), monsterSkill.getProperty(), 0, attacker.getCharacter().calMagicDamge(percent), DamageType.DAMAGE_HP_TYPE));
