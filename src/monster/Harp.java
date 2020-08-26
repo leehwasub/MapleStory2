@@ -12,7 +12,7 @@ public final class Harp extends Monster {
 
 	public Harp() {
 		super("하프", "harp",
-				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 67, 124000, 4000, 10, 10, 40, 40), 806, 820, 853, 875,
+				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 67, 99200, 4000, 10, 10, 40, 40), 706, 720, 753, 775,
 				1320 * Main.EXP_BONUS, 3700 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

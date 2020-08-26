@@ -12,7 +12,7 @@ public final class RedWyvern extends Monster {
 
 	public RedWyvern() {
 		super("레드와이번", "redWyvern",
-				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 76, 250000, 5000, 10, 10, 40, 40), 988, 1012, 1043, 1070,
+				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 76, 200000, 5000, 10, 10, 40, 40), 988, 1012, 1043, 1070,
 				3420 * Main.EXP_BONUS, 8300 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

@@ -12,7 +12,7 @@ public final class Birk extends Monster {
 
 	public Birk() {
 		super("버크", "birk",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 70, 140000, 3000, 10, 10, 40, 40), 840, 853, 851, 872,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 70, 112000, 3000, 10, 10, 40, 40), 740, 753, 751, 772,
 				1780 * Main.EXP_BONUS, 4500 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

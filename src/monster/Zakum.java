@@ -24,8 +24,8 @@ public final class Zakum extends Monster {
 		skillList.add(new MonsterSkillInfor(120, 240, "방어력강화", strength.getMaxHp(), 6));
 		skillList.add(new MonsterSkillInfor(180, 300, "방어력약화", strength.getMaxHp(), 6));
 		skillList.add(new MonsterSkillInfor(400, 700, "베츠스웜", strength.getMaxHp(), 1));
-		skillList.add(new MonsterSkillInfor(800, 1000, "강화된플레임샷", strength.getMaxHp(), 1));
-		skillList.add(new MonsterSkillInfor(700, 800, "녹스피어", strength.getMaxHp(), 1));
+		skillList.add(new MonsterSkillInfor(800, 1000, "강화된플레임샷", strength.getMaxHp() - 30000, 1));
+		skillList.add(new MonsterSkillInfor(700, 800, "녹스피어", strength.getMaxHp() - 70000, 1));
 		skillList.add(new MonsterSkillInfor(0, 1000, "몸통박치기", strength.getMaxHp(), 0));
 	}
 

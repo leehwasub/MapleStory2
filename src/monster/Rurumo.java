@@ -21,9 +21,9 @@ public final class Rurumo extends Monster {
 	public void initSkillList() {
 		skillList.add(new MonsterSkillInfor(0, 300, "공격력강화", strength.getMaxHp(), 8));
 		skillList.add(new MonsterSkillInfor(200, 400, "안티매직쉘", strength.getMaxHp(), 8));
-		skillList.add(new MonsterSkillInfor(300, 600, "서클오브마나", strength.getMaxHp(), 3));
-		skillList.add(new MonsterSkillInfor(600, 800, "포이즌미스트", strength.getMaxHp(), 2));
-		skillList.add(new MonsterSkillInfor(800, 900, "더블슬래쉬", strength.getMaxHp(), 2));
+		skillList.add(new MonsterSkillInfor(300, 600, "서클오브마나", strength.getMaxHp(), 2));
+		skillList.add(new MonsterSkillInfor(600, 800, "포이즌미스트", strength.getMaxHp() - 100000, 1));
+		skillList.add(new MonsterSkillInfor(800, 900, "더블슬래쉬", strength.getMaxHp() - 300000, 1));
 		skillList.add(new MonsterSkillInfor(0, 1000, "몸통박치기", strength.getMaxHp(), 0));
 	}
 

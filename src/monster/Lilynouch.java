@@ -12,7 +12,7 @@ public final class Lilynouch extends Monster {
 
 	public Lilynouch() {
 		super("릴리노흐", "lilynouch",
-				new Strength(new Resistance(70, 170, 120, 120, 120, 120), 85, 4800000, 14000, 20, 20, 40, 40), 1354, 1380, 1400, 1432,
+				new Strength(new Resistance(70, 170, 120, 120, 120, 120), 85, 3700000, 14000, 20, 20, 40, 40), 1354, 1380, 1400, 1432,
 				160000 * Main.EXP_BONUS, 320000 * Main.MONEY_BONUS, true);
 		initSkillList();
 	}

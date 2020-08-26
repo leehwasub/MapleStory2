@@ -12,7 +12,7 @@ public final class Dodo extends Monster {
 
 	public Dodo() {
 		super("도도", "dodo",
-				new Strength(new Resistance(120, 120, 170, 70, 120, 120), 83, 4000000, 250000, 20, 20, 40, 40), 1351, 1374, 1398, 1442,
+				new Strength(new Resistance(120, 120, 170, 70, 120, 120), 83, 3000000, 250000, 20, 20, 40, 40), 1351, 1374, 1398, 1442,
 				120000 * Main.EXP_BONUS, 240000 * Main.MONEY_BONUS, true);
 		initSkillList();
 	}

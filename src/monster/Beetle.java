@@ -12,7 +12,7 @@ public final class Beetle extends Monster {
 
 	public Beetle() {
 		super("비틀", "beetle",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 63, 105000, 2600, 10, 10, 40, 40), 781, 793, 795, 804,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 63, 84000, 2600, 10, 10, 40, 40), 681, 693, 695, 704,
 				1030 * Main.EXP_BONUS, 2750 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

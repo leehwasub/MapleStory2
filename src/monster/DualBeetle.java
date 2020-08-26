@@ -12,7 +12,7 @@ public final class DualBeetle extends Monster {
 
 	public DualBeetle() {
 		super("듀얼비틀", "dualBeetle",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 64, 102000, 2600, 10, 10, 40, 40), 781, 793, 795, 804,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 64, 81600, 2600, 10, 10, 40, 40), 681, 693, 695, 704,
 				1100 * Main.EXP_BONUS, 3000 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

@@ -12,7 +12,7 @@ public final class DarkRash extends Monster {
 
 	public DarkRash() {
 		super("다크레쉬", "darkRash",
-				new Strength(new Resistance(100, 100, 100, 100, 150, 50), 62, 97000, 2500, 10, 10, 40, 40), 745, 760, 765, 784,
+				new Strength(new Resistance(100, 100, 100, 100, 150, 50), 62, 77600, 2500, 10, 10, 40, 40), 645, 660, 665, 684,
 				950 * Main.EXP_BONUS, 2500 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

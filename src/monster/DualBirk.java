@@ -12,7 +12,7 @@ public final class DualBirk extends Monster {
 
 	public DualBirk() {
 		super("듀얼버크", "dualBirk",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 71, 146000, 3000, 10, 10, 40, 40), 850, 873, 861, 882,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 71, 116800, 3000, 10, 10, 40, 40), 750, 773, 761, 782,
 				1950 * Main.EXP_BONUS, 4700 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

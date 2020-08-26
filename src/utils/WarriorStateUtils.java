@@ -10,7 +10,7 @@ public class WarriorStateUtils {
 		for (int i = 1; i <= ExpUtils.MAX_LEVEL; i++) {
 			b = b + 35 + (i - 1) * 2;
 			MAX_HP[i] = b;
-			c = c + 3 + (i - 1) / 14;
+			c = c + 4 + (i - 1) / 13;
 			MAX_MP[i] = c;
 			//System.out.println("MAX_HP["+i+"] = "+ MAX_HP[i] +", MAX_MP["+i+"] = " + MAX_MP[i]);
 		}
