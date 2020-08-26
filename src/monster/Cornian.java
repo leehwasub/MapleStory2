@@ -12,7 +12,7 @@ public final class Cornian extends Monster {
 
 	public Cornian() {
 		super("코니언", "cornian",
-				new Strength(new Resistance(100, 100, 150, 100, 100, 100), 77, 221000, 7000, 10, 10, 40, 40), 1010, 1030, 1033, 1060,
+				new Strength(new Resistance(100, 100, 150, 100, 100, 100), 77, 221000, 7000, 10, 10, 40, 40), 910, 930, 933, 960,
 				3700 * Main.EXP_BONUS, 8700 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

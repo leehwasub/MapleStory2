@@ -12,7 +12,7 @@ public final class RedDragonTurtle extends Monster {
 
 	public RedDragonTurtle() {
 		super("레드드래곤터틀", "redDragonTurtle",
-				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 74, 176000, 5000, 10, 10, 40, 40), 970, 980, 971, 984,
+				new Strength(new Resistance(100, 100, 100, 100, 100, 100), 74, 176000, 5000, 10, 10, 40, 40), 870, 880, 871, 884,
 				2840 * Main.EXP_BONUS, 7600 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

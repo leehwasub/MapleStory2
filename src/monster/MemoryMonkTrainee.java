@@ -12,7 +12,7 @@ public final class MemoryMonkTrainee extends Monster {
 
 	public MemoryMonkTrainee() {
 		super("추억의신관", "memoryMonkTrainee",
-				new Strength(new Resistance(100, 100, 150, 50, 100, 100), 81, 256000, 12000, 10, 10, 40, 40), 1231, 1254, 1275, 1302,
+				new Strength(new Resistance(100, 100, 150, 50, 100, 100), 81, 256000, 12000, 10, 10, 40, 40), 1131, 1154, 1175, 1202,
 				4400 * Main.EXP_BONUS, 11000 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

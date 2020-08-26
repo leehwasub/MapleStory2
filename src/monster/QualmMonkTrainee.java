@@ -12,7 +12,7 @@ public final class QualmMonkTrainee extends Monster {
 
 	public QualmMonkTrainee() {
 		super("후회의신관", "qualmMonkTrainee",
-				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 84, 312000, 14000, 10, 10, 40, 40), 1285, 1300, 1320, 1342,
+				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 84, 312000, 14000, 10, 10, 40, 40), 1185, 1200, 1220, 1242,
 				4800 * Main.EXP_BONUS, 13000 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

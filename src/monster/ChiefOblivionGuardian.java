@@ -12,7 +12,7 @@ public final class ChiefOblivionGuardian extends Monster {
 
 	public ChiefOblivionGuardian() {
 		super("망각의수호대장", "chiefOblivionGuardian",
-				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 88, 364000, 16000, 10, 10, 40, 40), 1374, 1400, 1410, 1447,
+				new Strength(new Resistance(50, 150, 100, 100, 100, 100), 88, 364000, 16000, 10, 10, 40, 40), 1274, 1300, 1310, 1347,
 				5400 * Main.EXP_BONUS, 15000 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

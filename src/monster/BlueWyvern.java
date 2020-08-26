@@ -12,7 +12,7 @@ public final class BlueWyvern extends Monster {
 
 	public BlueWyvern() {
 		super("블루와이번", "blueWyvern",
-				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 75, 189000, 5000, 10, 10, 40, 40), 973, 983, 1023, 1050,
+				new Strength(new Resistance(150, 50, 100, 100, 100, 100), 75, 189000, 5000, 10, 10, 40, 40), 873, 883, 923, 950,
 				3100 * Main.EXP_BONUS, 8000 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}

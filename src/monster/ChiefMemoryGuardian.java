@@ -12,7 +12,7 @@ public final class ChiefMemoryGuardian extends Monster {
 
 	public ChiefMemoryGuardian() {
 		super("추억의수호대장", "chiefMemoryGuardian",
-				new Strength(new Resistance(100, 100, 150, 50, 100, 100), 82, 292000, 12000, 10, 10, 40, 40), 1275, 1312, 1295, 1322,
+				new Strength(new Resistance(100, 100, 150, 50, 100, 100), 82, 292000, 12000, 10, 10, 40, 40), 1175, 1212, 1195, 1222,
 				4620 * Main.EXP_BONUS, 12000 * Main.MONEY_BONUS, false);
 		initSkillList();
 	}
